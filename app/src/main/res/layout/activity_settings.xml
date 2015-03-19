@@ -1,0 +1,196 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                tools:context=".SettingsActivity">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:divider="@drawable/mydivider"
+                        android:showDividers="middle"
+                        android:orientation="vertical"
+                        android:background="#FFFFFF">
+
+            <LinearLayout
+                    android:id="@+id/linLayoutSettingsActivityAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="15dp">
+
+
+                <TextView
+                        android:id="@+id/txtAutoUpdateLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AutoUpdateLabel"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#525A66"
+                        android:layout_weight="1"
+                        android:textSize="16sp"/>
+
+                <Switch
+                        android:id="@+id/toggleAutoUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:onClick="toggleButtonClick"
+                        />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/linLayoutSettingsActivityRadius"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="10dp">
+
+                <TextView
+                        android:id="@+id/txtRadiusLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/RadiusLabel"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#525A66"
+                        android:textSize="16sp"/>
+
+
+                <SeekBar
+                        android:id="@+id/seekRadius"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:max="1200"
+                        android:maxHeight="2dp"
+                        android:minHeight="1dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:progress="300"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/linLayoutSettingsActivityAutoUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                          android:id="@+id/txtShowBuses"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/txtShowBusesLabel"
+                          android:layout_weight="1"
+                          android:textAppearance="?android:attr/textAppearanceMedium"
+                          android:textColor="#525A66"
+                          android:textSize="16sp"/>
+                <CheckBox android:id="@+id/checkShowBuses"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:minHeight="0dp"
+                              android:minWidth="0dp"
+                              android:onClick="onCheckboxClicked"
+                              android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView android:id="@+id/txtShowTrolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/txtShowTrollsLabel"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#525A66"
+                        android:textSize="16sp"
+                        />
+                    <CheckBox android:id="@+id/checkShowTrolls"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:minHeight="0dp"
+                              android:minWidth="0dp"
+                              android:onClick="onCheckboxClicked"
+                              />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView android:id="@+id/txtShowTrams"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtShowTramsLabel"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#525A66"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+
+                    <CheckBox android:id="@+id/checkShowTrams"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:onClick="onCheckboxClicked"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView android:id="@+id/txtShowComm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtShowCommLabel"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#525A66"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+
+                    <CheckBox android:id="@+id/checkShowComm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:onClick="onCheckboxClicked"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

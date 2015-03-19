@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/relLayoutStopIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+
+        android:minHeight="10dp"
+        android:minWidth="10dp"
+        android:background="@drawable/green_circle72">
+
+        <ImageView
+            android:id="@+id/imgStopLightIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="10dp"
+            android:minWidth="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_stop_light"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relLayoutDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txtDirectionStopName"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView
+            android:id="@+id/txtDirectionDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Dist"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+    <ToggleButton
+        android:id="@+id/toggleAddToFavor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bigRelativeLayout"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/favor_button_states"
+        android:focusable="false"
+        android:minHeight="24dp"
+        android:minWidth="24dp"
+        android:textOff=" "
+        android:textOn=" "/>
+
+    <TextView
+        android:id="@+id/txtDirectionStopName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_toLeftOf="@id/relLayoutDistance"
+        android:layout_toRightOf="@+id/relLayoutStopIcon"
+        android:lineSpacingExtra="3dp"
+        android:text="Stopname"
+        android:textStyle="bold"
+        android:textColor="#525A66"
+        android:fontFamily="sans-serif-light"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtDirectionStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/txtDirectionStopName"
+        android:layout_below="@id/txtDirectionStopName"
+        android:layout_marginTop="0dp"
+        android:layout_toLeftOf="@id/relLayoutDistance"
+        android:lineSpacingExtra="3dp"
+        android:text="Street"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#525A66"
+        android:textSize="14sp"/>
+
+    <RelativeLayout
+        android:id="@+id/relLayoutDirectionsListDirectionIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:minHeight="16dp"
+        android:minWidth="16dp"
+        android:background="@drawable/green_circle72"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/imgDirectionsListDirectionIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:minWidth="20dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_direction_light"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bigRelativeLayout"
+        android:layout_alignLeft="@id/txtDirectionStreet"
+        android:layout_toLeftOf="@id/toggleAddToFavor"
+
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/txtDirectionStreet">
+
+        <ImageView
+            android:id="@+id/imgBusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_bus"/>
+
+        <TextView
+            android:id="@+id/txtDirectionMunicipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/imgBusIcon"
+            android:fontFamily="sans-serif-light"
+            android:text="Municipal"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionCommercial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionMunicipal"
+
+            android:gravity="top"
+
+            android:text="Commercial"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionSpecial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionCommercial"
+
+
+            android:text="Special"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionSeason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionSpecial"
+
+
+            android:text="Season"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionPrigorod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionSeason"
+
+
+            android:text="Prigorod"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionTrams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionPrigorod"
+
+
+            android:text="Trams"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtDirectionTrolls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtDirectionMunicipal"
+            android:layout_below="@id/txtDirectionTrams"
+
+
+            android:text="Trolls"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/ImgCommBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionCommercial"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_commercial_bus"/>
+
+        <ImageView
+            android:id="@+id/imgSpecialBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionSpecial"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_bus"/>
+
+        <ImageView
+            android:id="@+id/imgPrigorodBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionPrigorod"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_commercial_bus"/>
+
+        <ImageView
+            android:id="@+id/imgSeasonBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionSeason"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_bus"/>
+
+        <ImageView
+            android:id="@+id/imgTram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionTrams"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/icon_tram"/>
+
+        <ImageView
+            android:id="@+id/imgTroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtDirectionTrolls"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/icon_trolleybus"/>
+    </RelativeLayout>
+
+</RelativeLayout>

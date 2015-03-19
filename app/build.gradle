@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    lintOptions{
+        checkReleaseBuilds false
+    }
+
+    defaultConfig {
+        applicationId "air.nikolaychernov.samis.ChernovPryb"
+        minSdkVersion 14
+        targetSdkVersion 21
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("C:\\Users\\Nikolay\\keystore.jks")
+            storePassword "50inches"
+            keyAlias "nikolaychernov"
+            keyPassword "50inches"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.android.gms:play-services:6.5.87'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+}

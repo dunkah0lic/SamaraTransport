@@ -1,0 +1,43 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Material">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:statusBarColor">#512DA8</item>
+        <item name="android:colorPrimary">#673AB7</item>
+
+    </style>
+
+
+
+    <style name="MyActionBar" parent="@android:style/Widget.Material.Light.ActionBar">
+        <item name="android:background">#673AB7</item>
+        <item name="android:titleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.TitleTextStyle</item>
+        <item name="android:subtitleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle</item>
+
+    </style>
+
+    <style name="Theme.Viadeo.Styled.YourTheme.TitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+</resources>

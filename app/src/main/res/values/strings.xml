@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="stopsFileName">data/stops.xml</string>
+    <string name="stopsFullDBFileName">data/stopsFullDB.xml</string>
+    <string name="title_activity_arrival">ArrivalActivity</string>
+    <string name="siteAddress">http://m.tosamara.ru/ostanovki/</string>
+    <string name="php_bridge">http://m.tosamara.ru/xml_bridge.php</string>
+    <string name="title_activity_direction_select">DirectionSelectActivity</string>
+    <string name="cmdNearMeText">Рядом</string>
+    <string name="MinuteTitle">" мин"</string>
+    <string name="DirectionTitle">Направление</string>
+    <string name="DirectionSelectActivityTitle">В направлении</string>
+    <string name="ArrivalActivityTitle">Прибытие</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="SettingsActivityTitle">Настройки</string>
+    <string name="RadiusLabel">"Радиус поиска остановок: "</string>
+    <string name="RadiusMeterLabel">" м"</string>
+    <string name="AutoUpdateLabel">Автообновление</string>
+    <string name="OffSiteLabel">"Официальный сайт: "</string>
+    <string name="SiteAddress">m.tosamara.ru</string>
+
+    <string name="TransAbsentMessage">Нет оперативной информации. Возможно, транспорт уже не ходит либо отсутствует на
+        участках от начальных остановок маршрутов до выбранной.
+    </string>
+    <string name="app_name">Самара Транспорт</string>
+    <string name="stopNameHint">Название остановки</string>
+    <string name="cmdFindText">Найти</string>
+    <string name="createDBlabel">Создать БД</string>
+    <string name="StopSearchActivityTitle">К остановке</string>
+    <string name="TurnOnNavigationPromt">Навигация отключена! Перейти в настройки для включения?</string>
+    <string name="YesText">Да</string>
+    <string name="NoText">Нет</string>
+    <string name="search_hint">Остановка</string>
+    <string name="ConnectionProblemMessage">Не удается получить прогнозы прибытия! Проверьте соединение с интернетом и
+        нажмите кнопку \"Обновить\", чтобы повторить попытку.
+    </string>
+    <string name="XmlAPI">http://tosamara.ru/api/xml</string>
+    <string name="AddInfoLabel">Расширенный прогноз</string>
+    <string name="app_description">Прогнозы прибытия общественного транспорта для всех остановок Самары.\nДвижение более
+        600 единиц трамваев, троллейбусов и муниципальных автобусов отслеживается в реальном времени с помощью
+        GPS/ГЛОНАСС трекеров. Для составления точного прогноза учитывается расписание, дорожная ситуация, аварии и
+        пробки.
+        Приложение использует сервис аналитики Транспортного Оператора Самары http://tosamara.ru/api/\nАвтор оригинального
+        приложения - Артем Коротков\nАвтор редизайна - Николай Чернов
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="txtShowBusesLabel">Отображать автобусы</string>
+    <string name="txtShowTrollsLabel">Отображать троллейбусы</string>
+    <string name="txtShowTramsLabel">Отображать трамваи</string>
+    <string name="txtShowCommLabel">Отображать маршрутки</string>
+    <string name="title_activity_about">О приложении</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#FFFFFF">
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListBusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/yellow_circle72"
+            android:visibility="invisible">
+
+        <ImageView
+                android:id="@+id/imgArrivalListBusIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_bus_big"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListTramIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/red_circle72"
+            android:visibility="visible">
+
+        <ImageView
+                android:id="@+id/imgArrivalListTramIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_tram_big"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListTrollIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/blue_circle72"
+            android:visibility="invisible">
+
+        <ImageView
+                android:id="@+id/imgArrivalListTrollIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_trolleybus_big"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListCommBusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_circle72"
+            android:visibility="invisible">
+
+        <ImageView
+                android:id="@+id/imgArrivalListCommBusIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_commercial_bus_big"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            >
+
+        <ImageView
+                android:id="@+id/imgArrivalListTimeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/icon_time"/>
+
+        <TextView
+                android:id="@+id/txtArrivalListTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/imgArrivalListTimeIcon"
+                android:text="02"
+                android:fontFamily="sans-serif-light"
+                android:textColor="#525A66"/>
+
+        <TextView
+                android:id="@+id/txtArrivalListMinutesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/txtArrivalListTime"
+                android:text="@string/MinuteTitle"
+                android:fontFamily="sans-serif-light"
+                android:textColor="#525A66"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutArrivalListInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/relLayoutArrivalListTime"
+            android:layout_toRightOf="@id/relLayoutArrivalListBusIcon">
+    </RelativeLayout>
+
+    <TextView
+            android:id="@+id/txtArrivalListRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/relLayoutArrivalListTime"
+            android:layout_toRightOf="@id/relLayoutArrivalListBusIcon"
+            android:lineSpacingExtra="3dp"
+            android:paddingBottom="3dp"
+            android:text="Route"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textColor="#525A66"
+            android:textSize="16sp"/>
+
+    <TextView
+            android:id="@+id/txtArrivalListVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtArrivalListRoute"
+            android:layout_below="@id/txtArrivalListRoute"
+            android:paddingBottom="3dp"
+            android:text="Vehicle"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="12sp"/>
+
+    <TextView
+            android:id="@+id/txtArrivalListPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_alignLeft="@id/txtArrivalListRoute"
+            android:layout_alignRight="@id/relLayoutArrivalListTime"
+            android:layout_below="@id/txtArrivalListVehicle"
+            android:lineSpacingExtra="3dp"
+            android:text="Position"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#525A66"
+            android:textSize="14sp"/>
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_usual_background"
+                android:keepScreenOn="true"
+                tools:context=".DirectionSelectActivity">
+
+    <RelativeLayout
+            android:id="@+id/relLayoutDirectionSelectActivityTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/actionbar_background">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutDirectionCaption"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/relLayoutDirectionSelectActivityTitleBar"
+            android:background="@drawable/searchbar_background">
+
+    </RelativeLayout>
+
+    <ListView
+            android:id="@+id/directionList"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/relLayoutDirectionCaption"
+            android:divider="@drawable/separator_middle">
+    </ListView>
+
+</RelativeLayout>

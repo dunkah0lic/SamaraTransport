@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/search"
+        android:title="Поиск"
+        android:icon="@drawable/ic_action_search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView" />
+    <item android:id="@+id/action_favourite"
+        android:icon="@drawable/ic_action_not_important_white"
+        android:title="Избранное"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/ic_action_settings"
+        android:title="Настройки"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_about"
+        android:icon="@drawable/ic_action_settings"
+        android:title="О приложении"
+        android:showAsAction="never" />
+</menu>

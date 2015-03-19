@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:whatever="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_usual_background"
+                android:keepScreenOn="true"
+                tools:context=".MainActivity">
+
+    <Button
+            android:id="@+id/cmdFind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relLayoutStopSearchActivityStopName"
+            android:layout_centerHorizontal="true"
+            android:minWidth="150dp"
+            android:onClick="cmdFind_click"
+            android:text="@string/cmdFindText"
+            android:visibility="invisible"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/relLayoutStopSearchActivityStopName"
+            android:layout_centerHorizontal="true"
+            whatever:ptrHeaderTextColor="#000000"
+            android:divider="@drawable/separator_middle"
+            android:dividerHeight="1dp"
+            android:focusable="true"
+           />
+
+
+    <RelativeLayout
+            android:id="@+id/relLayoutStopSearchActivityTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/actionbar_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relLayoutStopSearchActivityStopName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/relLayoutStopSearchActivityTitleBar"
+            android:background="@drawable/searchbar_background"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/linLayoutSplashPortrait"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/logo_bb_portrait"
+            android:orientation="vertical"
+            android:visibility="invisible">
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linLayoutSplashLandscape"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/logo_bb_landscape"
+            android:orientation="vertical"
+            android:visibility="invisible">
+    </LinearLayout>
+
+</RelativeLayout>
