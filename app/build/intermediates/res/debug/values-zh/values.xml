@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/values-zh/pull_refresh_strings.xml -->
+    <eat-comment/>
+    <string name="pull_to_refresh_pull_label">下拉刷新…</string>
+    <string name="pull_to_refresh_refreshing_label">正在载入…</string>
+    <string name="pull_to_refresh_release_label">放开以刷新…</string>
+</resources>

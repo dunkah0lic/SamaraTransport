@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true"
+          android:drawable="@drawable/background_search_text_input_active">
+    </item>
+    <item
+            android:drawable="@drawable/background_search_text_input_inactive">
+    </item>
+</selector><!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/drawable-hdpi/search_box.xml -->
