@@ -2,4 +2,4 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/app_name"
     android:hint="@string/search_hint" >
-</searchable><!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/xml/stop_searchable.xml -->
+</searchable><!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/xml/stop_searchable.xml -->

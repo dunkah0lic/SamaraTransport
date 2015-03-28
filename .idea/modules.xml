@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0.iml" filepath="$PROJECT_DIR$/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SamaraTransport.iml" filepath="$PROJECT_DIR$/SamaraTransport.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
     </modules>

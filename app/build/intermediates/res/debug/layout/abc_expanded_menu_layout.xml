@@ -20,4 +20,4 @@
         android:layout_width="?attr/panelMenuListWidth"
         android:layout_height="wrap_content"
         android:background="?attr/panelBackground"/>
-<!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_expanded_menu_layout.xml -->
+<!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_expanded_menu_layout.xml -->
