@@ -103,7 +103,7 @@ public class DirectionSelectActivity extends Activity {
                 return true;
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
+                startActivity(intent);//
         }
         return super.onOptionsItemSelected(item);
     }

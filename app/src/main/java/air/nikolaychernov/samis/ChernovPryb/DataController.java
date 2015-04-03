@@ -12,9 +12,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -202,6 +199,7 @@ public class DataController implements Serializable {
         this.showTrolls = showTrolls;
 //		this.requestAddPredict = requestAddPredict;
         commitSettings();
+        //
     }
 
     private void initSettings() {

@@ -1,6 +1,6 @@
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\classes\debug
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-881f2f32d45b784f5c5a366285491cf7d0b5d851.jar
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-22012306c6144cebe7a4774683e7730fc16b322d.jar
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-16b6fe4a9f40752104ec0befef4a889443a28e41.jar
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-8611d46131a8bfff8dc09161fe780a167508fe8d.jar
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-b26966d4b01cd588d1bad45906aaa5e94e4e75b0.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes\debug
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-881f2f32d45b784f5c5a366285491cf7d0b5d851.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d0d074913dc867235bc8c038ef9ab65f190594e6.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5bf0c4754c315599737fa2b82ac9a0ec1363f8a8.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0eb4606d7767896d4855ed6b731dd185fda7cfe0.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-f58373160ef3e61ed18811f81603e945bbd97d3e.jar
