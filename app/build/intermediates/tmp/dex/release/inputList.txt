@@ -1,1 +1,1 @@
-C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\classes-proguard\release\classes.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes-proguard\release\classes.jar

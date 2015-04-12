@@ -1,25 +1,25 @@
-# view AndroidManifest.xml #generated:83
+# view AndroidManifest.xml #generated:82
 -keep class air.nikolaychernov.samis.ChernovPryb.AboutActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:101
+# view AndroidManifest.xml #generated:100
 -keep class air.nikolaychernov.samis.ChernovPryb.ActivationService { <init>(...); }
 
-# view AndroidManifest.xml #generated:55
+# view AndroidManifest.xml #generated:54
 -keep class air.nikolaychernov.samis.ChernovPryb.ArrivalActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:66
+# view AndroidManifest.xml #generated:65
 -keep class air.nikolaychernov.samis.ChernovPryb.DirectionSelectActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:96
+# view AndroidManifest.xml #generated:95
 -keep class air.nikolaychernov.samis.ChernovPryb.MapsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:32
+# view AndroidManifest.xml #generated:31
 -keep class air.nikolaychernov.samis.ChernovPryb.MyApplication { <init>(...); }
 
-# view AndroidManifest.xml #generated:78
+# view AndroidManifest.xml #generated:77
 -keep class air.nikolaychernov.samis.ChernovPryb.SettingsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:37
+# view AndroidManifest.xml #generated:36
 -keep class air.nikolaychernov.samis.ChernovPryb.StopSearchActivity { <init>(...); }
 
 # view res/layout/abc_action_menu_item_layout.xml #generated:17

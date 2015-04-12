@@ -3,18 +3,22 @@ package air.nikolaychernov.samis.ChernovPryb;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -25,12 +29,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
+import com.android.vending.billing.IInAppBillingService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 
@@ -44,6 +57,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     private StopGroup[] grp;
     private PullToRefreshListView list;
     private GoogleApiClient mGoogleApiClient;
+    private IInAppBillingService mService;
+    ServiceConnection mServiceConn;
 
     public final static String MESSAGE_KS_ID = "com.markikokik.transarrival63.KS_ID";
     public final static String MESSAGE_STOP = "com.markikokik.transarrival63.stop";
@@ -126,7 +141,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         // // TODO Auto-generated catch block
         // e1.printStackTrace();
         // }
-        //mPlusClient = new PlusClient.Builder(this, this, this).setVisibleActivities("http://schemas.google.com/AddActivity", "http://schemas.google.com/BuyActivity").build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
@@ -134,26 +148,29 @@ public class StopSearchActivity extends Activity implements Serializable, Google
                 .addConnectionCallbacks(this)
                 .build();
 
+        //For In-App purchases
+        mServiceConn = new ServiceConnection() {
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                mService = null;
+            }
+
+            @Override
+            public void onServiceConnected(ComponentName name,
+                                           IBinder service) {
+                mService = IInAppBillingService.Stub.asInterface(service);
+            }
+        };
+        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+
         //Intent serviceIntent = new Intent(this, ActivationService.class);
         //startService(serviceIntent);
-
-
-        /*if (isPortrait()) {
-            findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.VISIBLE);
-
-        } else {
-            findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.VISIBLE);
-        }*/
 
         dataMan = DataController.getInstance(this);
 
         snmt = new SearchNearMeTask();
-
-        //dataMan.setTypeface((TextView) findViewById(R.id.lblToStop), HelveticaFont.Bold);
-        // ((EditText)
-        // findViewById(R.id.txtStopName)).setTypeface(Typeface.createFromAsset(getAssets(),
-        // "fonts/Helvetica"
-        // + "Medium" + ".otf"));
 
         list = (PullToRefreshListView) findViewById(R.id.list);
         list.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
@@ -243,6 +260,18 @@ public class StopSearchActivity extends Activity implements Serializable, Google
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.action_buy:
+                try {
+                    Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                            "license", "inapp", "");
+                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                    startIntentSenderForResult(pendingIntent.getIntentSender(),
+                            1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
+                            Integer.valueOf(0));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -300,6 +329,9 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove("authkey");
         editor.commit();
+        if (mService != null) {
+            unbindService(mServiceConn);
+        }
         // The activity is about to be destroyed.
     }
 
@@ -430,6 +462,46 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 2) {
             msgBox(this, "123", "");
+        }
+        if (requestCode == 1001) {
+            int responseCode = data.getIntExtra("RESPONSE_CODE", 0);
+            String purchaseData = data.getStringExtra("INAPP_PURCHASE_DATA");
+            String dataSignature = data.getStringExtra("INAPP_DATA_SIGNATURE");
+            //String token = "";
+
+            if (resultCode == RESULT_OK) {
+                try {
+                    JSONObject jo = new JSONObject(purchaseData);
+                    String sku = jo.getString("productId");
+                    final String token = jo.getString("purchaseToken");
+                    Toast.makeText(this,token,Toast.LENGTH_SHORT);
+                    Log.d("StopSearchActivity","You have bought the " + sku + ". Excellent choice, adventurer! Token:" + token);
+
+                    Thread thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            HttpClient client = new DefaultHttpClient();
+                            String getURL = "http://proverbial-deck-865.appspot.com/init?name=" + StopSearchActivity.accountName + "&token=" + token;//"40inchverticalrus@gmail.com" ;
+                            HttpGet get = new HttpGet(getURL);
+                            try{
+                                HttpResponse responseGet = client.execute(get);
+                            }catch (Exception e){
+                                Log.d("StopSearchActivity", "Exception on get request " + e.getMessage());
+                                e.printStackTrace();
+
+                            }
+                        }
+                    });
+                    thread.start();
+
+                    Log.d("StopSearchActivity","Past get request");
+                }
+                catch (JSONException e) {
+                    Log.d("StopSearchActivity","Failed to parse purchase data.");
+                    e.printStackTrace();
+                }
+            }
+
         }
         if (requestCode != 10) {
             DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));

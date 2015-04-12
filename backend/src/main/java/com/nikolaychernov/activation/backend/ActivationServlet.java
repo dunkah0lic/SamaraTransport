@@ -4,6 +4,8 @@ package com.nikolaychernov.activation.backend;
  * Created by Nikolay on 12.03.2015.
  */
 
+import com.googlecode.objectify.ObjectifyService;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,6 +27,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ActivationServlet extends HttpServlet {
     private static final String BASE64_PRIVATE_KEY = "30820153020100300d06092a864886f70d01010105000482013d3082013902010002410081d21f93177c745b9bea9709ff49936b25ed5ec6f306191949c62242232856dda1efdd5e13e8b3df8e14f6ec5ed920d022e7a06816e8e1fd8cf0a380e2f83f47020301000102401ae4f6079a00fd761109fb7a65b9cf618e3cebba999434d4e954b3ba31e0648640423d5be9ab600522754ccba520d84da57019668e7be451dd4c15d478c47ea1022100b65fb634f1a1c997a769e8227f6e34a754054b3cacd51a1ac4b5d26faf3ff637022100b63b10d06b2aa8205efeca3663183bbd2609e4f7ad61f5854439531f117f77710220666391ee63828ba5a30e288fc5af5fcc59b5a729e776b4f33661464601c40d3d0220342f9611199f8da6378e1fba93864d154ddf6782c654574b62ce47cf8de3430102200bd235905d2b6d79444bca7c11059af0778cc8930e1193fc5155ce8b4b68fad7";
 
+    static {
+        ObjectifyService.register(User.class);
+    }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -42,13 +47,14 @@ public class ActivationServlet extends HttpServlet {
         byte[] signature = null;
         byte[] encBytes = null;
         byte[] encKey = null;
-        if (name.equals("40inchverticalrus@gmail.co")) {
-            if (n > 0.5) {
-                license = "LICENSED";
-            } else {
-                license = "NOT_LICENSED";
-            }
+        boolean licensed = true;
+        licensed = getLicense(name);
+        if (licensed) {
+            license = "LICENSED";
+        } else {
+            license = "NOT_LICENSED";
         }
+
         PrivateKey prk1 = null;
         try {
             prk1 = loadPrivateKey(BASE64_PRIVATE_KEY);
@@ -119,5 +125,18 @@ public class ActivationServlet extends HttpServlet {
         Cipher cipher = Cipher.getInstance(xform);
         cipher.init(Cipher.ENCRYPT_MODE, key);
         return cipher.doFinal(inpBytes);
+    }
+
+    private static boolean getLicense(String name){
+        boolean result = false;
+        System.out.println(name);
+
+        User temp = ObjectifyService.ofy().load().type(User.class).filter("email", name).first().now();
+        if (name.equals("40inchverticalrus@gmail.com")||temp!=null&&temp.getAccess()==0) {
+            result = true;
+        }
+
+
+        return result;
     }
 }
