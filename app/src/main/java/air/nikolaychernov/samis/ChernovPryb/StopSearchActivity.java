@@ -559,8 +559,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
                 // location
             }
         } else {
-            findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-            findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
+           //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
         }
     }
 
@@ -589,8 +589,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
             // Log.appendLog("StopSearchActivity SearchNearMeTask onPostExecute");
-            findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-            findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
             //findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
             list.onRefreshComplete();
             if (isCancelled()) {
@@ -626,8 +626,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
             // Log.appendLog("StopSearchActivity SearchByNameTask onPostExecute");
-            findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-            findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
             // dataMan.navTerminate();
             if (isCancelled()) {
                 return;
