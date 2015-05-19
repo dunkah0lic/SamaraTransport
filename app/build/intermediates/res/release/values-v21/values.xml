@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Material">
         <!--
@@ -15,7 +15,7 @@
         <item name="android:colorPrimary">#673AB7</item>
 
     </style>
-    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
@@ -268,7 +268,7 @@
         <item name="popupPromptView">@layout/abc_simple_dropdown_hint</item>
     </style>
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation"/>
-    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="MyActionBar" parent="@android:style/Widget.Material.Light.ActionBar">
         <item name="android:background">#673AB7</item>
@@ -276,7 +276,7 @@
         <item name="android:subtitleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle</item>
 
     </style>
-    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme.Material">
         <item name="android:windowNoTitle">true</item>
@@ -294,7 +294,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
     </style>
-    <!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle" parent="@android:style/Widget.TextView">
         <item name="android:textSize">14sp</item>

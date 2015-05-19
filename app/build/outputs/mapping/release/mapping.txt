@@ -673,16 +673,18 @@ air.nikolaychernov.samis.ChernovPryb.StopGroupsListAdapter -> air.nikolaychernov
     void onClick(android.view.View) -> onClick
     java.lang.Object getItem(int) -> getItem
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity -> air.nikolaychernov.samis.ChernovPryb.StopSearchActivity:
-    air.nikolaychernov.samis.ChernovPryb.DataController dataMan -> b
-    air.nikolaychernov.samis.ChernovPryb.StopGroup[] grp -> c
-    com.handmark.pulltorefresh.library.PullToRefreshListView list -> d
-    com.google.android.gms.common.api.GoogleApiClient mGoogleApiClient -> e
-    boolean searchByNav -> f
-    boolean searchInFavor -> g
-    boolean firstStart -> h
-    java.lang.String accountName -> a
-    android.view.Menu menu -> i
-    air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask snmt -> j
+    air.nikolaychernov.samis.ChernovPryb.DataController dataMan -> c
+    air.nikolaychernov.samis.ChernovPryb.StopGroup[] grp -> d
+    com.handmark.pulltorefresh.library.PullToRefreshListView list -> e
+    com.google.android.gms.common.api.GoogleApiClient mGoogleApiClient -> f
+    com.android.vending.billing.IInAppBillingService mService -> g
+    android.content.ServiceConnection mServiceConn -> a
+    boolean searchByNav -> h
+    boolean searchInFavor -> i
+    boolean firstStart -> j
+    java.lang.String accountName -> b
+    android.view.Menu menu -> k
+    air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask snmt -> l
     void onConnected(android.os.Bundle) -> a
     void onConnectionSuspended(int) -> a
     void onConnectionFailed(com.google.android.gms.common.ConnectionResult) -> a
@@ -707,29 +709,34 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity -> air.nikolaychernov.sa
     void fillList() -> d
     void showDirections(int) -> b
     void msgBox(android.content.Context,java.lang.String,java.lang.String) -> a
-    air.nikolaychernov.samis.ChernovPryb.DataController access$400(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> a
-    air.nikolaychernov.samis.ChernovPryb.StopGroup[] access$502(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity,air.nikolaychernov.samis.ChernovPryb.StopGroup[]) -> a
-    void access$600(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> b
-    boolean access$700(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> c
-    com.handmark.pulltorefresh.library.PullToRefreshListView access$800(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> d
-    air.nikolaychernov.samis.ChernovPryb.StopGroup[] access$500(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> e
-    air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask access$902(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity,air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask) -> a
+    com.android.vending.billing.IInAppBillingService access$102(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity,com.android.vending.billing.IInAppBillingService) -> a
+    air.nikolaychernov.samis.ChernovPryb.DataController access$500(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> a
+    air.nikolaychernov.samis.ChernovPryb.StopGroup[] access$602(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity,air.nikolaychernov.samis.ChernovPryb.StopGroup[]) -> a
+    void access$700(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> b
+    boolean access$800(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> c
+    com.handmark.pulltorefresh.library.PullToRefreshListView access$900(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> d
+    air.nikolaychernov.samis.ChernovPryb.StopGroup[] access$600(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity) -> e
+    air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask access$1002(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity,air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask) -> a
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$1 -> air.nikolaychernov.samis.ChernovPryb.aa:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
-    void onRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$2 -> air.nikolaychernov.samis.ChernovPryb.ab:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
-    void onPullEvent(com.handmark.pulltorefresh.library.PullToRefreshBase,com.handmark.pulltorefresh.library.PullToRefreshBase$State,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode) -> a
+    void onRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$3 -> air.nikolaychernov.samis.ChernovPryb.ac:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
+    void onPullEvent(com.handmark.pulltorefresh.library.PullToRefreshBase,com.handmark.pulltorefresh.library.PullToRefreshBase$State,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode) -> a
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$4 -> air.nikolaychernov.samis.ChernovPryb.ad:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$5 -> air.nikolaychernov.samis.ChernovPryb.ae:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$6 -> air.nikolaychernov.samis.ChernovPryb.af:
+    air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$FavorTask -> air.nikolaychernov.samis.ChernovPryb.af:
+air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$FavorTask -> air.nikolaychernov.samis.ChernovPryb.ag:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
     air.nikolaychernov.samis.ChernovPryb.StopGroup[] doInBackground(java.lang.Boolean[]) -> a
     void onProgressUpdate(java.lang.Boolean[]) -> b
@@ -737,7 +744,7 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$FavorTask -> air.nikolay
     void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchByNameTask -> air.nikolaychernov.samis.ChernovPryb.ag:
+air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchByNameTask -> air.nikolaychernov.samis.ChernovPryb.ah:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
     air.nikolaychernov.samis.ChernovPryb.StopGroup[] doInBackground(java.lang.String[]) -> a
     void onProgressUpdate(java.lang.Boolean[]) -> a
@@ -745,7 +752,7 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchByNameTask -> air.
     void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask -> air.nikolaychernov.samis.ChernovPryb.ah:
+air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask -> air.nikolaychernov.samis.ChernovPryb.ai:
     air.nikolaychernov.samis.ChernovPryb.StopSearchActivity this$0 -> a
     air.nikolaychernov.samis.ChernovPryb.StopGroup[] doInBackground(java.lang.Boolean[]) -> a
     void onProgressUpdate(java.lang.Boolean[]) -> b
@@ -753,11 +760,11 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$SearchNearMeTask -> air.
     void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-air.nikolaychernov.samis.ChernovPryb.TransportDBContract -> air.nikolaychernov.samis.ChernovPryb.ai:
+air.nikolaychernov.samis.ChernovPryb.TransportDBContract -> air.nikolaychernov.samis.ChernovPryb.aj:
     void cursorToRoute(android.database.Cursor,air.nikolaychernov.samis.ChernovPryb.Route) -> b
     void cursorToStop(android.database.Cursor,air.nikolaychernov.samis.ChernovPryb.Stop,boolean) -> a
     void access$000(android.database.Cursor,air.nikolaychernov.samis.ChernovPryb.Route) -> a
-air.nikolaychernov.samis.ChernovPryb.TransportDBContract$FavorReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.aj:
+air.nikolaychernov.samis.ChernovPryb.TransportDBContract$FavorReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.ak:
     air.nikolaychernov.samis.ChernovPryb.TransportDBContract this$0 -> a
     java.util.Set getFavorSet() -> a
     int[] getFavor() -> b
@@ -767,7 +774,7 @@ air.nikolaychernov.samis.ChernovPryb.TransportDBContract$FavorReaderDbHelper -> 
     boolean isInFavor(int[]) -> a
     void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
     void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
-air.nikolaychernov.samis.ChernovPryb.TransportDBContract$MainReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.ak:
+air.nikolaychernov.samis.ChernovPryb.TransportDBContract$MainReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.al:
     air.nikolaychernov.samis.ChernovPryb.TransportDBContract this$0 -> a
     air.nikolaychernov.samis.ChernovPryb.Stop[] getStops(int[]) -> a
     air.nikolaychernov.samis.ChernovPryb.Stop[] copy(air.nikolaychernov.samis.ChernovPryb.Stop[],int) -> a
@@ -777,13 +784,13 @@ air.nikolaychernov.samis.ChernovPryb.TransportDBContract$MainReaderDbHelper -> a
     air.nikolaychernov.samis.ChernovPryb.Stop[] searchNearMe(double,double,int) -> a
     air.nikolaychernov.samis.ChernovPryb.Stop[] searchByName(java.lang.String,java.util.Set) -> a
     air.nikolaychernov.samis.ChernovPryb.Stop[] searchByName(java.lang.String) -> a
-air.nikolaychernov.samis.ChernovPryb.TransportDBContract$StopsReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.al:
+air.nikolaychernov.samis.ChernovPryb.TransportDBContract$StopsReaderDbHelper -> air.nikolaychernov.samis.ChernovPryb.am:
     java.lang.String DB_NAME -> a
     air.nikolaychernov.samis.ChernovPryb.TransportDBContract this$0 -> b
     void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
     void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
     void onDowngrade(android.database.sqlite.SQLiteDatabase,int,int) -> onDowngrade
-air.nikolaychernov.samis.ChernovPryb.routeComparator -> air.nikolaychernov.samis.ChernovPryb.am:
+air.nikolaychernov.samis.ChernovPryb.routeComparator -> air.nikolaychernov.samis.ChernovPryb.an:
     int compare(java.lang.String,java.lang.String) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
 android.support.v4.app.ActivityCompat -> android.support.v4.app.a:
@@ -6879,6 +6886,23 @@ android.support.v7.widget.Toolbar$SavedState$1 -> android.support.v7.widget.ap:
     android.support.v7.widget.Toolbar$SavedState[] newArray(int) -> a
     java.lang.Object[] newArray(int) -> newArray
     java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.android.vending.billing.IInAppBillingService -> com.a.a.a.a:
+    int isBillingSupported(int,java.lang.String,java.lang.String) -> a
+    android.os.Bundle getSkuDetails(int,java.lang.String,java.lang.String,android.os.Bundle) -> a
+    android.os.Bundle getBuyIntent(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    android.os.Bundle getPurchases(int,java.lang.String,java.lang.String,java.lang.String) -> a
+    int consumePurchase(int,java.lang.String,java.lang.String) -> b
+com.android.vending.billing.IInAppBillingService$Stub -> com.a.a.a.b:
+    com.android.vending.billing.IInAppBillingService asInterface(android.os.IBinder) -> a
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.android.vending.billing.IInAppBillingService$Stub$Proxy -> com.a.a.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.IBinder asBinder() -> asBinder
+    int isBillingSupported(int,java.lang.String,java.lang.String) -> a
+    android.os.Bundle getSkuDetails(int,java.lang.String,java.lang.String,android.os.Bundle) -> a
+    android.os.Bundle getBuyIntent(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    android.os.Bundle getPurchases(int,java.lang.String,java.lang.String,java.lang.String) -> a
+    int consumePurchase(int,java.lang.String,java.lang.String) -> b
 com.google.android.gms.R -> com.google.android.gms.a:
 com.google.android.gms.R$string -> com.google.android.gms.b:
     int accept -> accept
@@ -17804,8 +17828,8 @@ com.handmark.pulltorefresh.library.internal.ViewCompat -> com.handmark.pulltoref
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK16 -> com.handmark.pulltorefresh.library.a.k:
     void postOnAnimation(android.view.View,java.lang.Runnable) -> a
     void setBackground(android.view.View,android.graphics.drawable.Drawable) -> a
-com.readystatesoftware.sqliteasset_markikokik.SQLiteAssetException -> com.a.a.a:
-com.readystatesoftware.sqliteasset_markikokik.SQLiteAssetHelper -> com.a.a.b:
+com.readystatesoftware.sqliteasset_markikokik.SQLiteAssetException -> com.b.a.a:
+com.readystatesoftware.sqliteasset_markikokik.SQLiteAssetHelper -> com.b.a.b:
     java.lang.String TAG -> a
     android.content.Context mContext -> b
     java.lang.String mName -> c

@@ -561,6 +561,7 @@ air.nikolaychernov.samis.ChernovPryb.R$id: int action_bar_root
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_bar_spinner
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_bar_subtitle
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_bar_title
+air.nikolaychernov.samis.ChernovPryb.R$id: int action_buy
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_context_bar
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_favourite
 air.nikolaychernov.samis.ChernovPryb.R$id: int action_menu_divider

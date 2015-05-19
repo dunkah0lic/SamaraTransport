@@ -12,26 +12,26 @@ air.nikolaychernov.samis.ChernovPryb.CoordUtils:
     11:11:public static double kilometersInLatitudeDegree()
 air.nikolaychernov.samis.ChernovPryb.DataController:
     private static final java.lang.String BASE64_PUBLIC_KEY
-    80:81:public void setShowTrams(boolean)
-    88:89:public void setShowTrolls(boolean)
-    96:97:public void setShowComm(boolean)
-    104:105:public void setShowBuses(boolean)
-    141:144:public static void setInstance(air.nikolaychernov.samis.ChernovPryb.DataController)
-    234:236:public void setRadius(int)
-    239:241:public void setAutoUpdate(boolean)
-    306:309:public android.location.Location getBestLocation()
-    434:471:private static java.util.ArrayList parseMapBubbleArrivalInfo(java.lang.String)
-    1072:1072:public static java.lang.String mergeRouteStrings(java.lang.String,java.lang.String)
-    1146:1146:public air.nikolaychernov.samis.ChernovPryb.Stop getStop(int)
-    1150:1150:public java.lang.String getStopGeoID(int)
+    77:78:public void setShowTrams(boolean)
+    85:86:public void setShowTrolls(boolean)
+    93:94:public void setShowComm(boolean)
+    101:102:public void setShowBuses(boolean)
+    138:141:public static void setInstance(air.nikolaychernov.samis.ChernovPryb.DataController)
+    232:234:public void setRadius(int)
+    237:239:public void setAutoUpdate(boolean)
+    304:307:public android.location.Location getBestLocation()
+    432:469:private static java.util.ArrayList parseMapBubbleArrivalInfo(java.lang.String)
+    1070:1070:public static java.lang.String mergeRouteStrings(java.lang.String,java.lang.String)
+    1144:1144:public air.nikolaychernov.samis.ChernovPryb.Stop getStop(int)
+    1148:1148:public java.lang.String getStopGeoID(int)
 air.nikolaychernov.samis.ChernovPryb.DataController$HelveticaFont:
-    161:161:public DataController$HelveticaFont()
+    158:158:public DataController$HelveticaFont()
 air.nikolaychernov.samis.ChernovPryb.Navigation:
     private static final int TIME_TRESHOLD
     private static final int MOVE_TRESHOLD
     198:204:public double getDirectionTo(double,double)
 air.nikolaychernov.samis.ChernovPryb.R:
-    10:2484:public R()
+    10:2485:public R()
 air.nikolaychernov.samis.ChernovPryb.R$anim
 air.nikolaychernov.samis.ChernovPryb.R$attr
 air.nikolaychernov.samis.ChernovPryb.R$bool
@@ -46,7 +46,7 @@ air.nikolaychernov.samis.ChernovPryb.R$raw
 air.nikolaychernov.samis.ChernovPryb.R$string
 air.nikolaychernov.samis.ChernovPryb.R$style
 air.nikolaychernov.samis.ChernovPryb.R$styleable:
-    2484:2484:public R$styleable()
+    2485:2485:public R$styleable()
 air.nikolaychernov.samis.ChernovPryb.R$xml
 air.nikolaychernov.samis.ChernovPryb.Route:
     public java.lang.String directionEn
@@ -65,10 +65,10 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity:
     public static final java.lang.String MESSAGE_ARRIVAl_INFO
     public static final java.lang.String MESSAGE_STOPGROUP
     public static final java.lang.String MESSAGE_DATAMAN
-    357:358:public void say(java.lang.String)
-    363:368:public void sayMoved(boolean)
-    631:636:private boolean isPortrait()
-    37:37:static synthetic boolean access$000(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity)
+    385:386:public void say(java.lang.String)
+    391:396:public void sayMoved(boolean)
+    678:683:private boolean isPortrait()
+    46:46:static synthetic boolean access$000(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity)
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$AutoSearchTimer
 air.nikolaychernov.samis.ChernovPryb.TransType
 air.nikolaychernov.samis.ChernovPryb.TransportDBContract:
@@ -2902,6 +2902,37 @@ android.support.v7.widget.Toolbar$LayoutParams:
     1795:1809:public Toolbar$LayoutParams(int,int,int)
     1812:1813:public Toolbar$LayoutParams(int)
 android.support.v7.widget.WindowCallbackWrapper
+com.android.vending.billing.IInAppBillingService$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_isBillingSupported
+    static final int TRANSACTION_getSkuDetails
+    static final int TRANSACTION_getBuyIntent
+    static final int TRANSACTION_getPurchases
+    static final int TRANSACTION_consumePurchase
+    38:40:public IInAppBillingService$Stub()
+    58:58:public android.os.IBinder asBinder()
+com.android.vending.billing.IInAppBillingService$Stub$Proxy:
+    186:186:public java.lang.String getInterfaceDescriptor()
+com.example.android.trivialdrivesample.util.Base64
+com.example.android.trivialdrivesample.util.Base64DecoderException
+com.example.android.trivialdrivesample.util.IabException
+com.example.android.trivialdrivesample.util.IabHelper
+com.example.android.trivialdrivesample.util.IabHelper$1
+com.example.android.trivialdrivesample.util.IabHelper$2
+com.example.android.trivialdrivesample.util.IabHelper$2$1
+com.example.android.trivialdrivesample.util.IabHelper$3
+com.example.android.trivialdrivesample.util.IabHelper$3$1
+com.example.android.trivialdrivesample.util.IabHelper$3$2
+com.example.android.trivialdrivesample.util.IabHelper$OnConsumeFinishedListener
+com.example.android.trivialdrivesample.util.IabHelper$OnConsumeMultiFinishedListener
+com.example.android.trivialdrivesample.util.IabHelper$OnIabPurchaseFinishedListener
+com.example.android.trivialdrivesample.util.IabHelper$OnIabSetupFinishedListener
+com.example.android.trivialdrivesample.util.IabHelper$QueryInventoryFinishedListener
+com.example.android.trivialdrivesample.util.IabResult
+com.example.android.trivialdrivesample.util.Inventory
+com.example.android.trivialdrivesample.util.Purchase
+com.example.android.trivialdrivesample.util.Security
+com.example.android.trivialdrivesample.util.SkuDetails
 com.google.ads.AdRequest
 com.google.ads.AdRequest$ErrorCode
 com.google.ads.AdRequest$Gender

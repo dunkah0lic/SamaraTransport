@@ -13,8 +13,13 @@
         android:icon="@drawable/ic_action_settings"
         android:title="Настройки"
         android:showAsAction="never" />
+    <item android:id="@+id/action_buy"
+        android:icon="@drawable/ic_action_settings"
+        android:title="Купить"
+        android:showAsAction="never" />
     <item android:id="@+id/action_about"
         android:icon="@drawable/ic_action_settings"
         android:title="О приложении"
         android:showAsAction="never" />
-</menu><!-- From: file:/C:/Users/Nikolay/Desktop/Arrival%201.0/Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0/app/src/main/res/menu/stopsearch_activity_menu.xml -->
+
+</menu><!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/menu/stopsearch_activity_menu.xml -->

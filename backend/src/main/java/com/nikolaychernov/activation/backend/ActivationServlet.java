@@ -103,11 +103,65 @@ public class ActivationServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         String name = req.getParameter("name");
-        resp.setContentType("text/plain");
-        if (name == null) {
-            resp.getWriter().println("Please enter a name");
+        String message = req.getParameter("xml");
+        String license = "LICENSED";
+        String xform = "RSA/ECB/PKCS1Padding";
+
+        byte[] encBytes = null;
+        byte[] encKey = null;
+        boolean licensed = true;
+        licensed = getLicense(name);
+        if (licensed) {
+            license = "LICENSED";
+        } else {
+            license = "NOT_LICENSED";
         }
-        resp.getWriter().println("Hello " + name);
+
+        PrivateKey prk1 = null;
+        try {
+            prk1 = loadPrivateKey(BASE64_PRIVATE_KEY);
+            encBytes = encrypt(license.getBytes("UTF-8"), prk1, xform);
+				/*Signature signer = Signature.getInstance("SHA1withRSA");
+	            signer.initSign(prk1); // PKCS#8 is preferred
+	            signer.update(license.getBytes());
+	            signature = signer.sign();*/
+        } catch (GeneralSecurityException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String authKey = "";
+
+
+        JSONObject json = new JSONObject();
+        try {
+            authKey = Utils.SHA1(message + "yPiRbhD");
+            json.put("name", name);
+            json.put("license", license);
+            //json.put("signature", signature);
+            json.put("signature", encBytes);
+            if (license == "LICENSED"){
+                encKey = encrypt(authKey.getBytes("UTF-8"), prk1, xform);
+
+            } else {
+                encKey = encrypt("1111111".getBytes("UTF-8"), prk1, xform);
+
+            }
+            json.put("authkey", encKey);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        // Assuming your json object is **jsonObject**, perform the following, it will return your json object
+        out.print(json);
+        out.flush();
     }
 
     public static PrivateKey loadPrivateKey(String hex) throws GeneralSecurityException {

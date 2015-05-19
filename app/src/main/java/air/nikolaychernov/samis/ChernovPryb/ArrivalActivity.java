@@ -3,6 +3,7 @@ package air.nikolaychernov.samis.ChernovPryb;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,6 +18,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.plus.Plus;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnPullEventListener;
@@ -26,11 +30,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.ArrayList;
 
-public class ArrivalActivity extends Activity {
+public class ArrivalActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener  {
 
     private Stop st;
     private CountDownTimer t;
     private DownloadArrivalInfoTask task;
+    private GoogleApiClient mGoogleApiClient;
+    public static String accountName = "";
     private boolean showRouteArrival = false;
     private int KR_ID = 0;
 
@@ -59,6 +65,38 @@ public class ArrivalActivity extends Activity {
     //
     // super.onSaveInstanceState(savedInstanceState);
     // }
+
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        Log.d("onConnected","mGoogleApiClient.connect()");
+        accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);
+        //ActivationService.startActionFoo(this, accountName, " ");
+        //Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
+    }
+
+
+    @Override
+    public void onConnectionSuspended(int arg0) {
+        Log.d("onConnectionSuspended","mGoogleApiClient.connect()");
+        //mGoogleApiClient.connect();
+        //updateUI(false);
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        Log.d("onConnectionFailed",""+ result.getErrorCode());
+        try {
+            result.startResolutionForResult(this,10);
+        } catch (IntentSender.SendIntentException e) {
+            //mIntentInProgress = false;
+            mGoogleApiClient.connect();
+        }
+        // This callback is important for handling errors that
+        // may occur while attempting to connect with Google.
+        //
+        // More about this in the next section.
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +148,12 @@ public class ArrivalActivity extends Activity {
         ab.setSubtitle(st.direction);
         TextView tv;
 
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Plus.API)
+                .addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addOnConnectionFailedListener(this)
+                .addConnectionCallbacks(this)
+                .build();
         /*tv = (TextView) findViewById(R.id.txtArrivalDirectionLabel);
         dataMan.setTypeface(tv, HelveticaFont.Medium);
 
@@ -151,6 +195,9 @@ public class ArrivalActivity extends Activity {
     protected void onStart() {
         super.onStart();
         // The activity is about to become visible.
+        Log.d("ArrivalACTIVITY","StopSearchActivity onStart");
+        mGoogleApiClient.connect();
+        Log.d("onStart","mGoogleApiClient.connect()");
 
     }
 
@@ -179,6 +226,7 @@ public class ArrivalActivity extends Activity {
         super.onStop();
         // The activity is no longer visible (it is now "stopped")
         // Log.appendLog("ArrivalActivity onStop");
+        mGoogleApiClient.disconnect();
         if (t != null) {
             t.cancel();
         }

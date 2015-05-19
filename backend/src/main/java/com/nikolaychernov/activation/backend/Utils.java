@@ -12,8 +12,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,8 +104,8 @@ public class Utils {
         try
         {
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(5);
-            nameValuePairs.add(new BasicNameValuePair("grant_type",    "authorization_code"));
-            nameValuePairs.add(new BasicNameValuePair("client_id",     "555843424933-cee3ufklqa6sr6rs39sjccp5tihjtn8t.apps.googleusercontent.com"));
+            nameValuePairs.add(new BasicNameValuePair("grant_type", "authorization_code"));
+            nameValuePairs.add(new BasicNameValuePair("client_id", "555843424933-cee3ufklqa6sr6rs39sjccp5tihjtn8t.apps.googleusercontent.com"));
             nameValuePairs.add(new BasicNameValuePair("client_secret", "mOzecEHd47XDPBUneinwLwIw"));
             nameValuePairs.add(new BasicNameValuePair("code", code));
             nameValuePairs.add(new BasicNameValuePair("redirect_uri", "http://proverbial-deck-865.appspot.com/hello"));
@@ -134,5 +137,25 @@ public class Utils {
             b.append(buf, 0, c);
         }
         return b.toString();
+    }
+
+    private static String convertToHex(byte[] data) {
+        StringBuilder buf = new StringBuilder();
+        for (byte b : data) {
+            int halfbyte = (b >>> 4) & 0x0F;
+            int two_halfs = 0;
+            do {
+                buf.append((0 <= halfbyte) && (halfbyte <= 9) ? (char) ('0' + halfbyte) : (char) ('a' + (halfbyte - 10)));
+                halfbyte = b & 0x0F;
+            } while (two_halfs++ < 1);
+        }
+        return buf.toString();
+    }
+
+    public static String SHA1(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        md.update(text.getBytes("iso-8859-1"), 0, text.length());
+        byte[] sha1hash = md.digest();
+        return convertToHex(sha1hash);
     }
 }
