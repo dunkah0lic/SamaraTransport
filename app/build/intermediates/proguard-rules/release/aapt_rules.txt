@@ -84,12 +84,9 @@
 # view res/layout/activity_maps.xml #generated:1
 -keep class com.google.android.gms.maps.SupportMapFragment { <init>(...); }
 
-# view res/layout/activity_arrival.xml #generated:37
-# view res/layout/activity_stopsearch.xml #generated:21
+# view res/layout/activity_arrival.xml #generated:11
+# view res/layout/activity_stopsearch.xml #generated:12
 -keep class com.handmark.pulltorefresh.library.PullToRefreshListView { <init>(...); }
-
-# onClick res/layout/activity_stopsearch.xml #generated:10
--keepclassmembers class * { *** cmdFind_click(...); }
 
 # onClick res/layout/activity_settings.xml #generated:112
 # onClick res/layout/activity_settings.xml #generated:135

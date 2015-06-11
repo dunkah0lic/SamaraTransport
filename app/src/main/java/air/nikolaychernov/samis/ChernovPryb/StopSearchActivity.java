@@ -79,16 +79,14 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     public void onConnected(Bundle connectionHint) {
         Log.d("onConnected","mGoogleApiClient.connect()");
         accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);
-        //ActivationService.startActionFoo(this, accountName, " ");
-        //Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
+
     }
 
 
     @Override
     public void onConnectionSuspended(int arg0) {
         Log.d("onConnectionSuspended","mGoogleApiClient.connect()");
-        //mGoogleApiClient.connect();
-        //updateUI(false);
+
 
     }
 
@@ -99,12 +97,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
             result.startResolutionForResult(this,10);
         } catch (SendIntentException e) {
             //mIntentInProgress = false;
-            mGoogleApiClient.connect();
-        }
-        // This callback is important for handling errors that
-        // may occur while attempting to connect with Google.
-        //
-        // More about this in the next section.
+            mGoogleApiClient.connect();        }
+
     }
 
     private class AutoSearchTimer extends CountDownTimer {
@@ -135,12 +129,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         // Log.logInit(this);
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onCreate");
         setContentView(R.layout.activity_stopsearch);
-        // try {
-        // DataController.loadArrivalData2("", 9);
-        // } catch (IOException e1) {
-        // // TODO Auto-generated catch block
-        // e1.printStackTrace();
-        // }
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
@@ -165,9 +154,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         serviceIntent.setPackage("com.android.vending");
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
-        //Intent serviceIntent = new Intent(this, ActivationService.class);
-        //startService(serviceIntent);
-
         dataMan = DataController.getInstance(this);
 
         snmt = new SearchNearMeTask();
@@ -184,28 +170,20 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
             @Override
             public void onPullEvent(PullToRefreshBase<ListView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
-                // TODO Auto-generated method stub
-                //refreshView.setLoadingDrawable(null);
                 refreshView.getLoadingLayoutProxy().setLoadingDrawable(null);
-                //refreshView.getLoadingLayoutProxy().setRefreshingLabel(null);
-
             }
         });
 
         ActionBar ab = getActionBar();
         ab.setIcon(null);
 
-        //mGoogleApiClient.connect();
-        //Log.d("onStart","mGoogleApiClient.connect()");
         handleIntent(getIntent());
-        // dataMan.navInit();
-        // searchNearMe();
+
         if (!dataMan.navInit()) {
-            // msgBox(this, "Навигация отключена в настройках!",
-            // "Ошибочка вышла");
+
             openLocationSettings();
         }
-        // cmdFindNearMe_click(null);
+
     }
 
     @Override
@@ -279,11 +257,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     @Override
     protected void onStart() {
         super.onStart();
-        // Log.appendLog("StopSearchActivity onStart");
-        // The activity is about to become visible.
-        //((ToggleButton) findViewById(R.id.toggleSearchInFavor)).setChecked(searchInFavor);
-        // if (!dataMan.isNavWorking())
-        // dataMan.navInit();
+
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onStart");
         mGoogleApiClient.connect();
         Log.d("onStart","mGoogleApiClient.connect()");
@@ -367,16 +341,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         builder.show();
     }
 
-    // public void cmdCreateDB_click(View view) {
-    // try {
-    // dataMan.createDBfromXML(true, true);
-    // msgBox(this, "Alles", "OK");
-    // } catch (IOException e) { // TODO Auto-generated catch block
-    // msgBox(this, e.getLocalizedMessage(), "error");
-    // } catch (XmlPullParserException e) { // TODO Auto-generated catch block
-    // msgBox(this, e.getLocalizedMessage(), "error");
-    // }
-    // }
 
     public void notifyMoved() {
         // Log.appendLog("StopSearchActivity notifyMoved");
@@ -467,16 +431,12 @@ public class StopSearchActivity extends Activity implements Serializable, Google
             int responseCode = data.getIntExtra("RESPONSE_CODE", 0);
             String purchaseData = data.getStringExtra("INAPP_PURCHASE_DATA");
             String dataSignature = data.getStringExtra("INAPP_DATA_SIGNATURE");
-            //String token = "";
 
             if (resultCode == RESULT_OK) {
                 try {
                     JSONObject jo = new JSONObject(purchaseData);
-                    String sku = jo.getString("productId");
                     final String token = jo.getString("purchaseToken");
                     Toast.makeText(this,token,Toast.LENGTH_SHORT);
-                    Log.d("StopSearchActivity","You have bought the " + sku + ". Excellent choice, adventurer! Token:" + token);
-
                     Thread thread = new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -493,8 +453,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
                         }
                     });
                     thread.start();
-
-                    Log.d("StopSearchActivity","Past get request");
                 }
                 catch (JSONException e) {
                     Log.d("StopSearchActivity","Failed to parse purchase data.");

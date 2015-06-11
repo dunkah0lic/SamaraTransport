@@ -12,26 +12,28 @@ air.nikolaychernov.samis.ChernovPryb.CoordUtils:
     11:11:public static double kilometersInLatitudeDegree()
 air.nikolaychernov.samis.ChernovPryb.DataController:
     private static final java.lang.String BASE64_PUBLIC_KEY
-    77:78:public void setShowTrams(boolean)
-    85:86:public void setShowTrolls(boolean)
-    93:94:public void setShowComm(boolean)
-    101:102:public void setShowBuses(boolean)
-    138:141:public static void setInstance(air.nikolaychernov.samis.ChernovPryb.DataController)
-    232:234:public void setRadius(int)
-    237:239:public void setAutoUpdate(boolean)
-    304:307:public android.location.Location getBestLocation()
-    432:469:private static java.util.ArrayList parseMapBubbleArrivalInfo(java.lang.String)
-    1070:1070:public static java.lang.String mergeRouteStrings(java.lang.String,java.lang.String)
-    1144:1144:public air.nikolaychernov.samis.ChernovPryb.Stop getStop(int)
-    1148:1148:public java.lang.String getStopGeoID(int)
+    private android.content.Context context
+    86:87:public void setShowTrams(boolean)
+    94:95:public void setShowTrolls(boolean)
+    102:103:public void setShowComm(boolean)
+    110:111:public void setShowBuses(boolean)
+    148:151:public static void setInstance(air.nikolaychernov.samis.ChernovPryb.DataController)
+    221:223:public void setRadius(int)
+    226:228:public void setAutoUpdate(boolean)
+    293:296:public android.location.Location getBestLocation()
+    347:384:private static java.util.ArrayList parseMapBubbleArrivalInfo(java.lang.String)
+    558:616:private static java.lang.String getPassword()
+    796:796:public static java.lang.String mergeRouteStrings(java.lang.String,java.lang.String)
+    827:827:public air.nikolaychernov.samis.ChernovPryb.Stop getStop(int)
+    831:831:public java.lang.String getStopGeoID(int)
 air.nikolaychernov.samis.ChernovPryb.DataController$HelveticaFont:
-    158:158:public DataController$HelveticaFont()
+    168:168:public DataController$HelveticaFont()
 air.nikolaychernov.samis.ChernovPryb.Navigation:
     private static final int TIME_TRESHOLD
     private static final int MOVE_TRESHOLD
     198:204:public double getDirectionTo(double,double)
 air.nikolaychernov.samis.ChernovPryb.R:
-    10:2485:public R()
+    10:2475:public R()
 air.nikolaychernov.samis.ChernovPryb.R$anim
 air.nikolaychernov.samis.ChernovPryb.R$attr
 air.nikolaychernov.samis.ChernovPryb.R$bool
@@ -46,12 +48,13 @@ air.nikolaychernov.samis.ChernovPryb.R$raw
 air.nikolaychernov.samis.ChernovPryb.R$string
 air.nikolaychernov.samis.ChernovPryb.R$style
 air.nikolaychernov.samis.ChernovPryb.R$styleable:
-    2485:2485:public R$styleable()
+    2475:2475:public R$styleable()
 air.nikolaychernov.samis.ChernovPryb.R$xml
 air.nikolaychernov.samis.ChernovPryb.Route:
     public java.lang.String directionEn
     public java.lang.String affiliation
     public java.lang.String transportType
+air.nikolaychernov.samis.ChernovPryb.SHA1Utils
 air.nikolaychernov.samis.ChernovPryb.SettingsActivity:
     private android.widget.TextView metersText
 air.nikolaychernov.samis.ChernovPryb.Stop:
@@ -65,10 +68,10 @@ air.nikolaychernov.samis.ChernovPryb.StopSearchActivity:
     public static final java.lang.String MESSAGE_ARRIVAl_INFO
     public static final java.lang.String MESSAGE_STOPGROUP
     public static final java.lang.String MESSAGE_DATAMAN
-    385:386:public void say(java.lang.String)
-    391:396:public void sayMoved(boolean)
-    678:683:private boolean isPortrait()
-    46:46:static synthetic boolean access$000(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity)
+    353:354:public void say(java.lang.String)
+    359:364:public void sayMoved(boolean)
+    661:666:private boolean isPortrait()
+    50:50:static synthetic boolean access$000(air.nikolaychernov.samis.ChernovPryb.StopSearchActivity)
 air.nikolaychernov.samis.ChernovPryb.StopSearchActivity$AutoSearchTimer
 air.nikolaychernov.samis.ChernovPryb.TransType
 air.nikolaychernov.samis.ChernovPryb.TransportDBContract:
@@ -940,7 +943,8 @@ android.support.v4.util.LruCache:
     319:319:public final synchronized int putCount()
     326:326:public final synchronized int evictionCount()
     334:334:public final synchronized java.util.Map snapshot()
-android.support.v4.util.Pair
+android.support.v4.util.Pair:
+    77:77:public static android.support.v4.util.Pair create(java.lang.Object,java.lang.Object)
 android.support.v4.util.Pools
 android.support.v4.util.Pools$Pool
 android.support.v4.util.Pools$SimplePool

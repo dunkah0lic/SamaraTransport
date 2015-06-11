@@ -18,7 +18,6 @@ public class InitServlet extends HttpServlet {
         ObjectifyService.register(User.class);
     }
 
-    private static String refreshToken = "1/oo1JL4rG3qYxnFota3iJdVIF3AJS6o_5NaXegbf_xYsMEudVrK5jSpoR30zcRFq6";
     private static String defaultPackageName = "air.nikolaychernov.samis.ChernovPryb";
     private static String productid = "license";
 
@@ -29,8 +28,8 @@ public class InitServlet extends HttpServlet {
         String token = req.getParameter("token");
 
 
-        String accessToken = Utils.getAccessToken(refreshToken);
-        int access = Utils.checkLicense(defaultPackageName, productid, token, accessToken);
+        //String accessToken = Utils.getAccessToken(refreshToken);
+        int access = Utils.checkLicense(defaultPackageName, productid, token);
 
         User temp = new User(email, token,access);
 
@@ -43,7 +42,7 @@ public class InitServlet extends HttpServlet {
         resp.setContentType("text/plain");
 
 
-        resp.getWriter().println("Please use the form to not POST to this url " + temp2.getEmail() + "  " + temp2.getToken());
+        resp.getWriter().println("" + temp2.getEmail() + "  " + temp2.getToken());
     }
 
     @Override

@@ -25,10 +25,12 @@ import java.util.List;
  */
 public class Utils {
 
-    public static String getAccessToken(String refreshToken) {
+    private static String refreshToken = "1/oo1JL4rG3qYxnFota3iJdVIF3AJS6o_5NaXegbf_xYsMEudVrK5jSpoR30zcRFq6";
+
+    public static String getAccessToken() {
 
         String url = "https://accounts.google.com/o/oauth2/token";
-        String charset = "UTF-8";  // Or in Java 7 and later, use the constant: java.nio.charset.StandardCharsets.UTF_8.name()
+        String charset = "UTF-8";
         String grantType = "refresh_token";
         String clientId = "555843424933-cee3ufklqa6sr6rs39sjccp5tihjtn8t.apps.googleusercontent.com";
         String clientSecret = "mOzecEHd47XDPBUneinwLwIw";
@@ -63,8 +65,43 @@ public class Utils {
     }
 
 
+    public static int checkLicense(String packageName, String productId, String token){
+        int result = 1;
+        String accessToken = getAccessToken();
+        try {
+
+            String getURL = "https://www.googleapis.com/androidpublisher/v2/applications/" + packageName + "/purchases/products/" + productId + "/tokens/" + token + "?access_token=" + accessToken;
+            URLConnection connection = new URL(getURL).openConnection();
+            connection.setRequestProperty("Accept-Charset", "UTF-8");
+            InputStream response = connection.getInputStream();
+
+            String responseString = readStreamToString(response, "UTF-8");
+            JSONObject json = new JSONObject(responseString);
+
+            String kind = json.getString("kind");
+            String developerPayload = json.getString("developerPayload");
+            int consumptionState = json.getInt("consumptionState");
+            int purchaseState = json.getInt("purchaseState");
+            long purchaseTimeMillis = json.getLong("purchaseTimeMillis");
+            if (purchaseState==0){
+                result = 0;
+            }
+            System.out.println(kind);
+            System.out.println(developerPayload);
+            System.out.println(consumptionState);
+            System.out.println(purchaseState);
+            System.out.println(purchaseTimeMillis);
+
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return result;
+    }
+
     public static int checkLicense(String packageName, String productId, String token, String accessToken){
         int result = 1;
+        //String accessToken = getAccessToken();
         try {
 
             String getURL = "https://www.googleapis.com/androidpublisher/v2/applications/" + packageName + "/purchases/products/" + productId + "/tokens/" + token + "?access_token=" + accessToken;

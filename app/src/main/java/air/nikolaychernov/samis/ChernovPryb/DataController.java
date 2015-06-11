@@ -64,7 +64,7 @@ public class DataController implements Serializable {
     private static volatile DataController instance;
 
     private static final String BASE64_PUBLIC_KEY = "305c300d06092a864886f70d0101010500034b00304802410081d21f93177c745b9bea9709ff49936b25ed5ec6f306191949c62242232856dda1efdd5e13e8b3df8e14f6ec5ed920d022e7a06816e8e1fd8cf0a380e2f83f470203010001";
-    private static final String CORRECT_HASH = "2e02cabe6a32720fd08d02a710dd5d26f94c139f";
+
 
     private StopSearchActivity activity;
     private MainReaderDbHelper mainDBhelper;
@@ -177,27 +177,6 @@ public class DataController implements Serializable {
     public Typeface getTypeface(int faceName) {
         return tp[faceName];
     }
-
-    // private void copyDB(String DB_NAME, boolean force) throws IOException {
-    // InputStream in = null;
-    // in = assetMan.open("db/" + DB_NAME);
-    // String dbPath = activity.getFilesDir().getParent() + File.separator
-    // + "databases" + File.separator;
-    // (new File(dbPath)).mkdirs();
-    // File fil = new File(dbPath + DB_NAME);
-    // if (!fil.exists() || force) {
-    // OutputStream out = new FileOutputStream(fil);
-    //
-    // byte[] buffer = new byte[1024];
-    // int length;
-    // while ((length = in.read(buffer)) > 0) {
-    // out.write(buffer, 0, length);
-    // }
-    // out.flush();
-    // out.close();
-    // }
-    // in.close();
-    // }
 
     public void setSettings(int radius, boolean isAutoUpdate,
                             /*boolean requestAddPredict,*/ boolean showBuses, boolean showTrolls, boolean showTrams, boolean showComm) {
@@ -317,27 +296,6 @@ public class DataController implements Serializable {
         return nav.getBestLocation();
     }
 
-    // public SQLiteDatabase getStopsDB(boolean isWritable) {
-    // if (stopsDB == null) {
-    // stopsDB = stopsDBHelper.getWritableDatabase();
-    // }
-    // return stopsDB;
-    // }
-    //
-    // public SQLiteDatabase getStopCorrDB(boolean isWritable) {
-    // if (stopCorrDB == null) {
-    // stopCorrDB = stopCorrDBHelper.getWritableDatabase();
-    // }
-    // return stopCorrDB;
-    // }
-
-    // public SQLiteDatabase getRoutesDB(boolean isWritable) {
-    // if (routesDB == null) {
-    // routesDB = routesDBHelper.getWritableDatabase();
-    // }
-    // return routesDB;
-    // }
-
     public double getDistTo(Stop st, boolean force) {
         if (nav == null) {
             nav = new Navigation(activity);
@@ -385,59 +343,6 @@ public class DataController implements Serializable {
         nav.navTerminate();
     }
 
-    // PHP_bridge based
-    // private static ArrayList<ArrivalInfo> parseArrivalInfo(String html) {
-    // long time = System.nanoTime();
-    // ArrayList<ArrivalInfo> result = new ArrayList<ArrivalInfo>();
-    // ArrivalInfo tmp;
-    // String[] split;
-    // int i = 1;
-    // int StartPos;
-    // int EndPos;
-    //
-    // try {
-    // while (html.substring(i).contains(KR_ID_START)) {
-    // i = html.indexOf(KR_ID_START, i);
-    // tmp = new ArrivalInfo();
-    //
-    // StartPos = html
-    // .indexOf(">", html.indexOf("trans-min-count", i)) + 1;
-    // EndPos = html.indexOf("<", StartPos);
-    // tmp.time = Integer.parseInt(html.substring(StartPos, EndPos));
-    //
-    // StartPos = i + KR_ID_START.length();
-    // EndPos = html.indexOf("\"", StartPos);
-    // tmp.setKR_ID(Integer.parseInt(html.substring(StartPos, EndPos)));
-    //
-    // StartPos = html.indexOf(">", html.indexOf("trans-name", i)) + 1;
-    // EndPos = html.indexOf("<", StartPos);
-    // tmp.routeDesc = html.substring(StartPos, EndPos);
-    //
-    // StartPos = html.indexOf(">", html.indexOf("trans-detail", i)) + 1;
-    // EndPos = html.indexOf("<", StartPos);
-    // split = html.substring(StartPos, EndPos).split("&nbsp;");
-    // tmp.model = split[0];
-    // tmp.vehicleID = split[split.length - 1];
-    //
-    // StartPos = html.indexOf(">",
-    // html.indexOf("trans-detail", EndPos)) + 1;
-    // EndPos = html.indexOf("<", StartPos);
-    // tmp.position = html.substring(StartPos, EndPos);
-    //
-    // result.add(tmp);
-    //
-    // i++;
-    // }
-    // } catch (Exception e) {
-    // // Log.appendLog("DataController parseArrivalInfo EXCEPTION " +
-    // // e.getLocalizedMessage());
-    // }
-    //
-    // time = System.nanoTime() - time;
-    // Log.i("TimeOfParsingArrival", String.valueOf(time / 1E9));
-    // return result;
-    // }
-
     private static ArrayList<ArrivalInfo> parseMapBubbleArrivalInfo(String data) {
         long time = System.nanoTime();
         ArrayList<ArrivalInfo> result = new ArrayList<ArrivalInfo>();
@@ -478,54 +383,6 @@ public class DataController implements Serializable {
         Log.i("TimeOfParseMapBubble", String.valueOf(time / 1E9));
         return result;
     }
-
-//    private static ArrayList<ArrivalInfo> mergeArrival(
-//            ArrayList<ArrivalInfo> list1, ArrayList<ArrivalInfo> list2) {
-//        long time = System.nanoTime();
-//        boolean chk = false;
-//        ArrayList<ArrivalInfo> listTmp = new ArrayList<ArrivalInfo>();
-//
-//        String route;
-//        ArrivalInfo tmp1, tmp2;
-//
-//        for (int i = 0; i < list2.size(); i++) {
-//            chk = false;
-//            tmp2 = list2.get(i);
-//            for (int j = 0; j < list1.size(); j++) {
-//                tmp1 = list1.get(j);
-//                route = tmp1.routeDesc;
-//                route = route.substring(0, route.indexOf(":"));
-//                if ((((tmp1.typeID == tmp2.typeID) || ((tmp1.typeID == 0 && tmp2.typeID == 1))) && route
-//                        .equals(tmp2.routeDesc))) {
-//                    chk = true;
-//                }
-//            }
-//            if (!chk && (tmp2.time > 0)) {
-//                tmp2.model = "";// tmp2.typeID == 4 ? "МАЗ-ЭТОН Т203" : "";
-//                tmp2.nextStopName = "";
-//                tmp2.position = "";
-//                tmp2.vehicleID = ""; // tmp2.typeID == 4 ? "3228" : "";
-//                listTmp.add(tmp2);
-//            }
-//        }
-//        ArrayList<ArrivalInfo> result = insertIntoList(list1, listTmp);
-//        time = System.nanoTime() - time;
-//        Log.i("TimeOfMerge", String.valueOf(time / 1E9));
-//        return result;
-//    }
-
-//    private static ArrayList<ArrivalInfo> insertIntoList(
-//            ArrayList<ArrivalInfo> list1, ArrayList<ArrivalInfo> list2) {
-//        int j;
-//        for (int i = 0; i < list2.size(); i++) {
-//            j = 0;
-//            while (j < list1.size() && list1.get(j).time < list2.get(i).time) {
-//                j++;
-//            }
-//            list1.add(j, list2.get(i));
-//        }
-//        return list1;
-//    }
 
     // main function
     public ArrayList<ArrivalInfo> getArrivalInfo(int KS_ID) throws NotFoundException, IOException {
@@ -611,166 +468,6 @@ public class DataController implements Serializable {
         return formatter.toString();
     }
 
-    // public static String loadArrivalData(String myurl, int KS_ID)
-    // throws IOException {
-    // // Log.appendLog("DataController loadArrivalData");
-    // long time = System.nanoTime();
-    // DefaultHttpClient httpclient = new DefaultHttpClient();
-    //
-    // try {
-    // HttpPost httpost = new HttpPost(myurl);
-    //
-    // List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-    // nvps.add(new BasicNameValuePair("method", "getFirstArrivalToStop"));
-    // nvps.add(new BasicNameValuePair("KS_ID", String.valueOf(KS_ID)));
-    // nvps.add(new BasicNameValuePair("COUNT", "10"));
-    // nvps.add(new BasicNameValuePair("version", "mobile"));
-    //
-    // httpost.setEntity(new UrlEncodedFormEntity(nvps, HTTP.UTF_8));
-    //
-    // ResponseHandler<String> responseHandler = new BasicResponseHandler();
-    // String responseBody = httpclient.execute(httpost, responseHandler);
-    //
-    // time = System.nanoTime() - time;
-    // Log.i("TimeOfLoadArrival", String.valueOf(time / 1E9));
-    // return responseBody;
-    // } catch (Exception e) {
-    // return "";
-    // } finally {
-    // //
-    //
-    // httpclient.getConnectionManager().shutdown();
-    // }
-    // }
-
-    // PHP_bridge based
-    // public static String loadArrivalData(String myurl, int KS_ID)
-    // throws IOException {
-    // long time = System.nanoTime();
-    // URL url = new URL(myurl);
-    // DefaultHttpClient httpclient = new DefaultHttpClient();
-    // HttpURLConnection httpConnection;
-    // String resultString;
-    // try {
-    // httpConnection = (HttpURLConnection) url.openConnection();
-    // httpConnection.setRequestMethod("POST");
-    // httpConnection.setDoInput(true);
-    // httpConnection.setDoOutput(true);
-    //
-    // OutputStream os = httpConnection.getOutputStream();
-    // String str = "method=getFirstArrivalToStop&KS_ID="
-    // + String.valueOf(KS_ID) + "&COUNT=50&version=mobile";
-    // os.write(str.getBytes());
-    // os.flush();
-    // os.close();
-    //
-    // httpConnection.setConnectTimeout(4000);
-    // httpConnection.setReadTimeout(4000);
-    //
-    // httpConnection.connect();
-    // int responseCode = httpConnection.getResponseCode();
-    // if (responseCode == HttpURLConnection.HTTP_OK) {
-    // InputStream in = httpConnection.getInputStream();
-    //
-    // resultString = readStreamToString(in, "UTF-8"); // new
-    // // String(data.toString());
-    // in.close();
-    // } else {
-    // resultString = "";
-    // }
-    // httpConnection.disconnect();
-    //
-    // time = System.nanoTime() - time;
-    // Log.i("TimeOfLoadArrival", String.valueOf(time / 1E9));
-    // return resultString;
-    // } catch (Exception e) {
-    // return "";
-    // } finally {
-    // httpclient.getConnectionManager().shutdown();
-    // }
-    // }
-
-    // PHP_bridge based_2
-//    public static String loadArrivalDataFromMapBubble(int KS_ID)
-//            throws IOException {
-//        long timeAll = System.nanoTime();
-//        String resultString = new String("");
-//        try {
-//            URLConnection connection = null;
-//            URL url = new URL("http://map.samadm.ru/wfs2");
-//
-//            connection = url.openConnection();
-//            HttpURLConnection httpConnection = (HttpURLConnection) connection;
-//            httpConnection.setRequestMethod("POST");
-//
-//            String message = "<wfs:GetFeature service=\"WFS\" version=\"2.0.0\" outputFormat=\"application/gml+xml; version=3.2\""
-//                    + " xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0.0/wfs.xsd\""
-//                    + " xmlns:geosmr=\"http://www.geosamara.ru/wfs/geosmr/namespace\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\""
-//                    + " xmlns:fes=\"http://www.opengis.net/fes/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-//                    + "<wfs:Query typeNames=\"geosmr:*\">\n    <fes:Filter>\n      <fes:Or>\n        <fes:PropertyIsEqualTo>\n          <fes:ValueReference>geosmr:id</fes:ValueReference>\n"
-//                    + "          <fes:Literal>"
-//                    + DataController.getInstance().getStopGeoID(KS_ID)
-//                    + "</fes:Literal>\n        </fes:PropertyIsEqualTo>\n      </fes:Or>\n    </fes:Filter>\n  </wfs:Query>\n</wfs:GetFeature>";
-//
-//            httpConnection
-//                    .setRequestProperty("User-Agent",
-//                            "Mozilla/5.0 (X11; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0");
-//            httpConnection.setRequestProperty("Host", "map.samadm.ru");
-//            httpConnection.setRequestProperty("Connection", "keep-alive");
-//            httpConnection.setRequestProperty("Content-Type", "text-xml");
-//            httpConnection.setRequestProperty("Content-Length",
-//                    String.valueOf(message.length()));
-//            httpConnection
-//                    .setRequestProperty(
-//                            "Referer",
-//                            "http://map.samadm.ru/swf/Geosamara.swf?modules=map:Map,menu:Menu,markersList:MarkersList,toolbar:Toolbar,layersList:LayersList,messenger:Messenger&instruments=&domain=http://map.samadm.ru&currentPageUrl=/transport/&x=5426.0&y=3713.0&scale=5&layersSet=SM1,SM2,SM3,SM4&selectedObjects=&showBubbleForFirstSelectedObject=null&version=38&wmsURL=/wms1&wfsURL=/wfs2&settingsURL=/settings2");
-//            httpConnection.setRequestProperty("Accept-Encoding",
-//                    "gzip, deflate");
-//            httpConnection
-//                    .setRequestProperty("Accept",
-//                            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-//            httpConnection.setRequestProperty("Accept-Language",
-//                    "en-US,en;q=0.5");
-//
-//            httpConnection.setDoOutput(true);
-//            httpConnection.setDoInput(true);
-//            httpConnection.setConnectTimeout(4000);
-//            httpConnection.setReadTimeout(4000);
-//
-//            httpConnection.connect();
-//            // здесь можем писать в поток данные запроса
-//            OutputStream os = httpConnection.getOutputStream();
-//            String str = message;
-//            os.write(str.getBytes());
-//
-//            os.flush();
-//            os.close();
-//
-//            int responseCode = httpConnection.getResponseCode();
-//            if (responseCode == HttpURLConnection.HTTP_OK) {
-//                InputStream in = httpConnection.getInputStream();
-//
-//                long time = System.nanoTime();
-//                resultString = readStreamToString(in, "UTF-8"); // new
-//                // String(data.toString());
-//                time = System.nanoTime() - time;
-//                Log.i("TimeOfStreamCopy", String.valueOf(time / 1E9));
-//                in.close();
-//            } else {
-//                throw new IOException("Server does not respond");
-//            }
-//            httpConnection.disconnect();
-//        } catch (MalformedURLException e) {
-//            resultString = "MalformedURLException:" + e.getMessage();
-//        } catch (SocketTimeoutException e) {
-//            return "";
-//        }
-//
-//        timeAll = System.nanoTime() - timeAll;
-//        Log.i("TimeOfLoadMapBubble", String.valueOf(timeAll / 1E9));
-//
-//        return resultString;
-//    }
 
     // API based
     public static String loadArrivalDataAPI(int KS_ID) throws IOException {
@@ -793,16 +490,15 @@ public class DataController implements Serializable {
             connection = url.openConnection();
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             httpConnection.setRequestMethod("POST");
-            String authKey = "3333333";// "yPiRbhD";
+            String authKey = "";
 
             Context context = MyApplication.getAppContext();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            authKey = prefs.getString("authkey", "444444");
             Pair<String,String> pair = getAuthKey(message);
             authKey = pair.first;
             String license = pair.second;
             String tempKey = authKey;
-            //authKey = "yPiRbhD";
+
             Log.d("authKey = ", authKey);
             String hash = "";
             try{
@@ -854,21 +550,13 @@ public class DataController implements Serializable {
         }
 
         return resultString;
-        // return
-        // "<?xml version='1.0' encoding='utf-8'?><arrival>  <transport>    <number>42</number>    <KR_ID>603</KR_ID>    <modelTitle>Fiat DUCATO</modelTitle>    <hullNo>48226</hullNo>    <nextStopId>332</nextStopId>    <timeInSeconds>105.99000000000001</timeInSeconds>    <stateNumber>ЕА854</stateNumber>    <forInvalid>false</forInvalid>    <nextStopName>ул. Льва Толстого</nextStopName>    <time>1</time>    <type>Автобус</type>    <spanLength>464.9</spanLength>    <remainingLength>162.7</remainingLength>  </transport>  <transport>    <number>2</number>    <KR_ID>12</KR_ID>    <modelTitle>НЕФАЗ5299-20-53</modelTitle>    <hullNo>48316</hullNo>    <nextStopId>941</nextStopId>    <timeInSeconds>345.89</timeInSeconds>    <stateNumber>ЕА970</stateNumber>    <forInvalid>false</forInvalid>    <nextStopName>Самарская площадь</nextStopName>    <time>5</time>    <type>Автобус</type>    <spanLength>558.0</spanLength>    <remainingLength>3.8</remainingLength>  </transport>  <transport>    <number>2</number>    <KR_ID>12</KR_ID>    <modelTitle>НЕФАЗ5299-30-33</modelTitle>    <hullNo>48250</hullNo>    <nextStopId>782</nextStopId>    <timeInSeconds>1388.33</timeInSeconds>    <stateNumber>ЕК052</stateNumber>    <forInvalid>true</forInvalid>    <nextStopName>КРЦ Звезда</nextStopName>    <time>23</time>    <type>Автобус</type>    <spanLength>824.0</spanLength>    <remainingLength>350.2</remainingLength>  </transport></arrival>";
+
     }
 
 
    private static String getPassword(){
        String decKeyStr="555555";
        try {
-           /*Context context = MyApplication.getAppContext();
-           GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(context)
-                   .addApi(Plus.API)
-                   .addScope(Plus.SCOPE_PLUS_LOGIN)
-                   .build();
-           mGoogleApiClient.connect();
-           String accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);*/
 
            String xform = "RSA/ECB/PKCS1Padding";
            HttpClient client = new DefaultHttpClient();
@@ -964,10 +652,6 @@ public class DataController implements Serializable {
            }
 
            PublicKey pk1 = generatePublicKey(BASE64_PUBLIC_KEY);
-                /*Signature sign = Signature.getInstance("SHA1withRSA");
-                sign.initVerify(pk1);
-                sign.update(license.getBytes());
-                final boolean ok = sign.verify(bytes);*/
 
            byte[] decKey = decrypt(bytesKey, pk1, xform);
            String decKeyStr = new String(decKey, "UTF-8");
@@ -999,44 +683,7 @@ public class DataController implements Serializable {
         return cipher.doFinal(inpBytes);
     }
 
-    // public void createDBfromXML(Boolean stops, Boolean routes)
-    // throws IOException, XmlPullParserException {
-    // InputStream in = null;
-    // if (stops) {
-    // StopsFullDBXmlParser stopsFullDBParser = new StopsFullDBXmlParser();
-    // try {
-    // in = assetMan.open(resources
-    // .getString(R.string.stopsFullDBFileName));
-    // stopsFullDBParser.parse(in, mainDBhelper);
-    // } finally {
-    // in.close();
-    // }
-    //
-    // StopsXmlParser stopsParser = new StopsXmlParser();
-    // try {
-    // in = assetMan.open(resources.getString(R.string.stopsFileName));
-    // stopsParser.parse(in, mainDBhelper);
-    // } finally {
-    // in.close();
-    // }
-    // // db.close();
-    // }
-    //
-    // if (routes) {
-    // RoutesXmlParser routesFullDBParser = new RoutesXmlParser();
-    // try {
-    // in = assetMan.open("data/routes.xml");
-    // routesFullDBParser.parse(in, mainDBhelper);
-    // } finally {
-    // in.close();
-    // }
-    // // db.close();
-    // }
-    //
-    // }
 
-    // public static long sByName = 0;
-    // public static long sByNameSQL = 0;
 
     public Stop[] searchByName(String name, boolean isFavorOnly) {
         if (isFavorOnly) {
@@ -1176,49 +823,6 @@ public class DataController implements Serializable {
         return res;
     }
 
-    // public void putRouteIntoDB(Route r) {
-    // mainDBhelper.putRouteIntoDB(r);
-    // }
-    //
-    // public void putStopIntoDB(Stop st) {
-    // mainDBhelper.putStopIntoDB(st);
-    // }
-    //
-    // public void updateStop(Stop st) {
-    // mainDBhelper.updateStop(st);
-    // }
-
-    // public static void putStopCorrIntoDB(Stop st, SQLiteDatabase db) {
-    // // Log.appendLog("DataController putStopIntoDB " + st.KS_ID);
-    // ContentValues values = new ContentValues();
-    // values.put(TransportDBContract.StopCorrEntry.COLUMN_NAME_KS_ID,
-    // st.KS_ID);
-    // values.put(TransportDBContract.StopCorrEntry.COLUMN_NAME_Geoportal_ID,
-    // st.geoportalID);
-    //
-    // db.beginTransaction();
-    // db.insert(TransportDBContract.StopCorrEntry.TABLE_NAME, null, values);
-    // db.setTransactionSuccessful();
-    // db.endTransaction();
-    // }
-    //
-    // public void createStopCorrDB() throws XmlPullParserException, IOException
-    // {
-    // InputStream in = null;
-    // // SQLiteDatabase db = (new TransportDBContract().new
-    // // StopCorrReaderDbHelper(
-    // // activity, "StopsGeoID.db")).getWritableDatabase();
-    // SQLiteDatabase db = getStopCorrDB(true);
-    // GeoportalStopsXmlParser geoportalStopsXmlParser = new
-    // GeoportalStopsXmlParser();
-    // try {
-    // in = assetMan.open("GeoportalStopsCorrespondence.xml");
-    // geoportalStopsXmlParser.parse(in, db);
-    // } finally {
-    // in.close();
-    // }
-    // }
-
     public Stop getStop(int KS_ID) {
         return mainDBhelper.getStop(KS_ID);
     }
@@ -1235,87 +839,6 @@ public class DataController implements Serializable {
         return mainDBhelper.getStops(KS_IDs);
     }
 
-    // public void createNewDB() {
-    // // SQLiteDatabase dbCommon = new TransportDBContract().new
-    // // CommonReaderDbHelper(
-    // // activity, "main.db").getWritableDatabase();
-    // // SQLiteDatabase dbFavor = new TransportDBContract().new
-    // // FavorReaderDbHelper(
-    // // activity, "favor.db").getWritableDatabase();
-    //
-    // // Cursor curStops = getStopsDB(false).query(StopEntry.TABLE_NAME, null,
-    // // null, null, null, null, null);
-    // Cursor curRoutes = new TransportDBContract().new RoutesReaderDbHelper(
-    // activity, "Routes.db").getReadableDatabase().query(
-    // RouteEntry.TABLE_NAME, null, null, null, null, null, null);
-    //
-    // // Stop st;
-    // // ContentValues values;
-    // // dbCommon.beginTransaction();
-    // // dbFavor.beginTransaction();
-    // // if (curStops.moveToFirst()) {
-    // // do {
-    // // st = new Stop();
-    // // cursorToStop(curStops, st, true);
-    // //
-    // // values = stopToContentValues(st);
-    // // values.put(StopCorrEntry.COLUMN_NAME_Geoportal_ID,
-    // // getStopGeoID(st.KS_ID));
-    // //
-    // // dbCommon.insert(TransportDBContract.StopEntry.TABLE_NAME, null,
-    // // values);
-    // //
-    // // values = new ContentValues();
-    // // values.put(StopEntry.COLUMN_NAME_KS_ID, st.KS_ID);
-    // // values.put(FavorEntry.COLUMN_NAME_FAVOR,
-    // // isInFavor(st.KS_ID) ? "1" : "0");
-    // // dbFavor.insert(FavorEntry.TABLE_NAME, null, values);
-    // // } while (curStops.moveToNext());
-    // // }
-    // // dbFavor.setTransactionSuccessful();
-    // // dbFavor.endTransaction();
-    // // dbFavor.close();
-    //
-    // ContentValues values;
-    // Route r;
-    // if (curRoutes.moveToFirst()) {
-    // do {
-    // r = new Route();
-    // TransportDBContract.cursorToRoute(curRoutes, r);
-    //
-    // values = new ContentValues();
-    // values.put(TransportDBContract.RouteEntry.COLUMN_NAME_KR_ID,
-    // r.KR_ID);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_AFFILIATION,
-    // r.affiliation);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_AFFILIATION_ID,
-    // r.affiliationID);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_DIRECTION,
-    // r.direction);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_DIRECTION_EN,
-    // r.directionEn);
-    // values.put(TransportDBContract.RouteEntry.COLUMN_NAME_NUMBER,
-    // r.number);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_TRANSPORT_TYPE,
-    // r.transportType);
-    // values.put(
-    // TransportDBContract.RouteEntry.COLUMN_NAME_TRANSPORT_TYPE_ID,
-    // r.transportTypeID);
-    //
-    // mainDBhelper.putRouteIntoDB(r);
-    // // dbCommon.insert(TransportDBContract.RouteEntry.TABLE_NAME,
-    // // null, values);
-    // } while (curRoutes.moveToNext());
-    // }
-    // // dbCommon.setTransactionSuccessful();
-    // // dbCommon.endTransaction();
-    // // dbCommon.close();
-    // }
 
     private void copyFavor() {
         File stops = activity.getDatabasePath("Stops.db");

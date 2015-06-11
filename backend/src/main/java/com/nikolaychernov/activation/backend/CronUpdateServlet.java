@@ -18,7 +18,6 @@ public class CronUpdateServlet extends HttpServlet{
         ObjectifyService.register(User.class);
     }
 
-    private static String refreshToken = "1/oo1JL4rG3qYxnFota3iJdVIF3AJS6o_5NaXegbf_xYsMEudVrK5jSpoR30zcRFq6";
     private static String defaultPackageName = "air.nikolaychernov.samis.ChernovPryb";
     private static String productid = "license";
 
@@ -26,7 +25,7 @@ public class CronUpdateServlet extends HttpServlet{
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
-        String accessToken = Utils.getAccessToken(refreshToken);
+        String accessToken = Utils.getAccessToken();
         List<User> list = ObjectifyService.ofy().load().type(User.class).filter("access", 0).list();
         for (User user : list){
             int access = 1;
@@ -37,7 +36,7 @@ public class CronUpdateServlet extends HttpServlet{
         ObjectifyService.ofy().save().entities(list);
 
         resp.setContentType("text/plain");
-        resp.getWriter().println("Please use the form to POST to this url");
+        resp.getWriter().println("");
     }
 
     @Override

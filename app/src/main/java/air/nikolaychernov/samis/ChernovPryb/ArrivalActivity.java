@@ -59,19 +59,10 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
 
     }
 
-    // @Override
-    // public void onSaveInstanceState(Bundle savedInstanceState) {
-    // savedInstanceState.putSerializable("dm", DataController.getInstance());
-    //
-    // super.onSaveInstanceState(savedInstanceState);
-    // }
-
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.d("onConnected","mGoogleApiClient.connect()");
         accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);
-        //ActivationService.startActionFoo(this, accountName, " ");
-        //Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
     }
 
 
@@ -94,8 +85,7 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         }
         // This callback is important for handling errors that
         // may occur while attempting to connect with Google.
-        //
-        // More about this in the next section.
+
     }
 
     @Override
