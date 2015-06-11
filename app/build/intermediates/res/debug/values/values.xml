@@ -22,6 +22,11 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="blue">#000099</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -48,6 +53,11 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="green">#009900</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -59,6 +69,12 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="orange">#FF9900</color>
+    <color name="primary">#673AB7</color>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>

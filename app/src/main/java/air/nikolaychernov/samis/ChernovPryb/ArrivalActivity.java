@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NavUtils;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,12 +22,6 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnPullEventListener;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.ArrayList;
 
@@ -39,6 +34,8 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
     public static String accountName = "";
     private boolean showRouteArrival = false;
     private int KR_ID = 0;
+
+    ListView mListView;
 
     private class MyTimer extends CountDownTimer {
 
@@ -144,41 +141,24 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
                 .addOnConnectionFailedListener(this)
                 .addConnectionCallbacks(this)
                 .build();
-        /*tv = (TextView) findViewById(R.id.txtArrivalDirectionLabel);
-        dataMan.setTypeface(tv, HelveticaFont.Medium);
 
-        tv = (TextView) findViewById(R.id.txtArrivalStopName);
-        tv.setText(st.title);
-        dataMan.setTypeface(tv, HelveticaFont.Bold);
-
-        tv = (TextView) findViewById(R.id.txtArrivalStreet);
-        tv.setText(st.adjacentStreet);
-        dataMan.setTypeface(tv, HelveticaFont.Medium);
-
-        tv = (TextView) findViewById(R.id.txtArrivalDirection1);
-        tv.setText(st.direction);
-        dataMan.setTypeface(tv, HelveticaFont.Bold);*/
 
         task = new DownloadArrivalInfoTask();
 
-        PullToRefreshListView mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.arrivalList);
+        mListView = (ListView) findViewById(R.id.arrivalList);
+        final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        mRefreshLayout.setColorSchemeResources(R.color.primary);
 
         // Set a listener to be invoked when the list should be refreshed.
-        mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-                refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
+            public void onRefresh() {
+                //refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
                 displayArrivalInfo();
+                mRefreshLayout.setRefreshing(false);
             }
         });
-        mPullRefreshListView.setOnPullEventListener(new OnPullEventListener<ListView>() {
 
-            @Override
-            public void onPullEvent(PullToRefreshBase<ListView> refreshView, State state, Mode direction) {
-                // TODO Auto-generated method stub
-                refreshView.getLoadingLayoutProxy().setLoadingDrawable(null);
-            }
-        });
     }
 
     @Override
@@ -229,7 +209,7 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         if (t != null) {
             t.cancel();
         }
-        findViewById(R.id.progressLoading).setVisibility(View.VISIBLE);
+        //findViewById(R.id.progressLoading).setVisibility(View.VISIBLE);
         // findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
         task = new DownloadArrivalInfoTask();
         task.execute(this);
@@ -318,7 +298,7 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         // This is called when doInBackground() is finished
         protected void onPostExecute(Boolean result) {
             // Log.appendLog("ArrivalActivity DownloadArrivalInfoTask onPostExecute");
-            findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
             if (isCancelled()) {
                 return;
             }
@@ -329,16 +309,16 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
                     // findViewById(R.id.arrivalList).setVisibility(View.VISIBLE);
                     // ListView list = (ListView)
                     // findViewById(R.id.arrivalList);
-                    PullToRefreshListView wrapper = (PullToRefreshListView) findViewById(R.id.arrivalList);
-                    wrapper.setVisibility(View.VISIBLE);
-                    ListView list = (wrapper).getRefreshableView();
-                    list.setVisibility(View.VISIBLE);
+                    //PullToRefreshListView wrapper = (PullToRefreshListView) findViewById(R.id.arrivalList);
+                    //wrapper.setVisibility(View.VISIBLE);
+                    //ListView list = (wrapper).getRefreshableView();
+                    //list.setVisibility(View.VISIBLE);
 
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 
-                    list.setAdapter(adapter); // отображаем все объекты
-                    wrapper.onRefreshComplete();
-                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    mListView.setAdapter(adapter); // отображаем все объекты
+                    //wrapper.onRefreshComplete();
+                    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
                             if (id > 0) {

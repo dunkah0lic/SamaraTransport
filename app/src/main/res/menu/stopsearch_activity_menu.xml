@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/search"
         android:title="Поиск"
-        android:icon="@drawable/ic_action_search"
+        android:icon="@drawable/magnify"
         android:showAsAction="collapseActionView|ifRoom"
         android:actionViewClass="android.widget.SearchView" />
     <item android:id="@+id/action_favourite"
-        android:icon="@drawable/ic_action_not_important_white"
+        android:icon="@drawable/star_outline"
         android:title="Избранное"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/action_settings"

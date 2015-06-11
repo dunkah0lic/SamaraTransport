@@ -8,22 +8,21 @@
                 tools:context=".MainActivity">
 
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        <ListView
             android:id="@+id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            whatever:ptrHeaderTextColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:divider="@drawable/separator_middle"
             android:dividerHeight="1dp"
-            android:focusable="true"
-           />
+            >
+        </ListView>
 
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </RelativeLayout>

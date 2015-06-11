@@ -21,6 +21,7 @@ import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,8 +36,6 @@ import com.android.vending.billing.IInAppBillingService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -55,7 +54,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
     private DataController dataMan;
     private StopGroup[] grp;
-    private PullToRefreshListView list;
+    private ListView list;
     private GoogleApiClient mGoogleApiClient;
     private IInAppBillingService mService;
     ServiceConnection mServiceConn;
@@ -158,21 +157,19 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
         snmt = new SearchNearMeTask();
 
-        list = (PullToRefreshListView) findViewById(R.id.list);
-        list.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
-            @Override
-            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-                refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
-                searchNearMe(false, "refresh");
-            }
-        });
-        list.setOnPullEventListener(new PullToRefreshBase.OnPullEventListener<ListView>() {
+        list = (ListView) findViewById(R.id.list);
+        final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onPullEvent(PullToRefreshBase<ListView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
-                refreshView.getLoadingLayoutProxy().setLoadingDrawable(null);
+            public void onRefresh() {
+                //refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
+                searchNearMe(false, "refresh");
+                mRefreshLayout.setRefreshing(false);
             }
         });
+        searchNearMe(false, "refresh");
+
 
         ActionBar ab = getActionBar();
         ab.setIcon(null);
@@ -227,9 +224,9 @@ public class StopSearchActivity extends Activity implements Serializable, Google
                 searchInFavor = !searchInFavor;
                 cmdSearchInFavor_click();
                 if(searchInFavor) {
-                    menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.ic_action_important));
+                    menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.star));
                 } else {
-                    menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.ic_action_not_important_white));
+                    menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.star_outline));
                 }
                 return true;
             case R.id.action_settings:
@@ -309,13 +306,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         // The activity is about to be destroyed.
     }
 
-    // @Override
-    // public boolean onCreateOptionsMenu(Menu menu) {
-    // // DataController.getInstance().createNewDB();
-    // msgBox(this, "Completed", "");
-    //
-    // return false;
-    // }
 
     private void openLocationSettings() {
         // Log.appendLog("StopSearchActivity openLocationSettings - promt to open system location settings screen");
@@ -349,19 +339,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         }
     }
 
-    public void say(String msg) {
-        msgBox(this, msg, "");
-    }
-
-    public void sayMoved(boolean isGPS) {
-        // msgBox(this, "Notified", "");
-        // moveCounter++;
-        if (isGPS) {
-            msgBox(this, "Обновление точного местоположения", "");
-        } else {
-            msgBox(this, "Обновление неточного местоположения", "");
-        }
-    }
 
     public void cmdSearchInFavor_click() {
         // Log.appendLog("StopSearchActivity cmdSearchInFavor_click");
@@ -401,10 +378,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
             grp = result;
             fillList();
         }
-    }
-
-    public void cmdErase_click(View view) {
-        //((TextView) findViewById(R.id.txtStopName)).setText("");
     }
 
     public void cmdSettings_click(View view) {
@@ -489,16 +462,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         }
     }
 
-    public void cmdFindNearMe_click(View view) {
-        // Log.appendLog("StopSearchActivity cmdFindNearMe_click");
-        if (!dataMan.navInit()) {
-            // msgBox(this, "Навигация отключена в настройках!",
-            // "Ошибочка вышла");
-            openLocationSettings();
-        }
-        // dataMan.requestNewLocation();
-        searchNearMe(true, "cmdFindNearMe_click");
-    }
 
     public void searchNearMe(boolean force, String who) {
         // msgBox(this, who, "");
@@ -550,7 +513,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
             //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
             //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
             //findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
-            list.onRefreshComplete();
+            //list.onRefreshComplete();
             if (isCancelled()) {
                 return;
             }
