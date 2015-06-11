@@ -580,7 +580,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-                showDirections(position-1);
+                showDirections(position);
             }
         });
     }
