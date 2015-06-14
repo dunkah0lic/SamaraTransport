@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true"
-          android:drawable="@drawable/ic_action_important_yellow64"/>
-    <item android:drawable="@drawable/ic_action_not_important"/>
-</selector><!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/drawable-hdpi/favor_button_states.xml -->

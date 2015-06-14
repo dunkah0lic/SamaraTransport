@@ -316,6 +316,8 @@ public class TransportDBContract implements Serializable {
 
                 stops.add(st);
             }
+            c.close();
+            db.close();
 
             return stops;
         }

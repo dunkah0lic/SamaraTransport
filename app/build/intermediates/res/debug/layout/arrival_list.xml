@@ -164,18 +164,20 @@
             android:textSize="12sp"/>
 
     <TextView
-            android:id="@+id/txtArrivalListPosition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_alignLeft="@id/txtArrivalListRoute"
-            android:layout_alignRight="@id/relLayoutArrivalListTime"
-            android:layout_below="@id/txtArrivalListVehicle"
-            android:lineSpacingExtra="3dp"
-            android:text="Position"
-            android:fontFamily="sans-serif-light"
-            android:textColor="#525A66"
-            android:textSize="14sp"/>
+        android:id="@+id/txtArrivalListPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_alignLeft="@id/txtArrivalListRoute"
+        android:layout_below="@id/txtArrivalListVehicle"
+        android:lineSpacingExtra="3dp"
+        android:text="Position"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#525A66"
+        android:textSize="14sp"
+        android:layout_toLeftOf="@+id/btnShowRoute"
+        android:layout_toStartOf="@+id/btnShowRoute" />
+
 
     <Button
         android:id="@+id/btnShowRoute"
@@ -184,11 +186,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="5dp"
+
         android:background="@drawable/map_marker_multiple"
         android:focusable="false"
         android:minHeight="24dp"
         android:minWidth="24dp"
         android:textOff=" "
         android:textOn=" "/>
+
+
 
 </RelativeLayout><!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/layout/arrival_list.xml -->

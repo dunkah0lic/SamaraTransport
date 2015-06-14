@@ -163,27 +163,18 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
     @Override
     protected void onStart() {
         super.onStart();
-        // The activity is about to become visible.
-        Log.d("ArrivalACTIVITY","StopSearchActivity onStart");
         mGoogleApiClient.connect();
-        Log.d("onStart","mGoogleApiClient.connect()");
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // The activity has become visible (it is now "resumed").
-        // Log.appendLog("ArrivalActivity onResume");
         cmdUpdate_click(null);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        // Another activity is taking focus (this activity is about to be
-        // "paused").
-        // Log.appendLog("ArrivalActivity onPause");
         if (t != null) {
             t.cancel();
         }
@@ -193,8 +184,6 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
     @Override
     protected void onStop() {
         super.onStop();
-        // The activity is no longer visible (it is now "stopped")
-        // Log.appendLog("ArrivalActivity onStop");
         mGoogleApiClient.disconnect();
         if (t != null) {
             t.cancel();
@@ -203,19 +192,15 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
     }
 
     private void displayArrivalInfo() {
-        // Log.appendLog("ArrivalActivity displayArrivalInfo");
         task.cancel(false);
         if (t != null) {
             t.cancel();
         }
-        //findViewById(R.id.progressLoading).setVisibility(View.VISIBLE);
-        // findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
         task = new DownloadArrivalInfoTask();
         task.execute(this);
     }
 
     public void cmdUpdate_click(View view) {
-        // Log.appendLog("ArrivalActivity cmdUpdate_click");
         showRouteArrival = false;
         displayArrivalInfo();
     }
@@ -224,8 +209,6 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         Intent intent = new Intent(this, SettingsActivity.class);
         DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
-//		intent.putExtra("requestAdditionalPredict",
-//				dataMan.isRequestAddPredict());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
         intent.putExtra("showTrams", dataMan.isShowTrams());
         intent.putExtra("showTrolls", dataMan.isShowTrolls());

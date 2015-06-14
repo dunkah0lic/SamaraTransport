@@ -1,1 +1,0 @@
-C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes-proguard\release\classes.jar

@@ -16,6 +16,27 @@
         <dex dex="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-8611d46131a8bfff8dc09161fe780a167508fe8d.jar" />
     </item>
     <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d0d074913dc867235bc8c038ef9ab65f190594e6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-16b6fe4a9f40752104ec0befef4a889443a28e41.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0eb4606d7767896d4855ed6b731dd185fda7cfe0.jar" />
+    </item>
+    <item
         jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -37,13 +58,6 @@
         <dex dex="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-b26966d4b01cd588d1bad45906aaa5e94e4e75b0.jar" />
     </item>
     <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d0d074913dc867235bc8c038ef9ab65f190594e6.jar" />
-    </item>
-    <item
         jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -56,20 +70,6 @@
         revision="21.1.2"
         sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
         <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-f58373160ef3e61ed18811f81603e945bbd97d3e.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Nikolay\Desktop\Arrival 1.0\Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0\app\build\intermediates\pre-dexed\debug\classes-16b6fe4a9f40752104ec0befef4a889443a28e41.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0eb4606d7767896d4855ed6b731dd185fda7cfe0.jar" />
     </item>
 
 </items>
