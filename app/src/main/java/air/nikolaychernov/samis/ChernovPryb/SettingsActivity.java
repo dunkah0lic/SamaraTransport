@@ -35,15 +35,9 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
             startActivity(mainIntent);
             return;
         }
-        progressText = (TextView) findViewById(R.id.txtRadiusLabel);
+        radius = getIntent().getIntExtra("radius", 600);
+        progressText = (TextView) findViewById(R.id.txtRadiusLabel) ;
 
-        //dataMan.setTypeface(progressText, HelveticaFont.Medium);
-
-        //dataMan.setTypeface((TextView) findViewById(R.id.txtRadiusLabel), HelveticaFont.Medium);
-
-//		dataMan.setTypeface((TextView) findViewById(R.id.txtAddInfoLabel),
-//				HelveticaFont.Medium);
-        //dataMan.setTypeface((TextView) findViewById(R.id.txtAutoUpdateLabel), HelveticaFont.Medium);
 
         ActionBar ab = getActionBar();
         ab.setIcon(null);
@@ -53,7 +47,11 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
         isAutoUpdate = getIntent().getBooleanExtra("updateFlag", true);
 //		requestAddPredict = getIntent().getBooleanExtra("requestAdditionalPredict", true);
         radius = getIntent().getIntExtra("radius", 600);
-        // progressText.setText(radius + "");
+        if (radius >= 1000) {
+            progressText.setText("Радиус поиска остановок: " + radius / 1000.0 + " км");
+        } else {
+            progressText.setText("Радиус поиска остановок: " + radius + " м");
+        }
         ((SeekBar) findViewById(R.id.seekRadius)).setProgress(radius - 300);
         ((Switch) findViewById(R.id.toggleAutoUpdate)).setChecked(isAutoUpdate);
         ((CheckBox) findViewById(R.id.checkShowBuses)).setChecked(getIntent().getBooleanExtra("showBuses", true));

@@ -1,31 +1,60 @@
 package air.nikolaychernov.samis.ChernovPryb;
 
-import android.support.v4.app.FragmentActivity;
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    int KR_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        KR_ID = getIntent().getIntExtra("KR_ID",1);
         setUpMapIfNeeded();
+
+        TransportDBContract contr = new TransportDBContract();
+        TransportDBContract.RouteReaderDbHelper helper = contr.new RouteReaderDbHelper(this);
+        ArrayList<Stop> stops = helper.getStopsForRoute(KR_ID);
+        for (int i=0; i<stops.size(); i++){
+            mMap.addMarker(new MarkerOptions().position(new LatLng(stops.get(i).latitude, stops.get(i).longitude)).title(stops.get(i).title));
+            Log.d("ArrivalListAdapter", "btnOnClick stops " + stops.get(i).latitude + " " + stops.get(i).longitude);
+        }
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.219404,50.198077), 11));
+
+        TransportDBContract.MainReaderDbHelper mainReaderDbHelper = contr.new MainReaderDbHelper(this);
+        Route route = mainReaderDbHelper.getRoute(KR_ID);
+        ActionBar ab = getActionBar();
+        //ab.setIcon(null);
+        if (route.direction!=null){
+            ab.setTitle(route.number + ": " + route.direction);
+        }
+
+        //ab.setSubtitle(st.direction);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setUpMapIfNeeded();
+        //setUpMapIfNeeded();
+
     }
 
-    /**
+
+        /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
      * installed) and the map has not already been instantiated.. This will ensure that we only ever
      * call {@link #setUpMap()} once when {@link #mMap} is not null.
@@ -60,6 +89,6 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 }

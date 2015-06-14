@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -17,7 +16,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
@@ -47,10 +45,6 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 public class StopSearchActivity extends Activity implements Serializable, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    private static final int REQUEST_CODE_RESOLVE_ERR = 9000;
-
-    private ProgressDialog mConnectionProgressDialog;
-    private ConnectionResult mConnectionResult;
 
     private DataController dataMan;
     private StopGroup[] grp;
@@ -100,27 +94,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
     }
 
-    private class AutoSearchTimer extends CountDownTimer {
-
-        public AutoSearchTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onFinish() {
-            // Do something...
-            if (!searchByNav) {
-                cmdFind_click(null);
-            }
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            // TODO Auto-generated method stub
-
-        }
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,15 +128,16 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
         dataMan = DataController.getInstance(this);
 
+
         snmt = new SearchNearMeTask();
 
         list = (ListView) findViewById(R.id.list);
         final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        mRefreshLayout.setColorSchemeResources(R.color.primary);
 
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
                 searchNearMe(false, "refresh");
                 mRefreshLayout.setRefreshing(false);
             }
@@ -259,14 +233,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         mGoogleApiClient.connect();
         Log.d("onStart","mGoogleApiClient.connect()");
         if (!searchInFavor) {
-            // Log.appendLog("StopSearchActivity onStart !searchInFavor");
-            // Log.appendLog("StopSearchActivity onStart searchByNav=" +
-            // searchByNav);
             if (searchByNav && dataMan.isLocationChanged() || firstStart) {
-                // Log.appendLog("StopSearchActivity onStart calling searchNearMe");
-                // searchNearMe(true, "onStart");
                 searchNearMe(false, "onStart");
-                // dataMan.requestNewLocation();
             }
         }
     }
@@ -274,10 +242,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     @Override
     protected void onResume() {
         super.onResume();
-        // Log.appendLog("StopSearchActivity onResume");
-        // The activity has become visible (it is now "resumed").
         if (!dataMan.isNavWorking()) {
-            // Log.appendLog("StopSearchActivity onResume !dataMan.isNavWorking()");
             dataMan.navInit();
         }
     }
@@ -296,7 +261,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         super.onDestroy();
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onDestroy");
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        //SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove("authkey");
         editor.commit();
@@ -341,16 +305,12 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
 
     public void cmdSearchInFavor_click() {
-        // Log.appendLog("StopSearchActivity cmdSearchInFavor_click");
-        //searchInFavor = ((ToggleButton) view).isChecked();
         if (searchInFavor) {
             new FavorTask().execute(true, false);
         } else {
             if (searchByNav) {
                 searchNearMe(false, "cmdSearchInFavor_click");
             }
-            // else
-            // cmdFind_click(null);
         }
     }
 
@@ -369,9 +329,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
-            // searchByNav = false;
-            // dataMan.navTerminate();
-            // Log.appendLog("StopSearchActivity FavorTask onPostExecute");
             if (isCancelled()) {
                 return;
             }
@@ -474,14 +431,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         if (dataMan.isNavWorking()) {
             if (snmt.getStatus() != AsyncTask.Status.RUNNING) {
                 snmt.execute(true, force); // true =
-                // dataMan.isNavWorking();
-                // false = no force
-                // use last network
-                // location
+
             }
-        } else {
-            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-           //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
         }
     }
 
@@ -509,11 +460,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
-            // Log.appendLog("StopSearchActivity SearchNearMeTask onPostExecute");
-            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-            //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
-            //findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
-            //list.onRefreshComplete();
+
             if (isCancelled()) {
                 return;
             }
@@ -546,10 +493,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
-            // Log.appendLog("StopSearchActivity SearchByNameTask onPostExecute");
-            //findViewById(R.id.linLayoutSplashPortrait).setVisibility(View.INVISIBLE);
-            //findViewById(R.id.linLayoutSplashLandscape).setVisibility(View.INVISIBLE);
-            // dataMan.navTerminate();
+
             if (isCancelled()) {
                 return;
             }
@@ -562,17 +506,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     }
 
     private void fillList() {
-        //Log.d("","StopSearchActivity fillList");
 
-        /*list.setOnPullEventListener(new PullToRefreshBase.OnPullEventListener<ListView>() {
-
-            @Override
-            public void onPullEvent(PullToRefreshBase<ListView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
-                // TODO Auto-generated method stub
-                refreshView.getLoadingLayoutProxy().setLoadingDrawable(null);
-
-            }
-        });*/
         StopGroupsListAdapter adapter = new StopGroupsListAdapter(this, grp);
         list.setAdapter(adapter);
 
@@ -603,21 +537,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         }
     }
 
-//	public void showArrival(int KS_ID) {
-//		// Log.appendLog("StopSearchActivity showArrival");
-//		try {
-//			Intent intent = new Intent(this, ArrivalActivity.class);
-//			intent.putExtra(MESSAGE_STOP, dataMan.getStop(KS_ID));
-//			intent.putExtra(MESSAGE_ARRIVAl_INFO, DataController
-//					.getArrivalInfo(KS_ID));
-//			startActivity(intent);
-//		} catch (IOException e) {
-//			// Log.appendLog("EXCEPTION in StopSearchActivity showArrival " +
-//			// e.getLocalizedMessage());
-//			msgBox(this, e.getLocalizedMessage(), "Error");
-//		}
-//
-//	}
 
     private boolean isPortrait() {
         // Log.appendLog("StopSearchActivity isPortrait");

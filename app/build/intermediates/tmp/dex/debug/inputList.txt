@@ -1,6 +1,7 @@
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes\debug
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-aa16b3cf885393ef74ba8407c65bcf20627dd05b.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d0d074913dc867235bc8c038ef9ab65f190594e6.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-b67f7b1fd0629343a0c591c2020c7e68ec43022e.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5bf0c4754c315599737fa2b82ac9a0ec1363f8a8.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0eb4606d7767896d4855ed6b731dd185fda7cfe0.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-f58373160ef3e61ed18811f81603e945bbd97d3e.jar

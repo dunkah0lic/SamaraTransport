@@ -153,7 +153,6 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //refreshView.getLoadingLayoutProxy().setTextTypeface(DataController.getInstance().getTypeface(DataController.HelveticaFont.Medium));
                 displayArrivalInfo();
                 mRefreshLayout.setRefreshing(false);
             }
@@ -306,13 +305,6 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
                 if (!arrInfo.isEmpty()) {
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
                     findViewById(R.id.txtConnectionProblem).setVisibility(View.INVISIBLE);
-                    // findViewById(R.id.arrivalList).setVisibility(View.VISIBLE);
-                    // ListView list = (ListView)
-                    // findViewById(R.id.arrivalList);
-                    //PullToRefreshListView wrapper = (PullToRefreshListView) findViewById(R.id.arrivalList);
-                    //wrapper.setVisibility(View.VISIBLE);
-                    //ListView list = (wrapper).getRefreshableView();
-                    //list.setVisibility(View.VISIBLE);
 
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 

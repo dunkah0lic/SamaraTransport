@@ -1,11 +1,14 @@
 package air.nikolaychernov.samis.ChernovPryb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,12 +21,9 @@ public class ArrivalListAdapter extends BaseAdapter {
     ArrayList<ArrivalInfo> objects;
     private DataController dataMan;
 
-    // Map<Integer, Stop> stops;
-
     public ArrivalListAdapter(Context context, ArrayList<ArrivalInfo> arrivalInfo) {
         //Log.appendLog("ArrivalListAdapter constructor");
         cont = context;
-        // stops=stopsDB;
         objects = arrivalInfo;
         lInflater = (LayoutInflater) cont.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dataMan = DataController.getInstance();
@@ -35,7 +35,6 @@ public class ArrivalListAdapter extends BaseAdapter {
     }
 
     public ArrivalInfo getItem(int position) {
-        // return stops.get(position);
         return objects.get(position);
     }
 
@@ -51,8 +50,20 @@ public class ArrivalListAdapter extends BaseAdapter {
             // получаем LayoutInflater для работы с layout-ресурсами
             view = lInflater.inflate(R.layout.arrival_list, parent, false);
         }
-
+        final int pos = position;
         ArrivalInfo p = getItem(position);
+        Button btn = (Button) view.findViewById(R.id.btnShowRoute);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int KR_ID = objects.get(pos).getKR_ID();
+                Log.d("ArrivalListAdapter", "btnOnClick " + KR_ID);
+
+                Intent intent = new Intent(cont, MapsActivity.class);
+                intent.putExtra("KR_ID", KR_ID);
+                cont.startActivity(intent);
+            }
+        });
 
         //Log.appendLog("ArrivalListAdapter getView 1");
         // заполняем View в пункте списка данными
@@ -105,8 +116,9 @@ public class ArrivalListAdapter extends BaseAdapter {
             ((RelativeLayout) view.findViewById(R.id.relLayoutArrivalListCommBusIcon)).setVisibility(View.INVISIBLE);
         }
 
-        //Log.appendLog("ArrivalListAdapter getView END");
         return view;
     }
+
+
 
 }
