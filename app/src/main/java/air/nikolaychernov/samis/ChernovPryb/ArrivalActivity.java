@@ -40,8 +40,7 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
     private class MyTimer extends CountDownTimer {
 
         public MyTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
+            super(millisInFuture, countDownInterval);        }
 
         @Override
         public void onFinish() {
