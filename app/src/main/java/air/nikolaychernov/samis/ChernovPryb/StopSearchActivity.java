@@ -3,20 +3,14 @@ package air.nikolaychernov.samis.ChernovPryb;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.IntentSender.SendIntentException;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -28,30 +22,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
-
-import com.android.vending.billing.IInAppBillingService;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.Serializable;
 
-public class StopSearchActivity extends Activity implements Serializable, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class StopSearchActivity extends Activity implements Serializable {
 
     private DataController dataMan;
     private StopGroup[] grp;
     private ListView list;
-    private GoogleApiClient mGoogleApiClient;
-    private IInAppBillingService mService;
-    ServiceConnection mServiceConn;
 
     public final static String MESSAGE_KS_ID = "com.markikokik.transarrival63.KS_ID";
     public final static String MESSAGE_STOP = "com.markikokik.transarrival63.stop";
@@ -62,37 +40,10 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     private boolean searchByNav = true;
     private boolean searchInFavor = false;
     private boolean firstStart = true;
-    public static String accountName = "";
 
     private Menu menu;
 
     private SearchNearMeTask snmt;
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        Log.d("onConnected","mGoogleApiClient.connect()");
-        accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);
-
-    }
-
-
-    @Override
-    public void onConnectionSuspended(int arg0) {
-        Log.d("onConnectionSuspended","mGoogleApiClient.connect()");
-
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        Log.d("onConnectionFailed",""+ result.getErrorCode());
-        try {
-            result.startResolutionForResult(this,10);
-        } catch (SendIntentException e) {
-            //mIntentInProgress = false;
-            mGoogleApiClient.connect();        }
-
-    }
 
 
     @Override
@@ -102,33 +53,7 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onCreate");
         setContentView(R.layout.activity_stopsearch);
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addOnConnectionFailedListener(this)
-                .addConnectionCallbacks(this)
-                .build();
-
-        //For In-App purchases
-        mServiceConn = new ServiceConnection() {
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                mService = null;
-            }
-
-            @Override
-            public void onServiceConnected(ComponentName name,
-                                           IBinder service) {
-                mService = IInAppBillingService.Stub.asInterface(service);
-            }
-        };
-        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        serviceIntent.setPackage("com.android.vending");
-        bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
-
         dataMan = DataController.getInstance(this);
-
-
         snmt = new SearchNearMeTask();
 
         list = (ListView) findViewById(R.id.list);
@@ -144,17 +69,14 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         });
         searchNearMe(false, "refresh");
 
-
         ActionBar ab = getActionBar();
         ab.setIcon(null);
 
         handleIntent(getIntent());
 
         if (!dataMan.navInit()) {
-
             openLocationSettings();
         }
-
     }
 
     @Override
@@ -179,7 +101,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     }
 
     private void handleIntent(Intent intent) {
-
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             Log.d("","handleIntent");
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -210,17 +131,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_buy:
-                try {
-                    Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                            "license", "inapp", "");
-                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                    startIntentSenderForResult(pendingIntent.getIntentSender(),
-                            1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
-                            Integer.valueOf(0));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -228,10 +138,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     @Override
     protected void onStart() {
         super.onStart();
-
-        Log.d("STOPSEARCHACTIVITY","StopSearchActivity onStart");
-        mGoogleApiClient.connect();
-        Log.d("onStart","mGoogleApiClient.connect()");
         if (!searchInFavor) {
             if (searchByNav && dataMan.isLocationChanged() || firstStart) {
                 searchNearMe(false, "onStart");
@@ -249,7 +155,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
 
     @Override
     protected void onStop() {
-        mGoogleApiClient.disconnect();
         super.onStop();
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onStop");
         // The activity is no longer visible (it is now "stopped")
@@ -264,12 +169,9 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove("authkey");
         editor.commit();
-        if (mService != null) {
-            unbindService(mServiceConn);
-        }
+
         // The activity is about to be destroyed.
     }
-
 
     private void openLocationSettings() {
         // Log.appendLog("StopSearchActivity openLocationSettings - promt to open system location settings screen");
@@ -294,7 +196,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         });
         builder.show();
     }
-
 
     public void notifyMoved() {
         // Log.appendLog("StopSearchActivity notifyMoved");
@@ -342,8 +243,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         Intent intent = new Intent(this, SettingsActivity.class);
         DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
-//		intent.putExtra("requestAdditionalPredict",
-//				dataMan.isRequestAddPredict());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
         intent.putExtra("showTrams", dataMan.isShowTrams());
         intent.putExtra("showTrolls", dataMan.isShowTrolls());
@@ -356,40 +255,6 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 2) {
             msgBox(this, "123", "");
-        }
-        if (requestCode == 1001) {
-            int responseCode = data.getIntExtra("RESPONSE_CODE", 0);
-            String purchaseData = data.getStringExtra("INAPP_PURCHASE_DATA");
-            String dataSignature = data.getStringExtra("INAPP_DATA_SIGNATURE");
-
-            if (resultCode == RESULT_OK) {
-                try {
-                    JSONObject jo = new JSONObject(purchaseData);
-                    final String token = jo.getString("purchaseToken");
-                    Toast.makeText(this,token,Toast.LENGTH_SHORT);
-                    Thread thread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            HttpClient client = new DefaultHttpClient();
-                            String getURL = "http://proverbial-deck-865.appspot.com/init?name=" + StopSearchActivity.accountName + "&token=" + token;//"40inchverticalrus@gmail.com" ;
-                            HttpGet get = new HttpGet(getURL);
-                            try{
-                                HttpResponse responseGet = client.execute(get);
-                            }catch (Exception e){
-                                Log.d("StopSearchActivity", "Exception on get request " + e.getMessage());
-                                e.printStackTrace();
-
-                            }
-                        }
-                    });
-                    thread.start();
-                }
-                catch (JSONException e) {
-                    Log.d("StopSearchActivity","Failed to parse purchase data.");
-                    e.printStackTrace();
-                }
-            }
-
         }
         if (requestCode != 10) {
             DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
@@ -506,10 +371,8 @@ public class StopSearchActivity extends Activity implements Serializable, Google
     }
 
     private void fillList() {
-
         StopGroupsListAdapter adapter = new StopGroupsListAdapter(this, grp);
         list.setAdapter(adapter);
-
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -537,24 +400,10 @@ public class StopSearchActivity extends Activity implements Serializable, Google
         }
     }
 
-
-    private boolean isPortrait() {
-        // Log.appendLog("StopSearchActivity isPortrait");
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            return true;
-        } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            return false;
-        } else {
-            throw new UnsupportedOperationException();
-        }
-    }
-
     public static void msgBox(Context context, String promt, String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(promt).setTitle(title);
         builder.show();
     }
-
-
 
 }

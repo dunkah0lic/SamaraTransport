@@ -13,10 +13,6 @@
         android:icon="@drawable/ic_action_settings"
         android:title="Настройки"
         android:showAsAction="never" />
-    <item android:id="@+id/action_buy"
-        android:icon="@drawable/ic_action_settings"
-        android:title="Купить"
-        android:showAsAction="never" />
     <item android:id="@+id/action_about"
         android:icon="@drawable/ic_action_settings"
         android:title="О приложении"

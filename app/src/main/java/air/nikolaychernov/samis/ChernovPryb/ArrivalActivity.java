@@ -226,10 +226,6 @@ public class ArrivalActivity extends Activity implements GoogleApiClient.Connect
         }
     }
 
-    public void cmdBack_click(View view) {
-        // Log.appendLog("ArrivalActivity cmdBack_click");
-        this.finish();
-    }
 
     private class DownloadArrivalInfoTask extends AsyncTask<Activity, Boolean, Boolean> {
 

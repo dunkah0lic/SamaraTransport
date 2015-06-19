@@ -8,52 +8,30 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.location.Location;
-import android.preference.PreferenceManager;
-import android.support.v4.util.Pair;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.security.KeyFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
-import javax.crypto.Cipher;
 
 import air.nikolaychernov.samis.ChernovPryb.TransportDBContract.FavorReaderDbHelper;
 import air.nikolaychernov.samis.ChernovPryb.TransportDBContract.MainReaderDbHelper;
@@ -235,15 +213,6 @@ public class DataController implements Serializable {
         return this.isAutoUpdate;
     }
 
-//	public boolean isRequestAddPredict() {
-//		return requestAddPredict;
-//	}
-//
-//	public void setRequestAddPredict(boolean value) {
-//		requestAddPredict = value;
-//		commitSettings();
-//	}
-
     public void setFavor(int KS_ID, boolean isFavor) {
         favorBDhelper.setFavor(KS_ID, isFavor);
     }
@@ -387,11 +356,6 @@ public class DataController implements Serializable {
     // main function
     public ArrayList<ArrivalInfo> getArrivalInfo(int KS_ID) throws NotFoundException, IOException {
         try {
-//            if (DataController.getInstance().requestAddPredict) {
-//                return mergeArrival(
-//                        getArrivalInfoAPI(KS_ID),
-//                        parseMapBubbleArrivalInfo(loadArrivalDataFromMapBubble(KS_ID)));
-//            } else {
             Set<Integer> transTypesToShow = new HashSet<Integer>();
             if (showBuses) {
                 transTypesToShow.add(1);
@@ -412,13 +376,6 @@ public class DataController implements Serializable {
             e.printStackTrace();
             return new ArrayList<ArrivalInfo>();
         }
-        // if (DataController.getInstance().requestAddPredict) {
-        // return mergeArrival(
-        // parseArrivalInfo(loadArrivalData(phpBridgeAddress, KS_ID)),
-        // parseMapBubbleArrivalInfo(loadArrivalDataFromMapBubble(KS_ID)));
-        // } else {
-        // return parseArrivalInfo(loadArrivalData(phpBridgeAddress, KS_ID));
-        // }
     }
 
     // API based
@@ -490,42 +447,14 @@ public class DataController implements Serializable {
             connection = url.openConnection();
             HttpURLConnection httpConnection = (HttpURLConnection) connection;
             httpConnection.setRequestMethod("POST");
-            String authKey = "";
 
-            Context context = MyApplication.getAppContext();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            Pair<String,String> pair = getAuthKey(message);
-            authKey = pair.first;
-            String license = pair.second;
-            String tempKey = authKey;
-
-            Log.d("authKey = ", authKey);
-            String hash = "";
-            try{
-                hash = SHA1(tempKey);
-            } catch (Exception e){
-
-            }
-            if (!license.equals("LICENSED")){
-                Log.d("DataController", "No license");
-                instance.activity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(instance.activity, "Отсутствует лицензия", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-
-
-            String body = "message=" + message + "&os=Android&clientId=40inchv&authKey=" + authKey;//SHA1(message + authKey);//"yPiRbhD");
+            String body = "message=" + message + "&os=Android&clientId=40inchv&authKey=" + SHA1(message + "yPiRbhD");
 
             httpConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             httpConnection.setRequestProperty("Content-Length", String.valueOf(body.length()));
 
             httpConnection.setDoOutput(true);
             httpConnection.setDoInput(true);
-            //httpConnection.setConnectTimeout(5000);
-            // httpConnection.setReadTimeout(4000);
-
             httpConnection.connect();
 
             OutputStream os = httpConnection.getOutputStream();
@@ -552,138 +481,6 @@ public class DataController implements Serializable {
         return resultString;
 
     }
-
-
-   private static String getPassword(){
-       String decKeyStr="555555";
-       try {
-
-           String xform = "RSA/ECB/PKCS1Padding";
-           HttpClient client = new DefaultHttpClient();
-           String getURL = "http://proverbial-deck-865.appspot.com/activation?name=" + StopSearchActivity.accountName;//"40inchverticalrus@gmail.com" ;
-           HttpGet get = new HttpGet(getURL);
-           HttpResponse responseGet = client.execute(get);
-           HttpEntity resEntityGet = responseGet.getEntity();
-           //InputStream inputStream = resEntityGet.getContent();
-
-           if (resEntityGet != null) {
-               // do something with the response
-               final String response = EntityUtils.toString(resEntityGet);
-               JSONObject jsonObject = new JSONObject(response);
-               final String name = jsonObject.getString("name");
-               final String license = jsonObject.getString("license");
-               String signature = jsonObject.getString("signature");
-               String authKey = jsonObject.getString("authkey");
-
-
-
-               String[] byteValues = signature.substring(1, signature.length() - 1).split(",");
-               byte[] bytes = new byte[byteValues.length];
-
-               for (int i=0, len=bytes.length; i<len; i++) {
-                   bytes[i] = Byte.parseByte(byteValues[i].trim());
-               }
-
-               String[] byteValuesKey = authKey.substring(1, authKey.length() - 1).split(",");
-               byte[] bytesKey = new byte[byteValuesKey.length];
-
-               for (int i=0, len=bytesKey.length; i<len; i++) {
-                   bytesKey[i] = Byte.parseByte(byteValuesKey[i].trim());
-               }
-
-               PublicKey pk1 = generatePublicKey(BASE64_PUBLIC_KEY);
-                /*Signature sign = Signature.getInstance("SHA1withRSA");
-                sign.initVerify(pk1);
-                sign.update(license.getBytes());
-                final boolean ok = sign.verify(bytes);*/
-               byte[] decBytes = decrypt(bytes, pk1, xform);
-               byte[] decKey = decrypt(bytesKey, pk1, xform);
-               decKeyStr = new String(decKey, "UTF-8");
-               final String decLicense = new String(decBytes, "UTF-8");
-
-               //Handler mHandler = new Handler();
-
-               Log.d("GET RESPONSE:", response + decLicense + "!");
-               //if (ok) {
-
-
-               //}
-           }
-       } catch (Exception e) {
-           e.printStackTrace();
-       }
-
-       return decKeyStr;
-   }
-
-   private static Pair<String, String> getAuthKey(String message) throws IOException {
-       String xform = "RSA/ECB/PKCS1Padding";
-
-       String authKey = "";
-       String license = "";
-       org.apache.http.client.HttpClient client = new DefaultHttpClient();
-       HttpPost post = new HttpPost("http://proverbial-deck-865.appspot.com/activation");
-       try
-       {
-           List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-           nameValuePairs.add(new BasicNameValuePair("xml", message));
-           nameValuePairs.add(new BasicNameValuePair("name", StopSearchActivity.accountName));
-
-
-           post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-           org.apache.http.HttpResponse response = client.execute(post);
-           BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-           StringBuffer buffer = new StringBuffer();
-           for (String line = reader.readLine(); line != null; line = reader.readLine())
-           {
-               buffer.append(line);
-           }
-           System.out.println(buffer.toString());
-           JSONObject json = new JSONObject(buffer.toString());
-           authKey = json.getString("authkey");
-           license = json.getString("license");
-
-           String[] byteValuesKey = authKey.substring(1, authKey.length() - 1).split(",");
-           byte[] bytesKey = new byte[byteValuesKey.length];
-
-           for (int i=0, len=bytesKey.length; i<len; i++) {
-               bytesKey[i] = Byte.parseByte(byteValuesKey[i].trim());
-           }
-
-           PublicKey pk1 = generatePublicKey(BASE64_PUBLIC_KEY);
-
-           byte[] decKey = decrypt(bytesKey, pk1, xform);
-           String decKeyStr = new String(decKey, "UTF-8");
-           authKey = decKeyStr;
-
-       }
-       catch (Exception e) { e.printStackTrace(); }
-       Pair<String,String> result = new Pair<String,String>(authKey, license);
-       return result;
-   }
-
-    public static PublicKey generatePublicKey(String hex){
-        try {
-            if (hex == null || hex.trim().length() == 0)     return null;
-            byte[] data=new BigInteger(hex,16).toByteArray();
-            X509EncodedKeySpec keyspec=new X509EncodedKeySpec(data);
-            KeyFactory keyfactory=KeyFactory.getInstance("RSA");
-            return keyfactory.generatePublic(keyspec);
-        }
-        catch (  Exception e) {
-            return null;
-        }
-    }
-
-    private static byte[] decrypt(byte[] inpBytes, PublicKey key,
-                                  String xform) throws Exception{
-        Cipher cipher = Cipher.getInstance(xform);
-        cipher.init(Cipher.DECRYPT_MODE, key);
-        return cipher.doFinal(inpBytes);
-    }
-
-
 
     public Stop[] searchByName(String name, boolean isFavorOnly) {
         if (isFavorOnly) {

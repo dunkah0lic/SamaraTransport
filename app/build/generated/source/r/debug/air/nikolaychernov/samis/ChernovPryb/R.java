@@ -1909,7 +1909,6 @@ containing a value of this type.
         public static final int action_bar_spinner=0x7f0a0001;
         public static final int action_bar_subtitle=0x7f0a003f;
         public static final int action_bar_title=0x7f0a003e;
-        public static final int action_buy=0x7f0a00a9;
         public static final int action_context_bar=0x7f0a0052;
         public static final int action_favourite=0x7f0a00a8;
         public static final int action_menu_divider=0x7f0a0002;
