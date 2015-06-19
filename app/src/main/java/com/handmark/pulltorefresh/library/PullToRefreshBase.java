@@ -15,7 +15,6 @@
  *******************************************************************************/
 package com.handmark.pulltorefresh.library;
 
-import air.nikolaychernov.samis.ChernovPryb.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -25,12 +24,24 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.*;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.handmark.pulltorefresh.library.internal.*;
+
+import com.handmark.pulltorefresh.library.internal.FlipLoadingLayout;
+import com.handmark.pulltorefresh.library.internal.LoadingLayout;
+import com.handmark.pulltorefresh.library.internal.RotateLoadingLayout;
+import com.handmark.pulltorefresh.library.internal.Utils;
+import com.handmark.pulltorefresh.library.internal.ViewCompat;
+
+import com.nikolaychernov.samaratransport.R;
+
 
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout implements IPullToRefresh<T> {
 

@@ -15,7 +15,6 @@
  *******************************************************************************/
 package com.handmark.pulltorefresh.library;
 
-import air.nikolaychernov.samis.ChernovPryb.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -24,11 +23,19 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.*;
+import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.FrameLayout;
+import android.widget.ListAdapter;
+
 import com.handmark.pulltorefresh.library.internal.EmptyViewMethodAccessor;
 import com.handmark.pulltorefresh.library.internal.IndicatorLayout;
+
+import com.nikolaychernov.samaratransport.R;
+
 
 public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extends PullToRefreshBase<T> implements OnScrollListener {
 
@@ -292,7 +299,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
     @Override
     protected void handleStyledAttributes(TypedArray a) {
         // Set Show Indicator to the XML value, or default value
-        mShowIndicator = a.getBoolean(air.nikolaychernov.samis.ChernovPryb.R.styleable.PullToRefresh_ptrShowIndicator, !isPullToRefreshOverScrollEnabled());
+        mShowIndicator = a.getBoolean(R.styleable.PullToRefresh_ptrShowIndicator, !isPullToRefreshOverScrollEnabled());
     }
 
     protected boolean isReadyForPullStart() {

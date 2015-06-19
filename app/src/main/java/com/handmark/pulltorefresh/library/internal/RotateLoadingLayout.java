@@ -15,7 +15,6 @@
  *******************************************************************************/
 package com.handmark.pulltorefresh.library.internal;
 
-import air.nikolaychernov.samis.ChernovPryb.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -23,8 +22,12 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView.ScaleType;
+
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Orientation;
+
+import com.nikolaychernov.samaratransport.R;
+
 
 public class RotateLoadingLayout extends LoadingLayout {
 

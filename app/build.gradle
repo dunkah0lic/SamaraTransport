@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "air.nikolaychernov.samis.ChernovPryb"
+        applicationId "com.nikolaychernov.samaratransport"
         minSdkVersion 14
         targetSdkVersion 21
     }

@@ -15,7 +15,6 @@
  *******************************************************************************/
 package com.handmark.pulltorefresh.library.internal;
 
-import air.nikolaychernov.samis.ChernovPryb.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,8 +25,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView.ScaleType;
+
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Orientation;
+
+import com.nikolaychernov.samaratransport.R;
+
 
 @SuppressLint("ViewConstructor")
 public class FlipLoadingLayout extends LoadingLayout {

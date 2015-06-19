@@ -91,7 +91,7 @@ ADDED from AndroidManifest.xml:35:9
 		ADDED from AndroidManifest.xml:36:13
 	android:value
 		ADDED from AndroidManifest.xml:37:13
-activity#air.nikolaychernov.samis.ChernovPryb.StopSearchActivity
+activity#com.nikolaychernov.samaratransport.StopSearchActivity
 ADDED from AndroidManifest.xml:38:9
 	android:label
 		ADDED from AndroidManifest.xml:40:13
@@ -123,7 +123,7 @@ ADDED from AndroidManifest.xml:52:13
 		ADDED from AndroidManifest.xml:54:17
 	android:name
 		ADDED from AndroidManifest.xml:53:17
-activity#air.nikolaychernov.samis.ChernovPryb.ArrivalActivity
+activity#com.nikolaychernov.samaratransport.ArrivalActivity
 ADDED from AndroidManifest.xml:56:9
 	android:label
 		ADDED from AndroidManifest.xml:58:13
@@ -141,7 +141,7 @@ ADDED from AndroidManifest.xml:64:13
 		ADDED from AndroidManifest.xml:65:17
 	android:value
 		ADDED from AndroidManifest.xml:66:17
-activity#air.nikolaychernov.samis.ChernovPryb.DirectionSelectActivity
+activity#com.nikolaychernov.samaratransport.DirectionSelectActivity
 ADDED from AndroidManifest.xml:68:9
 	android:label
 		ADDED from AndroidManifest.xml:70:13
@@ -153,7 +153,7 @@ ADDED from AndroidManifest.xml:68:9
 		ADDED from AndroidManifest.xml:69:13
 	android:launchMode
 		ADDED from AndroidManifest.xml:71:13
-activity#air.nikolaychernov.samis.ChernovPryb.SettingsActivity
+activity#com.nikolaychernov.samaratransport.SettingsActivity
 ADDED from AndroidManifest.xml:80:9
 	android:label
 		ADDED from AndroidManifest.xml:82:13
@@ -161,7 +161,7 @@ ADDED from AndroidManifest.xml:80:9
 		ADDED from AndroidManifest.xml:83:13
 	android:name
 		ADDED from AndroidManifest.xml:81:13
-activity#air.nikolaychernov.samis.ChernovPryb.AboutActivity
+activity#com.nikolaychernov.samaratransport.AboutActivity
 ADDED from AndroidManifest.xml:85:9
 	android:label
 		ADDED from AndroidManifest.xml:87:13
@@ -176,7 +176,7 @@ MERGED from com.google.android.gms:play-services:6.5.87:21:9
 		ADDED from AndroidManifest.xml:92:13
 	android:value
 		ADDED from AndroidManifest.xml:93:13
-activity#air.nikolaychernov.samis.ChernovPryb.MapsActivity
+activity#com.nikolaychernov.samaratransport.MapsActivity
 ADDED from AndroidManifest.xml:96:9
 	android:label
 		ADDED from AndroidManifest.xml:98:13
@@ -186,7 +186,7 @@ ADDED from AndroidManifest.xml:96:9
 		ADDED from AndroidManifest.xml:99:13
 	android:name
 		ADDED from AndroidManifest.xml:97:13
-service#air.nikolaychernov.samis.ChernovPryb.ActivationService
+service#com.nikolaychernov.samaratransport.ActivationService
 ADDED from AndroidManifest.xml:108:9
 	android:exported
 		ADDED from AndroidManifest.xml:110:13
