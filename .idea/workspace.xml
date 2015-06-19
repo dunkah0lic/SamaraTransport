@@ -54,48 +54,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69cbceec-73af-4125-9d34-2a7982abd28a" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes\debug\air\nikolaychernov\samis\ChernovPryb\StopSearchActivity$5.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity$DownloadArrivalInfoTask$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity$DownloadArrivalInfoTask$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity$DownloadArrivalInfoTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity$DownloadArrivalInfoTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/DataController$HelveticaFont.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/DataController$HelveticaFont.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/DataController.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/DataController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$FavorTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$FavorTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$SearchByNameTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$SearchByNameTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$SearchNearMeTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity$SearchNearMeTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/ArrivalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/DataController.java" afterPath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/DataController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/air/nikolaychernov/samis/ChernovPryb/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/air/nikolaychernov/samis/ChernovPryb/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/air/nikolaychernov/samis/ChernovPryb/StopSearchActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/stopsearch_activity_menu.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/stopsearch_activity_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/stopsearch_activity_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/stopsearch_activity_menu.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="markikokik-transarrival63-af3c98254b6a.iws" />
@@ -2974,7 +2932,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434299915396</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Removed license check, app now is free">
+      <created>1434694055897</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1434694055897</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3044,7 +3008,8 @@
     <MESSAGE value="Bug fix" />
     <MESSAGE value="Added showing routes functionality" />
     <MESSAGE value="Fixed overdraw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed overdraw" />
+    <MESSAGE value="Removed license check, app now is free" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed license check, app now is free" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3313,12 +3278,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="319" column="23" selection-start-line="319" selection-start-column="23" selection-end-line="319" selection-end-column="23" />
           <folding>
-            <element signature="e#4019#4025#0" expanded="true" />
-            <element signature="e#7454#7455#0" expanded="true" />
-            <element signature="e#7519#7520#0" expanded="true" />
-            <element signature="e#8189#8198#0" expanded="true" />
-            <element signature="e#12050#12051#0" expanded="true" />
-            <element signature="e#12115#12116#0" expanded="true" />
+            <element signature="e#4019#4025#0" expanded="false" />
+            <element signature="e#7454#7455#0" expanded="false" />
+            <element signature="e#7519#7520#0" expanded="false" />
+            <element signature="e#8189#8198#0" expanded="false" />
+            <element signature="e#12050#12051#0" expanded="false" />
+            <element signature="e#12115#12116#0" expanded="false" />
           </folding>
         </state>
       </provider>
