@@ -43,25 +43,19 @@ public class DirectionListAdapter extends BaseAdapter implements OnClickListener
         // Log.appendLog("DirectionListAdapter getView 0");
         View view = convertView;
         if (view == null) {
-            // РїРѕР»СѓС‡Р°РµРј LayoutInflater РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ
-            // layout-СЂРµСЃСѓСЂСЃР°РјРё
             view = lInflater.inflate(R.layout.stopslist, parent, false);
         }
 
         // Log.appendLog("DirectionListAdapter getView 1");
         Stop p = getItem(position);
         ToggleButton btn = ((ToggleButton) view.findViewById(R.id.toggleAddToFavor));
-
-        // Р·Р°РїРѕР»РЅСЏРµРј View РІ РїСѓРЅРєС‚Рµ СЃРїРёСЃРєР° РґР°РЅРЅС‹РјРё
         btn.setOnClickListener(this);
         btn.setTag(position);
         btn.setChecked(DataController.getInstance().isInFavor(p.KS_ID));
-        // Р·Р°РїРѕР»РЅСЏРµРј View РІ РїСѓРЅРєС‚Рµ СЃРїРёСЃРєР° РґР°РЅРЅС‹РјРё
-        // Log.appendLog("DirectionListAdapter getView 2");
+
         TextView tv = (TextView) view.findViewById(R.id.txtDirectionStopName);
         tv.setText(p.direction);
-        //ataMan.setTypeface(tv, Typeface.BOLD);
-        // ((TextView) view.findViewById(R.id.txtDirectionStreet)).setText("");
+
         ((TextView) view.findViewById(R.id.txtDirectionStreet)).setMaxHeight(0);
         ((RelativeLayout) view.findViewById(R.id.relLayoutDirectionsListDirectionIcon)).setVisibility(View.VISIBLE);
 
@@ -183,91 +177,7 @@ public class DirectionListAdapter extends BaseAdapter implements OnClickListener
             ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.VISIBLE);
             // tv.setPadding(0, 0, 0, 4);
         }
-        // tv = (TextView) view.findViewById(R.id.txtDirectionCommercial);
-        // tv.setText(p.busesCommercial);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 4");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionMunicipal);
-        // tv.setText(p.busesMunicipal);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 5");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionPrigorod);
-        // tv.setText(p.busesPrigorod);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 6");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionSeason);
-        // tv.setText(p.busesSeason);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 7");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionSpecial);
-        // tv.setText(p.busesSpecial);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 8");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionTrams);
-        // tv.setText(p.trams);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // //tv.setPadding(0, 0, 0, 0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        //
-        // //Log.appendLog("DirectionListAdapter getView 9");
-        // tv = (TextView) view.findViewById(R.id.txtDirectionTrolls);
-        // tv.setText(p.trolleybuses);
-        // dataMan.setTypeface(tv, HelveticaFont.Light);
-        // if (tv.getText().length() == 0) {
-        // tv.setMaxHeight(0);
-        // }else {
-        // tv.setMaxHeight(100);
-        // //tv.setPadding(0, 0, 0, 4);
-        // }
-        // ((TextView) view.findViewById(R.id.txtDirectionMetro)).setText(""
-        // + p.metros != "" ? p.metros : " ");
-
-        // Log.appendLog("DirectionListAdapter getView 10");
+        
         tv = (TextView) view.findViewById(R.id.txtDirectionDistance);
         int dist = (int) Math.floor(DataController.getInstance().getDistTo(p, false));
         tv.setText(dist > 0 ?  dist + " м" : "");

@@ -25,6 +25,9 @@ import android.widget.SearchView;
 
 import java.io.Serializable;
 
+import hotchemi.android.rate.AppRate;
+import hotchemi.android.rate.OnClickButtonListener;
+
 public class StopSearchActivity extends Activity implements Serializable {
 
     private DataController dataMan;
@@ -50,7 +53,7 @@ public class StopSearchActivity extends Activity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Log.logInit(this);
-        Log.d("STOPSEARCHACTIVITY","StopSearchActivity onCreate");
+        Log.d("STOPSEARCHACTIVITY", "StopSearchActivity onCreate");
         setContentView(R.layout.activity_stopsearch);
 
         dataMan = DataController.getInstance(this);
@@ -77,6 +80,31 @@ public class StopSearchActivity extends Activity implements Serializable {
         if (!dataMan.navInit()) {
             openLocationSettings();
         }
+
+        AppRate.with(this)
+                .setInstallDays(0) // default 10, 0 means install day.
+                .setLaunchTimes(10) // default 10
+                .setRemindInterval(2) // default 1
+                .setShowNeutralButton(false) // default true
+                .setDebug(false) // default false
+                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
+                    @Override
+                    public void onClickButton(int which) {
+                        Log.d(StopSearchActivity.class.getName(), Integer.toString(which));
+                    }
+                })
+                .monitor();
+        // Show a dialog if meets conditions
+        AppRate.showRateDialogIfMeetsConditions(this);//
+
+        /*// Custom criteria: 7 days and 10 launches
+        RateThisApp.Config config = new RateThisApp.Config(7, 3);
+        // Custom title and message
+        config.setTitle(R.string.rate_title);
+        config.setMessage(R.string.rate_message);
+        RateThisApp.init(config);*/
+
+
     }
 
     @Override
@@ -143,6 +171,11 @@ public class StopSearchActivity extends Activity implements Serializable {
                 searchNearMe(false, "onStart");
             }
         }
+
+        /* // Monitor launch times and interval from installation
+        RateThisApp.onStart(this);
+        // If the criteria is satisfied, "Rate this app" dialog will be shown
+        RateThisApp.showRateDialogIfNeeded(this);*/
     }
 
     @Override

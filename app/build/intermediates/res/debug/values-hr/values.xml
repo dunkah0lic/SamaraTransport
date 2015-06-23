@@ -47,4 +47,11 @@
     <string msgid="411506735369601515" name="common_open_on_phone">"Otvaranje na telefonu"</string>
     <string msgid="9071884888741449141" name="common_signin_button_text">"Prijava"</string>
     <string msgid="2429381841831957106" name="common_signin_button_text_long">"Prijava uslugom Google"</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-hr/values-hr.xml -->
+    <eat-comment/>
+    <string name="rta_dialog_cancel">Podjeti me kasnije</string>
+    <string name="rta_dialog_message">Ako Vam se sviđa ova aplikacija, molimo Vas da odvojite trenutak kako bi je ocijenili. Neće trajati više od minute. Hvala!</string>
+    <string name="rta_dialog_no">Ne, hvala</string>
+    <string name="rta_dialog_ok">Ocijeni</string>
+    <string name="rta_dialog_title">Ocijeni aplikaciju</string>
 </resources>

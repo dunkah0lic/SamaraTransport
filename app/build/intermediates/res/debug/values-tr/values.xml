@@ -47,4 +47,18 @@
     <string msgid="411506735369601515" name="common_open_on_phone">"Telefonda aç"</string>
     <string msgid="9071884888741449141" name="common_signin_button_text">"Oturum aç"</string>
     <string msgid="2429381841831957106" name="common_signin_button_text_long">"Google\'da oturum aç"</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-tr/values.xml -->
+    <eat-comment/>
+    <string name="rate_dialog_cancel">Belki daha sonra</string>
+    <string name="rate_dialog_message">Eğer bu uygulamayı beğendiyseniz birkaç dakikanızı ayırarak puan verir miydiniz? Bir dakikadan fazla sürmeyecek. Desteğiniz için teşekkür ederiz!</string>
+    <string name="rate_dialog_no">Hayır</string>
+    <string name="rate_dialog_ok">Puan ver</string>
+    <string name="rate_dialog_title">Bu uygulamaya puan verin</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-tr/values-tr.xml -->
+    <eat-comment/>
+    <string name="rta_dialog_cancel">Hatırlat</string>
+    <string name="rta_dialog_message">Eğer uygulamamızdan memnun kaldıysanız, lütfen birkaç saniyenizi ayırarak bize puan verin. Desteğiniz için teşekkürler!</string>
+    <string name="rta_dialog_no">Hayır, teşekkürler</string>
+    <string name="rta_dialog_ok">Puan ver</string>
+    <string name="rta_dialog_title">Bu uygulamaya puan verin</string>
 </resources>

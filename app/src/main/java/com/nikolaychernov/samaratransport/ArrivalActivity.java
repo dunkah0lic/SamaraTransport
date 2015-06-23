@@ -35,7 +35,6 @@ public class ArrivalActivity extends Activity{
 
         @Override
         public void onFinish() {
-            // Do something...
             Log.w("ArrivalTimer", "updating");
             cmdUpdate_click(null);
         }
@@ -70,7 +69,6 @@ public class ArrivalActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Log.appendLog("ArrivalActivity onCreate");
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_arrival);
@@ -185,7 +183,6 @@ public class ArrivalActivity extends Activity{
 
         // Do the long-running work in here
         protected Boolean doInBackground(Activity... parent) {
-            // Log.appendLog("ArrivalActivity DownloadArrivalInfoTask doInBackground");
             act = parent[0];
             try {
                 if (showRouteArrival) {
@@ -206,8 +203,6 @@ public class ArrivalActivity extends Activity{
             } catch (NotFoundException e) {
                 // TODO Auto-generated catch block
                 msg = e.getLocalizedMessage();
-                // Log.appendLog("EXCEPTION NotFoundException in ArrivalActivity DownloadArrivalInfoTask doInBackground "
-                // + msg);
                 Log.v("TAG1", msg);
                 return false;
             } catch (Exception e) {
@@ -225,8 +220,6 @@ public class ArrivalActivity extends Activity{
 
         // This is called when doInBackground() is finished
         protected void onPostExecute(Boolean result) {
-            // Log.appendLog("ArrivalActivity DownloadArrivalInfoTask onPostExecute");
-            //findViewById(R.id.progressLoading).setVisibility(View.INVISIBLE);
             if (isCancelled()) {
                 return;
             }
@@ -237,8 +230,7 @@ public class ArrivalActivity extends Activity{
 
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 
-                    mListView.setAdapter(adapter); // отображаем все объекты
-                    //wrapper.onRefreshComplete();
+                    mListView.setAdapter(adapter);
                     mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
@@ -260,11 +252,9 @@ public class ArrivalActivity extends Activity{
                     t = t.start();
                 }
             } else {
-                // StopSearchActivity.msgBox(act, msg, "Error");
                 findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
                 findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
                 findViewById(R.id.txtConnectionProblem).setVisibility(View.VISIBLE);
-                // act.finish();
             }
         }
     }

@@ -52,4 +52,11 @@
     <string name="pull_to_refresh_pull_label">משוך לרענון…</string>
     <string name="pull_to_refresh_refreshing_label">טוען…</string>
     <string name="pull_to_refresh_release_label">שחרר לרענון…</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-iw/values.xml -->
+    <eat-comment/>
+    <string name="rate_dialog_cancel">אחר כך</string>
+    <string name="rate_dialog_message">אם את נהנית מהשימוש באפליקציה, מה דעתך לדרג אותה? זה לא ייקח יותר מדקה. תודה על התמיכה!</string>
+    <string name="rate_dialog_no">לא תודה</string>
+    <string name="rate_dialog_ok">דרגי כעת</string>
+    <string name="rate_dialog_title">דרגי את האפלקציה</string>
 </resources>

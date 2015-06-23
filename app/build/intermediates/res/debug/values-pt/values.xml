@@ -52,4 +52,11 @@
     <string name="pull_to_refresh_pull_label">Puxe para atualizar…</string>
     <string name="pull_to_refresh_refreshing_label">A carregar…</string>
     <string name="pull_to_refresh_release_label">Liberação para atualizar…</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-pt/values.xml -->
+    <eat-comment/>
+    <string name="rate_dialog_cancel">Mais tarde</string>
+    <string name="rate_dialog_message">Gosta da aplicação? Então não se importaria de a avaliar? Não demora mais do que um minuto. Obrigado pelo seu apoio!</string>
+    <string name="rate_dialog_no">Não, Obrigado</string>
+    <string name="rate_dialog_ok">Avaliar agora</string>
+    <string name="rate_dialog_title">Avaliar a aplicação</string>
 </resources>

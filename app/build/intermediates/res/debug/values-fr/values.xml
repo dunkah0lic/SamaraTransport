@@ -52,4 +52,18 @@
     <string name="pull_to_refresh_pull_label">Tirez pour rafraîchir…</string>
     <string name="pull_to_refresh_refreshing_label">Chargement…</string>
     <string name="pull_to_refresh_release_label">Relâcher pour rafraîchir…</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-fr/values.xml -->
+    <eat-comment/>
+    <string name="rate_dialog_cancel">Me rappeler plus tard</string>
+    <string name="rate_dialog_message">Vous aimez notre application, voulez-vous prendre un moment pour l\'évaluer ? Cela ne vous prendra pas plus d\'une minute. Merci de votre soutien !</string>
+    <string name="rate_dialog_no">Non, merci</string>
+    <string name="rate_dialog_ok">Évaluer maintenant</string>
+    <string name="rate_dialog_title">Evaluation de l\'application</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-fr/values-fr.xml -->
+    <eat-comment/>
+    <string name="rta_dialog_cancel">Plus tard</string>
+    <string name="rta_dialog_message">Si vous appréciez cette application, veuillez prendre un moment pour la noter. Cela ne prendra qu\'une minute. Merci de votre participation !</string>
+    <string name="rta_dialog_no">Non, merci</string>
+    <string name="rta_dialog_ok">Maintenant</string>
+    <string name="rta_dialog_title">Noter cette application</string>
 </resources>

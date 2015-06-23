@@ -52,4 +52,11 @@
     <string name="pull_to_refresh_pull_label">Ziehen zum Aktualisieren…</string>
     <string name="pull_to_refresh_refreshing_label">Laden…</string>
     <string name="pull_to_refresh_release_label">Loslassen zum Aktualisieren…</string>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-de/values-de.xml -->
+    <eat-comment/>
+    <string name="rta_dialog_cancel">Später</string>
+    <string name="rta_dialog_message">Wenn dir diese App gefällt, nimm dir doch einen Moment Zeit und bewerte sie. Danke für deine Unterstützung!</string>
+    <string name="rta_dialog_no">Nein, Danke</string>
+    <string name="rta_dialog_ok">Jetzt bewerten</string>
+    <string name="rta_dialog_title">Bewerte diese App</string>
 </resources>
