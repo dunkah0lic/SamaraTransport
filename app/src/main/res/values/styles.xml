@@ -19,12 +19,20 @@
 </style>
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#E91E63</item>
+        <item name="android:background">#673AB7</item>
         <item name="android:titleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.TitleTextStyle</item>
+        <item name="android:subtitleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle</item>
+        <item name="android:icon">@android:color/transparent</item>
     </style>
 
     <style name="Theme.Viadeo.Styled.YourTheme.TitleTextStyle" parent="@android:style/Widget.TextView">
      <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>

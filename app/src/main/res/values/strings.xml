@@ -32,8 +32,7 @@
     <string name="YesText">Да</string>
     <string name="NoText">Нет</string>
     <string name="search_hint">Остановка</string>
-    <string name="ConnectionProblemMessage">Не удается получить прогнозы прибытия! Проверьте соединение с интернетом и
-        нажмите кнопку \"Обновить\", чтобы повторить попытку.
+    <string name="ConnectionProblemMessage">Не удается получить прогнозы прибытия! Проверьте соединение с интернетом.
     </string>
     <string name="XmlAPI">http://tosamara.ru/api/xml</string>
     <string name="AddInfoLabel">Расширенный прогноз</string>
@@ -42,7 +41,7 @@
         GPS/ГЛОНАСС трекеров. Для составления точного прогноза учитывается расписание, дорожная ситуация, аварии и
         пробки.
         Приложение использует сервис аналитики Транспортного Оператора Самары http://tosamara.ru/api/\nАвтор оригинального
-        приложения - Артем Коротков\nАвтор редизайна - Николай Чернов2
+        приложения - Артем Коротков\nАвтор редизайна - Николай Чернов
     </string>
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>

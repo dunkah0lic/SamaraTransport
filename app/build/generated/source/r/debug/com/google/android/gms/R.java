@@ -179,10 +179,10 @@ public final class R {
 	}
 	public static final class style {
 		public static final int Theme_IAPTheme = 0x7f0d00aa;
-		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0d00b1;
-		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0d00b2;
-		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0d00b3;
-		public static final int WalletFragmentDefaultStyle = 0x7f0d00b4;
+		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0d00b2;
+		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0d00b3;
+		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0d00b4;
+		public static final int WalletFragmentDefaultStyle = 0x7f0d00b5;
 	}
 	public static final class styleable {
 		public static final int[] AdsAttrs = { 0x7f01001f, 0x7f010020, 0x7f010021 };

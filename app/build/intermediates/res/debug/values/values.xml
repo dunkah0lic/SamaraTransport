@@ -228,8 +228,7 @@
     <string name="AddInfoLabel">Расширенный прогноз</string>
     <string name="ArrivalActivityTitle">Прибытие</string>
     <string name="AutoUpdateLabel">Автообновление</string>
-    <string name="ConnectionProblemMessage">Не удается получить прогнозы прибытия! Проверьте соединение с интернетом и
-        нажмите кнопку \"Обновить\", чтобы повторить попытку.
+    <string name="ConnectionProblemMessage">Не удается получить прогнозы прибытия! Проверьте соединение с интернетом.
     </string>
     <string name="DirectionSelectActivityTitle">В направлении</string>
     <string name="DirectionTitle">Направление</string>
@@ -276,7 +275,7 @@
         GPS/ГЛОНАСС трекеров. Для составления точного прогноза учитывается расписание, дорожная ситуация, аварии и
         пробки.
         Приложение использует сервис аналитики Транспортного Оператора Самары http://tosamara.ru/api/\nАвтор оригинального
-        приложения - Артем Коротков\nАвтор редизайна - Николай Чернов2
+        приложения - Артем Коротков\nАвтор редизайна - Николай Чернов
     </string>
     <string name="app_name">Самара Транспорт</string>
     <string name="cmdFindText">Найти</string>
@@ -1149,8 +1148,10 @@
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#E91E63</item>
+        <item name="android:background">#673AB7</item>
         <item name="android:titleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.TitleTextStyle</item>
+        <item name="android:subtitleTextStyle">@style/Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle</item>
+        <item name="android:icon">@android:color/transparent</item>
     </style>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
@@ -1392,8 +1393,13 @@
   </style>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/styles.xml -->
     <eat-comment/>
+    <style name="Theme.Viadeo.Styled.YourTheme.SubtitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
     <style name="Theme.Viadeo.Styled.YourTheme.TitleTextStyle" parent="@android:style/Widget.TextView">
      <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>

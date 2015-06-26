@@ -1,6 +1,5 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
@@ -72,8 +71,8 @@ public class StopSearchActivity extends Activity implements Serializable {
         });
         searchNearMe(false, "refresh");
 
-        ActionBar ab = getActionBar();
-        ab.setIcon(null);
+        /*ActionBar ab = getActionBar();
+        ab.setIcon(null);*/
 
         handleIntent(getIntent());
 
@@ -95,16 +94,7 @@ public class StopSearchActivity extends Activity implements Serializable {
                 })
                 .monitor();
         // Show a dialog if meets conditions
-        AppRate.showRateDialogIfMeetsConditions(this);//
-
-        /*// Custom criteria: 7 days and 10 launches
-        RateThisApp.Config config = new RateThisApp.Config(7, 3);
-        // Custom title and message
-        config.setTitle(R.string.rate_title);
-        config.setMessage(R.string.rate_message);
-        RateThisApp.init(config);*/
-
-
+        AppRate.showRateDialogIfMeetsConditions(this);
     }
 
     @Override
@@ -171,11 +161,6 @@ public class StopSearchActivity extends Activity implements Serializable {
                 searchNearMe(false, "onStart");
             }
         }
-
-        /* // Monitor launch times and interval from installation
-        RateThisApp.onStart(this);
-        // If the criteria is satisfied, "Rate this app" dialog will be shown
-        RateThisApp.showRateDialogIfNeeded(this);*/
     }
 
     @Override
@@ -358,7 +343,6 @@ public class StopSearchActivity extends Activity implements Serializable {
 
         // This is called when doInBackground() is finished
         protected void onPostExecute(StopGroup[] result) {
-
             if (isCancelled()) {
                 return;
             }
