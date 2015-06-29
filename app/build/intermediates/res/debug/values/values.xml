@@ -356,6 +356,7 @@
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="search_hint">Остановка</string>
+    <string name="settings_background_label">Показывать уведомления с прогнозом для ближайшей остановки</string>
     <string name="siteAddress">http://m.tosamara.ru/ostanovki/</string>
     <string name="stopNameHint">Название остановки</string>
     <string name="stopsFileName">data/stops.xml</string>

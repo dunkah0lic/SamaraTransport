@@ -7,11 +7,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -183,10 +181,6 @@ public class StopSearchActivity extends Activity implements Serializable {
     protected void onDestroy() {
         super.onDestroy();
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onDestroy");
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.remove("authkey");
-        editor.commit();
 
         // The activity is about to be destroyed.
     }
@@ -261,6 +255,7 @@ public class StopSearchActivity extends Activity implements Serializable {
         Intent intent = new Intent(this, SettingsActivity.class);
         DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
+        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
         intent.putExtra("showTrams", dataMan.isShowTrams());
         intent.putExtra("showTrolls", dataMan.isShowTrolls());
@@ -275,7 +270,7 @@ public class StopSearchActivity extends Activity implements Serializable {
             msgBox(this, "123", "");
         }
         if (requestCode != 10) {
-            DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+            DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
             if (searchByNav) {
                 if (dataMan.navInit()) {
                     new SearchNearMeTask().execute(true, true);
@@ -304,8 +299,6 @@ public class StopSearchActivity extends Activity implements Serializable {
 
 
     public void searchNearMe(boolean force, String who) {
-        // msgBox(this, who, "");
-        // Log.appendLog("StopSearchActivity searchNearMe from " + who);
         if (!dataMan.isNavWorking()) {
             dataMan.navInit();
         }
@@ -403,7 +396,7 @@ public class StopSearchActivity extends Activity implements Serializable {
         Log.d("","StopSearchActivity showDirections");
         Intent intent = new Intent(this, DirectionSelectActivity.class);
         try {
-            dataMan = DataController.getInstance();
+            dataMan = DataController.getInstance(this);
         } catch (NullPointerException e) {
             dataMan = DataController.getInstance(this);
         }

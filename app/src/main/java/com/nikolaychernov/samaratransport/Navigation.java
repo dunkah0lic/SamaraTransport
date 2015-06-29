@@ -37,6 +37,16 @@ public class Navigation {
         newNavListeners();
     }
 
+    public Navigation(Context cont) {
+        locationManager = (LocationManager) cont.getSystemService(Context.LOCATION_SERVICE);
+        Location currentNetworkLoc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location currentGPSLoc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        lastBestLoc = isBetterLocation(currentGPSLoc, currentNetworkLoc) ? currentGPSLoc : currentNetworkLoc;
+        forceLoc = lastBestLoc;
+
+        newNavListeners();
+    }
+
     private void newNavListeners() {
         GPSListener = new LocationListener() {
 
@@ -46,7 +56,7 @@ public class Navigation {
                 firstUpdate = false;
                 lastBestLoc = location;
                 forceLoc = location;
-                if (isLocationChanged()) {
+                if (isLocationChanged()&& activity!=null) {
                     activity.notifyMoved();
                 }
             }
@@ -82,7 +92,7 @@ public class Navigation {
                     locationChanged = !equalsByCoord(location, lastBestLoc) || firstUpdate;
                     firstUpdate = false;
                     lastBestLoc = location;
-                    if (isLocationChanged()) {
+                    if (isLocationChanged() && activity!=null) {
                         activity.notifyMoved();
                     }
                 }
@@ -120,7 +130,7 @@ public class Navigation {
                     if (!GPSStatus || firstUpdate) {
                         locationChanged = !equalsByCoord(location, lastBestLoc) || firstUpdate;
                         firstUpdate = false;
-                        if (isLocationChanged()) {
+                        if (isLocationChanged() && activity!=null) {
                             activity.notifyMoved();
                         }
                     }
@@ -210,31 +220,33 @@ public class Navigation {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                final LocationManager locMan = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-                LocationProvider provider = locMan.getProvider(LocationManager.NETWORK_PROVIDER);
-                LocationListener singeUpdateListener = new LocationListener() {
-                    public void onLocationChanged(Location location) {
-                        Log.d("requestNewLocation", "Single Location Update Received: " + location.getLatitude() + "," + location.getLongitude());
-                        // synchronized (shared) {
-                        // shared.notifyAll();
-                        // }
-                        locMan.removeUpdates(this);
-                        lastBestLoc = location;
-                        forceLoc = location;
-                        activity.notifyMoved();
-                    }
+                if (activity!=null) {
+                    final LocationManager locMan = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+                    LocationProvider provider = locMan.getProvider(LocationManager.NETWORK_PROVIDER);
+                    LocationListener singeUpdateListener = new LocationListener() {
+                        public void onLocationChanged(Location location) {
+                            Log.d("requestNewLocation", "Single Location Update Received: " + location.getLatitude() + "," + location.getLongitude());
+                            // synchronized (shared) {
+                            // shared.notifyAll();
+                            // }
+                            locMan.removeUpdates(this);
+                            lastBestLoc = location;
+                            forceLoc = location;
+                            activity.notifyMoved();
+                        }
 
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
-                    }
+                        public void onStatusChanged(String provider, int status, Bundle extras) {
+                        }
 
-                    public void onProviderEnabled(String provider) {
-                    }
+                        public void onProviderEnabled(String provider) {
+                        }
 
-                    public void onProviderDisabled(String provider) {
+                        public void onProviderDisabled(String provider) {
+                        }
+                    };
+                    if (provider != null) {
+                        locMan.requestLocationUpdates(provider.getName(), 0, 0, singeUpdateListener, activity.getMainLooper());
                     }
-                };
-                if (provider != null) {
-                    locMan.requestLocationUpdates(provider.getName(), 0, 0, singeUpdateListener, activity.getMainLooper());
                 }
             }
         }).start();
@@ -286,12 +298,6 @@ public class Navigation {
 
     public boolean navInit() {
         navTerminate();
-
-        // BEGIN added 12.12.13 while trying to improve navigation
-        // locationManager = (LocationManager) activity
-        // .getSystemService(Context.LOCATION_SERVICE);
-        // newNavListeners();
-        // END
         GPSStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && (locationManager.getProvider(LocationManager.GPS_PROVIDER) != null);
         netStatus = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) && (locationManager.getProvider(LocationManager.NETWORK_PROVIDER) != null);
 
@@ -319,8 +325,6 @@ public class Navigation {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, MOVE_TRESHOLD * 5, GPSListener);
             }
         } catch (Exception e) {
-            // activity.say("Ошибка инициализации GPS " +
-            // e.getLocalizedMessage());
             Log.e("GPS", "GPS Error", e);
         }
 
@@ -330,8 +334,6 @@ public class Navigation {
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, forceNetworkListener);
             }
         } catch (Exception e) {
-            // activity.say("Ошибка навигации по сетям " +
-            // e.getLocalizedMessage());
             Log.e("Network", "Network nav Error", e);
         }
 

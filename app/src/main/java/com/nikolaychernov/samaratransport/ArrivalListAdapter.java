@@ -2,7 +2,6 @@ package com.nikolaychernov.samaratransport;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,24 +74,17 @@ public class ArrivalListAdapter extends BaseAdapter {
         //Log.appendLog("ArrivalListAdapter getView 2");
         tv = (TextView) view.findViewById(R.id.txtArrivalListRoute);
         tv.setText(p.routeDesc);
-        dataMan.setTypeface(tv, Typeface.BOLD);
+
 
         //Log.appendLog("ArrivalListAdapter getView 3");
         tv = (TextView) view.findViewById(R.id.txtArrivalListTime);
         tv.setText(String.valueOf(p.time));
         //dataMan.setTypeface(tv, Typeface.NORMAL);
 
-        //Log.appendLog("ArrivalListAdapter getView 4");
-        tv = (TextView) view.findViewById(R.id.txtArrivalListMinutesLabel);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
-
-        //Log.appendLog("ArrivalListAdapter getView 5");
         tv = (TextView) view.findViewById(R.id.txtArrivalListVehicle);
         tv.setText(p.model + " | " + p.vehicleID);
-        dataMan.setTypeface(tv, Typeface.ITALIC);
 
-        //Log.appendLog("ArrivalListAdapter getView 6");
-        int transType = p.typeID; //DataController.getInstance().getTransType(p.getKR_ID());
+        int transType = p.typeID;
 
         if (transType == 0) {
             ((RelativeLayout) view.findViewById(R.id.relLayoutArrivalListBusIcon)).setVisibility(View.INVISIBLE);

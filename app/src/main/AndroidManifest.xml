@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="6"
+    android:versionCode="7"
     android:versionName="1.0.2" >
 
     <uses-sdk
@@ -12,20 +12,18 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-         />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but are recommended.
     -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".MyApplication"
@@ -34,7 +32,8 @@
         android:label="@string/app_name" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBiwIhRtQophje4k4JVKl-SMNJLf5OkCKI"/>
+            android:value="AIzaSyBiwIhRtQophje4k4JVKl-SMNJLf5OkCKI" />
+
         <activity
             android:name=".StopSearchActivity"
             android:label="@string/app_name"
@@ -56,8 +55,8 @@
         <activity
             android:name=".ArrivalActivity"
             android:label="@string/title_activity_arrival"
-            android:parentActivityName=".DirectionSelectActivity"
             android:launchMode="singleTop"
+            android:parentActivityName=".DirectionSelectActivity"
             android:theme="@style/AppTheme" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -92,12 +91,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".ArrivalActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -105,10 +103,19 @@
                 android:value=".ArrivalActivity" />
         </activity>
 
+        <receiver
+            android:name=".Autostart"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <service
-            android:name=".ActivationService"
-            android:exported="false" >
-        </service>
+            android:name=".BackgroundService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

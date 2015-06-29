@@ -1,6 +1,7 @@
 package com.nikolaychernov.samaratransport;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources.NotFoundException;
@@ -8,8 +9,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
+
+import com.nikolaychernov.samaratransport.TransportDBContract.FavorReaderDbHelper;
+import com.nikolaychernov.samaratransport.TransportDBContract.MainReaderDbHelper;
+import com.nikolaychernov.samaratransport.TransportDBContract.StopEntry;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -33,10 +38,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.nikolaychernov.samaratransport.TransportDBContract.FavorReaderDbHelper;
-import com.nikolaychernov.samaratransport.TransportDBContract.MainReaderDbHelper;
-import com.nikolaychernov.samaratransport.TransportDBContract.StopEntry;
-
 public class DataController implements Serializable {
 
     private static volatile DataController instance;
@@ -52,6 +53,7 @@ public class DataController implements Serializable {
 
     private int searchRadius = 1400;
     private boolean isAutoUpdate = true;
+    private boolean isBackgroundUpdate = true;
     //	private boolean requestAddPredict = false;
     private boolean showBuses = true;
     private String authKey = "222222";
@@ -114,6 +116,24 @@ public class DataController implements Serializable {
         return instance;
     }
 
+    public static DataController getInstance(Context cont) {
+        if (instance == null) {
+            synchronized (DataController.class) {
+                instance = new DataController(cont);
+            }
+        } else {
+            instance.context= cont;
+            TransportDBContract contr = new TransportDBContract();
+
+            instance.mainDBhelper = contr.new MainReaderDbHelper(cont);
+            instance.favorBDhelper = contr.new FavorReaderDbHelper(cont);
+            instance.copyFavor();
+
+            instance.nav = new Navigation(cont);
+        }
+        return instance;
+    }
+
     public static DataController getInstance() {
         if (instance == null) {
             throw new NullPointerException("DataMan not initialized");
@@ -130,6 +150,7 @@ public class DataController implements Serializable {
 
     private DataController(StopSearchActivity act) {
         activity = act;
+        context = act;
         TransportDBContract contr = new TransportDBContract();
         mainDBhelper = contr.new MainReaderDbHelper(act);
         favorBDhelper = contr.new FavorReaderDbHelper(act);
@@ -137,27 +158,22 @@ public class DataController implements Serializable {
         copyFavor();
         initSettings();
 
-        tp = new Typeface[3];
-        tp[HelveticaFont.Bold] = Typeface.createFromAsset(activity.getAssets(), "fonts/Helvetica" + "Bold" + ".otf");
-        tp[HelveticaFont.Medium] = Typeface.createFromAsset(activity.getAssets(), "fonts/Helvetica" + "Medium" + ".otf");
-        tp[HelveticaFont.Light] = Typeface.createFromAsset(activity.getAssets(), "fonts/Helvetica" + "Light" + ".otf");
     }
 
-    public static class HelveticaFont {
+    private DataController(Context cont) {
+        context = cont;
+        TransportDBContract contr = new TransportDBContract();
+        mainDBhelper = contr.new MainReaderDbHelper(cont);
+        favorBDhelper = contr.new FavorReaderDbHelper(cont);
+        nav = new Navigation(cont);
+        copyFavor();
+        initSettings();
 
-        public static int Bold = 0, Medium = 1, Light = 2;
-    }
-
-    public void setTypeface(TextView v, int faceName) {
-        v.setTypeface(tp[faceName]);
-    }
-
-    public Typeface getTypeface(int faceName) {
-        return tp[faceName];
     }
 
     public void setSettings(int radius, boolean isAutoUpdate,
-                            /*boolean requestAddPredict,*/ boolean showBuses, boolean showTrolls, boolean showTrams, boolean showComm) {
+                            boolean isBackgroundUpdate, boolean showBuses, boolean showTrolls, boolean showTrams, boolean showComm) {
+        this.isBackgroundUpdate = isBackgroundUpdate;
         this.searchRadius = radius;
         this.isAutoUpdate = isAutoUpdate;
         this.showBuses = showBuses;
@@ -165,17 +181,39 @@ public class DataController implements Serializable {
         this.showTrams = showTrams;
         this.showTrolls = showTrolls;
 //		this.requestAddPredict = requestAddPredict;
+        Intent serviceIntent = new Intent(activity, BackgroundService.class);
+        if(isBackgroundUpdate){
+            activity.startService(serviceIntent);
+        } else {
+            activity.stopService(serviceIntent);
+        }
         commitSettings();
         //
     }
 
+    public boolean isBackgroundUpdate() {
+        return isBackgroundUpdate;
+    }
+
+    public void setIsBackgroundUpdate(boolean isBackgroundUpdate) {
+        this.isBackgroundUpdate = isBackgroundUpdate;
+    }
+
     private void initSettings() {
-        SharedPreferences prefs = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences prefs;
+        if (activity!=null){
+            prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        } else {
+            prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        }
+
         isAutoUpdate = prefs.getBoolean("updateFlag", true);
+        isBackgroundUpdate = prefs.getBoolean("backgroundFlag", false);
         searchRadius = prefs.getInt("radius", 600);
         showBuses = prefs.getBoolean("showBuses", true);
         showTrolls = prefs.getBoolean("showTrolls", true);
         showTrams = prefs.getBoolean("showTrams", true);
+
         showComm = prefs.getBoolean("showComm", true);
         authKey = prefs.getString("authkey", "222222");
 //		requestAddPredict = prefs.getBoolean("requestAdditionalPredict", false);
@@ -183,9 +221,10 @@ public class DataController implements Serializable {
     }
 
     private void commitSettings() {
-        SharedPreferences prefs = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         Editor ed = prefs.edit();
         ed.putBoolean("updateFlag", isAutoUpdate);
+        ed.putBoolean("backgroundFlag", isBackgroundUpdate);
         ed.putInt("radius", searchRadius);
         ed.putBoolean("showBuses", showBuses);
         ed.putBoolean("showTrolls", showTrolls);
@@ -473,8 +512,10 @@ public class DataController implements Serializable {
             }
             httpConnection.disconnect();
         } catch (MalformedURLException e) {
+            Log.d("DataController", "MalformedURLException");
             throw new IOException("MalformedURLException " + e.getMessage());
         } catch (SocketTimeoutException e) {
+            Log.d("DataController", "SocketTimeoutException");
             throw new IOException("Timeout");
         }
 
@@ -638,11 +679,11 @@ public class DataController implements Serializable {
 
 
     private void copyFavor() {
-        File stops = activity.getDatabasePath("Stops.db");
-        File routes = activity.getDatabasePath("Routes.db");
-        File stopCorrs = activity.getDatabasePath("StopsGeoID.db");
+        File stops = context.getDatabasePath("Stops.db");
+        File routes = context.getDatabasePath("Routes.db");
+        File stopCorrs = context.getDatabasePath("StopsGeoID.db");
         if (stops.exists()) {
-            SQLiteDatabase db = new TransportDBContract().new StopsReaderDbHelper(activity, "Stops.db").getReadableDatabase();
+            SQLiteDatabase db = new TransportDBContract().new StopsReaderDbHelper(context, "Stops.db").getReadableDatabase();
             String where = TransportDBContract.StopEntry.COLUMN_NAME_FAVOR + " = '1'";
             Cursor cur = db.query(TransportDBContract.StopEntry.TABLE_NAME, null, where, null, null, null, null);
 

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 
 
@@ -158,6 +159,7 @@ public class ArrivalActivity extends Activity{
         DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
+        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
         intent.putExtra("showTrams", dataMan.isShowTrams());
         intent.putExtra("showTrolls", dataMan.isShowTrolls());
         intent.putExtra("showBuses", dataMan.isShowBuses());
@@ -168,7 +170,7 @@ public class ArrivalActivity extends Activity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Log.appendLog("ArrivalActivity onActivityResult");
-        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
         if (DataController.getInstance().isAutoUpdate()) {
             cmdUpdate_click(null);
         }
@@ -241,6 +243,20 @@ public class ArrivalActivity extends Activity{
                             }
                         }
                     });
+
+                    String text = arrInfo.get(0).routeDesc + " " + arrInfo.get(0).time + " мин.";
+                    
+                    /*NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(act)
+                                    .setSmallIcon(R.drawable.ic_stat_name)
+                                    .setContentTitle("" + st.title)
+                                    .setContentText(text)
+                                    .setColor(getResources().getColor(R.color.green));
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    int mId =0;
+                    mNotificationManager.notify(mId, mBuilder.build());*/
+
                 } else {
                     findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.VISIBLE);

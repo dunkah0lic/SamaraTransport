@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.Arrays;
 
@@ -20,25 +19,9 @@ public class DirectionSelectActivity extends Activity {
 
     private StopGroup grp;
 
-    // private Stop[] stops;
-
-    // @Override
-    // public void onSaveInstanceState(Bundle savedInstanceState) {
-    // savedInstanceState.putSerializable("dm", DataController.getInstance());
-    //
-    // super.onSaveInstanceState(savedInstanceState);
-    // }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Log.appendLog("DirectionSelectActivity onCreate");
-        // Check whether we're recreating a previously destroyed instance
-        // if (savedInstanceState != null) {
-        // // Restore value of members from saved state
-        // DataController.setInstance((DataController) savedInstanceState
-        // .getSerializable("dm"));
-        // }
 
         setContentView(R.layout.activity_direction_select);
         grp = (StopGroup) getIntent().getSerializableExtra(StopSearchActivity.MESSAGE_STOPGROUP);
@@ -59,18 +42,6 @@ public class DirectionSelectActivity extends Activity {
         ab.setIcon(null);
         ab.setTitle(grp.title);
         ab.setSubtitle(grp.adjacentStreet);
-
-        TextView tv;
-        /*tv = (TextView) findViewById(R.id.lblDirectionSelect);
-        dataMan.setTypeface(tv, HelveticaFont.Bold);
-
-        tv = (TextView) findViewById(R.id.txtDirectionStopName);
-        tv.setText(grp.title);
-        dataMan.setTypeface(tv, HelveticaFont.Bold);
-
-        tv = (TextView) findViewById(R.id.txtDirectionStreet);
-        tv.setText(grp.adjacentStreet);
-        dataMan.setTypeface(tv, HelveticaFont.Medium);*/
 
         ListView list = (ListView) findViewById(R.id.directionList);
         DirectionListAdapter adapter = new DirectionListAdapter(this, grp.stops);
@@ -114,6 +85,7 @@ public class DirectionSelectActivity extends Activity {
         DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
+        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
         intent.putExtra("showTrams", dataMan.isShowTrams());
         intent.putExtra("showTrolls", dataMan.isShowTrolls());
         intent.putExtra("showBuses", dataMan.isShowBuses());
@@ -123,7 +95,7 @@ public class DirectionSelectActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
     }
 
     public void cmdBack_click(View view) {

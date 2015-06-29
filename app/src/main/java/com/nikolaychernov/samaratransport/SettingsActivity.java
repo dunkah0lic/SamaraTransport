@@ -19,6 +19,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
 
     private int radius = 600;
     private boolean isAutoUpdate = true;
+    private boolean isBackgroundUpdate = false;
 //	private boolean requestAddPredict = false;
 
     @Override
@@ -45,6 +46,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
 
         ((SeekBar) findViewById(R.id.seekRadius)).setOnSeekBarChangeListener(this);
         isAutoUpdate = getIntent().getBooleanExtra("updateFlag", true);
+        isBackgroundUpdate = getIntent().getBooleanExtra("backgroundFlag", true);
 //		requestAddPredict = getIntent().getBooleanExtra("requestAdditionalPredict", true);
         radius = getIntent().getIntExtra("radius", 600);
         if (radius >= 1000) {
@@ -54,6 +56,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
         }
         ((SeekBar) findViewById(R.id.seekRadius)).setProgress(radius - 300);
         ((Switch) findViewById(R.id.toggleAutoUpdate)).setChecked(isAutoUpdate);
+        ((Switch) findViewById(R.id.toggleBackground)).setChecked(isBackgroundUpdate);
         ((CheckBox) findViewById(R.id.checkShowBuses)).setChecked(getIntent().getBooleanExtra("showBuses", true));
         ((CheckBox) findViewById(R.id.checkShowTrolls)).setChecked(getIntent().getBooleanExtra("showTrolls", true));
         ((CheckBox) findViewById(R.id.checkShowTrams)).setChecked(getIntent().getBooleanExtra("showTrams", true));
@@ -77,6 +80,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
     private void setResults() {
         Intent data = new Intent();
         data.putExtra("updateFlag", ((Switch) findViewById(R.id.toggleAutoUpdate)).isChecked());
+        data.putExtra("backgroundFlag", ((Switch) findViewById(R.id.toggleBackground)).isChecked());
 //		data.putExtra("requestAdditionalPredict", requestAddPredict);
         data.putExtra("radius", radius);
         data.putExtra("showBuses", ((CheckBox) findViewById(R.id.checkShowBuses)).isChecked());
@@ -91,6 +95,8 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
         switch (view.getId()) {
             case R.id.toggleAutoUpdate:
                 isAutoUpdate = ((Switch) view).isChecked();
+            case R.id.toggleBackground:
+                isBackgroundUpdate = ((Switch) view).isChecked();
         }
 
         setResults();
@@ -100,6 +106,8 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
         switch (view.getId()) {
             case R.id.toggleAutoUpdate:
                 isAutoUpdate = ((Switch) view).isChecked();
+            case R.id.toggleBackground:
+                isBackgroundUpdate = ((Switch) view).isChecked();
         }
 
         setResults();
