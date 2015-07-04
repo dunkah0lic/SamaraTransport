@@ -1,5 +1,6 @@
 package com.nikolaychernov.samaratransport;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,9 +10,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.nikolaychernov.samaratransport.TransportDBContract.FavorReaderDbHelper;
 import com.nikolaychernov.samaratransport.TransportDBContract.MainReaderDbHelper;
 import com.nikolaychernov.samaratransport.TransportDBContract.StopEntry;
@@ -38,7 +44,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class DataController implements Serializable {
+public class DataController implements Serializable, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private static volatile DataController instance;
 
@@ -50,6 +56,7 @@ public class DataController implements Serializable {
     private FavorReaderDbHelper favorBDhelper;
     private Navigation nav;
     private Context context;
+    GoogleApiClient mGoogleApiClient;
 
     private int searchRadius = 1400;
     private boolean isAutoUpdate = true;
@@ -158,6 +165,13 @@ public class DataController implements Serializable {
         copyFavor();
         initSettings();
 
+        mGoogleApiClient = new GoogleApiClient.Builder(activity)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClient.connect();
+
     }
 
     private DataController(Context cont) {
@@ -168,6 +182,13 @@ public class DataController implements Serializable {
         nav = new Navigation(cont);
         copyFavor();
         initSettings();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(context)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClient.connect();
 
     }
 
@@ -181,14 +202,36 @@ public class DataController implements Serializable {
         this.showTrams = showTrams;
         this.showTrolls = showTrolls;
 //		this.requestAddPredict = requestAddPredict;
-        Intent serviceIntent = new Intent(activity, BackgroundService.class);
+        /*Intent serviceIntent = new Intent(activity, BackgroundService.class);
         if(isBackgroundUpdate){
             activity.startService(serviceIntent);
         } else {
             activity.stopService(serviceIntent);
-        }
+        }*/
+        setLocationUpdates(isBackgroundUpdate);
+
         commitSettings();
         //
+    }
+
+    public void setLocationUpdates(boolean yes){
+
+        Intent intent = new Intent("LOCATION_UPDATE");
+        PendingIntent locationIntent = PendingIntent.getBroadcast(activity, 0,
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+
+        LocationRequest mLocationRequest = new LocationRequest();
+        // TODO: set intervals to at least 30000 for release
+        mLocationRequest.setInterval(60*60*1000);
+        mLocationRequest.setFastestInterval(60*1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        if(yes){
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
+        } else {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, locationIntent);
+        }
     }
 
     public boolean isBackgroundUpdate() {
@@ -702,4 +745,18 @@ public class DataController implements Serializable {
         }
     }
 
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
 }

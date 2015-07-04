@@ -48,6 +48,7 @@ public class BackgroundService extends Service implements GoogleApiClient.Connec
 
         return null;
     }
+
     public void onDestroy() {
         //Toast.makeText(this, "My Service Stopped", Toast.LENGTH_LONG).show();
         Log.d(TAG, "onDestroy");
@@ -130,10 +131,11 @@ public class BackgroundService extends Service implements GoogleApiClient.Connec
         LocationRequest mLocationRequest = new LocationRequest();
 
         // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(60000);
-        mLocationRequest.setFastestInterval(60000);
+        mLocationRequest.setInterval(5000);
+        mLocationRequest.setFastestInterval(5000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        //this.stopSelf();
     }
 
     @Override

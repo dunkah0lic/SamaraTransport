@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="8"
+    android:versionCode="9"
     android:versionName="1.1" >
 
     <uses-sdk
@@ -111,9 +111,21 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".LocationReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="LOCATION_UPDATE" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".BackgroundService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ShortBackgroundService"
             android:enabled="true"
             android:exported="true" />
     </application>
