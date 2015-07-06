@@ -1,6 +1,5 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -10,7 +9,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,14 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SearchView;
 
 import java.io.Serializable;
 
 import hotchemi.android.rate.AppRate;
 import hotchemi.android.rate.OnClickButtonListener;
 
-public class StopSearchActivity extends Activity implements Serializable {
+public class StopSearchActivity extends ActionBarActivity implements Serializable {
 
     private DataController dataMan;
     private StopGroup[] grp;
@@ -69,8 +69,8 @@ public class StopSearchActivity extends Activity implements Serializable {
         });
         searchNearMe(false, "refresh");
 
-        /*ActionBar ab = getActionBar();
-        ab.setIcon(null);*/
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
+        ab.setIcon(null);
 
         handleIntent(getIntent());
 
@@ -102,8 +102,8 @@ public class StopSearchActivity extends Activity implements Serializable {
         inflater.inflate(R.menu.stopsearch_activity_menu, menu);
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
+        android.support.v7.widget.SearchView searchView =
+                (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
         return super.onCreateOptionsMenu(menu);
@@ -142,6 +142,10 @@ public class StopSearchActivity extends Activity implements Serializable {
                 return true;
             case R.id.action_settings:
                 cmdSettings_click(null);
+                return true;
+            case R.id.action_rate:
+                Intent googlePlayIntent = DataController.createIntentForGooglePlay(this);
+                startActivity(googlePlayIntent);
                 return true;
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);

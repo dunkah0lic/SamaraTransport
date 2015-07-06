@@ -1996,7 +1996,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int ImgCommBus=0x7f0a00b2;
-        public static final int action_about=0x7f0a00b9;
+        public static final int action_about=0x7f0a00ba;
         public static final int action_bar=0x7f0a0054;
         public static final int action_bar_activity_content=0x7f0a0000;
         public static final int action_bar_container=0x7f0a0053;
@@ -2005,12 +2005,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0a0042;
         public static final int action_bar_title=0x7f0a0041;
         public static final int action_context_bar=0x7f0a0055;
-        public static final int action_favourite=0x7f0a00bb;
+        public static final int action_favourite=0x7f0a00bc;
         public static final int action_menu_divider=0x7f0a0002;
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_bar=0x7f0a0051;
         public static final int action_mode_bar_stub=0x7f0a0050;
         public static final int action_mode_close_button=0x7f0a0043;
+        public static final int action_rate=0x7f0a00b9;
         public static final int action_settings=0x7f0a00b8;
         public static final int activity_chooser_view_content=0x7f0a0044;
         public static final int adjust_height=0x7f0a001b;
@@ -2119,7 +2120,7 @@ containing a value of this type.
         public static final int satellite=0x7f0a001e;
         public static final int scrollView=0x7f0a0069;
         public static final int scrollview=0x7f0a0009;
-        public static final int search=0x7f0a00ba;
+        public static final int search=0x7f0a00bb;
         public static final int search_badge=0x7f0a0058;
         public static final int search_bar=0x7f0a0057;
         public static final int search_button=0x7f0a0059;

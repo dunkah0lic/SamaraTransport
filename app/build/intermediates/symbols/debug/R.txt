@@ -608,7 +608,7 @@ int drawable switcher_on 0x7f0200d1
 int drawable switcher_states 0x7f0200d2
 int drawable yellow_circle72 0x7f0200d3
 int id ImgCommBus 0x7f0a00b2
-int id action_about 0x7f0a00b9
+int id action_about 0x7f0a00ba
 int id action_bar 0x7f0a0054
 int id action_bar_activity_content 0x7f0a0000
 int id action_bar_container 0x7f0a0053
@@ -617,12 +617,13 @@ int id action_bar_spinner 0x7f0a0001
 int id action_bar_subtitle 0x7f0a0042
 int id action_bar_title 0x7f0a0041
 int id action_context_bar 0x7f0a0055
-int id action_favourite 0x7f0a00bb
+int id action_favourite 0x7f0a00bc
 int id action_menu_divider 0x7f0a0002
 int id action_menu_presenter 0x7f0a0003
 int id action_mode_bar 0x7f0a0051
 int id action_mode_bar_stub 0x7f0a0050
 int id action_mode_close_button 0x7f0a0043
+int id action_rate 0x7f0a00b9
 int id action_settings 0x7f0a00b8
 int id activity_chooser_view_content 0x7f0a0044
 int id adjust_height 0x7f0a001b
@@ -731,7 +732,7 @@ int id sandbox 0x7f0a0034
 int id satellite 0x7f0a001e
 int id scrollView 0x7f0a0069
 int id scrollview 0x7f0a0009
-int id search 0x7f0a00ba
+int id search 0x7f0a00bb
 int id search_badge 0x7f0a0058
 int id search_bar 0x7f0a0057
 int id search_button 0x7f0a0059

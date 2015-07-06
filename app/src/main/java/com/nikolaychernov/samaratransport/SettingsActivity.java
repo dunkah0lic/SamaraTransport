@@ -1,9 +1,8 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
@@ -12,7 +11,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class SettingsActivity extends Activity implements OnSeekBarChangeListener {
+public class SettingsActivity extends ActionBarActivity implements OnSeekBarChangeListener {
 
     private TextView progressText;
     private TextView metersText;
@@ -40,7 +39,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
         progressText = (TextView) findViewById(R.id.txtRadiusLabel) ;
 
 
-        ActionBar ab = getActionBar();
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
         ab.setIcon(null);
 
 

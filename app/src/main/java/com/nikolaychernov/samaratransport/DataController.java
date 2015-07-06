@@ -5,11 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -41,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -48,8 +52,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     private static volatile DataController instance;
 
-    private static final String BASE64_PUBLIC_KEY = "305c300d06092a864886f70d0101010500034b00304802410081d21f93177c745b9bea9709ff49936b25ed5ec6f306191949c62242232856dda1efdd5e13e8b3df8e14f6ec5ed920d022e7a06816e8e1fd8cf0a380e2f83f470203010001";
-
+    private static final String GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=";
+    private static final String GOOGLE_PLAY_PACKAGE_NAME = "com.android.vending";
 
     private StopSearchActivity activity;
     private MainReaderDbHelper mainDBhelper;
@@ -223,8 +227,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
         LocationRequest mLocationRequest = new LocationRequest();
         // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(60*60*1000);
-        mLocationRequest.setFastestInterval(60*1000);
+        mLocationRequest.setInterval(24 * 60 * 60 * 1000);
+        mLocationRequest.setFastestInterval(60 * 1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
         if(yes){
@@ -758,5 +762,27 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
+    }
+
+    static Uri getGooglePlay(String packageName) {
+        return packageName == null ? null : Uri.parse(GOOGLE_PLAY + packageName);
+    }
+
+    static boolean isPackageExists(Context context, String targetPackage) {
+        PackageManager pm = context.getPackageManager();
+        List<ApplicationInfo> packages = pm.getInstalledApplications(0);
+        for (ApplicationInfo packageInfo : packages) {
+            if (packageInfo.packageName.equals(targetPackage)) return true;
+        }
+        return false;
+    }
+
+    static Intent createIntentForGooglePlay(Context context) {
+        String packageName = context.getPackageName();
+        Intent intent = new Intent(Intent.ACTION_VIEW, getGooglePlay(packageName));
+        if (isPackageExists(context, GOOGLE_PLAY_PACKAGE_NAME)) {
+            intent.setPackage(GOOGLE_PLAY_PACKAGE_NAME);
+        }
+        return intent;
     }
 }

@@ -1,6 +1,5 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +20,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 
-public class ArrivalActivity extends Activity{
+public class ArrivalActivity extends ActionBarActivity {
 
     private Stop st;
     private CountDownTimer t;
@@ -61,6 +61,10 @@ public class ArrivalActivity extends Activity{
             case R.id.action_settings:
                 cmdSettings_click();
                 return true;
+            case R.id.action_rate:
+                Intent googlePlayIntent = DataController.createIntentForGooglePlay(this);
+                startActivity(googlePlayIntent);
+                return true;
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -87,10 +91,16 @@ public class ArrivalActivity extends Activity{
             return;
         }
 
-        ActionBar ab = getActionBar();
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
         ab.setIcon(null);
         ab.setTitle(st.title);
         ab.setSubtitle(st.direction);
+
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(st.title);
+        toolbar.setSubtitle(st.direction);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);*/
 
         task = new DownloadArrivalInfoTask();
 
@@ -243,20 +253,6 @@ public class ArrivalActivity extends Activity{
                             }
                         }
                     });
-
-                    String text = arrInfo.get(0).routeDesc + " " + arrInfo.get(0).time + " мин.";
-                    
-                    /*NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(act)
-                                    .setSmallIcon(R.drawable.ic_stat_name)
-                                    .setContentTitle("" + st.title)
-                                    .setContentText(text)
-                                    .setColor(getResources().getColor(R.color.green));
-                    NotificationManager mNotificationManager =
-                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    int mId =0;
-                    mNotificationManager.notify(mId, mBuilder.build());*/
-
                 } else {
                     findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.VISIBLE);

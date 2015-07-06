@@ -1,10 +1,9 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +14,7 @@ import android.widget.ListView;
 
 import java.util.Arrays;
 
-public class DirectionSelectActivity extends Activity {
+public class DirectionSelectActivity extends ActionBarActivity {
 
     private StopGroup grp;
 
@@ -38,7 +37,7 @@ public class DirectionSelectActivity extends Activity {
             return;
         }
 
-        ActionBar ab = getActionBar();
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
         ab.setIcon(null);
         ab.setTitle(grp.title);
         ab.setSubtitle(grp.adjacentStreet);
@@ -71,6 +70,10 @@ public class DirectionSelectActivity extends Activity {
                 return true;
             case R.id.action_settings:
                 cmdSettings_click();
+                return true;
+            case R.id.action_rate:
+                Intent googlePlayIntent = DataController.createIntentForGooglePlay(this);
+                startActivity(googlePlayIntent);
                 return true;
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);

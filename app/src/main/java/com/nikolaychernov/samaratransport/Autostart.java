@@ -54,7 +54,7 @@ public class Autostart extends BroadcastReceiver implements GoogleApiClient.Conn
 
         LocationRequest mLocationRequest = new LocationRequest();
         // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(60*60*1000);
+        mLocationRequest.setInterval(24*60*60*1000);
         mLocationRequest.setFastestInterval(60*1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
