@@ -1,8 +1,7 @@
 package com.nikolaychernov.samaratransport;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,7 +12,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-public class MapsActivity extends FragmentActivity {
+public class MapsActivity extends ActionBarActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     int KR_ID;
@@ -37,7 +36,7 @@ public class MapsActivity extends FragmentActivity {
 
         TransportDBContract.MainReaderDbHelper mainReaderDbHelper = contr.new MainReaderDbHelper(this);
         Route route = mainReaderDbHelper.getRoute(KR_ID);
-        ActionBar ab = getActionBar();
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
         //ab.setIcon(null);
         if (route.direction!=null){
             ab.setTitle(route.number + ": " + route.direction);
