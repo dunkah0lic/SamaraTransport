@@ -4,3 +4,5 @@
 Доступно для скачивания в Play Market - https://play.google.com/store/apps/details?id=com.nikolaychernov.samaratransport.
 
 Демо: https://www.youtube.com/watch?v=ksWPDDQCV5g
+
+Public transit app for the city of Samara, Russia 
