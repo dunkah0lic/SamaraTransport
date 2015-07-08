@@ -5,4 +5,6 @@
 
 Демо: https://www.youtube.com/watch?v=ksWPDDQCV5g
 
+В ветке gradproject версия, где часть функционала вынесена на сервер активации на Google App Engine, сделанная в рамках дипломного проекта.
+
 Public transit app for the city of Samara, Russia 
