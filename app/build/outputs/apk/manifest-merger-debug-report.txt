@@ -171,19 +171,19 @@ ADDED from AndroidManifest.xml:20:5
 	android:name
 		ADDED from AndroidManifest.xml:20:22
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from AndroidManifest.xml:25:5
+ADDED from AndroidManifest.xml:21:5
 MERGED from com.google.android.gms:play-services-maps:7.5.0:23:5
 MERGED from com.google.android.gms:play-services-maps:7.5.0:23:5
 MERGED from com.google.android.gms:play-services-maps:7.5.0:23:5
 MERGED from com.google.android.gms:play-services-maps:7.5.0:23:5
 	android:name
-		ADDED from AndroidManifest.xml:25:22
+		ADDED from AndroidManifest.xml:21:22
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from AndroidManifest.xml:26:5
+ADDED from AndroidManifest.xml:22:5
 	android:name
-		ADDED from AndroidManifest.xml:26:22
+		ADDED from AndroidManifest.xml:22:22
 application
-ADDED from AndroidManifest.xml:28:5
+ADDED from AndroidManifest.xml:24:5
 MERGED from com.google.android.gms:play-services:7.5.0:19:5
 MERGED from com.google.android.gms:play-services-ads:7.5.0:24:5
 MERGED from com.google.android.gms:play-services-base:7.5.0:20:5
@@ -275,89 +275,89 @@ MERGED from com.android.support:recyclerview-v7:21.0.3:17:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.github.hotchemi:android-rate:0.4.3:10:5
 	android:label
-		ADDED from AndroidManifest.xml:32:9
+		ADDED from AndroidManifest.xml:28:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:30:9
+		ADDED from AndroidManifest.xml:26:9
 	android:icon
-		ADDED from AndroidManifest.xml:31:9
+		ADDED from AndroidManifest.xml:27:9
 	android:name
-		ADDED from AndroidManifest.xml:29:9
+		ADDED from AndroidManifest.xml:25:9
 meta-data#com.google.android.geo.API_KEY
+ADDED from AndroidManifest.xml:29:9
+	android:name
+		ADDED from AndroidManifest.xml:30:13
+	android:value
+		ADDED from AndroidManifest.xml:31:13
+activity#com.nikolaychernov.samaratransport.StopSearchActivity
 ADDED from AndroidManifest.xml:33:9
+	android:label
+		ADDED from AndroidManifest.xml:35:13
+	android:theme
+		ADDED from AndroidManifest.xml:37:13
 	android:name
 		ADDED from AndroidManifest.xml:34:13
-	android:value
-		ADDED from AndroidManifest.xml:35:13
-activity#com.nikolaychernov.samaratransport.StopSearchActivity
-ADDED from AndroidManifest.xml:37:9
-	android:label
-		ADDED from AndroidManifest.xml:39:13
-	android:theme
-		ADDED from AndroidManifest.xml:41:13
-	android:name
-		ADDED from AndroidManifest.xml:38:13
 	android:launchMode
-		ADDED from AndroidManifest.xml:40:13
+		ADDED from AndroidManifest.xml:36:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:42:13
+ADDED from AndroidManifest.xml:38:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:43:17
+ADDED from AndroidManifest.xml:39:17
 	android:name
-		ADDED from AndroidManifest.xml:43:25
+		ADDED from AndroidManifest.xml:39:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:45:17
+ADDED from AndroidManifest.xml:41:17
 	android:name
-		ADDED from AndroidManifest.xml:45:27
+		ADDED from AndroidManifest.xml:41:27
 intent-filter#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:47:13
+ADDED from AndroidManifest.xml:43:13
 action#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:48:17
+ADDED from AndroidManifest.xml:44:17
 	android:name
-		ADDED from AndroidManifest.xml:48:25
+		ADDED from AndroidManifest.xml:44:25
 meta-data#android.app.searchable
-ADDED from AndroidManifest.xml:51:13
+ADDED from AndroidManifest.xml:47:13
 	android:resource
-		ADDED from AndroidManifest.xml:53:17
+		ADDED from AndroidManifest.xml:49:17
 	android:name
-		ADDED from AndroidManifest.xml:52:17
+		ADDED from AndroidManifest.xml:48:17
 activity#com.nikolaychernov.samaratransport.ArrivalActivity
-ADDED from AndroidManifest.xml:55:9
+ADDED from AndroidManifest.xml:52:9
 	android:label
+		ADDED from AndroidManifest.xml:54:13
+	android:theme
 		ADDED from AndroidManifest.xml:57:13
-	android:theme
-		ADDED from AndroidManifest.xml:60:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:59:13
-	android:name
 		ADDED from AndroidManifest.xml:56:13
+	android:name
+		ADDED from AndroidManifest.xml:53:13
 	android:launchMode
-		ADDED from AndroidManifest.xml:58:13
+		ADDED from AndroidManifest.xml:55:13
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from AndroidManifest.xml:63:13
+ADDED from AndroidManifest.xml:60:13
 	android:name
-		ADDED from AndroidManifest.xml:64:17
+		ADDED from AndroidManifest.xml:61:17
 	android:value
-		ADDED from AndroidManifest.xml:65:17
+		ADDED from AndroidManifest.xml:62:17
 activity#com.nikolaychernov.samaratransport.DirectionSelectActivity
-ADDED from AndroidManifest.xml:67:9
+ADDED from AndroidManifest.xml:65:9
 	android:label
-		ADDED from AndroidManifest.xml:69:13
+		ADDED from AndroidManifest.xml:67:13
 	android:theme
-		ADDED from AndroidManifest.xml:72:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:71:13
-	android:name
-		ADDED from AndroidManifest.xml:68:13
-	android:launchMode
 		ADDED from AndroidManifest.xml:70:13
-activity#com.nikolaychernov.samaratransport.SettingsActivity
-ADDED from AndroidManifest.xml:79:9
-	android:label
-		ADDED from AndroidManifest.xml:81:13
-	android:theme
-		ADDED from AndroidManifest.xml:82:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:69:13
 	android:name
+		ADDED from AndroidManifest.xml:66:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:68:13
+activity#com.nikolaychernov.samaratransport.SettingsActivity
+ADDED from AndroidManifest.xml:78:9
+	android:label
 		ADDED from AndroidManifest.xml:80:13
+	android:theme
+		ADDED from AndroidManifest.xml:81:13
+	android:name
+		ADDED from AndroidManifest.xml:79:13
 activity#com.nikolaychernov.samaratransport.AboutActivity
 ADDED from AndroidManifest.xml:84:9
 	android:label
@@ -424,35 +424,43 @@ ADDED from AndroidManifest.xml:111:17
 	android:name
 		ADDED from AndroidManifest.xml:111:25
 receiver#com.nikolaychernov.samaratransport.LocationReceiver
-ADDED from AndroidManifest.xml:114:9
+ADDED from AndroidManifest.xml:115:9
 	android:exported
+		ADDED from AndroidManifest.xml:118:13
+	android:enabled
 		ADDED from AndroidManifest.xml:117:13
-	android:enabled
+	android:name
 		ADDED from AndroidManifest.xml:116:13
-	android:name
-		ADDED from AndroidManifest.xml:115:13
 intent-filter#LOCATION_UPDATE
-ADDED from AndroidManifest.xml:118:13
+ADDED from AndroidManifest.xml:119:13
 action#LOCATION_UPDATE
-ADDED from AndroidManifest.xml:119:17
+ADDED from AndroidManifest.xml:120:17
 	android:name
-		ADDED from AndroidManifest.xml:119:25
+		ADDED from AndroidManifest.xml:120:25
 service#com.nikolaychernov.samaratransport.BackgroundService
-ADDED from AndroidManifest.xml:123:9
+ADDED from AndroidManifest.xml:124:9
 	android:exported
+		ADDED from AndroidManifest.xml:127:13
+	android:enabled
 		ADDED from AndroidManifest.xml:126:13
-	android:enabled
+	android:name
 		ADDED from AndroidManifest.xml:125:13
-	android:name
-		ADDED from AndroidManifest.xml:124:13
 service#com.nikolaychernov.samaratransport.ShortBackgroundService
-ADDED from AndroidManifest.xml:127:9
+ADDED from AndroidManifest.xml:129:9
 	android:exported
-		ADDED from AndroidManifest.xml:130:13
+		ADDED from AndroidManifest.xml:132:13
 	android:enabled
-		ADDED from AndroidManifest.xml:129:13
+		ADDED from AndroidManifest.xml:131:13
 	android:name
-		ADDED from AndroidManifest.xml:128:13
+		ADDED from AndroidManifest.xml:130:13
+service#com.nikolaychernov.samaratransport.AutostartService
+ADDED from AndroidManifest.xml:134:9
+	android:exported
+		ADDED from AndroidManifest.xml:137:13
+	android:enabled
+		ADDED from AndroidManifest.xml:136:13
+	android:name
+		ADDED from AndroidManifest.xml:135:13
 activity#com.google.android.gms.ads.AdActivity
 ADDED from com.google.android.gms:play-services-ads:7.5.0:26:9
 	android:configChanges

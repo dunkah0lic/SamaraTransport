@@ -16,7 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 
@@ -96,12 +98,6 @@ public class ArrivalActivity extends ActionBarActivity {
         ab.setTitle(st.title);
         ab.setSubtitle(st.direction);
 
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(st.title);
-        toolbar.setSubtitle(st.direction);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);*/
-
         task = new DownloadArrivalInfoTask();
 
         mListView = (ListView) findViewById(R.id.arrivalList);
@@ -116,7 +112,6 @@ public class ArrivalActivity extends ActionBarActivity {
                 mRefreshLayout.setRefreshing(false);
             }
         });
-
     }
 
     @Override
@@ -179,7 +174,6 @@ public class ArrivalActivity extends ActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Log.appendLog("ArrivalActivity onActivityResult");
         DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
         if (DataController.getInstance().isAutoUpdate()) {
             cmdUpdate_click(null);
@@ -187,14 +181,14 @@ public class ArrivalActivity extends ActionBarActivity {
     }
 
 
-    private class DownloadArrivalInfoTask extends AsyncTask<Activity, Boolean, Boolean> {
+    private class DownloadArrivalInfoTask extends AsyncTask<Activity, Boolean, Integer> {
 
         private ArrayList<ArrivalInfo> arrInfo = null;
         private Activity act;
         private String msg = "";
 
         // Do the long-running work in here
-        protected Boolean doInBackground(Activity... parent) {
+        protected Integer doInBackground(Activity... parent) {
             act = parent[0];
             try {
                 if (showRouteArrival) {
@@ -209,20 +203,22 @@ public class ArrivalActivity extends ActionBarActivity {
                 }
                 if (isCancelled()) {
                     Log.v("TAG", "isCancelled");
-                    return false;
+                    return 3;
                 }
-                return true;
+                return 0;
             } catch (NotFoundException e) {
-                // TODO Auto-generated catch block
                 msg = e.getLocalizedMessage();
                 Log.v("TAG1", msg);
-                return false;
-            } catch (Exception e) {
+                return 1;
+            } catch (UnknownHostException e) {
                 msg = e.getMessage();
                 Log.v("TAG2", msg);
-                return false;
+                return 2;
+            } catch (Exception e) {
+                msg = e.getMessage();
+                Log.v("TAG3", msg);
+                return 3;
             }
-
         }
 
         // This is called each time you call publishProgress()
@@ -231,12 +227,12 @@ public class ArrivalActivity extends ActionBarActivity {
         }
 
         // This is called when doInBackground() is finished
-        protected void onPostExecute(Boolean result) {
+        protected void onPostExecute(Integer result) {
             if (isCancelled()) {
                 return;
             }
-            if (result) {
-                if (!arrInfo.isEmpty()) {
+            switch (result){
+                case 0: if (!arrInfo.isEmpty()) {
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
                     findViewById(R.id.txtConnectionProblem).setVisibility(View.INVISIBLE);
 
@@ -259,14 +255,27 @@ public class ArrivalActivity extends ActionBarActivity {
                     findViewById(R.id.txtConnectionProblem).setVisibility(View.INVISIBLE);
                 }
 
-                if (DataController.getInstance().isAutoUpdate()) {
-                    t = new MyTimer(30000, 60000);
-                    t = t.start();
-                }
-            } else {
-                findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
-                findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
-                findViewById(R.id.txtConnectionProblem).setVisibility(View.VISIBLE);
+                    if (DataController.getInstance().isAutoUpdate()) {
+                        t = new MyTimer(30000, 60000);
+                        t = t.start();
+                    }
+                    break;
+                case 1: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                    TextView textView = (TextView) findViewById(R.id.txtConnectionProblem);
+                    textView.setText(R.string.no_response_from_server);
+                    textView.setVisibility(View.VISIBLE);
+                    break;
+                case 2: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtConnectionProblem).setVisibility(View.VISIBLE);
+                    break;
+                case 3: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                    textView = (TextView) findViewById(R.id.txtConnectionProblem);
+                    textView.setText(R.string.no_response_from_server);
+                    textView.setVisibility(View.VISIBLE);
+                    break;
             }
         }
     }

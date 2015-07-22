@@ -64,11 +64,6 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Zakończ przesyłanie"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"System"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Urządzenia"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-pl/pull_refresh_strings.xml -->
-    <eat-comment/>
-    <string name="pull_to_refresh_pull_label">Pociągnij, aby odświeżyć…</string>
-    <string name="pull_to_refresh_refreshing_label">Wczytywanie…</string>
-    <string name="pull_to_refresh_release_label">Puść, aby odświeżyć…</string>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-pl/values.xml -->
     <eat-comment/>
     <string name="rate_dialog_cancel">Przypomnij mi później</string>

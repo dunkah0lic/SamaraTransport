@@ -382,6 +382,7 @@
     <string name="mr_user_route_category_name">Devices</string>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="no_response_from_server">Не удалось получить ответ от сервера tosamara.ru</string>
     <string name="php_bridge">http://m.tosamara.ru/xml_bridge.php</string>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/pull_refresh_strings.xml -->
     <eat-comment/>

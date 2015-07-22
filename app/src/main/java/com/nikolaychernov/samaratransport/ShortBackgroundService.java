@@ -46,8 +46,10 @@ public class ShortBackgroundService extends Service {
         dataMan = DataController.getInstance(this);
 
         Location location = new Location("");
-        location.setLongitude(intent.getDoubleExtra("longitude",0));
-        location.setLatitude(intent.getDoubleExtra("latitude", 0));
+        if (intent!=null) {
+            location.setLongitude(intent.getDoubleExtra("longitude", 0));
+            location.setLatitude(intent.getDoubleExtra("latitude", 0));
+        }
 
         Stop[] stops = mainReaderDbHelper.searchNearMe(location.getLatitude(), location.getLongitude(), 100);
 
@@ -70,7 +72,9 @@ public class ShortBackgroundService extends Service {
         } else {
             //Toast.makeText(getApplicationContext(), "" + mCurrentLocation.getLatitude() + " " + mCurrentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
             mNotificationManager.cancel(mId);
+            this.stopSelf();
         }
+
 
     }
 
@@ -131,10 +135,14 @@ public class ShortBackgroundService extends Service {
 
 
                 mNotificationManager.notify(mId, mBuilder.build());
+                stopThisService();
             }
         }
     }
 
+    public void stopThisService(){
+        this.stopSelf();
+    }
 
     @Override
     public IBinder onBind(Intent intent) {

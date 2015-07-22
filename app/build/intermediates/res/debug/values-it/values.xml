@@ -64,9 +64,4 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Interrompi trasmissione"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"Sistema"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Dispositivi"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-it/pull_refresh_strings.xml -->
-    <eat-comment/>
-    <string name="pull_to_refresh_pull_label">Tira per aggiornare…</string>
-    <string name="pull_to_refresh_refreshing_label">Caricamento…</string>
-    <string name="pull_to_refresh_release_label">Rilascia per aggionare…</string>
 </resources>

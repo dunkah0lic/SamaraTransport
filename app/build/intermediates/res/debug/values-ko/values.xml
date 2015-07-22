@@ -64,11 +64,6 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"전송 중지"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"시스템"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"기기"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-ko/pull_refresh_strings.xml -->
-    <eat-comment/>
-    <string name="pull_to_refresh_pull_label">당겨서 새로 고침…</string>
-    <string name="pull_to_refresh_refreshing_label">로드 중…</string>
-    <string name="pull_to_refresh_release_label">놓아서 새로 고침…</string>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/res/values-ko/values.xml -->
     <eat-comment/>
     <string name="rate_dialog_cancel">나중에하는</string>

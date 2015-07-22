@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="14"
-    android:versionName="1.1" >
+    android:versionCode="16"
+    android:versionName="1.1.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -18,10 +18,6 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="21" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!--
- The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but are recommended.
-    -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -52,6 +48,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/stop_searchable" />
         </activity>
+
         <activity
             android:name=".ArrivalActivity"
             android:label="@string/title_activity_arrival"
@@ -64,6 +61,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DirectionSelectActivity" />
         </activity>
+
         <activity
             android:name=".DirectionSelectActivity"
             android:label="@string/title_activity_direction_select"
@@ -76,11 +74,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StopSearchActivity" />
         </activity>
+
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme" >
         </activity>
+
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
@@ -111,6 +111,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".LocationReceiver"
             android:enabled="true"
@@ -124,10 +125,18 @@
             android:name=".BackgroundService"
             android:enabled="true"
             android:exported="true" />
+
         <service
             android:name=".ShortBackgroundService"
             android:enabled="true"
             android:exported="true" />
+
+        <service
+            android:name=".AutostartService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
     </application>
 
 </manifest>

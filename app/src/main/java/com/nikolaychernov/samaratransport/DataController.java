@@ -169,7 +169,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         copyFavor();
         initSettings();
 
-        mGoogleApiClient = new GoogleApiClient.Builder(activity)
+        mGoogleApiClient = new GoogleApiClient.Builder(MyApplication.getAppContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
@@ -187,7 +187,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         copyFavor();
         initSettings();
 
-        mGoogleApiClient = new GoogleApiClient.Builder(context)
+        mGoogleApiClient = new GoogleApiClient.Builder(MyApplication.getAppContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
@@ -221,7 +221,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     public void setLocationUpdates(boolean yes){
 
         Intent intent = new Intent("LOCATION_UPDATE");
-        PendingIntent locationIntent = PendingIntent.getBroadcast(activity, 0,
+        PendingIntent locationIntent = PendingIntent.getBroadcast(MyApplication.getAppContext(), 0,
                 intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 
@@ -229,7 +229,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         // TODO: set intervals to at least 30000 for release
         mLocationRequest.setInterval(24 * 60 * 60 * 1000);
         mLocationRequest.setFastestInterval(60 * 1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
 
         if(yes){
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
@@ -455,7 +455,10 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             if (showTrolls) {
                 transTypesToShow.add(4);
             }
-            return (new ArrivalXmlParser(transTypesToShow)).parse(loadArrivalDataAPI(KS_ID));
+            //String info = getStopRouteCorrespondenceXml();
+            //ArrayList<RouteStopBind> tmp = new RouteStopBindXmlParser().parse(getStopRouteCorrespondenceXml());
+            return (
+                    new ArrivalXmlParser(transTypesToShow)).parse(loadArrivalDataAPI(KS_ID));
 //            }
         } catch (XmlPullParserException e) {
             // TODO Auto-generated catch block
@@ -570,6 +573,48 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     }
 
+    public static String getXml(String link) throws IOException {
+        String resultString = new String("");
+        try {
+            URLConnection connection = null;
+            URL url = new URL(link);
+            connection = url.openConnection();
+            HttpURLConnection httpConnection = (HttpURLConnection) connection;
+            httpConnection.setRequestMethod("GET");
+            httpConnection.setDoInput(true);
+            httpConnection.connect();
+
+            int responseCode = httpConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream in = httpConnection.getInputStream();
+                resultString = readStreamToString(in, "UTF-8");
+                in.close();
+            } else {
+                throw new IOException("ServerNotRespond");
+            }
+            httpConnection.disconnect();
+        } catch (MalformedURLException e) {
+            Log.d("DataController", "MalformedURLException");
+            throw new IOException("MalformedURLException " + e.getMessage());
+        } catch (SocketTimeoutException e) {
+            Log.d("DataController", "SocketTimeoutException");
+            throw new IOException("Timeout");
+        }
+        return resultString;
+    }
+
+    public static String getStopsXml() throws IOException {
+        return getXml("http://tosamara.ru/api/classifiers/stopsFullDB.xml");
+    }
+
+    public static String getRoutesXml() throws IOException {
+        return getXml("http://tosamara.ru/api/classifiers/routes.xml");
+    }
+
+    public static String getStopRouteCorrespondenceXml() throws IOException {
+        return getXml("http://tosamara.ru/api/classifiers/routesAndStopsCorrespondence.xml");
+    }
+
     public Stop[] searchByName(String name, boolean isFavorOnly) {
         if (isFavorOnly) {
             return mainDBhelper.searchByName(name, favorBDhelper.getFavorSet());
@@ -613,7 +658,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             tmp.add(src[i]);
             if (!src[i].adjacentStreet.equalsIgnoreCase(src[i + 1].adjacentStreet) || !src[i].title.equalsIgnoreCase(src[i + 1].title)) {
                 result.add(stopsToGroup(tmp));
-                tmp = new ArrayList<Stop>();
+                tmp = new ArrayList<>();
             }
         }
 

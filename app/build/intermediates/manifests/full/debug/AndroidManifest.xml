@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="13"
-    android:versionName="1.1" >
+    android:versionCode="16"
+    android:versionName="1.1.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -18,10 +18,6 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="21" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!--
- The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but are recommended.
-    -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -134,6 +130,12 @@
             android:name="com.nikolaychernov.samaratransport.ShortBackgroundService"
             android:enabled="true"
             android:exported="true" />
+        <service
+            android:name="com.nikolaychernov.samaratransport.AutostartService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

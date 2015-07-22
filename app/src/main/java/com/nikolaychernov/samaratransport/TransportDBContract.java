@@ -70,6 +70,7 @@ public class TransportDBContract implements Serializable {
             c.moveToFirst();
             String result = c.getString(c.getColumnIndexOrThrow(StopEntry.COLUMN_NAME_GEO_ID));
             c.close();
+            db.close();
             return result;
         }
 
@@ -89,6 +90,7 @@ public class TransportDBContract implements Serializable {
 
             cursorToStop(c, st, true);
             c.close();
+            db.close();
 
             return st;
         }
@@ -111,6 +113,7 @@ public class TransportDBContract implements Serializable {
                 } while (cur.moveToNext());
             }
             cur.close();
+            db.close();
 
             return result.toArray(new Stop[0]);
         }
@@ -129,6 +132,7 @@ public class TransportDBContract implements Serializable {
                 }
             }
             cur.close();
+            db.close();
 
             return result;
         }
@@ -150,6 +154,7 @@ public class TransportDBContract implements Serializable {
                 } while (cur.moveToNext());
             }
             cur.close();
+            db.close();
 
             Stop[] res = result.toArray(new Stop[0]);
             return res;
@@ -169,6 +174,7 @@ public class TransportDBContract implements Serializable {
                 }
             }
             cur.close();
+            db.close();
             return result;
         }
         public MainReaderDbHelper(Context context) {
@@ -196,6 +202,7 @@ public class TransportDBContract implements Serializable {
                 } while (cur.moveToNext());
             }
             cur.close();
+            db.close();
 
             return result;
         }
@@ -213,6 +220,7 @@ public class TransportDBContract implements Serializable {
 
             }
             cur.close();
+            db.close();
 
             return result;
         }
@@ -230,6 +238,7 @@ public class TransportDBContract implements Serializable {
 
             db.setTransactionSuccessful();
             db.endTransaction();
+            db.close();
         }
 
         public void setFavor(int[] KS_IDs, boolean isFavor) {
@@ -247,6 +256,7 @@ public class TransportDBContract implements Serializable {
             }
             db.setTransactionSuccessful();
             db.endTransaction();
+            db.close();
         }
 
         public boolean isInFavor(int KS_ID) {
@@ -256,6 +266,7 @@ public class TransportDBContract implements Serializable {
 
             boolean result = cur.getCount() > 0;
             cur.close();
+            db.close();
             return result;
         }
 
@@ -268,6 +279,7 @@ public class TransportDBContract implements Serializable {
                 res &= (cur.getCount() > 0);
                 cur.close();
             }
+            db.close();
             return res;
         }
 

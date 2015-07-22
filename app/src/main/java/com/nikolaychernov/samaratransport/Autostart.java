@@ -17,7 +17,7 @@ public class Autostart extends BroadcastReceiver implements GoogleApiClient.Conn
     public Autostart() {
     }
 
-    GoogleApiClient mGoogleApiClient;
+    GoogleApiClient mGoogleApiClient = null;
     Context context;
 
     @Override
@@ -25,20 +25,31 @@ public class Autostart extends BroadcastReceiver implements GoogleApiClient.Conn
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
 
+        //android.os.Debug.waitForDebugger();
         this.context = context;
 
         if (getBootup(context)) {
-            //Intent intent1 = new Intent(context, BackgroundService.class);
-            //context.startService(intent1);
-            Log.i("Autostart", "started");
 
-            mGoogleApiClient = new GoogleApiClient.Builder(MyApplication.getAppContext())
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .addApi(LocationServices.API)
-                    .build();
-            mGoogleApiClient.connect();
+            /*Log.i("Autostart", "started");
+
+            if (mGoogleApiClient==null) {
+                mGoogleApiClient = new GoogleApiClient.Builder(MyApplication.getAppContext())
+                        .addConnectionCallbacks(this)
+                        .addOnConnectionFailedListener(this)
+                        .addApi(LocationServices.API)
+                        .build();
+                mGoogleApiClient.connect();
+            }*/
+
+
+
+           Intent intent1 = new Intent(context, AutostartService.class);
+           context.startService(intent1);
+           Log.i("LocationReceiver", "started");
+
         }
+
+
     }
 
     public static boolean getBootup(Context context){
@@ -48,15 +59,15 @@ public class Autostart extends BroadcastReceiver implements GoogleApiClient.Conn
     @Override
     public void onConnected(Bundle bundle) {
         Intent intent = new Intent("LOCATION_UPDATE");
-        PendingIntent locationIntent = PendingIntent.getBroadcast(context, 0,
+        PendingIntent locationIntent = PendingIntent.getBroadcast(MyApplication.getAppContext(), 0,
                 intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 
         LocationRequest mLocationRequest = new LocationRequest();
         // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(24*60*60*1000);
-        mLocationRequest.setFastestInterval(60*1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setInterval(24 * 60 * 60 * 1000);
+        mLocationRequest.setFastestInterval(60 * 1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
 
         if(getBootup(context)){
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);

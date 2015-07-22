@@ -56,6 +56,7 @@
     <string name="rate_title">Оцените приложение</string>
     <string name="rate_message">Если Вам понравилось это приложение, оцените его в Play Market. Это займет не больше минуты. Спасибо за поддержку!</string>
     <string name="settings_background_label">Показывать уведомления с прогнозом без запуска приложения (работает в тестовом режиме)</string>
+    <string name="no_response_from_server">Не удалось получить ответ от сервера tosamara.ru</string>
 
 
 </resources>

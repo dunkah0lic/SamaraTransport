@@ -64,9 +64,4 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Casten stoppen"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"Systeem"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Apparaten"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values-nl/pull_refresh_strings.xml -->
-    <eat-comment/>
-    <string name="pull_to_refresh_pull_label">Sleep om te vernieuwen…</string>
-    <string name="pull_to_refresh_refreshing_label">Laden…</string>
-    <string name="pull_to_refresh_release_label">Loslaten om te vernieuwen…</string>
 </resources>
