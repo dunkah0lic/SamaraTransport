@@ -456,15 +456,19 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
                 transTypesToShow.add(4);
             }
             //String info = getStopRouteCorrespondenceXml();
-            //ArrayList<RouteStopBind> tmp = new RouteStopBindXmlParser().parse(getStopRouteCorrespondenceXml());
+            //mainDBhelper.updateStops(new StopXmlParser().parse(getStopsXml()));
             return (
                     new ArrivalXmlParser(transTypesToShow)).parse(loadArrivalDataAPI(KS_ID));
 //            }
         } catch (XmlPullParserException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return new ArrayList<ArrivalInfo>();
+            return new ArrayList<>();
         }
+    }
+
+    public void updateStopsFromXml()  throws Exception {
+        mainDBhelper.updateStops(new StopXmlParser().parse(getStopsXml()));
     }
 
     // API based

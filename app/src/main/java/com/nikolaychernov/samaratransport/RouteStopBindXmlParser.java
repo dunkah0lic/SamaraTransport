@@ -68,16 +68,12 @@ public class RouteStopBindXmlParser {
             }
             String name = parser.getName();
 
-            //String data = readStringTag(parser, name);
-
             if (name.equals("stop")) {
                 temp.setKS_ID(readStop(parser));
                 result.add(temp);
             } else if (name.equals("KR_ID")) {
                 String data = readStringTag(parser, name);
                 temp.setKR_ID(Integer.parseInt(data));
-
-                //Log.v("TAG5", " msg + " + DataController.getInstance().getRoute(result.KR_ID));
             } else {
                 skip(parser);
             }
@@ -102,25 +98,6 @@ public class RouteStopBindXmlParser {
             }
         }
         return result;
-    }
-
-    private void readTransportType(XmlPullParser parser) throws XmlPullParserException, IOException {
-
-        /*parser.require(XmlPullParser.START_TAG, ns, "stop");
-
-        int result = 0;
-        while (parser.next() != XmlPullParser.END_TAG) {
-            if (parser.getEventType() != XmlPullParser.START_TAG) {
-                continue;
-            }
-            String name = parser.getName();
-            String data = readStringTag(parser, name);
-
-            if (name.equals("KS_ID")) {
-                result = Integer.parseInt(data);
-            }
-        }
-        //return result;*/
     }
 
     private String readStringTag(XmlPullParser parser, String tagName) throws IOException, XmlPullParserException {

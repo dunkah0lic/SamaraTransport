@@ -51,192 +51,20 @@
       </layout>
     </layouts>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="69cbceec-73af-4125-9d34-2a7982abd28a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/AutostartService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBind.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteXmlParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_arrival_time.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_circle_blue.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_circle_orange.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_circle_red.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_circle_yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_distance_arrow_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_refresh_button_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_refresh_settings_buttons.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_search_text_input_active.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_search_text_input_inactive.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_settings_button_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\background_settings_button_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\btn_back_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\btn_refresh_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\btn_settings_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_back_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_back_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_refresh_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_refresh_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_settings_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\button_settings_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\distance_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\favor.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\favor_gray.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\icon_lupa.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\icon_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\icon_search_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\search_box.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\searchbar_thumb_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\slider_thumb_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\slider_thumb_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\slider_track.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\switcher_off.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\switcher_on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-hdpi-v4\switcher_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-mdpi-v4\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-mdpi-v4\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-mdpi-v4\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_important_yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_important_yellow1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_important_yellow64.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_not_important_black.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_not_important_white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\ic_action_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable-xhdpi-v4\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable\logo_bb_landscape.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\drawable\logo_bb_portrait.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\layout\stoplist_alt.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\res\debug\values-he\values.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_arrival_time.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_circle_blue.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_circle_orange.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_circle_red.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_circle_yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_distance_arrow_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_refresh_button_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_refresh_settings_buttons.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_search_text_input_active.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_search_text_input_inactive.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_settings_button_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\background_settings_button_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\btn_back_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\btn_refresh_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\btn_settings_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_back_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_back_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_refresh_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_refresh_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_settings_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\button_settings_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\distance_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\favor.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\favor_gray.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\icon_lupa.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\icon_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\icon_search_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\search_box.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\searchbar_thumb_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\slider_thumb_normal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\slider_thumb_pressed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\slider_track.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\switcher_off.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\switcher_on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-hdpi\switcher_states.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-mdpi\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-mdpi\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-mdpi\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-v21\logo_bb_landscape.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-v21\logo_bb_portrait.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\default_ptr_flip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\default_ptr_rotate.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_important_yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_important_yellow1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_important_yellow64.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_not_important_black.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_not_important_white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\ic_action_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable-xhdpi\indicator_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable\logo_bb_landscape.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\drawable\logo_bb_portrait.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\layout\stoplist_alt.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-ar\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-cs\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-de\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-es\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-fi\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-fr\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-he\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-it\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-iw\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-ja\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-ko\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-nl\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-pl\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-pt-rBR\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-pt\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-ro\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-ru\pull_refresh_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\src\main\res\values-zh\pull_refresh_strings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/android/gms/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/android/gms/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/android/gms/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/android/gms/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/Autostart.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/Autostart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/nikolaychernov/samaratransport/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/nikolaychernov/samaratransport/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/nikolaychernov/samaratransport/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/nikolaychernov/samaratransport/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ShortBackgroundService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ShortBackgroundService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ar/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ar/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-cs/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-cs/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-de/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-es/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-es/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-fi/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-fi/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-fr/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-fr/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-it/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-it/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-iw/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-iw/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ja/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ja/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ko/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ko/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-nl/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-nl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pl/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pt/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pt/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pt-rBR/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-pt-rBR/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ro/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ro/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ru/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ru/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-zh/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-zh/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="markikokik-transarrival63-af3c98254b6a.iws" />
@@ -292,34 +120,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArrivalXmlParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalXmlParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RouteXmlParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteXmlParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1119#1126#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Route.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/Route.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -330,28 +135,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding>
-                <element signature="e#194#195#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
-                <element signature="e#261#262#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-                <element signature="e#324#325#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RouteStopBindXmlParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.862069">
-              <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -366,60 +150,69 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArrivalActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArrivalActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.793103">
-              <caret line="218" column="16" selection-start-line="218" selection-start-column="16" selection-end-line="218" selection-end-column="16" />
-              <folding>
-                <element signature="e#9301#9333#0" expanded="true" />
-                <element signature="e#10013#10045#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30491802">
-              <caret line="458" column="14" selection-start-line="458" selection-start-column="14" selection-end-line="458" selection-end-column="14" />
-              <folding>
-                <element signature="e#8075#8076#0" expanded="true" />
-                <element signature="e#8116#8117#0" expanded="true" />
-                <element signature="e#9962#9963#0" expanded="true" />
-                <element signature="e#9997#9998#0" expanded="true" />
-                <element signature="e#10034#10035#0" expanded="true" />
-                <element signature="e#10074#10075#0" expanded="true" />
-                <element signature="e#10130#10131#0" expanded="true" />
-                <element signature="e#10184#10185#0" expanded="true" />
-                <element signature="e#10243#10244#0" expanded="true" />
-                <element signature="e#10298#10299#0" expanded="true" />
-                <element signature="e#10341#10342#0" expanded="true" />
-                <element signature="e#10394#10395#0" expanded="true" />
-                <element signature="e#10440#10441#0" expanded="true" />
-                <element signature="e#10494#10495#0" expanded="true" />
-                <element signature="e#15326#15335#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StopXmlParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9310346">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.64818025">
+              <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/Stop.java">
+      <file leaf-file-name="DirectionSelectActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StopSearchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopSearchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="458" column="14" selection-start-line="458" selection-start-column="14" selection-end-line="458" selection-end-column="14" />
+              <folding>
+                <element signature="e#14254#14263#0" expanded="true" />
+                <element signature="e#15423#15432#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransportDBContract.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+              <folding>
+                <element signature="e#4036#4042#0" expanded="true" />
+                <element signature="e#6153#6159#0" expanded="true" />
+                <element signature="e#9634#9635#0" expanded="true" />
+                <element signature="e#9699#9700#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLiteAssetHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/readystatesoftware/sqliteasset_markikokik/SQLiteAssetHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="385" column="51" selection-start-line="385" selection-start-column="51" selection-end-line="385" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -1917,23 +1710,23 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/stopsearch_activity_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopSearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/arrival_activity_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/readystatesoftware/sqliteasset_markikokik/SQLiteAssetHelper.java" />
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/MapsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ShortBackgroundService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/AutostartService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/Autostart.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/search_box.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBind.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteXmlParser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java" />
       </list>
     </option>
   </component>
@@ -1982,6 +1775,171 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="air" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nikolaychernov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="samis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="samaratransport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2139,6 +2097,14 @@
               <option name="myItemId" value="com" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="readystatesoftware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sqliteasset_markikokik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2178,168 +2144,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Arrival-Dunkah0lic-877d8789d9172dd4442c8dec598f242b425867f0">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SamaraTransport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="markikokik-transarrival63-af3c98254b6a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="air" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nikolaychernov" />
+              <option name="myItemId" value="SamaraTransport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="samis" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="samaratransport" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="databases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2826,7 +2683,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436181281253</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added Route, Stop and StopRouteBind XmlParsers and loaders">
+      <created>1437590635554</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1437590635554</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2844,18 +2707,16 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3926585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2580645" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2580645" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23454158" sideWeight="0.506006" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32703003" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2870,6 +2731,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3926585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2907,7 +2770,8 @@
     <MESSAGE value="Location updates with Pending Intent instead of Location Listener" />
     <MESSAGE value="UI fixes, added rate button in overflow menu" />
     <MESSAGE value="Bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
+    <MESSAGE value="Added Route, Stop and StopRouteBind XmlParsers and loaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Route, Stop and StopRouteBind XmlParsers and loaders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2936,18 +2800,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/favor_button_states.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/icon_bus.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3014,18 +2866,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_selected_background.9.png">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_usual_background.9.png">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
@@ -3122,7 +2974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3134,35 +2985,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="298" column="17" selection-start-line="298" selection-start-column="17" selection-end-line="298" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4731369">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/green_circle72.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopSearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -3177,14 +3009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -3213,31 +3037,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="21.172413">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBind.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.793103">
-          <caret line="218" column="16" selection-start-line="218" selection-start-column="16" selection-end-line="218" selection-end-column="16" />
-          <folding>
-            <element signature="e#9301#9333#0" expanded="true" />
-            <element signature="e#10013#10045#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3245,44 +3056,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1119#1126#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/RouteStopBindXmlParser.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopXmlParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.862069">
-          <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-15.24138">
+          <caret line="100" column="18" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/StopSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="354" column="0" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/readystatesoftware/sqliteasset_markikokik/SQLiteAssetHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="385" column="51" selection-start-line="385" selection-start-column="51" selection-end-line="385" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30491802">
+        <state vertical-scroll-proportion="0.0">
           <caret line="458" column="14" selection-start-line="458" selection-start-column="14" selection-end-line="458" selection-end-column="14" />
           <folding>
-            <element signature="e#8075#8076#0" expanded="true" />
-            <element signature="e#8116#8117#0" expanded="true" />
-            <element signature="e#9962#9963#0" expanded="true" />
-            <element signature="e#9997#9998#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10074#10075#0" expanded="true" />
-            <element signature="e#10130#10131#0" expanded="true" />
-            <element signature="e#10184#10185#0" expanded="true" />
-            <element signature="e#10243#10244#0" expanded="true" />
-            <element signature="e#10298#10299#0" expanded="true" />
-            <element signature="e#10341#10342#0" expanded="true" />
-            <element signature="e#10394#10395#0" expanded="true" />
-            <element signature="e#10440#10441#0" expanded="true" />
-            <element signature="e#10494#10495#0" expanded="true" />
-            <element signature="e#15326#15335#0" expanded="true" />
+            <element signature="e#14254#14263#0" expanded="true" />
+            <element signature="e#15423#15432#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/TransportDBContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="e#4036#4042#0" expanded="true" />
+            <element signature="e#6153#6159#0" expanded="true" />
+            <element signature="e#9634#9635#0" expanded="true" />
+            <element signature="e#9699#9700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/DirectionSelectActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nikolaychernov/samaratransport/ArrivalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64818025">
+          <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

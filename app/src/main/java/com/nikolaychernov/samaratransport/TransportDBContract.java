@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.util.Log;
+
 import com.readystatesoftware.sqliteasset_markikokik.SQLiteAssetHelper;
 
 import java.io.Serializable;
@@ -26,7 +28,6 @@ public class TransportDBContract implements Serializable {
         public Stop[] getStops(int[] KS_IDs) {
             Stop tmp;
             int k = 0;
-            // Set<Stop> result = new HashSet<Stop>();
             Stop[] result = new Stop[KS_IDs.length];
             for (int i = 0; i < KS_IDs.length; i++) {
                 tmp = getStop(KS_IDs[i]);
@@ -177,6 +178,43 @@ public class TransportDBContract implements Serializable {
             db.close();
             return result;
         }
+
+        public void updateStops(ArrayList<Stop> stops){
+            Log.d("DATABASE", "updating stops");
+            SQLiteDatabase db = getWritableDatabase();
+            for (int i=0; i<stops.size(); i++){
+                updateStop(stops.get(i), db);
+            }
+            db.close();
+        }
+
+        public void updateStop(Stop stop, SQLiteDatabase db){
+            if (!(stop.busesCommercial.equals("") && stop.busesMunicipal.equals("") && stop.busesPrigorod.equals("") && stop.busesSeason.equals("") &&
+                    stop.busesSeason.equals("") && stop.trams.equals("") && stop.trolleybuses.equals(""))) {
+                ContentValues values = new ContentValues();
+                values.put(StopEntry.COLUMN_NAME_KS_ID, stop.KS_ID);
+                values.put(StopEntry.COLUMN_NAME_TITLE, stop.title);
+                values.put(StopEntry.COLUMN_NAME_TITLE_LOWCASE, stop.titleLowcase);
+                values.put(StopEntry.COLUMN_NAME_ADJACENT_STREET, stop.adjacentStreet);
+                values.put(StopEntry.COLUMN_NAME_DIRECTION, stop.direction);
+                values.put(StopEntry.COLUMN_NAME_BUSES_MUNICIPAL, stop.busesMunicipal);
+                values.put(StopEntry.COLUMN_NAME_BUSES_COMMERCIAL, stop.busesCommercial);
+                values.put(StopEntry.COLUMN_NAME_BUSES_PRIGOROD, stop.busesPrigorod);
+                values.put(StopEntry.COLUMN_NAME_BUSES_SEASON, stop.busesSeason);
+                values.put(StopEntry.COLUMN_NAME_BUSES_SPECIAL, stop.busesSpecial);
+                values.put(StopEntry.COLUMN_NAME_TRAMS, stop.trams);
+                values.put(StopEntry.COLUMN_NAME_TROLLEYBUSES, stop.trolleybuses);
+                values.put(StopEntry.COLUMN_NAME_LATITUDE, stop.latitude);
+                values.put(StopEntry.COLUMN_NAME_LONGITUDE, stop.longitude);
+                db.beginTransaction();
+
+                db.insertWithOnConflict(StopEntry.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+
+                db.setTransactionSuccessful();
+                db.endTransaction();
+            }
+        }
+
         public MainReaderDbHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
         }

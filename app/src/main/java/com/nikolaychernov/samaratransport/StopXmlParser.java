@@ -1,6 +1,5 @@
 package com.nikolaychernov.samaratransport;
 
-import android.util.Log;
 import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -99,7 +98,7 @@ public class StopXmlParser {
 
             else if (name.equals("KS_ID")) {
                 result.KS_ID = (Integer.parseInt(data));
-                Log.v("TAG5", " msg + " + DataController.getInstance().getStop(result.KS_ID));
+                //Log.v("TAG5", " msg + " + DataController.getInstance().getStop(result.KS_ID));
             }
         }
         return result;

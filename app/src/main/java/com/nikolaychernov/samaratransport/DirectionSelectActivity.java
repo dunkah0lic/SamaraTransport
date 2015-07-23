@@ -24,13 +24,14 @@ public class DirectionSelectActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_direction_select);
         grp = (StopGroup) getIntent().getSerializableExtra(StopSearchActivity.MESSAGE_STOPGROUP);
-        // stops = ((DataController) getIntent().getSerializableExtra(
-        // StopSearchActivity.MESSAGE_DATAMAN)).getStops(grp.KS_IDs);
 
         DataController dataMan = null;
         try {
             dataMan = DataController.getInstance();
+
         } catch (NullPointerException ex) {
+            Log.d("DATABASE1", "FAIL");
+            ex.printStackTrace();
             Intent mainIntent = new Intent(this, StopSearchActivity.class);
             finish();
             startActivity(mainIntent);
