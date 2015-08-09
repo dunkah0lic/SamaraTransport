@@ -191,9 +191,9 @@ public final class R {
 		public static final int create_calendar_message = 0x7f0c004e;
 		public static final int create_calendar_title = 0x7f0c004f;
 		public static final int decline = 0x7f0c0050;
-		public static final int store_picture_message = 0x7f0c0077;
-		public static final int store_picture_title = 0x7f0c0078;
-		public static final int wallet_buy_button_place_holder = 0x7f0c0083;
+		public static final int store_picture_message = 0x7f0c0072;
+		public static final int store_picture_title = 0x7f0c0073;
+		public static final int wallet_buy_button_place_holder = 0x7f0c007e;
 	}
 	public static final class style {
 		public static final int Theme_IAPTheme = 0x7f0d00b2;

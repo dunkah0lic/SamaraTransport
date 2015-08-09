@@ -403,15 +403,6 @@
     <eat-comment/>
     <string name="rate_message">Если Вам понравилось это приложение, оцените его в Play Market. Это займет не больше минуты. Спасибо за поддержку!</string>
     <string name="rate_title">Оцените приложение</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values/values.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Later</string>
-    <string name="rta_dialog_message">If you enjoy using this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thank you for your support!</string>
-    <string name="rta_dialog_no">No, thanks</string>
-    <string name="rta_dialog_ok">Rate now</string>
-    <string name="rta_dialog_title">Rate this app</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="search_hint">Остановка</string>
     <string name="settings_background_label">Показывать уведомления с прогнозом без запуска приложения (работает в тестовом режиме)</string>
     <string name="siteAddress">http://m.tosamara.ru/ostanovki/</string>

@@ -102,9 +102,6 @@ MERGED from com.android.support:support-v4:22.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.android.support:recyclerview-v7:21.0.3:15:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.kobakei:ratethisapp:0.0.2:7:5
 MERGED from com.github.hotchemi:android-rate:0.4.3:6:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:9:9
@@ -270,8 +267,6 @@ MERGED from com.google.android.gms:play-services-base:7.5.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.android.support:appcompat-v7:22.0.0:22:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.android.support:recyclerview-v7:21.0.3:17:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.github.hotchemi:android-rate:0.4.3:10:5
 	android:label
@@ -506,9 +501,3 @@ action#com.google.android.gms.wallet.ENABLE_WALLET_OPTIMIZATION
 ADDED from com.google.android.gms:play-services-wallet:7.5.0:32:17
 	android:name
 		ADDED from com.google.android.gms:play-services-wallet:7.5.0:32:25
-activity#android.support.v7.widget.TestActivity
-ADDED from com.android.support:recyclerview-v7:21.0.3:18:9
-	android:label
-		ADDED from com.android.support:recyclerview-v7:21.0.3:18:19
-	android:name
-		ADDED from com.android.support:recyclerview-v7:21.0.3:18:60

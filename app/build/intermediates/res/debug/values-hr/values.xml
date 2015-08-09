@@ -64,11 +64,4 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Zaustavi emitiranje"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"Sustav"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Uređaji"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-hr/values-hr.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Podjeti me kasnije</string>
-    <string name="rta_dialog_message">Ako Vam se sviđa ova aplikacija, molimo Vas da odvojite trenutak kako bi je ocijenili. Neće trajati više od minute. Hvala!</string>
-    <string name="rta_dialog_no">Ne, hvala</string>
-    <string name="rta_dialog_ok">Ocijeni</string>
-    <string name="rta_dialog_title">Ocijeni aplikaciju</string>
 </resources>

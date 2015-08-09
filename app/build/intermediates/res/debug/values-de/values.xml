@@ -64,11 +64,4 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Übertragung stoppen"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"System"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Geräte"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-de/values-de.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Später</string>
-    <string name="rta_dialog_message">Wenn dir diese App gefällt, nimm dir doch einen Moment Zeit und bewerte sie. Danke für deine Unterstützung!</string>
-    <string name="rta_dialog_no">Nein, Danke</string>
-    <string name="rta_dialog_ok">Jetzt bewerten</string>
-    <string name="rta_dialog_title">Bewerte diese App</string>
 </resources>

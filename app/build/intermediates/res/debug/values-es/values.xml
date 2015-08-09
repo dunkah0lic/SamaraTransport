@@ -71,13 +71,6 @@
     <string name="rate_dialog_no">¡No, gracias!</string>
     <string name="rate_dialog_ok">Valorar ahora</string>
     <string name="rate_dialog_title">Valorar la aplicación</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-es/values-es.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Más tarde</string>
-    <string name="rta_dialog_message">Si te gusta esta aplicación, toma un momento para evaluarla. No tomará más de un minuto. ¡Gracias por tu apoyo!</string>
-    <string name="rta_dialog_no">No, gracias</string>
-    <string name="rta_dialog_ok">Evaluar</string>
-    <string name="rta_dialog_title">Evalúa esta aplicación</string>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/res/values-es/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder">Comprar con Google</string>

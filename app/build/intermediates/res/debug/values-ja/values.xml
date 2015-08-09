@@ -71,11 +71,4 @@
     <string name="rate_dialog_no">いえ、結構です</string>
     <string name="rate_dialog_ok">今すぐ評価する</string>
     <string name="rate_dialog_title">アプリの評価</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-ja/values-ja.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">あとで</string>
-    <string name="rta_dialog_message">このアプリを気に入っていただいたら、ぜひレビューしてください。レビューは１分未満で終わります。</string>
-    <string name="rta_dialog_no">いいえ</string>
-    <string name="rta_dialog_ok">はい</string>
-    <string name="rta_dialog_title">アプリをレビューしませんか？</string>
 </resources>

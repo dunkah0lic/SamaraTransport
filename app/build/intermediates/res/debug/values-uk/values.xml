@@ -71,11 +71,4 @@
     <string name="rate_dialog_no">Ні, дякую</string>
     <string name="rate_dialog_ok">Оцінити зараз</string>
     <string name="rate_dialog_title">Оцініть цей додаток</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-uk/values-uk.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Нагадати пізніше</string>
-    <string name="rta_dialog_message">Якщо Вам сподобався цей додаток, будь ласка, знайдіть час, щоб оцінити його. Це займе не більше хвилини. Дякую за пітримку!</string>
-    <string name="rta_dialog_no">Ні, дякую</string>
-    <string name="rta_dialog_ok">Оцінити зараз</string>
-    <string name="rta_dialog_title">Оцініть цей додаток</string>
 </resources>

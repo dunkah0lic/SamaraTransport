@@ -64,11 +64,4 @@
     <string msgid="5398645111664294430" name="mr_media_route_controller_stop">"Sluta casta"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"System"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Enheter"</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-sv/values-sv.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Senare</string>
-    <string name="rta_dialog_message">Om du gillar denna app, sätt gärna betyg på den. Det tar inte mer än ett ögonblick. Tack för ditt stöd!</string>
-    <string name="rta_dialog_no">Nej, tack</string>
-    <string name="rta_dialog_ok">Betygsätt nu</string>
-    <string name="rta_dialog_title">Betygsätt appen</string>
 </resources>

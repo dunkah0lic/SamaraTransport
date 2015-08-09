@@ -71,11 +71,4 @@
     <string name="rate_dialog_no">Hayır</string>
     <string name="rate_dialog_ok">Puan ver</string>
     <string name="rate_dialog_title">Bu uygulamaya puan verin</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-tr/values-tr.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Hatırlat</string>
-    <string name="rta_dialog_message">Eğer uygulamamızdan memnun kaldıysanız, lütfen birkaç saniyenizi ayırarak bize puan verin. Desteğiniz için teşekkürler!</string>
-    <string name="rta_dialog_no">Hayır, teşekkürler</string>
-    <string name="rta_dialog_ok">Puan ver</string>
-    <string name="rta_dialog_title">Bu uygulamaya puan verin</string>
 </resources>

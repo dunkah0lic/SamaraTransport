@@ -71,11 +71,4 @@
     <string name="rate_dialog_no">Nie, dziękuje</string>
     <string name="rate_dialog_ok">Oceń teraz</string>
     <string name="rate_dialog_title">Oceń aplikacje</string>
-    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.kobakei/ratethisapp/0.0.2/res/values-pl/values-pl.xml -->
-    <eat-comment/>
-    <string name="rta_dialog_cancel">Przypomnij później</string>
-    <string name="rta_dialog_message">Jeżeli spodobała Ci się ta aplikacja, poświęć chwilę by ją ocenić. To nie zajmie dłużej niż jedną minutę. Z góry dziękuję za Twoje wsparcie!</string>
-    <string name="rta_dialog_no">Nie dziękuję</string>
-    <string name="rta_dialog_ok">Oceń teraz</string>
-    <string name="rta_dialog_title">Oceń aplikację</string>
 </resources>

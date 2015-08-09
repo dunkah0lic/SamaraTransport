@@ -1,6 +1,5 @@
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\classes\debug
-C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-9c7f0f00a3d76e88d03ff501363eae75a59facb5.jar
-C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-a891cba2afeda58fe683d8c4484deb0b6942d257.jar
+C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-bb4a7dc5dee9dc2d908a078d6ac75bc5a19a585d.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-85bd16842ecd312dc4767eb6a9bfe798646a6c4a.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-8e92731e056a02b5a2a3a061e6f556d59dd4cfaf.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-9038dc8631e7e2ecfd052cd5c668031e0ea01d13.jar
@@ -20,7 +19,6 @@ C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\p
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-741cacdb51ae24d0290080d6c873f935cb5ce675.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-28b4759b3cfb5f75cc72ae1b7235ac0115296ea0.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0e9b1b39d8aa764c11ec9de030bb059ed40325cf.jar
-C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-b67f7b1fd0629343a0c591c2020c7e68ec43022e.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-19ddaaf14345d7aefc0b96516fc774b5b872f05a.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-aae2ad825ae2b307ba2cc89da22568f5a27839c7.jar
 C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-d3809db688b1473a1785d420d052adbc8cc014c8.jar

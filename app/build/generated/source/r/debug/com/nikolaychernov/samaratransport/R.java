@@ -2299,30 +2299,30 @@ containing a value of this type.
         public static final int rate_dialog_title=0x7f0c0069;
         public static final int rate_message=0x7f0c006a;
         public static final int rate_title=0x7f0c006b;
-        public static final int rta_dialog_cancel=0x7f0c006c;
-        public static final int rta_dialog_message=0x7f0c006d;
-        public static final int rta_dialog_no=0x7f0c006e;
-        public static final int rta_dialog_ok=0x7f0c006f;
-        public static final int rta_dialog_title=0x7f0c0070;
-        public static final int search_hint=0x7f0c0071;
-        public static final int settings_background_label=0x7f0c0072;
-        public static final int siteAddress=0x7f0c0073;
-        public static final int stopNameHint=0x7f0c0074;
-        public static final int stopsFileName=0x7f0c0075;
-        public static final int stopsFullDBFileName=0x7f0c0076;
-        public static final int store_picture_message=0x7f0c0077;
-        public static final int store_picture_title=0x7f0c0078;
-        public static final int title_activity_about=0x7f0c0079;
-        public static final int title_activity_arrival=0x7f0c007a;
-        public static final int title_activity_direction_select=0x7f0c007b;
-        public static final int title_activity_main=0x7f0c007c;
-        public static final int title_activity_maps=0x7f0c007d;
-        public static final int title_activity_settings=0x7f0c007e;
-        public static final int txtShowBusesLabel=0x7f0c007f;
-        public static final int txtShowCommLabel=0x7f0c0080;
-        public static final int txtShowTramsLabel=0x7f0c0081;
-        public static final int txtShowTrollsLabel=0x7f0c0082;
-        public static final int wallet_buy_button_place_holder=0x7f0c0083;
+        public static final int rta_dialog_cancel=0x7f0c007f;
+        public static final int rta_dialog_message=0x7f0c0080;
+        public static final int rta_dialog_no=0x7f0c0081;
+        public static final int rta_dialog_ok=0x7f0c0082;
+        public static final int rta_dialog_title=0x7f0c0083;
+        public static final int search_hint=0x7f0c006c;
+        public static final int settings_background_label=0x7f0c006d;
+        public static final int siteAddress=0x7f0c006e;
+        public static final int stopNameHint=0x7f0c006f;
+        public static final int stopsFileName=0x7f0c0070;
+        public static final int stopsFullDBFileName=0x7f0c0071;
+        public static final int store_picture_message=0x7f0c0072;
+        public static final int store_picture_title=0x7f0c0073;
+        public static final int title_activity_about=0x7f0c0074;
+        public static final int title_activity_arrival=0x7f0c0075;
+        public static final int title_activity_direction_select=0x7f0c0076;
+        public static final int title_activity_main=0x7f0c0077;
+        public static final int title_activity_maps=0x7f0c0078;
+        public static final int title_activity_settings=0x7f0c0079;
+        public static final int txtShowBusesLabel=0x7f0c007a;
+        public static final int txtShowCommLabel=0x7f0c007b;
+        public static final int txtShowTramsLabel=0x7f0c007c;
+        public static final int txtShowTrollsLabel=0x7f0c007d;
+        public static final int wallet_buy_button_place_holder=0x7f0c007e;
     }
     public static final class style {
         public static final int Animation_AppCompat_DropDownUp=0x7f0d0000;
@@ -2600,7 +2600,8 @@ containing a value of this type.
         public static final int Widget_MediaRouter_MediaRouteButton=0x7f0d00f9;
     }
     public static final class xml {
-        public static final int stop_searchable=0x7f050000;
+        public static final int global_tracker=0x7f050000;
+        public static final int stop_searchable=0x7f050001;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.
