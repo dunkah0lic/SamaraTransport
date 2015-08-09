@@ -226,9 +226,6 @@ public class Navigation {
                     LocationListener singeUpdateListener = new LocationListener() {
                         public void onLocationChanged(Location location) {
                             Log.d("requestNewLocation", "Single Location Update Received: " + location.getLatitude() + "," + location.getLongitude());
-                            // synchronized (shared) {
-                            // shared.notifyAll();
-                            // }
                             locMan.removeUpdates(this);
                             lastBestLoc = location;
                             forceLoc = location;
@@ -250,16 +247,6 @@ public class Navigation {
                 }
             }
         }).start();
-//		if (waitForResult) {
-//			synchronized (shared) {
-//				try {
-//					shared.wait();
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			}
-//		}
     }
 
     public double getLong(boolean force) {
@@ -348,10 +335,6 @@ public class Navigation {
         if (location == null) {
             return false;
         }
-        // if (getDistBetween(location.getLatitude(), location.getLongitude(),
-        // currentBestLocation.getLatitude(),
-        // currentBestLocation.getLongitude()) < moveTreshold)
-        // return false;
 
         // Check whether the new location fix is newer or older
         long timeDelta = location.getTime() - currentBestLocation.getTime();
@@ -377,17 +360,6 @@ public class Navigation {
 
         // Check if the old and new location are from the same provider
         boolean isFromSameProvider = isSameProvider(location.getProvider(), currentBestLocation.getProvider());
-
-        // Determine location quality using a combination of timeliness and
-        // accuracy
-        // if (isMoreAccurate) {
-        // return true;
-        // } else if (isNewer && !isLessAccurate) {
-        // return true;
-        // } else if (isNewer && !isSignificantlyLessAccurate
-        // && isFromSameProvider) {
-        // return true;
-        // }
 
         if (isMoreAccurate) {
             return true;
