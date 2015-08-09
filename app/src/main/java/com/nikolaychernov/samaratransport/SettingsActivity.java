@@ -11,6 +11,10 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 public class SettingsActivity extends ActionBarActivity implements OnSeekBarChangeListener {
 
     private TextView progressText;
@@ -21,10 +25,19 @@ public class SettingsActivity extends ActionBarActivity implements OnSeekBarChan
     private boolean isBackgroundUpdate = false;
 //	private boolean requestAddPredict = false;
 
+    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+    Tracker tracker = analytics.newTracker("UA-60775707-2"); // Send hits to tracker id UA-XXXX-Y
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        tracker.setScreenName("SettingsActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("SettingsActivity")
+                .build());
 
         DataController dataMan = null;
         try {
@@ -137,4 +150,16 @@ public class SettingsActivity extends ActionBarActivity implements OnSeekBarChan
         setResults();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+
+    }
 }

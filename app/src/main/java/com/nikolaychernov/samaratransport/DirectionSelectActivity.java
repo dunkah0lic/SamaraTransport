@@ -12,15 +12,27 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.Arrays;
 
 public class DirectionSelectActivity extends ActionBarActivity {
 
     private StopGroup grp;
+    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+    Tracker tracker = analytics.newTracker("UA-60775707-2");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tracker.setScreenName("DirectionSelectActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("DirectionSelectActivity")
+                .build());
 
         setContentView(R.layout.activity_direction_select);
         grp = (StopGroup) getIntent().getSerializableExtra(StopSearchActivity.MESSAGE_STOPGROUP);
@@ -50,6 +62,11 @@ public class DirectionSelectActivity extends ActionBarActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("List item")
+                        .build());
                 showArrival((int) id);
             }
         });
@@ -113,6 +130,19 @@ public class DirectionSelectActivity extends ActionBarActivity {
         Intent intent = new Intent(this, ArrivalActivity.class);
         intent.putExtra(StopSearchActivity.MESSAGE_STOP, grp.stops[ind]);
         startActivity(intent);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
 
     }
 }

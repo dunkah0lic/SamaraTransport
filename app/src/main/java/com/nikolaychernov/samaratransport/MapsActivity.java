@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -16,10 +19,18 @@ public class MapsActivity extends ActionBarActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     int KR_ID;
+    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+    Tracker tracker = analytics.newTracker("UA-60775707-2");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tracker.setScreenName("MapsActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("Map")
+                .build());
         setContentView(R.layout.activity_maps);
 
         KR_ID = getIntent().getIntExtra("KR_ID",1);
@@ -89,5 +100,18 @@ public class MapsActivity extends ActionBarActivity {
      */
     private void setUpMap() {
         //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+
     }
 }

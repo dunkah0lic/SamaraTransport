@@ -18,6 +18,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
@@ -30,6 +34,8 @@ public class ArrivalActivity extends ActionBarActivity {
     private boolean showRouteArrival = false;
     private int KR_ID = 0;
     ListView mListView;
+    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+    Tracker tracker = analytics.newTracker("UA-60775707-2");
 
     private class MyTimer extends CountDownTimer {
 
@@ -78,7 +84,15 @@ public class ArrivalActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        tracker.setScreenName("ArrivalActivity");
         setContentView(R.layout.activity_arrival);
+
+        tracker.setScreenName("ArrivalActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("ArrivalActivity")
+                .build());
 
         Intent intent = getIntent();
         st = (Stop) intent.getSerializableExtra(StopSearchActivity.MESSAGE_STOP);
@@ -117,6 +131,7 @@ public class ArrivalActivity extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
 
     }
 
@@ -143,6 +158,7 @@ public class ArrivalActivity extends ActionBarActivity {
             t.cancel();
         }
         task.cancel(false);
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
 
     private void displayArrivalInfo() {
@@ -242,6 +258,11 @@ public class ArrivalActivity extends ActionBarActivity {
                     mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                            tracker.send(new HitBuilders.EventBuilder()
+                                    .setCategory("UX")
+                                    .setAction("click")
+                                    .setLabel("List item")
+                                    .build());
                             if (id > 0) {
                                 showRouteArrival = true;
                                 KR_ID = (int) id;

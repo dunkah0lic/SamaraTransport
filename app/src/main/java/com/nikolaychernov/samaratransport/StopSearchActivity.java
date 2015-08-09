@@ -20,6 +20,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.Serializable;
 
 import hotchemi.android.rate.AppRate;
@@ -44,6 +48,10 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
     private Menu menu;
 
     private SearchNearMeTask snmt;
+
+    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+    Tracker tracker = analytics.newTracker("UA-60775707-2"); // Send hits to tracker id UA-XXXX-Y
+
 
 
     @Override
@@ -93,6 +101,14 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 .monitor();
         // Show a dialog if meets conditions
         AppRate.showRateDialogIfMeetsConditions(this);
+
+
+        tracker.setScreenName("StopSeacrhActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("StopSeacrhActivity")
+                .build());
     }
 
     @Override
@@ -132,6 +148,11 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case R.id.action_favourite:
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("Favourite")
+                        .build());
                 searchInFavor = !searchInFavor;
                 cmdSearchInFavor_click();
                 if(searchInFavor) {
@@ -141,13 +162,28 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 }
                 return true;
             case R.id.action_settings:
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("Settings")
+                        .build());
                 cmdSettings_click(null);
                 return true;
             case R.id.action_rate:
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("Rate")
+                        .build());
                 Intent googlePlayIntent = DataController.createIntentForGooglePlay(this);
                 startActivity(googlePlayIntent);
                 return true;
             case R.id.action_about:
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("About")
+                        .build());
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
@@ -163,6 +199,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 searchNearMe(false, "onStart");
             }
         }
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
     }
 
     @Override
@@ -179,6 +216,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         Log.d("STOPSEARCHACTIVITY","StopSearchActivity onStop");
         // The activity is no longer visible (it is now "stopped")
         dataMan.navTerminate();
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
 
     @Override
@@ -391,6 +429,11 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("List item")
+                        .build());
                 showDirections(position);
             }
         });
