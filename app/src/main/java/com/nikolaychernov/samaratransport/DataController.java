@@ -122,7 +122,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             instance.favorBDhelper = contr.new FavorReaderDbHelper(act);
             instance.copyFavor();
 
-            instance.nav = new Navigation(act);
+            instance.nav = Navigation.getInstance(act);
         }
         return instance;
     }
@@ -140,7 +140,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             instance.favorBDhelper = contr.new FavorReaderDbHelper(cont);
             instance.copyFavor();
 
-            instance.nav = new Navigation(cont);
+            instance.nav = Navigation.getInstance(cont);
         }
         return instance;
     }
@@ -165,7 +165,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         TransportDBContract contr = new TransportDBContract();
         mainDBhelper = contr.new MainReaderDbHelper(act);
         favorBDhelper = contr.new FavorReaderDbHelper(act);
-        nav = new Navigation(act);
+        nav = Navigation.getInstance(act);
         copyFavor();
         initSettings();
 
@@ -183,7 +183,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         TransportDBContract contr = new TransportDBContract();
         mainDBhelper = contr.new MainReaderDbHelper(cont);
         favorBDhelper = contr.new FavorReaderDbHelper(cont);
-        nav = new Navigation(cont);
+        nav = Navigation.getInstance(cont);
         copyFavor();
         initSettings();
 
@@ -332,49 +332,49 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     public boolean isLocationChanged() {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.isLocationChanged();
     }
 
     public boolean isNavWorking() {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.isNavWorking();
     }
 
     public Location getBestLocation() {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.getBestLocation();
     }
 
     public double getDistTo(Stop st, boolean force) {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.getDistTo(st, force);
     }
 
     public double getDistTo(double latitude, double longitude, boolean force) {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.getDistTo(latitude, longitude, force);
     }
 
     public double getLong(boolean force) {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.getLong(force);
     }
 
     public double getLat(boolean force) {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.getLat(force);
     }
@@ -386,14 +386,14 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     public boolean navInit() {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         return nav.navInit();
     }
 
     public void navTerminate() {
         if (nav == null) {
-            nav = new Navigation(activity);
+            nav = Navigation.getInstance(activity);
         }
         nav.navTerminate();
     }

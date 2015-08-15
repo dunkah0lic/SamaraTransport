@@ -4,4 +4,5 @@
     <color name="green">#009900</color>
     <color name="blue">#000099</color>
     <color name="primary">#673AB7</color>
+    <color name="primaryDark">#512DA8</color>
 </resources>

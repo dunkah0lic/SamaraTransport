@@ -21,11 +21,26 @@ public class Navigation {
     private boolean locationChanged = true;
     private boolean firstUpdate = true;
     private StopSearchActivity activity;
+    private static Navigation instance = null;
 
     private static final int TIME_TRESHOLD = 1000 * 20;
     private static final int MOVE_TRESHOLD = 10;
 
-    public Navigation(StopSearchActivity activity) {
+    public static Navigation getInstance(StopSearchActivity activity){
+        if (instance==null){
+            instance = new Navigation(activity);
+        }
+        return instance;
+    }
+
+    public static Navigation getInstance(Context activity){
+        if (instance==null){
+            instance = new Navigation(activity);
+        }
+        return instance;
+    }
+
+    private Navigation(StopSearchActivity activity) {
         this.activity = activity;
 
         locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
@@ -37,7 +52,7 @@ public class Navigation {
         newNavListeners();
     }
 
-    public Navigation(Context cont) {
+    private Navigation(Context cont) {
         locationManager = (LocationManager) cont.getSystemService(Context.LOCATION_SERVICE);
         Location currentNetworkLoc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         Location currentGPSLoc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -159,6 +174,18 @@ public class Navigation {
         };
     }
 
+    public void stopLocationUpdates() {
+        if (GPSListener != null) {
+            locationManager.removeUpdates(GPSListener);
+        }
+        if (networkListener != null) {
+            locationManager.removeUpdates(networkListener);
+        }
+        if (forceNetworkListener != null) {
+            locationManager.removeUpdates(forceNetworkListener);
+        }
+    }
+
     public static boolean equalsByCoord(Location loc1, Location loc2) {
         try {
             return getDistBetween(loc1.getLatitude(), loc1.getLongitude(), loc2.getLatitude(), loc2.getLongitude()) < 10;
@@ -253,8 +280,6 @@ public class Navigation {
         if (force && forceLoc != null) {
             return forceLoc.getLongitude();
         }
-        // if (force)
-        // requestNewLocation();
         Location loc = getBestLocation();
         return loc != null ? loc.getLongitude() : -1;
     }
@@ -263,8 +288,6 @@ public class Navigation {
         if (force && forceLoc != null) {
             return forceLoc.getLatitude();
         }
-        // if (force)
-        // requestNewLocation();
         Location loc = getBestLocation();
         return loc != null ? loc.getLatitude() : -1;
     }

@@ -84,6 +84,7 @@
     <eat-comment/>
     <color name="orange">#FF9900</color>
     <color name="primary">#673AB7</color>
+    <color name="primaryDark">#512DA8</color>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
@@ -441,8 +442,12 @@
     -->
 </style>
     <style name="AppTheme" parent="AppBaseTheme">
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primaryDark</item>
     <item name="android:actionBarStyle">@style/MyActionBar</item>
     <item name="actionBarStyle">@style/MyActionBar</item>
+
+    <item name="actionBarPopupTheme">@style/popupNew</item>
 
 </style>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
@@ -1608,7 +1613,7 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
     <style name="Theme.Viadeo.Styled.YourTheme.TitleTextStyle" parent="@android:style/Widget.TextView">
-     <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
     <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
@@ -1754,5 +1759,10 @@
         <item name="android:focusable">true</item>
         <item name="android:contentDescription">@string/mr_media_route_button_content_description</item>
         <item name="externalRouteEnabledDrawable">@drawable/mr_ic_media_route_mono_dark</item>
+    </style>
+    <!-- From: file:/C:/Users/Nikolay/AndroidStudioProjects/SamaraTransport/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="popupNew" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">#FFFFFF</item>
     </style>
 </resources>

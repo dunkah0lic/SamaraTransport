@@ -323,14 +323,11 @@ public class TransportDBContract implements Serializable {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            // TODO Auto-generated method stub
             db.execSQL(SQL_CREATE_Favor);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
-            // TODO Auto-generated method stub
-
         }
     }
 

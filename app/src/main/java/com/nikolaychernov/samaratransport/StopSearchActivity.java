@@ -222,7 +222,8 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("STOPSEARCHACTIVITY","StopSearchActivity onDestroy");
+        Log.d("STOPSEARCHACTIVITY", "StopSearchActivity onDestroy");
+        Navigation.getInstance(this).stopLocationUpdates();
 
         // The activity is about to be destroyed.
     }
