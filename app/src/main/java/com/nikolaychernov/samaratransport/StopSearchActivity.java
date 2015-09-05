@@ -6,13 +6,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,13 +52,13 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
     private SearchNearMeTask snmt;
 
-    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-    Tracker tracker = analytics.newTracker("UA-60775707-2"); // Send hits to tracker id UA-XXXX-Y
+    Tracker tracker;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(MyApplication.getCurrentTheme());
         super.onCreate(savedInstanceState);
         // Log.logInit(this);
         Log.d("STOPSEARCHACTIVITY", "StopSearchActivity onCreate");
@@ -66,7 +69,13 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
         list = (ListView) findViewById(R.id.list);
         final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
-        mRefreshLayout.setColorSchemeResources(R.color.primary);
+
+
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.theme_color, typedValue, true);
+        int color = typedValue.data;
+        mRefreshLayout.setColorSchemeColors(color);
 
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -103,6 +112,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         AppRate.showRateDialogIfMeetsConditions(this);
 
 
+        tracker = ((MyApplication) getApplication()).getDefaultTracker();
         tracker.setScreenName("StopSeacrhActivity");
         tracker.send(new HitBuilders.EventBuilder()
                 .setCategory("UX")
@@ -120,6 +130,19 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         android.support.v7.widget.SearchView searchView =
                 (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                SearchByNameTask task = new SearchByNameTask();
+                task.execute(newText);
+                return true;
+            }
+        });
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
         return super.onCreateOptionsMenu(menu);
@@ -208,12 +231,14 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         if (!dataMan.isNavWorking()) {
             dataMan.navInit();
         }
+        tracker.setScreenName("StopSeacrhActivity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("STOPSEARCHACTIVITY","StopSearchActivity onStop");
+        Log.d("STOPSEARCHACTIVITY", "StopSearchActivity onStop");
         // The activity is no longer visible (it is now "stopped")
         dataMan.navTerminate();
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
@@ -313,10 +338,12 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
             msgBox(this, "123", "");
         }
         if (requestCode != 10) {
-            DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
-            if (searchByNav) {
-                if (dataMan.navInit()) {
-                    new SearchNearMeTask().execute(true, true);
+            if (data!=null) {
+                DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+                if (searchByNav) {
+                    if (dataMan.navInit()) {
+                        new SearchNearMeTask().execute(true, true);
+                    }
                 }
             }
         }

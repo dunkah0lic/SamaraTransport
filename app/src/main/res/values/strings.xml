@@ -57,6 +57,10 @@
     <string name="rate_message">Если Вам понравилось это приложение, оцените его в Play Market. Это займет не больше минуты. Спасибо за поддержку!</string>
     <string name="settings_background_label">Показывать уведомления с прогнозом без запуска приложения (работает в тестовом режиме)</string>
     <string name="no_response_from_server">Не удалось получить ответ от сервера tosamara.ru</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="theme_picker">Тема</string>
+    <string name="color_picker_message">Изменения вступят в силу после перезапуска приложения. Перезапустить сейчас?</string>
+    <string name="reboot">Перезапустить</string>
 
 
 </resources>

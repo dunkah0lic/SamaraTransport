@@ -53,7 +53,6 @@ public class ShortBackgroundService extends Service {
 
         Stop[] stops = mainReaderDbHelper.searchNearMe(location.getLatitude(), location.getLongitude(), 100);
 
-
         StopGroup[] res = DataController.mergeStops(stops, true, false);
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -135,6 +134,7 @@ public class ShortBackgroundService extends Service {
 
 
                 mNotificationManager.notify(mId, mBuilder.build());
+
                 stopThisService();
             }
         }

@@ -15,10 +15,23 @@
                         xmlns:tools="http://schemas.android.com/tools"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:divider="@drawable/mydivider"
-                        android:showDividers="middle"
                         android:orientation="vertical"
                         android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_picker"
+                android:id="@+id/themeTV"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:onClick="themeClick"
+                android:clickable="true"
+                android:paddingLeft="15dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="15dp"/>
 
             <LinearLayout
                     android:id="@+id/linLayoutSettingsActivityAuto"
@@ -37,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/AutoUpdateLabel"
                         android:fontFamily="sans-serif"
-                        android:textColor="#525A66"
+                        android:textColor="#000000"
                         android:layout_weight="1"
                         android:textSize="16sp"/>
 
@@ -68,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/settings_background_label"
                     android:fontFamily="sans-serif"
-                    android:textColor="#525A66"
+                    android:textColor="#000000"
                     android:layout_weight="1"
                     android:textSize="16sp"/>
 
@@ -99,7 +112,7 @@
                         android:layout_marginBottom="10dp"
                         android:text="@string/RadiusLabel"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#525A66"
+                        android:textColor="#000000"
                         android:textSize="16sp"/>
 
 
@@ -138,7 +151,7 @@
                           android:text="@string/txtShowBusesLabel"
                           android:layout_weight="1"
                           android:textAppearance="?android:attr/textAppearanceMedium"
-                          android:textColor="#525A66"
+                          android:textColor="#000000"
                           android:textSize="16sp"/>
                 <CheckBox android:id="@+id/checkShowBuses"
                               android:layout_width="wrap_content"
@@ -160,7 +173,7 @@
                         android:layout_weight="1"
                         android:text="@string/txtShowTrollsLabel"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#525A66"
+                        android:textColor="#000"
                         android:textSize="16sp"
                         />
                     <CheckBox android:id="@+id/checkShowTrolls"
@@ -183,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtShowTramsLabel"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#525A66"
+                        android:textColor="#000"
                         android:textSize="16sp"
                         android:layout_weight="1"/>
 
@@ -205,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtShowCommLabel"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#525A66"
+                        android:textColor="#000"
                         android:textSize="16sp"
                         android:layout_weight="1"/>
 

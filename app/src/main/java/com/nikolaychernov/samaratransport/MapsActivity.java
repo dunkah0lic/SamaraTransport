@@ -19,12 +19,13 @@ public class MapsActivity extends ActionBarActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     int KR_ID;
-    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-    Tracker tracker = analytics.newTracker("UA-60775707-2");
+    Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(MyApplication.getCurrentTheme());
         super.onCreate(savedInstanceState);
+        tracker = ((MyApplication) getApplication()).getDefaultTracker();
         tracker.setScreenName("MapsActivity");
         tracker.send(new HitBuilders.EventBuilder()
                 .setCategory("UX")
@@ -43,7 +44,7 @@ public class MapsActivity extends ActionBarActivity {
             mMap.addMarker(new MarkerOptions().position(new LatLng(stops.get(i).latitude, stops.get(i).longitude)).title(stops.get(i).title));
             Log.d("ArrivalListAdapter", "btnOnClick stops " + stops.get(i).latitude + " " + stops.get(i).longitude);
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.219404,50.198077), 11));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.219404,50.198077), 11));
 
         TransportDBContract.MainReaderDbHelper mainReaderDbHelper = contr.new MainReaderDbHelper(this);
         Route route = mainReaderDbHelper.getRoute(KR_ID);
@@ -61,6 +62,8 @@ public class MapsActivity extends ActionBarActivity {
         super.onResume();
         //setUpMapIfNeeded();
 
+        tracker.setScreenName("MapsActivity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 

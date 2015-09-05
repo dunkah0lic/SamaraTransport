@@ -1,17 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 
-    lintOptions{
+    lintOptions {
         checkReleaseBuilds false
     }
 
     defaultConfig {
         applicationId "com.nikolaychernov.samaratransport"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
     }
 
     signingConfigs {
@@ -35,8 +36,11 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:7.5.0'
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.android.support:appcompat-v7:21.0.+'
+    compile 'com.google.android.gms:play-services-analytics:7.5.0'
+    compile 'com.google.android.gms:play-services-location:7.5.0'
+    compile 'com.google.android.gms:play-services-maps:7.5.0'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.github.hotchemi:android-rate:0.4.3'
+    compile 'com.github.markushi:circlebutton:1.1'
 }

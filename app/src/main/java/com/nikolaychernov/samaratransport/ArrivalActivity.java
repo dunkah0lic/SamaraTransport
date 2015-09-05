@@ -2,6 +2,7 @@ package com.nikolaychernov.samaratransport;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,8 +36,7 @@ public class ArrivalActivity extends ActionBarActivity {
     private boolean showRouteArrival = false;
     private int KR_ID = 0;
     ListView mListView;
-    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-    Tracker tracker = analytics.newTracker("UA-60775707-2");
+    Tracker tracker;
 
     private class MyTimer extends CountDownTimer {
 
@@ -82,11 +83,12 @@ public class ArrivalActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(MyApplication.getCurrentTheme());
         super.onCreate(savedInstanceState);
 
-        tracker.setScreenName("ArrivalActivity");
         setContentView(R.layout.activity_arrival);
 
+        tracker = ((MyApplication) getApplication()).getDefaultTracker();
         tracker.setScreenName("ArrivalActivity");
         tracker.send(new HitBuilders.EventBuilder()
                 .setCategory("UX")
@@ -116,7 +118,12 @@ public class ArrivalActivity extends ActionBarActivity {
 
         mListView = (ListView) findViewById(R.id.arrivalList);
         final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
-        mRefreshLayout.setColorSchemeResources(R.color.primary);
+
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.theme_color, typedValue, true);
+        int color = typedValue.data;
+        mRefreshLayout.setColorSchemeColors(color);
 
         // Set a listener to be invoked when the list should be refreshed.
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -139,6 +146,8 @@ public class ArrivalActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         cmdUpdate_click(null);
+        tracker.setScreenName("ArrivalActivity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

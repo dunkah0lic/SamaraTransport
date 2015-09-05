@@ -21,18 +21,13 @@ import java.util.Arrays;
 public class DirectionSelectActivity extends ActionBarActivity {
 
     private StopGroup grp;
-    GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-    Tracker tracker = analytics.newTracker("UA-60775707-2");
+    Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(MyApplication.getCurrentTheme());
+
         super.onCreate(savedInstanceState);
-        tracker.setScreenName("DirectionSelectActivity");
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory("UX")
-                .setAction("show")
-                .setLabel("DirectionSelectActivity")
-                .build());
 
         setContentView(R.layout.activity_direction_select);
         grp = (StopGroup) getIntent().getSerializableExtra(StopSearchActivity.MESSAGE_STOPGROUP);
@@ -51,7 +46,6 @@ public class DirectionSelectActivity extends ActionBarActivity {
         }
 
         android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setIcon(null);
         ab.setTitle(grp.title);
         ab.setSubtitle(grp.adjacentStreet);
 
@@ -70,6 +64,14 @@ public class DirectionSelectActivity extends ActionBarActivity {
                 showArrival((int) id);
             }
         });
+
+        tracker = ((MyApplication) getApplication()).getDefaultTracker();
+        tracker.setScreenName("DirectionSelectActivity");
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("show")
+                .setLabel("DirectionSelectActivity")
+                .build());
     }
 
     @Override
@@ -143,6 +145,12 @@ public class DirectionSelectActivity extends ActionBarActivity {
     protected void onStart() {
         super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tracker.setScreenName("DirectionSelectActivity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 }

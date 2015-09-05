@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,7 +64,6 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     private int searchRadius = 1400;
     private boolean isAutoUpdate = true;
     private boolean isBackgroundUpdate = true;
-    //	private boolean requestAddPredict = false;
     private boolean showBuses = true;
     private String authKey = "222222";
 
@@ -104,7 +102,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     private boolean showTrams = true;
     private boolean showTrolls = true;
     private boolean showComm = true;
-    private Typeface[] tp;
+
 
     // private static final String KR_ID_START =
     // "/katalog_marshrutov/detail.php?KR_ID=";
@@ -205,17 +203,9 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         this.showComm = showComm;
         this.showTrams = showTrams;
         this.showTrolls = showTrolls;
-//		this.requestAddPredict = requestAddPredict;
-        /*Intent serviceIntent = new Intent(activity, BackgroundService.class);
-        if(isBackgroundUpdate){
-            activity.startService(serviceIntent);
-        } else {
-            activity.stopService(serviceIntent);
-        }*/
         setLocationUpdates(isBackgroundUpdate);
 
         commitSettings();
-        //
     }
 
     public void setLocationUpdates(boolean yes){
@@ -229,7 +219,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         // TODO: set intervals to at least 30000 for release
         mLocationRequest.setInterval(24 * 60 * 60 * 1000);
         mLocationRequest.setFastestInterval(60 * 1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
         if(yes){
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
@@ -255,7 +245,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         }
 
         isAutoUpdate = prefs.getBoolean("updateFlag", true);
-        isBackgroundUpdate = prefs.getBoolean("backgroundFlag", false);
+        isBackgroundUpdate = prefs.getBoolean("backgroundFlag", true);
         searchRadius = prefs.getInt("radius", 600);
         showBuses = prefs.getBoolean("showBuses", true);
         showTrolls = prefs.getBoolean("showTrolls", true);
@@ -628,10 +618,6 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     public Stop[] getFavor() {
         int[] KS_IDs = favorBDhelper.getFavor();
-        // Stop[] result = new Stop[KS_IDs.length];
-        // for (int i = 0; i < KS_IDs.length; i++) {
-        // result[i] = mainDBhelper.getStop(KS_IDs[i]);
-        // }
         return mainDBhelper.getStops(KS_IDs);
     }
 
@@ -640,8 +626,6 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             return new Stop[0];
         }
         if (force) {
-            // navTerminate();
-            // navInit();
             requestNewLocation();
             return null;
         }
@@ -678,8 +662,6 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     }
 
     private static StopGroup stopsToGroup(ArrayList<Stop> src) {
-        // //Log.appendLog("DataController stopsToGroup");
-        // toGroups -= System.nanoTime();
         StopGroup result = new StopGroup();
         Set<Integer> IDs = new TreeSet<Integer>();
         result.latitude = 0;
@@ -800,17 +782,14 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     @Override
     public void onConnected(Bundle bundle) {
-
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
     }
 
     static Uri getGooglePlay(String packageName) {

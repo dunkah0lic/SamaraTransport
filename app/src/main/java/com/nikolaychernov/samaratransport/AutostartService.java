@@ -46,9 +46,9 @@ public class AutostartService extends Service  implements GoogleApiClient.Connec
 
         LocationRequest mLocationRequest = new LocationRequest();
         // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(24 * 60 * 60 * 1000);
-        mLocationRequest.setFastestInterval(60 * 1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setInterval(/*24 * 60 * 60 **/ 1000);
+        mLocationRequest.setFastestInterval(/*60 **/ 1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
         Log.i("Autostart", "requestLocationUpdates started");

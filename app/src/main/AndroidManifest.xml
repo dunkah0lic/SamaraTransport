@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="19"
+    android:versionCode="20"
     android:versionName="1.1.3" >
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -14,9 +14,7 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="21" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -48,7 +46,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/stop_searchable" />
         </activity>
-
         <activity
             android:name=".ArrivalActivity"
             android:label="@string/title_activity_arrival"
@@ -61,7 +58,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DirectionSelectActivity" />
         </activity>
-
         <activity
             android:name=".DirectionSelectActivity"
             android:label="@string/title_activity_direction_select"
@@ -74,13 +70,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StopSearchActivity" />
         </activity>
-
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme" >
         </activity>
-
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
@@ -90,6 +84,10 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/global_tracker"/>
 
         <activity
             android:name=".MapsActivity"
@@ -111,7 +109,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".LocationReceiver"
             android:enabled="true"
@@ -125,18 +122,20 @@
             android:name=".BackgroundService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name=".ShortBackgroundService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name=".AutostartService"
             android:enabled="true"
             android:exported="true" >
         </service>
 
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
     </application>
 
 </manifest>

@@ -11,23 +11,40 @@ import com.google.android.gms.analytics.Tracker;
  */
 public class MyApplication extends Application {
 
+    public static final String THEME_PREFERENCES= "theme_preferences";
+    public static final String THEME = "theme";
+
     private static Context context;
     public static GoogleAnalytics analytics;
     public static Tracker tracker;
 
+    public static int getCurrentTheme() {
+        return currentTheme;
+    }
+
+    public static void setCurrentTheme(int theme) {
+        currentTheme = theme;
+    }
+
+    private static int currentTheme;
+
+
     public void onCreate(){
         super.onCreate();
         MyApplication.context = getApplicationContext();
-        analytics = GoogleAnalytics.getInstance(this);
-        analytics.setLocalDispatchPeriod(1800);
+        currentTheme = getSharedPreferences(THEME_PREFERENCES, MODE_PRIVATE).getInt(THEME, R.style.AppTheme_Indigo);
 
-        tracker = analytics.newTracker("UA-X60775707-2");
-        tracker.enableExceptionReporting(true);
-        tracker.enableAdvertisingIdCollection(true);
-        tracker.enableAutoActivityTracking(true);
     }
 
     public static Context getAppContext() {
         return MyApplication.context;
+    }
+    synchronized public Tracker getDefaultTracker() {
+        if  (tracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            tracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return tracker;
     }
 }
