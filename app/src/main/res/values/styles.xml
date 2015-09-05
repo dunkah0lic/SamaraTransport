@@ -15,8 +15,6 @@
 
 <!-- Application theme. -->
 <style name="AppTheme" parent="AppBaseTheme">
-    <item name="colorPrimary">@color/indigoPrimary</item>
-    <item name="colorPrimaryDark">@color/indigoPrimaryDark</item>
 
     <item name="actionBarPopupTheme">@style/popupNew</item>
 
@@ -134,7 +132,7 @@
     <style name="AppTheme.BlueGrey" parent="AppTheme">
         <item name="theme_color">@color/blueGreyPrimary</item>
         <item name="colorPrimary">@color/blueGreyPrimary</item>
-        <item name="colorPrimaryDark">@color/bluePrimaryDark</item>
+        <item name="colorPrimaryDark">@color/blueGreyPrimaryDark</item>
     </style>
 
     <style name="MyActionBar" parent="Widget.AppCompat.Light.ActionBar">

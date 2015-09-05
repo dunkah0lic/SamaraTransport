@@ -12,15 +12,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -31,12 +32,11 @@ import at.markushi.ui.CircleButton;
 public class SettingsActivity extends AppCompatActivity implements OnSeekBarChangeListener {
 
     private TextView progressText;
-    private TextView metersText;
 
     private int radius = 600;
     private boolean isAutoUpdate = true;
     private boolean isBackgroundUpdate = false;
-    Tracker tracker;
+    private static Tracker tracker;
     private static AlertDialog alertDialog;
 
     @Override
@@ -65,15 +65,9 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
         radius = getIntent().getIntExtra("radius", 600);
         progressText = (TextView) findViewById(R.id.txtRadiusLabel) ;
 
-
-        android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setIcon(null);
-
-
         ((SeekBar) findViewById(R.id.seekRadius)).setOnSeekBarChangeListener(this);
         isAutoUpdate = getIntent().getBooleanExtra("updateFlag", true);
         isBackgroundUpdate = getIntent().getBooleanExtra("backgroundFlag", true);
-//		requestAddPredict = getIntent().getBooleanExtra("requestAdditionalPredict", true);
         radius = getIntent().getIntExtra("radius", 600);
         if (radius >= 1000) {
             progressText.setText("Радиус поиска остановок: " + radius / 1000.0 + " км");
@@ -87,8 +81,6 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
         ((CheckBox) findViewById(R.id.checkShowTrolls)).setChecked(getIntent().getBooleanExtra("showTrolls", true));
         ((CheckBox) findViewById(R.id.checkShowTrams)).setChecked(getIntent().getBooleanExtra("showTrams", true));
         ((CheckBox) findViewById(R.id.checkShowComm)).setChecked(getIntent().getBooleanExtra("showComm", true));
-//		((ToggleButton) findViewById(R.id.toggleAddInfo))
-//				.setChecked(requestAddPredict);
         setResults();
     }
 
@@ -99,21 +91,15 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
         return true;
     }
 
-    public void cmdBack_click(View view) {
-        this.finish();
-    }
-
     private void setResults() {
         Intent data = new Intent();
         data.putExtra("updateFlag", ((Switch) findViewById(R.id.toggleAutoUpdate)).isChecked());
         data.putExtra("backgroundFlag", ((Switch) findViewById(R.id.toggleBackground)).isChecked());
-//		data.putExtra("requestAdditionalPredict", requestAddPredict);
         data.putExtra("radius", radius);
         data.putExtra("showBuses", ((CheckBox) findViewById(R.id.checkShowBuses)).isChecked());
         data.putExtra("showTrolls", ((CheckBox) findViewById(R.id.checkShowTrolls)).isChecked());
         data.putExtra("showTrams", ((CheckBox) findViewById(R.id.checkShowTrams)).isChecked());
         data.putExtra("showComm", ((CheckBox) findViewById(R.id.checkShowComm)).isChecked());
-        // createPendingResult(1, data, PendingIntent.FLAG_ONE_SHOT);
         setResult(RESULT_OK, data);
     }
 
@@ -129,30 +115,10 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
     }
 
     public void themeClick(View view){
-
-        /*LayoutInflater inflater = getLayoutInflater();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.theme_picker))
-                .setView(inflater.inflate(R.layout.color_picker, null));
-
-        alertDialog = builder.create();
-        alertDialog.show();
-        CircleButton redButton = (CircleButton) alertDialog.findViewById(R.id.redButton);
-        redButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
-
-        ColorPickerDialog dialog = new ColorPickerDialog(this);
+        ColorPickerDialog dialog = ColorPickerDialog.create(this);
         dialog.show(getFragmentManager(), null);
     }
 
-    public void colorPicked(View v){
-        Toast.makeText(SettingsActivity.this, "button pressed", Toast.LENGTH_SHORT).show();
-        alertDialog.dismiss();
-    }
 
     public void onCheckboxClicked(View view) {
         switch (view.getId()) {
@@ -213,31 +179,40 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
     {
         Activity context;
 
+        public static ColorPickerDialog create(Activity activity){
+            ColorPickerDialog dialog = new ColorPickerDialog();
+            dialog.context = activity;
+            return dialog;
+        }
+
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                     .setTitle(getString(R.string.theme_picker))
-                    .setInverseBackgroundForced(true)
                     .setView(getActivity().getLayoutInflater().inflate(R.layout.color_picker, null));
 
             alertDialog = builder.create();
 
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
+            double width = metrics.widthPixels * 0.9;
+            double res = Math.min(width, 800);
+            alertDialog.getWindow().setLayout((int) res, ViewGroup.LayoutParams.WRAP_CONTENT);
+
             return alertDialog;
         }
 
-        public ColorPickerDialog(Activity context){
-            this.context = context;
-        }
-
-        @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-        }
 
         @Override
         public void onResume() {
             super.onResume();
+            tracker.setScreenName("ColorPicker");
+            tracker.send(new HitBuilders.EventBuilder()
+                    .setCategory("UX")
+                    .setAction("show")
+                    .setLabel("ColorPicker")
+                    .build());
             setupButtons();
         }
 
@@ -285,7 +260,7 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
         }
 
         public void onClick(View view) {
-            int themeId = R.style.AppTheme_Indigo;
+            int themeId = R.style.AppTheme_DeepPurple;
             switch (view.getId())
             {
                 case R.id.redButton:
@@ -397,14 +372,17 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
             delay = 1;
         }
         Log.e("", "restarting app");
-        Intent restartIntent = context.getPackageManager()
-                .getLaunchIntentForPackage(context.getPackageName() );
-        PendingIntent intent = PendingIntent.getActivity(
-                context, 0,
-                restartIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.set(AlarmManager.RTC, System.currentTimeMillis() + delay, intent);
-        System.exit(2);
+        try {
+            Intent restartIntent = context.getPackageManager()
+                    .getLaunchIntentForPackage(context.getPackageName());
+            PendingIntent intent = PendingIntent.getActivity(
+                    context, 0,
+                    restartIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+            AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            manager.set(AlarmManager.RTC, System.currentTimeMillis() + delay, intent);
+            System.exit(2);
+        } catch (Exception e){
+        }
     }
 
 }

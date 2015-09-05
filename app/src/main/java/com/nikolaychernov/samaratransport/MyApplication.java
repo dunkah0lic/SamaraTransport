@@ -32,8 +32,7 @@ public class MyApplication extends Application {
     public void onCreate(){
         super.onCreate();
         MyApplication.context = getApplicationContext();
-        currentTheme = getSharedPreferences(THEME_PREFERENCES, MODE_PRIVATE).getInt(THEME, R.style.AppTheme_Indigo);
-
+        currentTheme = getSharedPreferences(THEME_PREFERENCES, MODE_PRIVATE).getInt(THEME, R.style.AppTheme_DeepPurple);
     }
 
     public static Context getAppContext() {

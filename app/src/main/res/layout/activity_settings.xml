@@ -184,7 +184,6 @@
                               android:onClick="onCheckboxClicked"
                               />
 
-
                 </LinearLayout>
 
                 <LinearLayout

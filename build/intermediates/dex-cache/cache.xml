@@ -2,62 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-289d3a7853e0428f50b500f39e6ad410fa1dfe20.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.hotchemi\android-rate\0.4.3\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4734803dd03d778d5ba1fa39826b5a4f37ef738f">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0a3ef4def01e7473b916acdf2a0434b8ffab7102.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-7f05436719ea836d85a380e84d0c76e8a78d31c3.jar" />
-    </item>
-    <item
-        jar="D:\Android SDK\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-04eb15c4553152dc7a92065cd8089ceeed884c98.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-ae6e948401dc077168a7965244534f23da3bdf96.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-c08ec99439db8ed068982649a1760d00272939be.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-251df8dab4159e7ccc9b2fba6c1d3d0f38109a6b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
-        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5d085084b6d856517278efd4e9b8b2360d1882f3.jar" />
-    </item>
-    <item
         jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -67,9 +11,135 @@
     <item
         jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5c25a08e8bce5367eec21a4c4136753d5c28d91f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.hotchemi\android-rate\0.4.3\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4734803dd03d778d5ba1fa39826b5a4f37ef738f">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0a3ef4def01e7473b916acdf2a0434b8ffab7102.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-251df8dab4159e7ccc9b2fba6c1d3d0f38109a6b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-c08ec99439db8ed068982649a1760d00272939be.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-c08ec99439db8ed068982649a1760d00272939be.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
         revision="21.1.2"
         sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
         <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5c25a08e8bce5367eec21a4c4136753d5c28d91f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-7f05436719ea836d85a380e84d0c76e8a78d31c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-ae6e948401dc077168a7965244534f23da3bdf96.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-9715b57454a32e45e32c4c80e78788d389dae899.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-ae6e948401dc077168a7965244534f23da3bdf96.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-251df8dab4159e7ccc9b2fba6c1d3d0f38109a6b.jar" />
+    </item>
+    <item
+        jar="D:\Android SDK\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-04eb15c4553152dc7a92065cd8089ceeed884c98.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-7f05436719ea836d85a380e84d0c76e8a78d31c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-289d3a7853e0428f50b500f39e6ad410fa1dfe20.jar" />
+    </item>
+    <item
+        jar="D:\Android SDK\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-04eb15c4553152dc7a92065cd8089ceeed884c98.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.hotchemi\android-rate\0.4.3\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4734803dd03d778d5ba1fa39826b5a4f37ef738f">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-0a3ef4def01e7473b916acdf2a0434b8ffab7102.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-289d3a7853e0428f50b500f39e6ad410fa1dfe20.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5d085084b6d856517278efd4e9b8b2360d1882f3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="C:\Users\Nikolay\AndroidStudioProjects\SamaraTransport\app\build\intermediates\pre-dexed\debug\classes-5d085084b6d856517278efd4e9b8b2360d1882f3.jar" />
     </item>
 
 </items>
