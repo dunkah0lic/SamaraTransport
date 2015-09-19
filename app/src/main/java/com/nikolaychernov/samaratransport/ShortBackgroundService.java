@@ -74,7 +74,6 @@ public class ShortBackgroundService extends Service {
             this.stopSelf();
         }
 
-
     }
 
     private class DownloadArrivalInfoTask extends AsyncTask<Context, ArrayList<ArrivalInfo>, ArrayList<ArrivalInfo>> {
@@ -129,9 +128,7 @@ public class ShortBackgroundService extends Service {
                 PendingIntent resultPendingIntent =
                         stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-
                 mBuilder.setContentIntent(resultPendingIntent);
-
 
                 mNotificationManager.notify(mId, mBuilder.build());
 

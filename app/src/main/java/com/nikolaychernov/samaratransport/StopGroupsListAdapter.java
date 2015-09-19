@@ -8,7 +8,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -48,7 +47,7 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             view = lInflater.inflate(R.layout.stopslist, parent, false);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 1");
+
         StopGroup p = getItem(position);
         ToggleButton btn = ((ToggleButton) view.findViewById(R.id.toggleAddToFavor));
 
@@ -56,23 +55,21 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
         btn.setOnClickListener(this);
         btn.setTag(position);
         btn.setChecked(DataController.getInstance().isInFavor(p.KS_IDs));
-        ((RelativeLayout) view.findViewById(R.id.relLayoutStopIcon)).setVisibility(View.VISIBLE);
-        // Log.appendLog("StopGroupsListAdapter getView 2");
+        view.findViewById(R.id.relLayoutStopIcon).setVisibility(View.VISIBLE);
+
         TextView tv = (TextView) view.findViewById(R.id.txtDirectionStopName);
         tv.setText(p.title);
-        //dataMan.setTypeface(tv, Typeface.BOLD);
         tv = (TextView) view.findViewById(R.id.txtDirectionStreet);
         tv.setText(p.adjacentStreet);
 
         tv = (TextView) view.findViewById(R.id.txtDirectionCommercial);
         tv.setText(p.busesCommercial);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.ImgCommBus)).setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.ImgCommBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.ImgCommBus)).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.ImgCommBus).setVisibility(View.VISIBLE);
         }
 
         tv = (TextView) view.findViewById(R.id.txtDirectionMunicipal);
@@ -80,10 +77,10 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
 
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgBusIcon)).setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.imgBusIcon).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgBusIcon)).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.imgBusIcon).setVisibility(View.VISIBLE);
         }
 
 
@@ -97,10 +94,8 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgPrigorodBus)).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 6");
         tv = (TextView) view.findViewById(R.id.txtDirectionSeason);
         tv.setText(p.busesSeason);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
             ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.INVISIBLE);
@@ -109,7 +104,6 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 7");
         tv = (TextView) view.findViewById(R.id.txtDirectionSpecial);
         tv.setText(p.busesSpecial);
         if (tv.getText().length() == 0) {
@@ -120,7 +114,6 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 8");
         tv = (TextView) view.findViewById(R.id.txtDirectionTrams);
         tv.setText(p.trams);
         if (tv.getText().length() == 0) {
@@ -131,7 +124,6 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgTram)).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 9");
         tv = (TextView) view.findViewById(R.id.txtDirectionTrolls);
         tv.setText(p.trolleybuses);
         if (tv.getText().length() == 0) {
@@ -142,7 +134,6 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 10");
         int dist = (int) Math.floor(dataMan.getDistTo(p.latitude, p.longitude, false));
         tv = (TextView) view.findViewById(R.id.txtDirectionDistance);
         tv.setText(dist > 0 ?  dist + " м" : "");

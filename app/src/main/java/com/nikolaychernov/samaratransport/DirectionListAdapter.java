@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -57,140 +55,87 @@ public class DirectionListAdapter extends BaseAdapter implements OnClickListener
         tv.setText(p.direction);
 
         ((TextView) view.findViewById(R.id.txtDirectionStreet)).setMaxHeight(0);
-        ((RelativeLayout) view.findViewById(R.id.relLayoutDirectionsListDirectionIcon)).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.relLayoutDirectionsListDirectionIcon).setVisibility(View.VISIBLE);
 
-        // Log.appendLog("StopGroupsListAdapter getView 3");
         tv = (TextView) view.findViewById(R.id.txtDirectionCommercial);
         tv.setText(p.busesCommercial);
-       // dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            // ((ImageView) view.findViewById(R.id.ImgCommBus)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.ImgCommBus)).setVisibility(View.INVISIBLE);
-            // tv.setPadding(0, 0, 0, 0);
+            view.findViewById(R.id.ImgCommBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView)
-            // view.findViewById(R.id.ImgCommBus)).setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.ImgCommBus)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+            view.findViewById(R.id.ImgCommBus).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 4");
         tv = (TextView) view.findViewById(R.id.txtDirectionMunicipal);
         tv.setText(p.busesMunicipal);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            // ((ImageView) view.findViewById(R.id.imgBusIcon)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgBusIcon)).setVisibility(View.INVISIBLE);
-            // tv.setPadding(0, 0, 0, 0);
+            view.findViewById(R.id.imgBusIcon).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView)
-            // view.findViewById(R.id.imgBusIcon)).setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgBusIcon)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+             view.findViewById(R.id.imgBusIcon).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 5");
         tv = (TextView) view.findViewById(R.id.txtDirectionPrigorod);
         tv.setText(p.busesPrigorod);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
-            // ((LinearLayout)
-            // view.findViewById(R.id.linLayoutRoutesBusPrigorod))
-            ((ImageView) view.findViewById(R.id.imgPrigorodBus)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgPrigorodBus).setVisibility(View.INVISIBLE);
             tv.setMaxHeight(0);
-            // tv.setPadding(0, 0, 0, 0);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView) view.findViewById(R.id.imgPrigorodBus))
-            // .setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgPrigorodBus)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+             view.findViewById(R.id.imgPrigorodBus).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 6");
         tv = (TextView) view.findViewById(R.id.txtDirectionSeason);
         tv.setText(p.busesSeason);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            // ((ImageView)
-            // view.findViewById(R.id.imgSeasonBus)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.INVISIBLE);
-            // tv.setPadding(0, 0, 0, 0);
+            view.findViewById(R.id.imgSeasonBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView) view.findViewById(R.id.imgSeasonBus))
-            // .setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+            view.findViewById(R.id.imgSeasonBus).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 7");
         tv = (TextView) view.findViewById(R.id.txtDirectionSpecial);
         tv.setText(p.busesSpecial);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            // ((ImageView)
-            // view.findViewById(R.id.imgSpecialBus)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.INVISIBLE);
-            // tv.setPadding(0, 0, 0, 0);
+            view.findViewById(R.id.imgSpecialBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView) view.findViewById(R.id.imgSpecialBus))
-            // .setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+            view.findViewById(R.id.imgSpecialBus).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 8");
         tv = (TextView) view.findViewById(R.id.txtDirectionTrams);
         tv.setText(p.trams);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            // ((ImageView) view.findViewById(R.id.imgTram)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgTram)).setVisibility(View.INVISIBLE);
-            // tv.setPadding(0, 0, 0, 0);
+            view.findViewById(R.id.imgTram).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView) view.findViewById(R.id.imgTram)).setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgTram)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+            view.findViewById(R.id.imgTram).setVisibility(View.VISIBLE);
         }
 
-        // Log.appendLog("StopGroupsListAdapter getView 9");
         tv = (TextView) view.findViewById(R.id.txtDirectionTrolls);
         tv.setText(p.trolleybuses);
-        //dataMan.setTypeface(tv, HelveticaFont.Light);
         if (tv.getText().length() == 0) {
-            // ((ImageView) view.findViewById(R.id.imgTroll)).setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgTroll).setVisibility(View.INVISIBLE);
             tv.setMaxHeight(0);
         } else {
             tv.setMaxHeight(1000);
-            // ((ImageView) view.findViewById(R.id.imgTroll)).setMaxHeight(100);
-            ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.VISIBLE);
-            // tv.setPadding(0, 0, 0, 4);
+            view.findViewById(R.id.imgTroll).setVisibility(View.VISIBLE);
         }
         
         tv = (TextView) view.findViewById(R.id.txtDirectionDistance);
         int dist = (int) Math.floor(DataController.getInstance().getDistTo(p, false));
         tv.setText(dist > 0 ?  dist + " м" : "");
-        //dataMan.setTypeface(tv, Typeface.ITALIC);
-
-        // Log.appendLog("DirectionListAdapter getView END");
         return view;
     }
 
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
-        // Log.appendLog("DirectionListAdapter onClick");
         ToggleButton btn = (ToggleButton) v;
         int index = getItem((Integer) (btn).getTag()).KS_ID;
         DataController.getInstance().setFavor(index, btn.isChecked());

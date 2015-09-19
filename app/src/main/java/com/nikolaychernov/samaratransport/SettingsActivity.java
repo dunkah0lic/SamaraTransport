@@ -12,11 +12,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -195,10 +193,10 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
 
             alertDialog = builder.create();
 
-            DisplayMetrics metrics = getResources().getDisplayMetrics();
-            double width = metrics.widthPixels * 0.9;
-            double res = Math.min(width, 800);
-            alertDialog.getWindow().setLayout((int) res, ViewGroup.LayoutParams.WRAP_CONTENT);
+            /*DisplayMetrics metrics = getResources().getDisplayMetrics();
+            double width = metrics.widthPixels;
+            double res = Math.min(width, 1080);
+            alertDialog.getWindow().setLayout((int) res, ViewGroup.LayoutParams.WRAP_CONTENT);*/
 
             return alertDialog;
         }
@@ -208,11 +206,7 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
         public void onResume() {
             super.onResume();
             tracker.setScreenName("ColorPicker");
-            tracker.send(new HitBuilders.EventBuilder()
-                    .setCategory("UX")
-                    .setAction("show")
-                    .setLabel("ColorPicker")
-                    .build());
+            tracker.send(new HitBuilders.ScreenViewBuilder().build());
             setupButtons();
         }
 

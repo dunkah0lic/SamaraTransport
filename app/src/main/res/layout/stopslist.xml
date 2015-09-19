@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
 
@@ -13,19 +13,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
 
-        android:minHeight="10dp"
-        android:minWidth="10dp"
-        android:background="@drawable/green_circle72">
-
-        <ImageView
-            android:id="@+id/imgStopLightIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="10dp"
-            android:minWidth="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/icon_stop_light"/>
+        android:height="32dp"
+        android:width="32dp"
+        android:background="@drawable/icon_stop">
     </RelativeLayout>
 
     <RelativeLayout
@@ -99,19 +89,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
-        android:minHeight="16dp"
-        android:minWidth="16dp"
-        android:background="@drawable/green_circle72"
+        android:height="24dp"
+        android:width="24dp"
+        android:background="@drawable/direction_icon"
         android:visibility="invisible">
-
-        <ImageView
-            android:id="@+id/imgDirectionsListDirectionIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="20dp"
-            android:minWidth="20dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/icon_direction_light"/>
     </RelativeLayout>
 
     <RelativeLayout
