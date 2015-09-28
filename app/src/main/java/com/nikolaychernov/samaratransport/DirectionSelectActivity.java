@@ -1,9 +1,13 @@
 package com.nikolaychernov.samaratransport;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.util.Pair;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -18,14 +23,17 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.Arrays;
 
-public class DirectionSelectActivity extends ActionBarActivity {
+public class DirectionSelectActivity extends AppCompatActivity {
 
     private StopGroup grp;
     Tracker tracker;
+    Toolbar toolbar;
+    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(MyApplication.getCurrentTheme());
+
 
         super.onCreate(savedInstanceState);
 
@@ -45,11 +53,17 @@ public class DirectionSelectActivity extends ActionBarActivity {
             return;
         }
 
-        android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setTitle(grp.title);
-        ab.setSubtitle(grp.adjacentStreet);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView title = (TextView) findViewById(R.id.title);
+        TextView subtitle = (TextView) findViewById(R.id.subtitle);
+        title.setText(grp.title);
+        subtitle.setText(grp.adjacentStreet);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //toolbar.setSubtitle(grp.adjacentStreet);*/
 
-        ListView list = (ListView) findViewById(R.id.directionList);
+        list = (ListView) findViewById(R.id.directionList);
         DirectionListAdapter adapter = new DirectionListAdapter(this, grp.stops);
         list.setAdapter(adapter); // отображаем все объекты
 
@@ -61,7 +75,7 @@ public class DirectionSelectActivity extends ActionBarActivity {
                         .setAction("click")
                         .setLabel("List item")
                         .build());
-                showArrival((int) id);
+                showArrival((int) id, itemClicked);
             }
         });
 
@@ -126,12 +140,28 @@ public class DirectionSelectActivity extends ActionBarActivity {
         this.finish();
     }
 
-    public void showArrival(int KS_ID) {
+    public void showArrival(int KS_ID, View view) {
         // Log.appendLog("DirectionSelectActivity showArrival");
         int ind = Arrays.binarySearch(grp.KS_IDs, KS_ID);
         Intent intent = new Intent(this, ArrivalActivity.class);
         intent.putExtra(StopSearchActivity.MESSAGE_STOP, grp.stops[ind]);
-        startActivity(intent);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            View sharedView = findViewById(R.id.title);
+            String transitionName = "stopName";
+            Pair<View, String> p1 = Pair.create(sharedView, transitionName);
+
+            sharedView = view.findViewById(R.id.txtDirectionStreet);
+            transitionName = "direction";
+            Pair<View, String> p2 = Pair.create(sharedView, transitionName);
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2);
+            startActivity(intent, options.toBundle());
+
+        } else {
+            startActivity(intent);
+        }
 
     }
 
@@ -152,5 +182,16 @@ public class DirectionSelectActivity extends ActionBarActivity {
         super.onResume();
         tracker.setScreenName("DirectionSelectActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        /*list.post(new Runnable() {
+            @Override
+            public void run() {
+                Display display = getWindowManager().getDefaultDisplay();
+                Point size = new Point();
+                display.getSize(size);
+                int width = size.x;
+                int height = size.y;
+                Toast.makeText(DirectionSelectActivity.this, height - list.getHeight() - toolbar.getHeight() + "", Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 }

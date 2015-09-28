@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -50,6 +51,9 @@ public class SettingsActivity extends AppCompatActivity implements OnSeekBarChan
                 .setAction("show")
                 .setLabel("SettingsActivity")
                 .build());
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         DataController dataMan = null;
         try {

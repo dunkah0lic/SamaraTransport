@@ -2,7 +2,9 @@ package com.nikolaychernov.samaratransport;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -48,13 +50,16 @@ public class MapsActivity extends ActionBarActivity {
 
         TransportDBContract.MainReaderDbHelper mainReaderDbHelper = contr.new MainReaderDbHelper(this);
         Route route = mainReaderDbHelper.getRoute(KR_ID);
-        android.support.v7.app.ActionBar ab = getSupportActionBar();
-        //ab.setIcon(null);
-        if (route.direction!=null){
-            ab.setTitle(route.number + ": " + route.direction);
-        }
 
-        //ab.setSubtitle(st.direction);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (route.direction!=null){
+            TextView title = (TextView) findViewById(R.id.title);
+            title.setText(route.number + ": " + route.direction);
+        }
     }
 
     @Override

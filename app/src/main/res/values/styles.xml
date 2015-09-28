@@ -21,8 +21,35 @@
 
     </style>
 
+    <style name="AppThemeNoActionBarBase" parent="Theme.AppCompat.NoActionBar">
+        <item name="actionBarTheme">@style/MyApp.ActionBarTheme</item>
+        <item name="actionBarPopupTheme">@style/popupNew</item>
+        <item name="alertDialogTheme">@style/SamTransAlertDialog</item>
+    </style>
+
+    <style name="MyApp.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- THIS is where you can color the arrow! -->
+        <item name="colorControlNormal">#fff</item>
+    </style>
+
+    <style name="AppThemeNoActionBar" parent="AppThemeNoActionBarBase">
+    </style>
+
+
     <style name="SamTransAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
 
+    </style>
+
+    <style name="MaterialAnimations.TextAppearance.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="MaterialAnimations.TextAppearance.Subhead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="MaterialAnimations.TextAppearance.Title.Inverse" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
     <style name="AppTheme.Red" parent="AppTheme">
@@ -43,13 +70,13 @@
         <item name="colorPrimaryDark">@color/purplePrimaryDark</item>
     </style>
 
-    <style name="AppTheme.DeepPurple" parent="AppTheme">
+    <style name="AppTheme.DeepPurple" parent="AppThemeNoActionBar">
         <item name="theme_color">@color/deepPurplePrimary</item>
         <item name="colorPrimary">@color/deepPurplePrimary</item>
         <item name="colorPrimaryDark">@color/deepPurplePrimaryDark</item>
     </style>
 
-    <style name="AppTheme.Indigo" parent="AppTheme">
+    <style name="AppTheme.Indigo" parent="AppThemeNoActionBar">
         <item name="theme_color">@color/indigoPrimary</item>
         <item name="colorPrimary">@color/indigoPrimary</item>
         <item name="colorPrimaryDark">@color/indigoPrimaryDark</item>

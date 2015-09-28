@@ -41,7 +41,7 @@ public class DirectionListAdapter extends BaseAdapter implements OnClickListener
         // Log.appendLog("DirectionListAdapter getView 0");
         View view = convertView;
         if (view == null) {
-            view = lInflater.inflate(R.layout.stopslist, parent, false);
+            view = lInflater.inflate(R.layout.directionstoplist, parent, false);
         }
 
         // Log.appendLog("DirectionListAdapter getView 1");

@@ -8,12 +8,16 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -86,8 +90,11 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         });
         searchNearMe(false, "refresh");
 
-        android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setIcon(null);
+        /*android.support.v7.app.ActionBar ab = getSupportActionBar();
+        ab.setIcon(null);*/
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         handleIntent(getIntent());
 
@@ -342,7 +349,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
                 if (searchByNav) {
                     if (dataMan.navInit()) {
-                        new SearchNearMeTask().execute(true, true);
+                        //new SearchNearMeTask().execute(true, true);
                     }
                 }
             }
@@ -462,12 +469,12 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                         .setAction("click")
                         .setLabel("List item")
                         .build());
-                showDirections(position);
+                showDirections(position, itemClicked);
             }
         });
     }
 
-    public void showDirections(int grpID) {
+    public void showDirections(int grpID, View view) {
         Log.d("","StopSearchActivity showDirections");
         Intent intent = new Intent(this, DirectionSelectActivity.class);
         try {
@@ -479,11 +486,28 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
             grp[grpID].stops = dataMan.getStops(grp[grpID].KS_IDs);
             intent.putExtra(MESSAGE_STOPGROUP, grp[grpID]);
             // intent.putExtra(MESSAGE_DATAMAN, dataMan);
-            startActivity(intent);
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                View sharedView = view.findViewById(R.id.txtDirectionStopName);
+                String transitionName = "stopName";
+                Pair<View, String> p1 = Pair.create(sharedView, transitionName);
+
+                sharedView = view.findViewById(R.id.txtDirectionStreet);
+                transitionName = "streetName";
+                Pair<View, String> p2 = Pair.create(sharedView, transitionName);
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2);
+                startActivity(intent, options.toBundle());
+
+            } else {
+                startActivity(intent);
+            }
         } catch (ArrayIndexOutOfBoundsException e) {
             searchNearMe(true, "");
         }
     }
+
+
 
     public static void msgBox(Context context, String promt, String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

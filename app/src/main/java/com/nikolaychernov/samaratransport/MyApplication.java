@@ -11,6 +11,8 @@ import com.google.android.gms.analytics.Tracker;
  */
 public class MyApplication extends Application {
 
+    //gitlab test
+
     public static final String THEME_PREFERENCES= "theme_preferences";
     public static final String THEME = "theme";
 
@@ -45,6 +47,7 @@ public class MyApplication extends Application {
             tracker = analytics.newTracker(R.xml.global_tracker);
             // Enable Advertising Features.
             tracker.enableAdvertisingIdCollection(true);
+            tracker.enableExceptionReporting(true);
         }
         return tracker;
     }

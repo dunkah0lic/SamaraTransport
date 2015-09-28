@@ -1,5 +1,35 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/map"
-    tools:context=".MapsActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    tools:context=".DirectionSelectActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        app:theme="@style/MyApp.ActionBarTheme"
+        style="@style/MaterialAnimations.TextAppearance.Title"
+        app:popupTheme="@style/popupNew"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:background="?attr/colorPrimary">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/MaterialAnimations.TextAppearance.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:transitionName="routeName" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+</LinearLayout>

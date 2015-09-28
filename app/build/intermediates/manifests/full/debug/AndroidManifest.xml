@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="25"
-    android:versionName="1.2.1" >
+    android:versionCode="27"
+    android:versionName="1.2.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -27,7 +27,8 @@
         android:name="com.nikolaychernov.samaratransport.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/AppThemeNoActionBar" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBiwIhRtQophje4k4JVKl-SMNJLf5OkCKI" />
@@ -54,8 +55,7 @@
             android:name="com.nikolaychernov.samaratransport.ArrivalActivity"
             android:label="@string/title_activity_arrival"
             android:launchMode="singleTop"
-            android:parentActivityName="com.nikolaychernov.samaratransport.DirectionSelectActivity"
-            android:theme="@style/AppTheme" >
+            android:parentActivityName="com.nikolaychernov.samaratransport.DirectionSelectActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -66,8 +66,7 @@
             android:name="com.nikolaychernov.samaratransport.DirectionSelectActivity"
             android:label="@string/title_activity_direction_select"
             android:launchMode="singleTop"
-            android:parentActivityName="com.nikolaychernov.samaratransport.StopSearchActivity"
-            android:theme="@style/AppTheme" >
+            android:parentActivityName="com.nikolaychernov.samaratransport.StopSearchActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -76,13 +75,11 @@
         </activity>
         <activity
             android:name="com.nikolaychernov.samaratransport.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme" >
+            android:label="@string/title_activity_settings" >
         </activity>
         <activity
             android:name="com.nikolaychernov.samaratransport.AboutActivity"
-            android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme" >
+            android:label="@string/title_activity_about" >
         </activity>
 
         <meta-data

@@ -1,7 +1,11 @@
 package com.nikolaychernov.samaratransport;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +19,16 @@ import java.util.ArrayList;
 
 public class ArrivalListAdapter extends BaseAdapter {
 
-    Context cont;
+    Activity activity;
     LayoutInflater lInflater;
     ArrayList<ArrivalInfo> objects;
     private DataController dataMan;
 
-    public ArrivalListAdapter(Context context, ArrayList<ArrivalInfo> arrivalInfo) {
+    public ArrivalListAdapter(Activity activity, ArrayList<ArrivalInfo> arrivalInfo) {
         //Log.appendLog("ArrivalListAdapter constructor");
-        cont = context;
+        this.activity = activity;
         objects = arrivalInfo;
-        lInflater = (LayoutInflater) cont.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        lInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dataMan = DataController.getInstance();
     }
 
@@ -52,15 +56,28 @@ public class ArrivalListAdapter extends BaseAdapter {
         final int pos = position;
         ArrivalInfo p = getItem(position);
         Button btn = (Button) view.findViewById(R.id.btnShowRoute);
+        final View view1 = view;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int KR_ID = objects.get(pos).getKR_ID();
                 Log.d("ArrivalListAdapter", "btnOnClick " + KR_ID);
 
-                Intent intent = new Intent(cont, MapsActivity.class);
+                Intent intent = new Intent(activity, MapsActivity.class);
                 intent.putExtra("KR_ID", KR_ID);
-                cont.startActivity(intent);
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                    View sharedView = view1.findViewById(R.id.txtArrivalListRoute);
+                    String transitionName = "routeName";
+                    Pair<View, String> p1 = Pair.create(sharedView, transitionName);
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, p1);
+                    activity.startActivity(intent, options.toBundle());
+
+                } else {
+                    activity.startActivity(intent);
+                }
+                //cont.startActivity(intent);
             }
         });
 

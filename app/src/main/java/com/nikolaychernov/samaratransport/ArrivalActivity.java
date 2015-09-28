@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -109,10 +110,14 @@ public class ArrivalActivity extends ActionBarActivity {
             return;
         }
 
-        android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setIcon(null);
-        ab.setTitle(st.title);
-        ab.setSubtitle(st.direction);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView title = (TextView) findViewById(R.id.title);
+        TextView subtitle = (TextView) findViewById(R.id.subtitle);
+        title.setText(st.title);
+        subtitle.setText(st.direction);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         task = new DownloadArrivalInfoTask();
 
