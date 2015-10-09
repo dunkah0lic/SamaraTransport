@@ -14,7 +14,7 @@
 
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="AppThemeNoActionBar">
 
         <item name="actionBarPopupTheme">@style/popupNew</item>
         <item name="alertDialogTheme">@style/SamTransAlertDialog</item>
@@ -33,6 +33,7 @@
     </style>
 
     <style name="AppThemeNoActionBar" parent="AppThemeNoActionBarBase">
+        <item name="colorAccent">@color/greenPrimary</item>
     </style>
 
 
@@ -70,13 +71,13 @@
         <item name="colorPrimaryDark">@color/purplePrimaryDark</item>
     </style>
 
-    <style name="AppTheme.DeepPurple" parent="AppThemeNoActionBar">
+    <style name="AppTheme.DeepPurple" parent="AppTheme">
         <item name="theme_color">@color/deepPurplePrimary</item>
         <item name="colorPrimary">@color/deepPurplePrimary</item>
         <item name="colorPrimaryDark">@color/deepPurplePrimaryDark</item>
     </style>
 
-    <style name="AppTheme.Indigo" parent="AppThemeNoActionBar">
+    <style name="AppTheme.Indigo" parent="AppTheme">
         <item name="theme_color">@color/indigoPrimary</item>
         <item name="colorPrimary">@color/indigoPrimary</item>
         <item name="colorPrimaryDark">@color/indigoPrimaryDark</item>

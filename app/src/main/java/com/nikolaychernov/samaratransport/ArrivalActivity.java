@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,6 +14,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -38,6 +43,8 @@ public class ArrivalActivity extends ActionBarActivity {
     private int KR_ID = 0;
     ListView mListView;
     Tracker tracker;
+
+    private AdView adView;
 
     private class MyTimer extends CountDownTimer {
 
@@ -119,6 +126,35 @@ public class ArrivalActivity extends ActionBarActivity {
         //getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        adView = (AdView) findViewById(R.id.adView);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("show")
+                        .setLabel("ad")
+                        .build());
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Ad")
+                        .setAction("show")
+                        .setLabel("ArrivalActivity")
+                        .build());
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                .build();
+        adView.loadAd(adRequest);
+
         task = new DownloadArrivalInfoTask();
 
         mListView = (ListView) findViewById(R.id.arrivalList);
@@ -153,6 +189,7 @@ public class ArrivalActivity extends ActionBarActivity {
         cmdUpdate_click(null);
         tracker.setScreenName("ArrivalActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
     }
 
     @Override
@@ -269,6 +306,25 @@ public class ArrivalActivity extends ActionBarActivity {
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 
                     mListView.setAdapter(adapter);
+                    mListView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Display display = getWindowManager().getDefaultDisplay();
+                            Point size = new Point();
+                            display.getSize(size);
+                            int width = size.x;
+                            int height = size.y;
+                            int leftUnder = height - mListView.getCount() * mListView.getChildAt(0).getHeight() - getSupportActionBar().getHeight();
+
+                            //Toast.makeText(ArrivalActivity.this, leftUnder + "", Toast.LENGTH_SHORT).show();
+                            if (leftUnder > 50) {
+                                adView.setVisibility(View.VISIBLE);
+                            } else {
+                                adView.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+
                     mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {

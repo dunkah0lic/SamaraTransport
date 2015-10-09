@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
-    android:versionCode="27"
-    android:versionName="1.2.2" >
+    android:versionCode="28"
+    android:versionName="1.2.3" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -37,7 +37,7 @@
             android:name="com.nikolaychernov.samaratransport.StopSearchActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppThemeNoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -93,7 +93,7 @@
             android:name="com.nikolaychernov.samaratransport.MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName="com.nikolaychernov.samaratransport.ArrivalActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppThemeNoActionBar" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -119,10 +119,6 @@
         </receiver>
 
         <service
-            android:name="com.nikolaychernov.samaratransport.BackgroundService"
-            android:enabled="true"
-            android:exported="true" />
-        <service
             android:name="com.nikolaychernov.samaratransport.ShortBackgroundService"
             android:enabled="true"
             android:exported="true" />
@@ -136,6 +132,14 @@
             android:name="com.nikolaychernov.samaratransport.HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
     </application>
 
 </manifest>

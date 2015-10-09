@@ -1,6 +1,7 @@
 package com.nikolaychernov.samaratransport;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -9,6 +10,7 @@ import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +19,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -29,6 +34,8 @@ public class DirectionSelectActivity extends AppCompatActivity {
     Tracker tracker;
     Toolbar toolbar;
     ListView list;
+
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,26 @@ public class DirectionSelectActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //toolbar.setSubtitle(grp.adjacentStreet);*/
 
+        adView = (AdView) findViewById(R.id.adView);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                .build();
+        adView.loadAd(adRequest);
+        //adView.setVisibility(View.GONE);
         list = (ListView) findViewById(R.id.directionList);
         DirectionListAdapter adapter = new DirectionListAdapter(this, grp.stops);
         list.setAdapter(adapter); // отображаем все объекты
@@ -182,7 +209,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
         super.onResume();
         tracker.setScreenName("DirectionSelectActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
-        /*list.post(new Runnable() {
+        list.post(new Runnable() {
             @Override
             public void run() {
                 Display display = getWindowManager().getDefaultDisplay();
@@ -190,8 +217,26 @@ public class DirectionSelectActivity extends AppCompatActivity {
                 display.getSize(size);
                 int width = size.x;
                 int height = size.y;
-                Toast.makeText(DirectionSelectActivity.this, height - list.getHeight() - toolbar.getHeight() + "", Toast.LENGTH_SHORT).show();
+                int leftUnder =  height - list.getHeight() - toolbar.getHeight();
+
+                if(leftUnder>50) {
+                    //Toast.makeText(DirectionSelectActivity.this, leftUnder + "", Toast.LENGTH_SHORT).show();
+
+                    adView.setVisibility(View.VISIBLE);
+                    tracker.send(new HitBuilders.EventBuilder()
+                            .setCategory("UX")
+                            .setAction("show")
+                            .setLabel("ad")
+                            .build());
+                    tracker.send(new HitBuilders.EventBuilder()
+                            .setCategory("Ad")
+                            .setAction("show")
+                            .setLabel("DirectionSelectActivity")
+                            .build());
+                } else {
+                    adView.setVisibility(View.GONE);
+                }
             }
-        });*/
+        });
     }
 }

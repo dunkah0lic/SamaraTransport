@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.github.hotchemi/android-rate/0.4.3/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hotchemi/android-rate/0.4.3/7bddfdb06eeb2e2b7c2f37f63d5bb22c4eeda4d/android-rate-0.4.3-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

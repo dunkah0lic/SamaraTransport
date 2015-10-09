@@ -13,6 +13,7 @@
         app:theme="@style/MyApp.ActionBarTheme"
         style="@style/MaterialAnimations.TextAppearance.Title"
         app:popupTheme="@style/popupNew"
+        android:elevation="4dp"
         android:layout_height="@dimen/abc_action_bar_default_height_material"
         android:background="?attr/colorPrimary">
 

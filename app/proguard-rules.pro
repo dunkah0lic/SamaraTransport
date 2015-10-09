@@ -18,3 +18,6 @@
 
 -keep class android.support.v7.widget.** { *; }
 -keep interface android.support.v7.widget.** { *; }
+-dontwarn org.apache.http.**
+-dontwarn android.net.http.AndroidHttpClient
+-dontwarn com.google.android.gms.**

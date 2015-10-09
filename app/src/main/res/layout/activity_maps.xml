@@ -12,6 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         app:theme="@style/MyApp.ActionBarTheme"
+        android:elevation="4dp"
         style="@style/MaterialAnimations.TextAppearance.Title"
         app:popupTheme="@style/popupNew"
         android:layout_height="@dimen/abc_action_bar_default_height_material"
