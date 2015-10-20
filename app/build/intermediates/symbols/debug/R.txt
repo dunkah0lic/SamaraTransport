@@ -693,7 +693,7 @@ int id adjust_width 0x7f0e002f
 int id alertTitle 0x7f0e004f
 int id always 0x7f0e0033
 int id amberButton 0x7f0e00a7
-int id arrivalList 0x7f0e0072
+int id arrivalList 0x7f0e0074
 int id beginning 0x7f0e002c
 int id bigRelativeLayout 0x7f0e00b2
 int id blueButton 0x7f0e009f
@@ -837,7 +837,7 @@ int id start 0x7f0e0029
 int id status_bar_latest_event_content 0x7f0e00c7
 int id submit_area 0x7f0e006a
 int id subtitle 0x7f0e0070
-int id swipe_refresh_layout 0x7f0e0071
+int id swipe_refresh_layout 0x7f0e0073
 int id tabMode 0x7f0e000f
 int id tealButton 0x7f0e00a2
 int id terrain 0x7f0e0032
@@ -862,7 +862,7 @@ int id txtArrivalListTime 0x7f0e0093
 int id txtArrivalListVehicle 0x7f0e0097
 int id txtAutoUpdateLabel 0x7f0e007b
 int id txtBakcgroundLabel 0x7f0e007e
-int id txtConnectionProblem 0x7f0e0074
+int id txtConnectionProblem 0x7f0e0072
 int id txtDirectionCommercial 0x7f0e00b7
 int id txtDirectionDistance 0x7f0e00b0
 int id txtDirectionMunicipal 0x7f0e00b6
@@ -878,7 +878,7 @@ int id txtShowBuses 0x7f0e0084
 int id txtShowComm 0x7f0e008a
 int id txtShowTrams 0x7f0e0088
 int id txtShowTrolls 0x7f0e0086
-int id txtTransAbsentMessage 0x7f0e0073
+int id txtTransAbsentMessage 0x7f0e0071
 int id up 0x7f0e000a
 int id useLogo 0x7f0e0016
 int id view_offset_helper 0x7f0e000b

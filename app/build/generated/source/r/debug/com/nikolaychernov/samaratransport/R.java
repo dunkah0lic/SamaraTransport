@@ -2379,7 +2379,7 @@ containing a value of this type.
         public static final int alertTitle=0x7f0e004f;
         public static final int always=0x7f0e0033;
         public static final int amberButton=0x7f0e00a7;
-        public static final int arrivalList=0x7f0e0072;
+        public static final int arrivalList=0x7f0e0074;
         public static final int beginning=0x7f0e002c;
         public static final int bigRelativeLayout=0x7f0e00b2;
         public static final int blueButton=0x7f0e009f;
@@ -2523,7 +2523,7 @@ containing a value of this type.
         public static final int status_bar_latest_event_content=0x7f0e00c7;
         public static final int submit_area=0x7f0e006a;
         public static final int subtitle=0x7f0e0070;
-        public static final int swipe_refresh_layout=0x7f0e0071;
+        public static final int swipe_refresh_layout=0x7f0e0073;
         public static final int tabMode=0x7f0e000f;
         public static final int tealButton=0x7f0e00a2;
         public static final int terrain=0x7f0e0032;
@@ -2548,7 +2548,7 @@ containing a value of this type.
         public static final int txtArrivalListVehicle=0x7f0e0097;
         public static final int txtAutoUpdateLabel=0x7f0e007b;
         public static final int txtBakcgroundLabel=0x7f0e007e;
-        public static final int txtConnectionProblem=0x7f0e0074;
+        public static final int txtConnectionProblem=0x7f0e0072;
         public static final int txtDirectionCommercial=0x7f0e00b7;
         public static final int txtDirectionDistance=0x7f0e00b0;
         public static final int txtDirectionMunicipal=0x7f0e00b6;
@@ -2564,7 +2564,7 @@ containing a value of this type.
         public static final int txtShowComm=0x7f0e008a;
         public static final int txtShowTrams=0x7f0e0088;
         public static final int txtShowTrolls=0x7f0e0086;
-        public static final int txtTransAbsentMessage=0x7f0e0073;
+        public static final int txtTransAbsentMessage=0x7f0e0071;
         public static final int up=0x7f0e000a;
         public static final int useLogo=0x7f0e0016;
         public static final int view_offset_helper=0x7f0e000b;

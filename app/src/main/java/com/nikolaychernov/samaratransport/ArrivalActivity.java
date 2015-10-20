@@ -300,8 +300,8 @@ public class ArrivalActivity extends ActionBarActivity {
             }
             switch (result){
                 case 0: if (!arrInfo.isEmpty()) {
-                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.txtConnectionProblem).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.GONE);
+                    findViewById(R.id.txtConnectionProblem).setVisibility(View.GONE);
 
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 
@@ -340,9 +340,9 @@ public class ArrivalActivity extends ActionBarActivity {
                         }
                     });
                 } else {
-                    findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.arrivalList).setVisibility(View.GONE);
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.VISIBLE);
-                    findViewById(R.id.txtConnectionProblem).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.txtConnectionProblem).setVisibility(View.GONE);
                 }
 
                     if (DataController.getInstance().isAutoUpdate()) {
@@ -350,18 +350,18 @@ public class ArrivalActivity extends ActionBarActivity {
                         t = t.start();
                     }
                     break;
-                case 1: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                case 1: findViewById(R.id.arrivalList).setVisibility(View.GONE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.GONE);
                     TextView textView = (TextView) findViewById(R.id.txtConnectionProblem);
                     textView.setText(R.string.no_response_from_server);
                     textView.setVisibility(View.VISIBLE);
                     break;
-                case 2: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                case 2: findViewById(R.id.arrivalList).setVisibility(View.GONE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.GONE);
                     findViewById(R.id.txtConnectionProblem).setVisibility(View.VISIBLE);
                     break;
-                case 3: findViewById(R.id.arrivalList).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.INVISIBLE);
+                case 3: findViewById(R.id.arrivalList).setVisibility(View.GONE);
+                    findViewById(R.id.txtTransAbsentMessage).setVisibility(View.GONE);
                     textView = (TextView) findViewById(R.id.txtConnectionProblem);
                     textView.setText(R.string.no_response_from_server);
                     textView.setVisibility(View.VISIBLE);
