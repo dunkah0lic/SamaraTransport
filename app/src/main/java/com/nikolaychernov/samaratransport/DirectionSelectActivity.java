@@ -40,8 +40,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(MyApplication.getCurrentTheme());
-
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_direction_select);
@@ -66,9 +64,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
         title.setText(grp.title);
         subtitle.setText(grp.adjacentStreet);
         setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //toolbar.setSubtitle(grp.adjacentStreet);*/
 
         adView = (AdView) findViewById(R.id.adView);
         adView.setAdListener(new AdListener() {
@@ -217,7 +213,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
                 display.getSize(size);
                 int width = size.x;
                 int height = size.y;
-                int leftUnder =  height - list.getHeight() - toolbar.getHeight();
+                int leftUnder =  height - list.getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
                 if(leftUnder>50) {
                     //Toast.makeText(DirectionSelectActivity.this, leftUnder + "", Toast.LENGTH_SHORT).show();

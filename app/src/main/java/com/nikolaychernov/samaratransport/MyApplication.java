@@ -3,8 +3,10 @@ package com.nikolaychernov.samaratransport;
 import android.app.Application;
 import android.content.Context;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Nikolay on 27.02.2015.
@@ -33,6 +35,7 @@ public class MyApplication extends Application {
 
     public void onCreate(){
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         MyApplication.context = getApplicationContext();
         currentTheme = getSharedPreferences(THEME_PREFERENCES, MODE_PRIVATE).getInt(THEME, R.style.AppTheme_DeepPurple);
     }

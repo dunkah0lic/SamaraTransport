@@ -314,9 +314,8 @@ public class ArrivalActivity extends ActionBarActivity {
                             display.getSize(size);
                             int width = size.x;
                             int height = size.y;
-                            int leftUnder = height - mListView.getCount() * mListView.getChildAt(0).getHeight() - getSupportActionBar().getHeight();
+                            int leftUnder = height - mListView.getCount() * mListView.getChildAt(0).getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
-                            //Toast.makeText(ArrivalActivity.this, leftUnder + "", Toast.LENGTH_SHORT).show();
                             if (leftUnder > 50) {
                                 adView.setVisibility(View.VISIBLE);
                             } else {

@@ -129,6 +129,9 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="70d9ca5efd5b2aaa6d798d0b10edd27418cd7d99" />
     </application>
 
 </manifest>
