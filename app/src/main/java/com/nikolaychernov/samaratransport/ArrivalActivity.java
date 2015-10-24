@@ -312,9 +312,12 @@ public class ArrivalActivity extends ActionBarActivity {
                             Display display = getWindowManager().getDefaultDisplay();
                             Point size = new Point();
                             display.getSize(size);
-                            int width = size.x;
                             int height = size.y;
-                            int leftUnder = height - mListView.getCount() * mListView.getChildAt(0).getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
+                            int listItemHeight = 0;
+                            if (mListView.getCount() > 0){
+                                listItemHeight = mListView.getChildAt(0).getHeight();
+                            }
+                            int leftUnder = height - mListView.getCount() * listItemHeight - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
                             if (leftUnder > 50) {
                                 adView.setVisibility(View.VISIBLE);

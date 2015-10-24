@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -48,6 +49,8 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
     public final static String MESSAGE_STOPGROUP = "com.markikokik.transarrival63.stopGroup";
     public final static String MESSAGE_DATAMAN = "com.markikokik.transarrival63.dataMan";
 
+    public final static String FAVE_PREFERENCE = "fave";
+
     private boolean searchByNav = true;
     private boolean searchInFavor = false;
     private boolean firstStart = true;
@@ -74,6 +77,8 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         list = (ListView) findViewById(R.id.list);
         final SwipeRefreshLayout mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        searchInFavor = sharedPref.getBoolean(FAVE_PREFERENCE, false);
 
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = getTheme();
@@ -88,10 +93,15 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 mRefreshLayout.setRefreshing(false);
             }
         });
-        searchNearMe(false, "refresh");
 
-        /*android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setIcon(null);*/
+        //searchNearMe(false, "refresh");
+        if (searchInFavor) {
+            new FavorTask().execute(true, false);
+        } else {
+            if (searchByNav) {
+                searchNearMe(false, "cmdSearchInFavor_click");
+            }
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -133,6 +143,11 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         this.menu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.stopsearch_activity_menu, menu);
+        if(searchInFavor) {
+            menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.star));
+        } else {
+            menu.getItem(1).setIcon(getResources().getDrawable(R.drawable.star_outline));
+        }
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         android.support.v7.widget.SearchView searchView =
@@ -293,6 +308,10 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
 
     public void cmdSearchInFavor_click() {
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(FAVE_PREFERENCE, searchInFavor);
+        editor.commit();
         if (searchInFavor) {
             new FavorTask().execute(true, false);
         } else {
@@ -341,11 +360,8 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 2) {
-            msgBox(this, "123", "");
-        }
         if (requestCode != 10) {
-            if (data!=null) {
+            if (data != null) {
                 DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
                 if (searchByNav) {
                     if (dataMan.navInit()) {
@@ -355,25 +371,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
             }
         }
     }
-
-    public void cmdFind_click(View view) {
-        // Log.appendLog("StopSearchActivity cmdFind_click");
-        String stopName ="temp"; //((EditText) findViewById(R.id.txtStopName)).getText().toString();
-        if (stopName.length() >= 3) {
-            if (!dataMan.isNavWorking()) {
-                dataMan.navInit();
-            }
-            searchByNav = false;
-            new SearchByNameTask().execute(stopName);
-        } else if (stopName.length() == 0) {
-            searchNearMe(false, "cmdFind_click");
-        } else {
-            if (view != null) {
-                msgBox(this, "Название слишком короткое! Ограничение - 3 буквы", "Info");
-            }
-        }
-    }
-
 
     public void searchNearMe(boolean force, String who) {
         if (!dataMan.isNavWorking()) {
@@ -398,12 +395,8 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                 Looper.prepare();
             } catch (Exception e) {
             }
-            //if (param[0]) {
-                StopGroup[] res = DataController.mergeStops(dataMan.searchNearMe(searchInFavor, param[1]), true, param[1]);
-                return res;
-            //} else {
-            //    return null;
-            //}
+            StopGroup[] res = DataController.mergeStops(dataMan.searchNearMe(searchInFavor, param[1]), true, param[1]);
+            return res;
         }
 
         // This is called each time you call publishProgress()
@@ -418,7 +411,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
             }
             grp = result;
             if (grp != null)
-            // grp = new StopGroup[0];
             {
                 fillList();
             } else {
@@ -433,7 +425,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
         // Do the long-running work in here
         protected StopGroup[] doInBackground(String... name) {
-            // return dataMan.searchByNameMerged(name[0], false, true);
             // Log.appendLog("StopSearchActivity SearchByNameTask doInBackground");
             return dataMan.mergeStops(dataMan.searchByName(name[0], searchInFavor), dataMan.isNavWorking(), false);
         }
@@ -485,7 +476,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         try {
             grp[grpID].stops = dataMan.getStops(grp[grpID].KS_IDs);
             intent.putExtra(MESSAGE_STOPGROUP, grp[grpID]);
-            // intent.putExtra(MESSAGE_DATAMAN, dataMan);
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                 View sharedView = view.findViewById(R.id.txtDirectionStopName);
@@ -505,14 +495,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         } catch (ArrayIndexOutOfBoundsException e) {
             searchNearMe(true, "");
         }
-    }
-
-
-
-    public static void msgBox(Context context, String promt, String title) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage(promt).setTitle(title);
-        builder.show();
     }
 
 }
