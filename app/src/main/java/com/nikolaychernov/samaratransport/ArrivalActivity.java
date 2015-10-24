@@ -314,7 +314,7 @@ public class ArrivalActivity extends ActionBarActivity {
                             display.getSize(size);
                             int height = size.y;
                             int listItemHeight = 0;
-                            if (mListView.getCount() > 0){
+                            if (mListView.getChildAt(0) != null){
                                 listItemHeight = mListView.getChildAt(0).getHeight();
                             }
                             int leftUnder = height - mListView.getCount() * listItemHeight - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
