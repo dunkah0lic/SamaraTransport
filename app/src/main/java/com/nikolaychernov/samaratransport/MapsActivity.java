@@ -42,11 +42,13 @@ public class MapsActivity extends ActionBarActivity {
         TransportDBContract contr = new TransportDBContract();
         TransportDBContract.RouteReaderDbHelper helper = contr.new RouteReaderDbHelper(this);
         ArrayList<Stop> stops = helper.getStopsForRoute(KR_ID);
-        for (int i=0; i<stops.size(); i++){
-            mMap.addMarker(new MarkerOptions().position(new LatLng(stops.get(i).latitude, stops.get(i).longitude)).title(stops.get(i).title));
-            Log.d("ArrivalListAdapter", "btnOnClick stops " + stops.get(i).latitude + " " + stops.get(i).longitude);
+        if (mMap != null) {
+            for (int i = 0; i < stops.size(); i++) {
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stops.get(i).latitude, stops.get(i).longitude)).title(stops.get(i).title));
+                Log.d("ArrivalListAdapter", "btnOnClick stops " + stops.get(i).latitude + " " + stops.get(i).longitude);
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.219404, 50.198077), 11));
         }
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.219404,50.198077), 11));
 
         TransportDBContract.MainReaderDbHelper mainReaderDbHelper = contr.new MainReaderDbHelper(this);
         Route route = mainReaderDbHelper.getRoute(KR_ID);
