@@ -157,8 +157,7 @@ public class TransportDBContract implements Serializable {
             cur.close();
             db.close();
 
-            Stop[] res = result.toArray(new Stop[0]);
-            return res;
+            return result.toArray(new Stop[0]);
         }
 
         public Stop[] searchByName(String name) {
