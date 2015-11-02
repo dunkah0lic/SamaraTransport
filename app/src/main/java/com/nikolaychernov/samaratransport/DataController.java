@@ -203,7 +203,9 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         this.showComm = showComm;
         this.showTrams = showTrams;
         this.showTrolls = showTrolls;
-        setLocationUpdates(isBackgroundUpdate);
+        if (mGoogleApiClient.isConnected()) {
+            setLocationUpdates(isBackgroundUpdate);
+        }
 
         commitSettings();
     }
