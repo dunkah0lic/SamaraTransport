@@ -426,7 +426,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         // Do the long-running work in here
         protected StopGroup[] doInBackground(String... name) {
             // Log.appendLog("StopSearchActivity SearchByNameTask doInBackground");
-            return dataMan.mergeStops(dataMan.searchByName(name[0], searchInFavor), dataMan.isNavWorking(), false);
+            return DataController.mergeStops(dataMan.searchByName(name[0], searchInFavor), dataMan.isNavWorking(), false);
         }
 
         // This is called each time you call publishProgress()
