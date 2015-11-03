@@ -430,7 +430,6 @@ public class SQLiteAssetHelper extends SQLiteOpenHelper {
             //Log.d(TAG, "found script: " + path);
             a = start - 1;
             b = start;
-            is = null;
         } else {
             a = start - 1;
             b = end;
