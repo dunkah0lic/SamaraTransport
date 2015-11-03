@@ -107,9 +107,8 @@ public class ArrivalActivity extends ActionBarActivity {
         Intent intent = getIntent();
         st = (Stop) intent.getSerializableExtra(StopSearchActivity.MESSAGE_STOP);
 
-        DataController dataMan = null;
         try {
-            dataMan = DataController.getInstance();
+            DataController.getInstance();
         } catch (NullPointerException ex) {
             Intent mainIntent = new Intent(this, StopSearchActivity.class);
             finish();
