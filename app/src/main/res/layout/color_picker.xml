@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:columnCount="4"
+    >
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/redButton"
+        app:cb_color="@color/redPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/pinkButton"
+        app:cb_color="@color/pinkPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/purpleButton"
+        app:cb_color="@color/purplePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/deepPurpleButton"
+        app:cb_color="@color/deepPurplePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/indigoButton"
+        app:cb_color="@color/indigoPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/blueButton"
+        app:cb_color="@color/bluePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/lightBlueButton"
+        app:cb_color="@color/lightBluePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/cyanButton"
+        app:cb_color="@color/cyanPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/tealButton"
+        app:cb_color="@color/tealPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/greenButton"
+        app:cb_color="@color/greenPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/lightGreenButton"
+        app:cb_color="@color/lightGreenPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/limeButton"
+        app:cb_color="@color/limePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/yellowButton"
+        app:cb_color="@color/yellowPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/amberButton"
+        app:cb_color="@color/amberPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/orangeButton"
+        app:cb_color="@color/orangePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/deepOrangeButton"
+        app:cb_color="@color/deepOrangePrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/brownButton"
+        app:cb_color="@color/brownPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/greyButton"
+        app:cb_color="@color/greyPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+    <at.markushi.ui.CircleButton
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:id="@+id/blueGreyButton"
+        app:cb_color="@color/blueGreyPrimary"
+        app:cb_pressedRingWidth="8dip" />
+
+
+
+</GridLayout>
