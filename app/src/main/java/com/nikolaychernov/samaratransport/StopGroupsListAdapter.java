@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -84,28 +83,28 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
         tv = (TextView) view.findViewById(R.id.txtDirectionPrigorod);
         tv.setText(p.busesPrigorod);
         if (tv.getText().length() == 0) {
-            ((ImageView) view.findViewById(R.id.imgPrigorodBus)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgPrigorodBus).setVisibility(View.INVISIBLE);
             tv.setMaxHeight(0);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgPrigorodBus)).setVisibility(View.VISIBLE);
+             view.findViewById(R.id.imgPrigorodBus).setVisibility(View.VISIBLE);
         }
 
         tv = (TextView) view.findViewById(R.id.txtDirectionSeason);
         tv.setText(p.busesSeason);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgSeasonBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgSeasonBus)).setVisibility(View.VISIBLE);
+             view.findViewById(R.id.imgSeasonBus).setVisibility(View.VISIBLE);
         }
 
         tv = (TextView) view.findViewById(R.id.txtDirectionSpecial);
         tv.setText(p.busesSpecial);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgSpecialBus).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
              view.findViewById(R.id.imgSpecialBus).setVisibility(View.VISIBLE);
@@ -115,20 +114,20 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
         tv.setText(p.trams);
         if (tv.getText().length() == 0) {
             tv.setMaxHeight(0);
-            ((ImageView) view.findViewById(R.id.imgTram)).setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.imgTram).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgTram)).setVisibility(View.VISIBLE);
+             view.findViewById(R.id.imgTram).setVisibility(View.VISIBLE);
         }
 
         tv = (TextView) view.findViewById(R.id.txtDirectionTrolls);
         tv.setText(p.trolleybuses);
         if (tv.getText().length() == 0) {
-            ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.INVISIBLE);
+             view.findViewById(R.id.imgTroll).setVisibility(View.INVISIBLE);
             tv.setMaxHeight(0);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgTroll)).setVisibility(View.VISIBLE);
+             view.findViewById(R.id.imgTroll).setVisibility(View.VISIBLE);
         }
 
         int dist = (int) Math.floor(dataMan.getDistTo(p.latitude, p.longitude, false));
@@ -139,8 +138,6 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
-        // Log.appendLog("StopGroupsListAdapter onClick");
         StopGroup sg = getItem((Integer) v.getTag());
         dataMan.setFavor(sg.KS_IDs, ((ToggleButton) v).isChecked());
     }
