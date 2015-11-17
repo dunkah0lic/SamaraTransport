@@ -39,11 +39,8 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        // используем созданные, но не используемые view
-        // Log.appendLog("StopGroupsListAdapter getView 0");
         View view = convertView;
         if (view == null) {
-            // получаем LayoutInflater для работы с layout-ресурсами
             view = lInflater.inflate(R.layout.stopslist, parent, false);
         }
 
@@ -111,7 +108,7 @@ public class StopGroupsListAdapter extends BaseAdapter implements OnClickListene
             ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.INVISIBLE);
         } else {
             tv.setMaxHeight(1000);
-            ((ImageView) view.findViewById(R.id.imgSpecialBus)).setVisibility(View.VISIBLE);
+             view.findViewById(R.id.imgSpecialBus).setVisibility(View.VISIBLE);
         }
 
         tv = (TextView) view.findViewById(R.id.txtDirectionTrams);
