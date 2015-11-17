@@ -281,7 +281,6 @@ public class TransportDBContract implements Serializable {
         public void setFavor(int[] KS_IDs, boolean isFavor) {
             SQLiteDatabase db = getWritableDatabase();
             db.beginTransaction();
-            Stop st;
             ContentValues values;
             for (int i = 0; i < KS_IDs.length; i++) {
                 values = new ContentValues();

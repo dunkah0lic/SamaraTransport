@@ -185,7 +185,11 @@ public class DirectionSelectActivity extends AppCompatActivity {
         } else {
             startActivity(intent);
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override
@@ -211,13 +215,10 @@ public class DirectionSelectActivity extends AppCompatActivity {
                 Display display = getWindowManager().getDefaultDisplay();
                 Point size = new Point();
                 display.getSize(size);
-                int width = size.x;
                 int height = size.y;
                 int leftUnder =  height - list.getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
                 if(leftUnder>50) {
-                    //Toast.makeText(DirectionSelectActivity.this, leftUnder + "", Toast.LENGTH_SHORT).show();
-
                     adView.setVisibility(View.VISIBLE);
                     tracker.send(new HitBuilders.EventBuilder()
                             .setCategory("UX")

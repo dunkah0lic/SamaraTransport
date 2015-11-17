@@ -454,7 +454,7 @@ public class SQLiteAssetHelper extends SQLiteOpenHelper {
         zin.close();
     }
 
-    private ZipInputStream getFileFromZip(InputStream zipFileStream) throws FileNotFoundException, IOException {
+    private ZipInputStream getFileFromZip(InputStream zipFileStream) throws IOException {
         ZipInputStream zis = new ZipInputStream(zipFileStream);
         ZipEntry ze = null;
         while ((ze = zis.getNextEntry()) != null) {
