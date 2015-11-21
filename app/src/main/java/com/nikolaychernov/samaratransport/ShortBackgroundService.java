@@ -100,7 +100,7 @@ public class ShortBackgroundService extends Service {
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.ic_stat_name)
+                                .setSmallIcon(R.drawable.ic_notification)
                                 .setContentTitle(title)
                                 .setContentText(text)
                                 .setColor(getResources().getColor(R.color.green));

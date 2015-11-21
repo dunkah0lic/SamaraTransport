@@ -158,11 +158,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
         DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
     }
 
-    public void cmdBack_click(View view) {
-        // Log.appendLog("DirectionSelectActivity cmdBack_click");
-        this.finish();
-    }
-
     public void showArrival(int KS_ID, View view) {
         // Log.appendLog("DirectionSelectActivity showArrival");
         int ind = Arrays.binarySearch(grp.KS_IDs, KS_ID);
