@@ -44,21 +44,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            signingConfig signingConfigs.release
-        }
     }
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services-analytics:8.1.0'
-    compile 'com.google.android.gms:play-services-location:8.1.0'
-    compile 'com.google.android.gms:play-services-maps:8.1.0'
-    compile 'com.google.android.gms:play-services-ads:8.1.0'
+    final SUPPORT_LIBRARY_VERSION = '22.2.1'
+    final PLAY_SERVICES_VERSION = '8.3.0'
 
-    compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
+    compile "com.google.android.gms:play-services-analytics:$PLAY_SERVICES_VERSION"
+    compile "com.google.android.gms:play-services-location:$PLAY_SERVICES_VERSION"
+    compile "com.google.android.gms:play-services-maps:$PLAY_SERVICES_VERSION"
+    compile "com.google.android.gms:play-services-ads:$PLAY_SERVICES_VERSION"
+
+    compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+
 
     compile 'com.github.hotchemi:android-rate:0.4.3'
     compile 'com.github.markushi:circlebutton:1.1'
