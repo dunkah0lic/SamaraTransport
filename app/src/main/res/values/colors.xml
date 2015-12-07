@@ -61,5 +61,7 @@
     <color name="blueGreyPrimary">#607D8B</color>
     <color name="blueGreyPrimaryDark">#455A64</color>
 
+    <color name="ripple_color">#E0E0E0</color>
+
 
 </resources>

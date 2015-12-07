@@ -21,13 +21,15 @@
 
     </style>
 
-    <style name="AppThemeNoActionBarBase" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppThemeNoActionBarBase" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="actionBarTheme">@style/MyApp.ActionBarTheme</item>
         <item name="actionBarPopupTheme">@style/popupNew</item>
         <item name="alertDialogTheme">@style/SamTransAlertDialog</item>
     </style>
 
     <style name="MyApp.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
         <!-- THIS is where you can color the arrow! -->
         <item name="colorControlNormal">#fff</item>
     </style>
@@ -46,11 +48,11 @@
     </style>
 
     <style name="MaterialAnimations.TextAppearance.Subhead" parent="TextAppearance.AppCompat.Subhead">
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">#fff</item>
     </style>
 
     <style name="MaterialAnimations.TextAppearance.Title.Inverse" parent="TextAppearance.AppCompat.Title">
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">#fff</item>
     </style>
 
     <style name="AppTheme.Red" parent="AppTheme">
@@ -185,6 +187,15 @@
 
     <style name="popupNew" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">#FFFFFF</item>
+    </style>
+
+    <style name="SelectableItemTheme">
+        <item name="colorControlHighlight">@color/ripple_color</item>
+    </style>
+
+    <style name="SelectableItemBackground">
+        <item name="android:theme">@style/SelectableItemTheme</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
 </resources>
