@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.MenuItemCompat;
@@ -477,7 +478,9 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         try {
             grp[grpID].stops = dataMan.getStops(grp[grpID].KS_IDs);
             intent.putExtra(MESSAGE_STOPGROUP, grp[grpID]);
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean enableAnimations = sharedPref.getBoolean("enableAnimations", false);
+            if (enableAnimations && android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                 View sharedView = view.findViewById(R.id.txtDirectionStopName);
                 String transitionName = "stopName";

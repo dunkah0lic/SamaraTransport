@@ -68,6 +68,8 @@
     <string name="settings_show_trolleybuses">Троллейбусы</string>
     <string name="settings_show_trams">Трамваи</string>
     <string name="settings_show_comm">Маршрутки</string>
+    <string name="settings_enable_animations">Активировать анимации</string>
+    <string name="pref_description_enable_animation">Отображать анимации (для девайсов с прошикой >5.0)</string>
 
     <!-- Strings related to Settings -->
 

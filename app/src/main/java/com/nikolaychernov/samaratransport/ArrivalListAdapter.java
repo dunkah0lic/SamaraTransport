@@ -3,7 +3,9 @@ package com.nikolaychernov.samaratransport;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.util.Log;
@@ -65,7 +67,9 @@ public class ArrivalListAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(activity, MapsActivity.class);
                 intent.putExtra("KR_ID", KR_ID);
-                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+                boolean enableAnimations = sharedPref.getBoolean("enableAnimations", false);
+                if (enableAnimations && android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                     View sharedView = view1.findViewById(R.id.txtArrivalListRoute);
                     String transitionName = "routeName";

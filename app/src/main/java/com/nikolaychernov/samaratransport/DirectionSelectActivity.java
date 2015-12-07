@@ -1,9 +1,11 @@
 package com.nikolaychernov.samaratransport;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v4.util.Pair;
@@ -164,7 +166,9 @@ public class DirectionSelectActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ArrivalActivity.class);
         intent.putExtra(StopSearchActivity.MESSAGE_STOP, grp.stops[ind]);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean enableAnimations = sharedPref.getBoolean("enableAnimations", false);
+        if (enableAnimations && android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             View sharedView = findViewById(R.id.title);
             String transitionName = "stopName";
