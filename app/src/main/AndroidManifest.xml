@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nikolaychernov.samaratransport"
     android:versionCode="33"
-    android:versionName="1.2.6" >
+    android:versionName="1.2.6">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -29,7 +29,7 @@
             android:name=".StopSearchActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppThemeNoActionBar" >
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,7 +58,7 @@
             android:name=".DirectionSelectActivity"
             android:label="@string/title_activity_direction_select"
             android:launchMode="singleTop"
-            android:parentActivityName=".StopSearchActivity" >
+            android:parentActivityName=".StopSearchActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -67,26 +67,23 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" >
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" >
-        </activity>
+            android:label="@string/title_activity_about"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.gms.analytics.globalConfigResource"
-            android:resource="@xml/global_tracker"/>
+            android:resource="@xml/global_tracker" />
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".ArrivalActivity"
-            android:theme="@style/AppThemeNoActionBar" >
+            android:theme="@style/AppThemeNoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -97,7 +94,7 @@
         <receiver
             android:name=".Autostart"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -105,7 +102,7 @@
         <receiver
             android:name=".LocationReceiver"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="LOCATION_UPDATE" />
             </intent-filter>
@@ -118,16 +115,19 @@
         <service
             android:name=".AutostartService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true"></service>
 
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" >
-        </activity>
+            android:label="@string/title_activity_home"></activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="70d9ca5efd5b2aaa6d798d0b10edd27418cd7d99" />
+
+        <activity
+            android:name=".ProperSettingsActivity"
+            android:label="@string/title_activity_preference"></activity>
     </application>
 
 </manifest>

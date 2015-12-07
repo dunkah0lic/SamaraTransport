@@ -61,10 +61,10 @@ dependencies {
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
 
 
-    compile 'com.github.hotchemi:android-rate:0.4.3'
-    compile 'com.github.markushi:circlebutton:1.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.2@aar') {
         transitive = true;
     }
 
+    compile 'com.github.hotchemi:android-rate:0.4.3'
+    compile 'com.github.markushi:circlebutton:1.1'
 }

@@ -1,5 +1,26 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory
+        android:title="@string/settings_transport_types_header">
+
+        <CheckBoxPreference
+            android:key="showBuses"
+            android:title="@string/settings_show_buses"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="showTrolls"
+            android:title="@string/settings_show_trolleybuses"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="showTrams"
+            android:title="@string/settings_show_trams"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="showComm"
+            android:title="@string/settings_show_comm"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
     <CheckBoxPreference
         android:key="example_checkbox"
         android:title="@string/pref_title_social_recommendations"

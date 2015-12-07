@@ -98,9 +98,15 @@ public class TransportDBContract implements Serializable {
 
         public Stop[] searchNearMe(double lat, double lng, int searchRadius, Set<Integer> area) {
             SQLiteDatabase db = getReadableDatabase();
-            String where = "(" + StopEntry.COLUMN_NAME_LATITUDE + " - " + lat + ") * (" + StopEntry.COLUMN_NAME_LATITUDE + " - " + lat + ") * " + Math.pow(CoordUtils.metersInLatitudeDegree(), 2) + " + (" + StopEntry.COLUMN_NAME_LONGITUDE + " - " + lng + ") * (" + StopEntry.COLUMN_NAME_LONGITUDE + " - " + lng + ") * " + Math.pow(CoordUtils.metersInLongitudeDegree(lng), 2) + " <= " + Math.pow(searchRadius, 2);
+            String where =
+                    "(" + StopEntry.COLUMN_NAME_LATITUDE + " - " + lat + ") * (" + StopEntry.COLUMN_NAME_LATITUDE +
+                            " - " + lat + ") * " + Math.pow(CoordUtils.metersInLatitudeDegree(), 2) + " + (" +
+                            StopEntry.COLUMN_NAME_LONGITUDE + " - " + lng + ") * (" + StopEntry.COLUMN_NAME_LONGITUDE + " - " +
+                            lng + ") * " + Math.pow(CoordUtils.metersInLongitudeDegree(lng), 2) + " <= " +
+                            Math.pow(searchRadius, 2);
 
-            Cursor cur = db.query(StopEntry.TABLE_NAME, null, where, null, null, null, StopEntry.COLUMN_NAME_ADJACENT_STREET + ", " + StopEntry.COLUMN_NAME_TITLE);
+            Cursor cur = db.query(StopEntry.TABLE_NAME, null, where, null, null, null,
+                    StopEntry.COLUMN_NAME_ADJACENT_STREET + ", " + StopEntry.COLUMN_NAME_TITLE);
 
             Stop st;
             ArrayList<Stop> result = new ArrayList<Stop>();
@@ -123,7 +129,8 @@ public class TransportDBContract implements Serializable {
             SQLiteDatabase db = getReadableDatabase();
             String where = "(" + StopEntry.COLUMN_NAME_LATITUDE + " - " + lat + ") * (" + StopEntry.COLUMN_NAME_LATITUDE + " - " + lat + ") * " + Math.pow(CoordUtils.metersInLatitudeDegree(), 2) + " + (" + StopEntry.COLUMN_NAME_LONGITUDE + " - " + lng + ") * (" + StopEntry.COLUMN_NAME_LONGITUDE + " - " + lng + ") * " + Math.pow(CoordUtils.metersInLongitudeDegree(lat), 2) + " <= " + Math.pow(searchRadius, 2);
 
-            Cursor cur = db.query(StopEntry.TABLE_NAME, null, where, null, null, null, StopEntry.COLUMN_NAME_ADJACENT_STREET + ", " + StopEntry.COLUMN_NAME_TITLE);
+            Cursor cur = db.query(StopEntry.TABLE_NAME, null, where, null, null, null,
+                    StopEntry.COLUMN_NAME_ADJACENT_STREET + ", " + StopEntry.COLUMN_NAME_TITLE);
 
             Stop[] result = new Stop[cur.getCount()];
             if (cur.moveToFirst()) {

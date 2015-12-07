@@ -346,8 +346,9 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
     public void cmdSettings_click(View view) {
         Log.d("","StopSearchActivity cmdSettings_click");
-        Intent intent = new Intent(this, SettingsActivity.class);
-        DataController dataMan = DataController.getInstance();
+        Intent intent = new Intent(this, ProperSettingsActivity.class);
+        startActivity(intent);
+        /*DataController dataMan = DataController.getInstance();
         intent.putExtra("radius", dataMan.getRadius());
         intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
@@ -355,7 +356,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         intent.putExtra("showTrolls", dataMan.isShowTrolls());
         intent.putExtra("showBuses", dataMan.isShowBuses());
         intent.putExtra("showComm", dataMan.isShowComm());
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 1);*/
     }
 
     @Override
