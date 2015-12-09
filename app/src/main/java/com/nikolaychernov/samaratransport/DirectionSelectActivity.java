@@ -148,10 +148,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
         intent.putExtra("radius", dataMan.getRadius());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
         intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
-        intent.putExtra("showTrams", dataMan.isShowTrams());
-        intent.putExtra("showTrolls", dataMan.isShowTrolls());
-        intent.putExtra("showBuses", dataMan.isShowBuses());
-        intent.putExtra("showComm", dataMan.isShowComm());
         startActivityForResult(intent, 1);
     }
 

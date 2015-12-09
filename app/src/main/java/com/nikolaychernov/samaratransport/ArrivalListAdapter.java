@@ -24,14 +24,12 @@ public class ArrivalListAdapter extends BaseAdapter {
     Activity activity;
     LayoutInflater lInflater;
     ArrayList<ArrivalInfo> objects;
-    private DataController dataMan;
 
     public ArrivalListAdapter(Activity activity, ArrayList<ArrivalInfo> arrivalInfo) {
         //Log.appendLog("ArrivalListAdapter constructor");
         this.activity = activity;
         objects = arrivalInfo;
         lInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        dataMan = DataController.getInstance();
     }
 
     public int getCount() {
@@ -81,26 +79,18 @@ public class ArrivalListAdapter extends BaseAdapter {
                 } else {
                     activity.startActivity(intent);
                 }
-                //cont.startActivity(intent);
             }
         });
 
-        //Log.appendLog("ArrivalListAdapter getView 1");
-        // заполняем View в пункте списка данными
         TextView tv;
         tv = (TextView) view.findViewById(R.id.txtArrivalListPosition);
         tv.setText(p.position);
-        //dataMan.setTypeface(tv, Typeface.NORMAL);
 
-        //Log.appendLog("ArrivalListAdapter getView 2");
         tv = (TextView) view.findViewById(R.id.txtArrivalListRoute);
         tv.setText(p.routeDesc);
 
-
-        //Log.appendLog("ArrivalListAdapter getView 3");
         tv = (TextView) view.findViewById(R.id.txtArrivalListTime);
         tv.setText(String.valueOf(p.time));
-        //dataMan.setTypeface(tv, Typeface.NORMAL);
 
         tv = (TextView) view.findViewById(R.id.txtArrivalListVehicle);
         tv.setText(p.model + " | " + p.vehicleID);

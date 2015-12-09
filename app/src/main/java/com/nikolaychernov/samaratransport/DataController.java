@@ -62,47 +62,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     GoogleApiClient mGoogleApiClient;
 
     private int searchRadius = 1400;
-    private boolean isAutoUpdate = true;
     private boolean isBackgroundUpdate = true;
-    private boolean showBuses = true;
     private String authKey = "222222";
-
-    public boolean isShowTrams() {
-        return showTrams;
-    }
-
-    public void setShowTrams(boolean showTrams) {
-        this.showTrams = showTrams;
-    }
-
-    public boolean isShowTrolls() {
-        return showTrolls;
-    }
-
-    public void setShowTrolls(boolean showTrolls) {
-        this.showTrolls = showTrolls;
-    }
-
-    public boolean isShowComm() {
-        return showComm;
-    }
-
-    public void setShowComm(boolean showComm) {
-        this.showComm = showComm;
-    }
-
-    public boolean isShowBuses() {
-        return showBuses;
-    }
-
-    public void setShowBuses(boolean showBuses) {
-        this.showBuses = showBuses;
-    }
-
-    private boolean showTrams = true;
-    private boolean showTrolls = true;
-    private boolean showComm = true;
-
 
     // private static final String KR_ID_START =
     // "/katalog_marshrutov/detail.php?KR_ID=";
@@ -198,11 +159,6 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
                             boolean isBackgroundUpdate, boolean showBuses, boolean showTrolls, boolean showTrams, boolean showComm) {
         this.isBackgroundUpdate = isBackgroundUpdate;
         this.searchRadius = radius;
-        this.isAutoUpdate = isAutoUpdate;
-        this.showBuses = showBuses;
-        this.showComm = showComm;
-        this.showTrams = showTrams;
-        this.showTrolls = showTrolls;
         if (mGoogleApiClient.isConnected()) {
             setLocationUpdates(isBackgroundUpdate);
         }
@@ -246,14 +202,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             prefs = PreferenceManager.getDefaultSharedPreferences(context);
         }
 
-        isAutoUpdate = prefs.getBoolean("updateFlag", true);
         isBackgroundUpdate = prefs.getBoolean("backgroundFlag", true);
         searchRadius = prefs.getInt("radius", 600);
-        showBuses = prefs.getBoolean("showBuses", true);
-        showTrolls = prefs.getBoolean("showTrolls", true);
-        showTrams = prefs.getBoolean("showTrams", true);
-
-        showComm = prefs.getBoolean("showComm", true);
         authKey = prefs.getString("authkey", "222222");
 //		requestAddPredict = prefs.getBoolean("requestAdditionalPredict", false);
         commitSettings();
@@ -262,13 +212,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     private void commitSettings() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         Editor ed = prefs.edit();
-        ed.putBoolean("updateFlag", isAutoUpdate);
         ed.putBoolean("backgroundFlag", isBackgroundUpdate);
         ed.putInt("radius", searchRadius);
-        ed.putBoolean("showBuses", showBuses);
-        ed.putBoolean("showTrolls", showTrolls);
-        ed.putBoolean("showTrams", showTrams);
-        ed.putBoolean("showComm", showComm);
 //		ed.putBoolean("requestAdditionalPredict", requestAddPredict);
         ed.commit();
     }
@@ -279,16 +224,11 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     }
 
     public void setAutoUpdate(boolean isAutoUpdate) {
-        this.isAutoUpdate = isAutoUpdate;
         commitSettings();
     }
 
     public int getRadius() {
         return searchRadius;
-    }
-
-    public boolean isAutoUpdate() {
-        return this.isAutoUpdate;
     }
 
     public void setFavor(int KS_ID, boolean isFavor) {
@@ -434,17 +374,18 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     // main function
     public ArrayList<ArrivalInfo> getArrivalInfo(int KS_ID) throws NotFoundException, IOException {
         try {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
             Set<Integer> transTypesToShow = new HashSet<Integer>();
-            if (showBuses) {
+            if (sharedPref.getBoolean("showBuses", true)) {
                 transTypesToShow.add(1);
             }
-            if (showComm) {
+            if (sharedPref.getBoolean("showComm", true)) {
                 transTypesToShow.add(0);
             }
-            if (showTrams) {
+            if (sharedPref.getBoolean("showTrams", true)) {
                 transTypesToShow.add(3);
             }
-            if (showTrolls) {
+            if (sharedPref.getBoolean("showTrolls", true)) {
                 transTypesToShow.add(4);
             }
             //String info = getStopRouteCorrespondenceXml();

@@ -2,12 +2,14 @@ package com.nikolaychernov.samaratransport;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -231,17 +233,14 @@ public class ArrivalActivity extends ActionBarActivity {
         intent.putExtra("radius", dataMan.getRadius());
         intent.putExtra("updateFlag", dataMan.isAutoUpdate());
         intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
-        intent.putExtra("showTrams", dataMan.isShowTrams());
-        intent.putExtra("showTrolls", dataMan.isShowTrolls());
-        intent.putExtra("showBuses", dataMan.isShowBuses());
-        intent.putExtra("showComm", dataMan.isShowComm());
         startActivityForResult(intent, 1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
-        if (DataController.getInstance().isAutoUpdate()) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(ArrivalActivity.this);
+        if (sharedPref.getBoolean("updateFlag", true)) {
             cmdUpdate_click(null);
         }
     }
@@ -346,8 +345,8 @@ public class ArrivalActivity extends ActionBarActivity {
                     findViewById(R.id.txtTransAbsentMessage).setVisibility(View.VISIBLE);
                     findViewById(R.id.txtConnectionProblem).setVisibility(View.GONE);
                 }
-
-                    if (DataController.getInstance().isAutoUpdate()) {
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(ArrivalActivity.this);
+                    if (sharedPref.getBoolean("updateFlag", true)) {
                         t = new MyTimer(30000, 60000);
                         t = t.start();
                     }

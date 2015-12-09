@@ -364,7 +364,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode != 10) {
             if (data != null) {
-                DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+                //DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
                 if (searchByNav) {
                     if (dataMan.navInit()) {
                         //new SearchNearMeTask().execute(true, true);

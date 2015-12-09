@@ -70,6 +70,10 @@
     <string name="settings_show_comm">Маршрутки</string>
     <string name="settings_enable_animations">Активировать анимации</string>
     <string name="pref_description_enable_animation">Отображать анимации (для девайсов с прошикой >5.0)</string>
+    <string name="settings_enable_autoupdate">Автообновление</string>
+    <string name="pref_description_enable_autoupdate">При открытии списка прибывающего транспорта, он будет автоматически обновляться каждую минуту</string>
+    <string name="settings_enable_background_service">Активировать фоновый сервис</string>
+    <string name="pref_description_enable_background_service">Сервис будет отображать уведомления о прибывающем транспорте, когда Вы будете находиться рядом с остановкой (может ускорить разрядку батареи)</string>
 
     <!-- Strings related to Settings -->
 
