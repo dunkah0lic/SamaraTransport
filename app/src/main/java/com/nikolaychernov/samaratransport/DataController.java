@@ -1,10 +1,10 @@
 package com.nikolaychernov.samaratransport;
 
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources.NotFoundException;
@@ -61,9 +61,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
     private Context context;
     GoogleApiClient mGoogleApiClient;
 
-    private int searchRadius = 1400;
-    private boolean isBackgroundUpdate = true;
-    private String authKey = "222222";
+    private int searchRadius = 1000;
 
     // private static final String KR_ID_START =
     // "/katalog_marshrutov/detail.php?KR_ID=";
@@ -155,18 +153,7 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     }
 
-    public void setSettings(int radius, boolean isAutoUpdate,
-                            boolean isBackgroundUpdate, boolean showBuses, boolean showTrolls, boolean showTrams, boolean showComm) {
-        this.isBackgroundUpdate = isBackgroundUpdate;
-        this.searchRadius = radius;
-        if (mGoogleApiClient.isConnected()) {
-            setLocationUpdates(isBackgroundUpdate);
-        }
-
-        commitSettings();
-    }
-
-    public void setLocationUpdates(boolean yes){
+    public void setBackgroundUpdatesActivated(boolean yes){
 
         Intent intent = new Intent("LOCATION_UPDATE");
         PendingIntent locationIntent = PendingIntent.getBroadcast(MyApplication.getAppContext(), 0,
@@ -183,15 +170,9 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
         } else {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, locationIntent);
+            NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            mNotificationManager.cancel(0);
         }
-    }
-
-    public boolean isBackgroundUpdate() {
-        return isBackgroundUpdate;
-    }
-
-    public void setIsBackgroundUpdate(boolean isBackgroundUpdate) {
-        this.isBackgroundUpdate = isBackgroundUpdate;
     }
 
     private void initSettings() {
@@ -201,34 +182,11 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
         } else {
             prefs = PreferenceManager.getDefaultSharedPreferences(context);
         }
-
-        isBackgroundUpdate = prefs.getBoolean("backgroundFlag", true);
-        searchRadius = prefs.getInt("radius", 600);
-        authKey = prefs.getString("authkey", "222222");
-//		requestAddPredict = prefs.getBoolean("requestAdditionalPredict", false);
-        commitSettings();
+        searchRadius = Integer.parseInt(prefs.getString("searchRadius", "1000"));
     }
 
-    private void commitSettings() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Editor ed = prefs.edit();
-        ed.putBoolean("backgroundFlag", isBackgroundUpdate);
-        ed.putInt("radius", searchRadius);
-//		ed.putBoolean("requestAdditionalPredict", requestAddPredict);
-        ed.commit();
-    }
-
-    public void setRadius(int radius) {
-        searchRadius = radius;
-        commitSettings();
-    }
-
-    public void setAutoUpdate(boolean isAutoUpdate) {
-        commitSettings();
-    }
-
-    public int getRadius() {
-        return searchRadius;
+    public void setRadius(String radius) {
+        searchRadius = Integer.parseInt(radius);
     }
 
     public void setFavor(int KS_ID, boolean isFavor) {
@@ -725,6 +683,8 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     @Override
     public void onConnected(Bundle bundle) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        setBackgroundUpdatesActivated( sharedPref.getBoolean("backgroundFlag", false));
     }
 
     @Override

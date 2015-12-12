@@ -1,22 +1,36 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <CheckBoxPreference
-        android:key="enableAnimations"
-        android:title="@string/settings_enable_animations"
-        android:summary="@string/pref_description_enable_animation"
-        android:defaultValue="false" />
+    <PreferenceCategory android:title="Общие настройки">
+        <com.nikolaychernov.samaratransport.ThemePreference
+            android:title="Тема"
+            android:summary="Выбор цветового оформления приложения" />
 
-    <CheckBoxPreference
-        android:key="updateFlag"
-        android:title="@string/settings_enable_autoupdate"
-        android:summary="@string/pref_description_enable_autoupdate"
-        android:defaultValue="true" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enableAnimations"
+            android:summary="@string/pref_description_enable_animation"
+            android:title="@string/settings_enable_animations" />
 
-    <CheckBoxPreference
-        android:key="backgroundFlag"
-        android:title="@string/settings_enable_background_service"
-        android:summary="@string/pref_description_enable_background_service"
-        android:defaultValue="false" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="updateFlag"
+            android:summary="@string/pref_description_enable_autoupdate"
+            android:title="@string/settings_enable_autoupdate" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="backgroundFlag"
+            android:summary="@string/pref_description_enable_background_service"
+            android:title="@string/settings_enable_background_service" />
+
+        <ListPreference
+            android:defaultValue="1000"
+            android:dialogTitle="@string/settings_search_radius"
+            android:entries="@array/pref_radius_list"
+            android:entryValues="@array/pref_radius_list_values"
+            android:key="searchRadius"
+            android:title="@string/settings_search_radius" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/settings_transport_types_header">

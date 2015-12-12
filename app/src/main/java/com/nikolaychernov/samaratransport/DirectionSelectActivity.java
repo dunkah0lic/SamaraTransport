@@ -143,17 +143,8 @@ public class DirectionSelectActivity extends AppCompatActivity {
 
     public void cmdSettings_click() {
         Log.d("", "DirectionSelectActivity cmdSettings_click");
-        Intent intent = new Intent(this, SettingsActivity.class);
-        DataController dataMan = DataController.getInstance();
-        intent.putExtra("radius", dataMan.getRadius());
-        intent.putExtra("updateFlag", dataMan.isAutoUpdate());
-        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
-        startActivityForResult(intent, 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
+        Intent intent = new Intent(this, ProperSettingsActivity.class);
+        startActivity(intent);
     }
 
     public void showArrival(int KS_ID, View view) {

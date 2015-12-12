@@ -72,9 +72,29 @@
     <string name="pref_description_enable_animation">Отображать анимации (для девайсов с прошикой >5.0)</string>
     <string name="settings_enable_autoupdate">Автообновление</string>
     <string name="pref_description_enable_autoupdate">При открытии списка прибывающего транспорта, он будет автоматически обновляться каждую минуту</string>
-    <string name="settings_enable_background_service">Активировать фоновый сервис</string>
-    <string name="pref_description_enable_background_service">Сервис будет отображать уведомления о прибывающем транспорте, когда Вы будете находиться рядом с остановкой (может ускорить разрядку батареи)</string>
+    <string name="settings_enable_background_service">Фоновый сервис</string>
+    <string name="pref_description_enable_background_service">Сервис будет отображать уведомления о прибывающем транспорте,
+        когда Вы будете находиться рядом с остановкой (может ускорить разрядку батареи)</string>
 
+    <string name="settings_search_radius">Радиус поиска остановок</string>
+    <string name="pref_description_search_radius">радиус поиска остановок</string>
+    <string-array name="pref_radius_list_values">
+        <item>250</item>
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1250</item>
+        <item>1500</item>
+    </string-array>
+
+    <string-array name="pref_radius_list">
+        <item>250 метров</item>
+        <item>500 метров</item>
+        <item>750 метров</item>
+        <item>1000 метров</item>
+        <item>1250 метров</item>
+        <item>1500 метров</item>
+    </string-array>
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->

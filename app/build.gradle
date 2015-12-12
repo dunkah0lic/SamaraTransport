@@ -49,7 +49,7 @@ android {
 
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '22.2.1'
-    final PLAY_SERVICES_VERSION = '8.3.0'
+    final PLAY_SERVICES_VERSION = '8.1.0'
 
     compile "com.google.android.gms:play-services-analytics:$PLAY_SERVICES_VERSION"
     compile "com.google.android.gms:play-services-location:$PLAY_SERVICES_VERSION"

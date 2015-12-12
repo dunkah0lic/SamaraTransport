@@ -228,17 +228,12 @@ public class ArrivalActivity extends ActionBarActivity {
     }
 
     public void cmdSettings_click() {
-        Intent intent = new Intent(this, SettingsActivity.class);
-        DataController dataMan = DataController.getInstance();
-        intent.putExtra("radius", dataMan.getRadius());
-        intent.putExtra("updateFlag", dataMan.isAutoUpdate());
-        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
-        startActivityForResult(intent, 1);
+        Intent intent = new Intent(this, ProperSettingsActivity.class);
+        startActivity(intent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        DataController.getInstance().setSettings(data.getIntExtra("radius", 600), data.getBooleanExtra("updateFlag", true), data.getBooleanExtra("backgroundFlag", true), data.getBooleanExtra("showBuses", true), data.getBooleanExtra("showTrolls", true), data.getBooleanExtra("showTrams", true), data.getBooleanExtra("showComm", true));
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(ArrivalActivity.this);
         if (sharedPref.getBoolean("updateFlag", true)) {
             cmdUpdate_click(null);

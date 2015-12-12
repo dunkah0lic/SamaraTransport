@@ -2,6 +2,9 @@ package com.nikolaychernov.samaratransport;
 
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
 import android.support.v7.app.ActionBar;
 
 /**
@@ -23,6 +26,31 @@ public class ProperSettingsActivity extends AppCompatPreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref_general);
         setupActionBar();
+        ListPreference splashList = (ListPreference) findPreference("searchRadius");
+        splashList.setSummary(splashList.getEntry());
+
+        splashList.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                String nv = (String) newValue;
+
+                if (preference.getKey().equals("searchRadius")) {
+                    ListPreference splashList = (ListPreference) preference;
+                    splashList.setSummary(splashList.getEntries()[splashList.findIndexOfValue(nv)]);
+                    DataController.getInstance().setRadius(nv);
+                }
+                return true;
+            }
+
+        });
+        CheckBoxPreference background = (CheckBoxPreference) findPreference("backgroundFlag");
+        background.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                DataController.getInstance().setBackgroundUpdatesActivated((Boolean) newValue);
+                return true;
+            }
+        });
+
     }
 
     /**
