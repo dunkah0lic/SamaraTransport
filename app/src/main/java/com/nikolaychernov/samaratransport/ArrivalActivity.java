@@ -22,7 +22,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
@@ -45,6 +47,8 @@ public class ArrivalActivity extends ActionBarActivity {
     private int KR_ID = 0;
     ListView mListView;
     Tracker tracker;
+    RelativeLayout closeLayout;
+    ImageButton close;
 
     private AdView adView;
 
@@ -127,6 +131,16 @@ public class ArrivalActivity extends ActionBarActivity {
         //getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        close = (ImageButton) findViewById(R.id.close);
+        closeLayout = (RelativeLayout) findViewById(R.id.close_layout);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adView.setVisibility(View.GONE);
+                closeLayout.setVisibility(View.GONE);
+            }
+        });
+
         adView = (AdView) findViewById(R.id.adView);
         adView.setAdListener(new AdListener() {
             @Override
@@ -137,6 +151,8 @@ public class ArrivalActivity extends ActionBarActivity {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+                closeLayout.setVisibility(View.VISIBLE);
                 tracker.send(new HitBuilders.EventBuilder()
                         .setCategory("UX")
                         .setAction("show")
@@ -313,8 +329,14 @@ public class ArrivalActivity extends ActionBarActivity {
                             int leftUnder = height - mListView.getCount() * listItemHeight - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
                             if (leftUnder > 50) {
-                                adView.setVisibility(View.VISIBLE);
+                                AdRequest adRequest = new AdRequest.Builder()
+                                        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                                        .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                                        .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                                        .build();
+                                adView.loadAd(adRequest);
                             } else {
+                                closeLayout.setVisibility(View.GONE);
                                 adView.setVisibility(View.GONE);
                             }
                         }

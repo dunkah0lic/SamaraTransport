@@ -18,7 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
@@ -36,6 +38,8 @@ public class DirectionSelectActivity extends AppCompatActivity {
     Tracker tracker;
     Toolbar toolbar;
     ListView list;
+    RelativeLayout closeLayout;
+    ImageButton close;
 
     private AdView adView;
 
@@ -63,6 +67,15 @@ public class DirectionSelectActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView title = (TextView) findViewById(R.id.title);
         TextView subtitle = (TextView) findViewById(R.id.subtitle);
+        close = (ImageButton) findViewById(R.id.close);
+        closeLayout = (RelativeLayout) findViewById(R.id.close_layout);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adView.setVisibility(View.GONE);
+                closeLayout.setVisibility(View.GONE);
+            }
+        });
         title.setText(grp.title);
         subtitle.setText(grp.adjacentStreet);
         setSupportActionBar(toolbar);
@@ -78,15 +91,27 @@ public class DirectionSelectActivity extends AppCompatActivity {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+                closeLayout.setVisibility(View.VISIBLE);
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("show")
+                        .setLabel("ad")
+                        .build());
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Ad")
+                        .setAction("show")
+                        .setLabel("DirectionSelectActivity")
+                        .build());
 
             }
         });
-        AdRequest adRequest = new AdRequest.Builder()
+        /*AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
                 .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
                 .build();
-        adView.loadAd(adRequest);
+        adView.loadAd(adRequest);*/
         //adView.setVisibility(View.GONE);
         list = (ListView) findViewById(R.id.directionList);
         DirectionListAdapter adapter = new DirectionListAdapter(this, grp.stops);
@@ -205,18 +230,15 @@ public class DirectionSelectActivity extends AppCompatActivity {
                 int leftUnder =  height - list.getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
 
                 if(leftUnder>50) {
-                    adView.setVisibility(View.VISIBLE);
-                    tracker.send(new HitBuilders.EventBuilder()
-                            .setCategory("UX")
-                            .setAction("show")
-                            .setLabel("ad")
-                            .build());
-                    tracker.send(new HitBuilders.EventBuilder()
-                            .setCategory("Ad")
-                            .setAction("show")
-                            .setLabel("DirectionSelectActivity")
-                            .build());
+                    AdRequest adRequest = new AdRequest.Builder()
+                            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                            .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                            .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                            .build();
+                    adView.loadAd(adRequest);
+
                 } else {
+                    closeLayout.setVisibility(View.GONE);
                     adView.setVisibility(View.GONE);
                 }
             }

@@ -68,7 +68,28 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-6761860325194160/2043212331">
     </com.google.android.gms.ads.AdView>
+
+    <RelativeLayout
+        android:id="@+id/close_layout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/close"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close2"
+            android:layout_margin="2dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -27,8 +27,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -62,7 +67,10 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
     Tracker tracker;
 
+    RelativeLayout closeLayout;
+    ImageButton close;
 
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +120,49 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         if (!dataMan.navInit()) {
             openLocationSettings();
         }
+
+        close = (ImageButton) findViewById(R.id.close);
+        closeLayout = (RelativeLayout) findViewById(R.id.close_layout);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adView.setVisibility(View.GONE);
+                closeLayout.setVisibility(View.GONE);
+            }
+        });
+
+        adView = (AdView) findViewById(R.id.adView);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+                closeLayout.setVisibility(View.VISIBLE);
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("show")
+                        .setLabel("ad")
+                        .build());
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Ad")
+                        .setAction("show")
+                        .setLabel("DirectionSelectActivity")
+                        .build());
+
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                .build();
+        adView.loadAd(adRequest);
+        //adView.setVisibility(View.GONE);
 
         AppRate.with(this)
                 .setInstallDays(0) // default 10, 0 means install day.

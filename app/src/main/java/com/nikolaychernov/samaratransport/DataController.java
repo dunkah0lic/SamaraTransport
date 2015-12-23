@@ -155,23 +155,25 @@ public class DataController implements Serializable, GoogleApiClient.ConnectionC
 
     public void setBackgroundUpdatesActivated(boolean yes){
 
-        Intent intent = new Intent("LOCATION_UPDATE");
-        PendingIntent locationIntent = PendingIntent.getBroadcast(MyApplication.getAppContext(), 0,
-                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        if(mGoogleApiClient.isConnected()) {
+            Intent intent = new Intent("LOCATION_UPDATE");
+            PendingIntent locationIntent = PendingIntent.getBroadcast(MyApplication.getAppContext(), 0,
+                    intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 
-        LocationRequest mLocationRequest = new LocationRequest();
-        // TODO: set intervals to at least 30000 for release
-        mLocationRequest.setInterval(24 * 60 * 60 * 1000);
-        mLocationRequest.setFastestInterval(60 * 1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+            LocationRequest mLocationRequest = new LocationRequest();
+            // TODO: set intervals to at least 30000 for release
+            mLocationRequest.setInterval(24 * 60 * 60 * 1000);
+            mLocationRequest.setFastestInterval(60 * 1000);
+            mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
-        if(yes){
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
-        } else {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, locationIntent);
-            NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotificationManager.cancel(0);
+            if (yes) {
+                LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationIntent);
+            } else {
+                LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, locationIntent);
+                NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.cancel(0);
+            }
         }
     }
 
