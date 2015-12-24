@@ -111,7 +111,7 @@
         android:id="@+id/close_layout"
         android:layout_width="match_parent"
         android:visibility="gone"
-        android:layout_height="32dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true">
 
         <ImageButton

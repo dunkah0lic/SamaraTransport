@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
+        ads:adSize="SMART_BANNER"
         ads:adUnitId="ca-app-pub-6761860325194160/2043212331">
     </com.google.android.gms.ads.AdView>
 
@@ -76,7 +76,7 @@
         android:id="@+id/close_layout"
         android:layout_width="match_parent"
         android:visibility="gone"
-        android:layout_height="50dp"
+        android:layout_height="32dp"
         android:layout_alignParentBottom="true">
 
         <ImageButton
