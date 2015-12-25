@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -44,10 +46,13 @@ public class ColorPickerDialog extends DialogFragment implements android.view.Vi
 
         alertDialog = builder.create();
 
-            /*DisplayMetrics metrics = getResources().getDisplayMetrics();
-            double width = metrics.widthPixels;
-            double res = Math.min(width, 1080);
-            alertDialog.getWindow().setLayout((int) res, ViewGroup.LayoutParams.WRAP_CONTENT);*/
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        Window window = alertDialog.getWindow();
+        lp.copyFrom(window.getAttributes());
+        //This makes the dialog take up the full width
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
         tracker = ((MyApplication) context.getApplication()).getDefaultTracker();
         tracker.setScreenName("SettingsActivity");
         tracker.send(new HitBuilders.EventBuilder()
