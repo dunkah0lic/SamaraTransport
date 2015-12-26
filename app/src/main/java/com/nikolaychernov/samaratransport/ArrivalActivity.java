@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
-import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,7 +15,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -204,6 +202,12 @@ public class ArrivalActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         cmdUpdate_click(null);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                .build();
+        adView.loadAd(adRequest);
         tracker.setScreenName("ArrivalActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
 
@@ -315,32 +319,6 @@ public class ArrivalActivity extends ActionBarActivity {
                     ArrivalListAdapter adapter = new ArrivalListAdapter(act, arrInfo);
 
                     mListView.setAdapter(adapter);
-                    mListView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Display display = getWindowManager().getDefaultDisplay();
-                            Point size = new Point();
-                            display.getSize(size);
-                            int height = size.y;
-                            int listItemHeight = 0;
-                            if (mListView.getChildAt(0) != null){
-                                listItemHeight = mListView.getChildAt(0).getHeight();
-                            }
-                            int leftUnder = height - mListView.getCount() * listItemHeight - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
-
-                            if (leftUnder > 50) {
-                                AdRequest adRequest = new AdRequest.Builder()
-                                        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                                        .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                                        .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                                        .build();
-                                adView.loadAd(adRequest);
-                            } else {
-                                closeLayout.setVisibility(View.GONE);
-                                adView.setVisibility(View.GONE);
-                            }
-                        }
-                    });
 
                     mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override

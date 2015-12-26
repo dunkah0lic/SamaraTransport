@@ -2,7 +2,6 @@ package com.nikolaychernov.samaratransport;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,7 +11,6 @@ import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -220,28 +218,11 @@ public class DirectionSelectActivity extends AppCompatActivity {
         super.onResume();
         tracker.setScreenName("DirectionSelectActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
-        list.post(new Runnable() {
-            @Override
-            public void run() {
-                Display display = getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-                int height = size.y;
-                int leftUnder =  height - list.getHeight() - (int) getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
-
-                if(leftUnder>50) {
-                    AdRequest adRequest = new AdRequest.Builder()
-                            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                            .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                            .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                            .build();
-                    adView.loadAd(adRequest);
-
-                } else {
-                    closeLayout.setVisibility(View.GONE);
-                    adView.setVisibility(View.GONE);
-                }
-            }
-        });
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
+                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
+                .build();
+        adView.loadAd(adRequest);
     }
 }
