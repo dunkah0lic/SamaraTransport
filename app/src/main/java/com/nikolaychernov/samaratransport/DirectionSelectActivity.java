@@ -160,6 +160,18 @@ public class DirectionSelectActivity extends AppCompatActivity {
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);//
+            case R.id.action_share:
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("UX")
+                        .setAction("click")
+                        .setLabel("Share")
+                        .build());
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Советую установить Самара Транспорт, отличная альтернатива Прибывалке. #СамараТранспорт " + "https://play.google.com/store/apps/details?id=com.nikolaychernov.samaratransport");
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "Рассказать друзьям"));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
