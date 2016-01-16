@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
 import com.appodeal.ads.BannerCallbacks;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -38,8 +37,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
     ListView list;
     RelativeLayout closeLayout;
     ImageButton close;
-
-    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,39 +75,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
         subtitle.setText(grp.adjacentStreet);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        /*adView = (AdView) findViewById(R.id.adView);
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                adView.setVisibility(View.VISIBLE);
-                closeLayout.setVisibility(View.VISIBLE);
-                tracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("UX")
-                        .setAction("show")
-                        .setLabel("ad")
-                        .build());
-                tracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Ad")
-                        .setAction("show")
-                        .setLabel("DirectionSelectActivity")
-                        .build());
-
-            }
-        });*/
-        /*AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                .build();
-        adView.loadAd(adRequest);*/
-        //adView.setVisibility(View.GONE);
 
         Appodeal.setBannerViewId(R.id.appodealBannerView);
         Appodeal.setBannerCallbacks(new BannerCallbacks() {

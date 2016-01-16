@@ -27,7 +27,6 @@ import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
 import com.appodeal.ads.BannerCallbacks;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -47,8 +46,6 @@ public class ArrivalActivity extends ActionBarActivity {
     Tracker tracker;
     RelativeLayout closeLayout;
     ImageButton close;
-
-    private AdView adView;
 
     private class MyTimer extends CountDownTimer {
 
