@@ -78,6 +78,7 @@
 
     <string name="settings_search_radius">Радиус поиска остановок</string>
     <string name="pref_description_search_radius">радиус поиска остановок</string>
+    <string name="share_text">Советую "Самара Транспорт" - прогнозы прибытия общественного транспорта. Отличная замена обычной Прибывалки! https://play.google.com/store/apps/details?id=com.nikolaychernov.samaratransport</string>
     <string-array name="pref_radius_list_values">
         <item>250</item>
         <item>500</item>

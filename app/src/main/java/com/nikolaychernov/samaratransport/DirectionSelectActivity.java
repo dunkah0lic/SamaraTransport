@@ -193,8 +193,8 @@ public class DirectionSelectActivity extends AppCompatActivity {
                         .build());
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Советую установить Самара Транспорт, отличная альтернатива Прибывалке. #СамараТранспорт " + "https://play.google.com/store/apps/details?id=com.nikolaychernov.samaratransport");
-                sendIntent.setType("text/plain");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
+                        sendIntent.setType("text/plain");
                 startActivity(Intent.createChooser(sendIntent, "Рассказать друзьям"));
                 return true;
         }
