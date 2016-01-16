@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/bus_icon"
         android:visibility="invisible"></RelativeLayout>
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp">
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:fontFamily="sans-serif-light"
             android:text="02"
             android:textColor="#525A66" />
@@ -79,7 +79,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/txtArrivalListTime"
             android:fontFamily="sans-serif-light"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:text="@string/MinuteTitle"
             android:textColor="#525A66" />
     </RelativeLayout>
@@ -142,6 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
         android:background="@drawable/map_marker_multiple"
         android:focusable="false"
         android:minHeight="24dp"

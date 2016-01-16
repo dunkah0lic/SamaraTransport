@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
 
         android:height="32dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/txtDirectionStopName"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         >
 
         <TextView
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/bigRelativeLayout"
         android:layout_alignParentRight="true"
-
+        android:layout_marginRight="10dp"
         android:background="@drawable/favor_button_states"
         android:focusable="false"
         android:minHeight="24dp"
