@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('chartboost-6.0.2.jar'))

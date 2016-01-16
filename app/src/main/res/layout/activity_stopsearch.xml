@@ -57,16 +57,11 @@
         android:visibility="gone"
         android:layout_height="@dimen/ad_height">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="SMART_BANNER"
-            android:visibility="gone"
-            ads:adUnitId="ca-app-pub-6761860325194160/1506106733">
-        </com.google.android.gms.ads.AdView>
+        <com.appodeal.ads.BannerView
+            android:id="@+id/appodealBannerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ad_height"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:layout_width="match_parent"

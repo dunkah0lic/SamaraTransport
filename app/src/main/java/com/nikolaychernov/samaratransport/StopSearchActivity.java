@@ -31,7 +31,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.ads.AdListener;
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.BannerCallbacks;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -123,15 +124,16 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
 
         close = (ImageButton) findViewById(R.id.close);
         closeLayout = (RelativeLayout) findViewById(R.id.close_layout);
+        closeLayout.setVisibility(View.GONE);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adView.setVisibility(View.GONE);
+                findViewById(R.id.appodealBannerView).setVisibility(View.GONE);
                 closeLayout.setVisibility(View.GONE);
             }
         });
 
-        adView = (AdView) findViewById(R.id.adView);
+        /*adView = (AdView) findViewById(R.id.adView);
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int errorCode) {
@@ -155,13 +157,13 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
                         .build());
 
             }
-        });
+        });*/
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
                 .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
                 .build();
-        adView.loadAd(adRequest);
+        //adView.loadAd(adRequest);
         //adView.setVisibility(View.GONE);
 
         AppRate.with(this)
@@ -180,6 +182,32 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         // Show a dialog if meets conditions
         AppRate.showRateDialogIfMeetsConditions(this);
 
+        String appKey = "dca94df13b81a313d639fa98633a8671be49afeb15b7b129";
+        Appodeal.initialize(this, appKey, Appodeal.BANNER | Appodeal.INTERSTITIAL);
+        Appodeal.setBannerViewId(R.id.appodealBannerView);
+        Appodeal.setBannerCallbacks(new BannerCallbacks() {
+
+            @Override
+            public void onBannerLoaded() {
+                findViewById(R.id.appodealBannerView).setVisibility(View.VISIBLE);
+                //closeLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onBannerFailedToLoad() {
+
+            }
+
+            @Override
+            public void onBannerShown() {
+                closeLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onBannerClicked() {
+
+            }
+        });
 
         tracker = ((MyApplication) getApplication()).getDefaultTracker();
         tracker.setScreenName("StopSeacrhActivity");
@@ -317,6 +345,7 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         if (!dataMan.isNavWorking()) {
             dataMan.navInit();
         }
+        Appodeal.show(this, Appodeal.BANNER_VIEW);
         tracker.setScreenName("StopSeacrhActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
@@ -412,15 +441,6 @@ public class StopSearchActivity extends ActionBarActivity implements Serializabl
         Log.d("","StopSearchActivity cmdSettings_click");
         Intent intent = new Intent(this, ProperSettingsActivity.class);
         startActivity(intent);
-        /*DataController dataMan = DataController.getInstance();
-        intent.putExtra("radius", dataMan.getRadius());
-        intent.putExtra("backgroundFlag", dataMan.isBackgroundUpdate());
-        intent.putExtra("updateFlag", dataMan.isAutoUpdate());
-        intent.putExtra("showTrams", dataMan.isShowTrams());
-        intent.putExtra("showTrolls", dataMan.isShowTrolls());
-        intent.putExtra("showBuses", dataMan.isShowBuses());
-        intent.putExtra("showComm", dataMan.isShowComm());
-        startActivityForResult(intent, 1);*/
     }
 
     @Override

@@ -41,7 +41,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -59,6 +59,13 @@ dependencies {
     compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile project(':unity-ads-1.5.3')
+    compile project(':appodeal-1.13.10')
+    compile project(':applovin-6.1.4')
+    compile project(':chartboost-6.0.2')
+    compile project(':inmobi-5.0.1')
+    compile project(':my-target-4.1.2')
+    compile project(':yandex-metrica-android-2.00')
 
 
     compile('com.crashlytics.sdk.android:crashlytics:2.5.2@aar') {

@@ -21,8 +21,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.BannerCallbacks;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -70,7 +70,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adView.setVisibility(View.GONE);
+                findViewById(R.id.appodealBannerView).setVisibility(View.GONE);
                 closeLayout.setVisibility(View.GONE);
             }
         });
@@ -79,7 +79,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        adView = (AdView) findViewById(R.id.adView);
+        /*adView = (AdView) findViewById(R.id.adView);
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int errorCode) {
@@ -103,7 +103,7 @@ public class DirectionSelectActivity extends AppCompatActivity {
                         .build());
 
             }
-        });
+        });*/
         /*AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
@@ -111,6 +111,31 @@ public class DirectionSelectActivity extends AppCompatActivity {
                 .build();
         adView.loadAd(adRequest);*/
         //adView.setVisibility(View.GONE);
+
+        Appodeal.setBannerViewId(R.id.appodealBannerView);
+        Appodeal.setBannerCallbacks(new BannerCallbacks() {
+
+            @Override
+            public void onBannerLoaded() {
+                findViewById(R.id.appodealBannerView).setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onBannerFailedToLoad() {
+
+            }
+
+            @Override
+            public void onBannerShown() {
+                closeLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onBannerClicked() {
+
+            }
+        });
+
         list = (ListView) findViewById(R.id.directionList);
         DirectionListAdapter adapter = new DirectionListAdapter(this, grp.stops);
         list.setAdapter(adapter); // отображаем все объекты
@@ -230,11 +255,6 @@ public class DirectionSelectActivity extends AppCompatActivity {
         super.onResume();
         tracker.setScreenName("DirectionSelectActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                .build();
-        adView.loadAd(adRequest);
+        Appodeal.show(this, Appodeal.BANNER_VIEW);
     }
 }

@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':unity-ads-1.5.3', ':appodeal-1.13.10', ':applovin-6.1.4', ':chartboost-6.0.2', ':inmobi-5.0.1', ':my-target-4.1.2', ':yandex-metrica-android-2.00'

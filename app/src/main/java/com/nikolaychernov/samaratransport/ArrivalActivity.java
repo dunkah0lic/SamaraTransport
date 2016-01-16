@@ -25,8 +25,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.BannerCallbacks;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -146,41 +146,34 @@ public class ArrivalActivity extends ActionBarActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adView.setVisibility(View.GONE);
+                findViewById(R.id.appodealBannerView).setVisibility(View.GONE);
                 closeLayout.setVisibility(View.GONE);
             }
         });
 
-        adView = (AdView) findViewById(R.id.adView);
-        adView.setAdListener(new AdListener() {
+        Appodeal.setBannerViewId(R.id.appodealBannerView);
+        Appodeal.setBannerCallbacks(new BannerCallbacks() {
+
             @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
+            public void onBannerLoaded() {
+                findViewById(R.id.appodealBannerView).setVisibility(View.VISIBLE);
             }
 
             @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                adView.setVisibility(View.VISIBLE);
+            public void onBannerFailedToLoad() {
+
+            }
+
+            @Override
+            public void onBannerShown() {
                 closeLayout.setVisibility(View.VISIBLE);
-                tracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("UX")
-                        .setAction("show")
-                        .setLabel("ad")
-                        .build());
-                tracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Ad")
-                        .setAction("show")
-                        .setLabel("ArrivalActivity")
-                        .build());
+            }
+
+            @Override
+            public void onBannerClicked() {
+
             }
         });
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                .build();
-        adView.loadAd(adRequest);
 
         task = new DownloadArrivalInfoTask();
 
@@ -214,12 +207,7 @@ public class ArrivalActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         cmdUpdate_click(null);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D2BB690A1C36737474DDCC9FFAF4EFEE")
-                .addTestDevice("F0108517ADF31A088E0C123160CFD0BE")
-                .build();
-        adView.loadAd(adRequest);
+        Appodeal.show(this, Appodeal.BANNER_VIEW);
         tracker.setScreenName("ArrivalActivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
 

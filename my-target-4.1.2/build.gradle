@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('my-target-4.1.2.jar'))
